@@ -1,0 +1,21 @@
+{
+    "parser"  : "babel-eslint",
+    "extends" : [
+        "standard",
+        "standard-react"
+    ],
+    "env"     : {
+        "browser" : true
+    },
+    "rules": {
+        "semi" : [2, "always"],
+        "valid-jsdoc": [2, {
+            "requireReturnDescription": false,
+            "requireParamDescription": false
+        }],
+        "react/jsx-indent-props": 0,
+        "brace-style": [2, "stroustrup"],
+        "space-before-function-paren":[2, "never"],
+        "no-trailing-spaces": [2, {"skipBlankLines": true}]
+    }
+}
