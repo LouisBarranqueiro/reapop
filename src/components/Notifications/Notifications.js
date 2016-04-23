@@ -7,7 +7,8 @@ import notificationCss from '../Notification/Notification.scss';
 
 class Notifications extends Component {
   static propTypes = {
-    notifications: React.PropTypes.array.isRequired
+    notifications: React.PropTypes.array.isRequired,
+    notificationConfig: React.PropTypes.object
   };
 
   /**
@@ -27,14 +28,14 @@ class Notifications extends Component {
    * @returns {XML}
    */
   _renderNotifications() {
-    const {notifications} = this.props;
-    const EXPIRE_AFTER = 5000;
+    const {notifications, notificationConfig: {type, dismissible, expireAfter}} = this.props;
     return notifications.map((notification) => {
       // push notification
       return (
         <Notification key={notification.id} id={notification.id} message={notification.message}
-                      type={notification.type} dismissible={notification.dismissible === true}
-                      expireAfter={notification.expireAfter || EXPIRE_AFTER}/>
+                      type={notification.type || type}
+                      dismissible={notification.dismissible === dismissible || true}
+                      expireAfter={notification.expireAfter || expireAfter || 5000}/>
       );
     });
   }
