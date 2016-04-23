@@ -1,4 +1,4 @@
-@import '../Notifications/_variables.scss';
+@import '../../style/variables';
 
 @mixin box-shadow($shadow...) {
     -webkit-box-shadow: $shadow;
