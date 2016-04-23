@@ -8,23 +8,19 @@ const NOTIFICATION_REMOVE = 'NOTIFICATION_REMOVE';
 
 /**
  * Push a notification (Action)
- * @param {String} message Text displayed into notification
- * @param {String} type (success|info|warning|error)
- * @param {Number} expireAfter time before the notification disappear
- * @param {Boolean} dismissible disappear when user click on
+ * @param {Object} notification
  * @returns {Object} notification
  */
-export const pushNotification = createAction(NOTIFICATION_ADD, (message, type, expireAfter, dismissible) => {
-  return {
-    id: new Date().getTime(),
-    expireAfter,
-    message,
-    type,
-    dismissible
-  };
+export const pushNotification = createAction(NOTIFICATION_ADD, (notification) => {
+  notification.id = new Date().getTime();
+  return notification;
 });
 
-// Remove a notification (Action)
+/**
+ * Remove a notification (Action)
+ * @param {String} notification id
+ * @returns {String} notification id
+ */
 export const removeNotification = createAction(NOTIFICATION_REMOVE, (id) => id);
 
 // Actions
