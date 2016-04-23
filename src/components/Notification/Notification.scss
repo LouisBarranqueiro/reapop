@@ -19,10 +19,10 @@ $notification-warning-bg: #ffffff;
 $notification-warning-border: #f5aa0a;
 $notification-warning-icon: "\f071";
 
-$notification-danger-bg: #ffffff;
-$notification-danger-border: #f5311d;
-$notification-danger-icon: "\f05e";
-$notification-danger-icon: "\f05e";
+$notification-error-bg: #ffffff;
+$notification-error-border: #f5311d;
+$notification-error-icon: "\f05e";
+$notification-error-icon: "\f05e";
 
 @mixin notification-variant($background, $border-color, $icon) {
     background-color: $background;
@@ -77,8 +77,8 @@ $notification-danger-icon: "\f05e";
         @include notification-variant($notification-warning-bg, $notification-warning-border, $notification-warning-icon);
     }
 
-    &-danger {
-        @include notification-variant($notification-danger-bg, $notification-danger-border, $notification-danger-icon);
+    &-error {
+        @include notification-variant($notification-error-bg, $notification-error-border, $notification-error-icon);
     }
 }
 

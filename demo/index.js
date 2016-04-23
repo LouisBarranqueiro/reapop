@@ -73,7 +73,7 @@ class Demo extends Component {
                       <option value="info">info</option>
                       <option value="success">success</option>
                       <option value="warning">warning</option>
-                      <option value="danger">danger</option>
+                      <option value="error">error</option>
                     </select>
                   </div>
                   <div className="form-group">
