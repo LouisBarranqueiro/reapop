@@ -1,0 +1,146 @@
+@import '../Notifications/_variables.scss';
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    box-shadow:         $shadow;
+}
+
+// notifications variables
+$notification-max-width: 360px;
+$notification-success-bg: #ffffff;
+$notification-success-border: #4dc657;
+$notification-success-icon: "\f058";
+
+$notification-info-bg: #ffffff;
+$notification-info-border: #349ef3;
+$notification-info-icon: "\f05a";
+
+$notification-warning-bg: #ffffff;
+$notification-warning-border: #f5aa0a;
+$notification-warning-icon: "\f071";
+
+$notification-danger-bg: #ffffff;
+$notification-danger-border: #f5311d;
+$notification-danger-icon: "\f05e";
+$notification-danger-icon: "\f05e";
+
+@mixin notification-variant($background, $border-color, $icon) {
+    background-color: $background;
+    color:            #524c4c;
+
+    @media (min-width: #{$screen-sm-min}) {
+        border-left: 2px solid #{$border-color};
+
+    }
+
+    @media (max-width: #{$screen-xs-max}) {
+        border-top: 2px solid #{$border-color};
+    }
+    .notification-icon:before {
+        content: $icon;
+        color:   $border-color;
+    }
+}
+
+.notification {
+    display:         block;
+    width:           auto;
+    box-sizing:      border-box;
+    position:        relative;
+    padding:         10px 20px;
+    padding-left:    55px;
+    border:          none;
+    cursor:          pointer;
+    z-index:         999;
+    transition:      all .4s ease-in;
+    @include box-shadow(0 1px 3px -1px rgba(0, 0, 0, 0.3));
+    -moz-box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.3);
+
+    &-icon {
+        position:    absolute;
+        top:         10px;
+        left:        20px;
+        font-family: 'FontAwesome';
+        font-size:   2rem;
+    }
+
+    // color variants
+    &-success {
+        @include notification-variant($notification-success-bg, $notification-success-border, $notification-success-icon);
+    }
+
+    &-info {
+        @include notification-variant($notification-info-bg, $notification-info-border, $notification-info-icon);
+    }
+
+    &-warning {
+        @include notification-variant($notification-warning-bg, $notification-warning-border, $notification-warning-icon);
+    }
+
+    &-danger {
+        @include notification-variant($notification-danger-bg, $notification-danger-border, $notification-danger-icon);
+    }
+}
+
+// Animation : slide left to right for small to large screens
+@media (min-width: #{$screen-sm-min}) {
+    .notification {
+        right:         0;
+        position:      relative;
+        margin-bottom: 20px;
+
+        // Animations
+        // enter animation (start)
+        &-enter {
+            opacity: 0.01;
+            right:   -#{$notification-max-width};
+
+            // enter animation (end)
+            &.notification-enter-active {
+                right:   0;
+                opacity: 1;
+            }
+        }
+        // leave animation (start)
+        &-leave {
+            opacity: 1;
+            right:   0;
+
+            // leave animation (end)
+            &.notification-leave-active {
+                opacity: 0.01;
+                right:   -#{$notification-max-width};
+            }
+        }
+    }
+}
+
+// Animation : slide top to bottom for extra small screens
+@media (max-width: #{$screen-xs-max}) {
+    .notification {
+        top:      0;
+        position: relative;
+        // Animations
+        // enter animation (start)
+        &-enter {
+            top: -150px;
+
+            // enter animation (end)
+            &.notification-enter-active {
+                top:     0;
+                opacity: 1;
+            }
+        }
+        // leave animation (start)
+        &-leave {
+            opacity: 1;
+            top:     0;
+
+            // leave animation (end)
+            &.notification-leave-active {
+                opacity: 0.01;
+                top:     -150px;
+            }
+        }
+    }
+}
