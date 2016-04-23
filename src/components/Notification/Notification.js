@@ -37,10 +37,10 @@ class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {message, type} = this.props;
+    const {message, type, dismissible} = this.props;
     return (
       <div className={`${css['notification']} ${css[`notification-${type}`]}`}
-           onClick={this._remove}>
+           onClick={dismissible ? this._remove : ''}>
         <i className={`fa ${css['notification-icon']}`}></i>
         {message}
       </div>

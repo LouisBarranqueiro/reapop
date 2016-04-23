@@ -2,14 +2,8 @@ import {handleActions, createAction} from 'redux-actions';
 
 // An array to store notifications object
 const INITIAL_DATA = [];
-
 // Default value for a notification
-export const TYPE_SUCCESS = 'success';
-export const TYPE_INFO = 'info';
-export const TYPE_WARNING = 'warning';
-export const TYPE_DANGER = 'danger';
 const EXPIRE_AFTER = 5000;
-
 // Action types
 const NOTIFICATION_ADD = 'NOTIFICATION_ADD';
 const NOTIFICATION_REMOVE = 'NOTIFICATION_REMOVE';
@@ -25,14 +19,16 @@ export const removeNotification = createAction(NOTIFICATION_REMOVE, (id) => id);
  * @param {String} message Text displayed into notification
  * @param {String} type (success|info|warning|error)
  * @param {Number} expire time before the notification disappear
+ * @param {Boolean} dismissible disappear when user click on
  * @returns {void}
  */
-export const pushNotification = (message, type = TYPE_INFO, expire = EXPIRE_AFTER) => {
+export const pushNotification = (message, type, expire = EXPIRE_AFTER, dismissible) => {
   return (dispatch) => {
     const notification = {
       id: new Date().getTime(),
       message,
-      type
+      type,
+      dismissible
     };
     // add notification
     dispatch(addNotification(notification));

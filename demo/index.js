@@ -18,17 +18,20 @@ class Demo extends Component {
     this._onMessageChange = this._onMessageChange.bind(this);
     this._onTypeChange = this._onTypeChange.bind(this);
     this._onDurationChange = this._onDurationChange.bind(this);
+    this._onDismissibleChange = this._onDismissibleChange.bind(this);
     this.state = {
       message: 'Hey buddy, i\'m a notification!',
       type: 'info',
-      duration: 5000
+      duration: 5000,
+      dismissible: true
     }
   }
 
   _pushNotification(event) {
     event.preventDefault();
     const {pushNotification} = this.props;
-    pushNotification(this.state.message, this.state.type, this.state.duration);
+    console.log(this.state);
+    pushNotification(this.state.message, this.state.type, this.state.duration, this.state.dismissible);
   }
 
   _onMessageChange(event) {
@@ -41,6 +44,10 @@ class Demo extends Component {
 
   _onDurationChange(event) {
     this.setState({duration: event.target.value})
+  }
+
+  _onDismissibleChange(event) {
+    this.setState({dismissible: event.target.checked})
   }
 
   render() {
@@ -68,6 +75,11 @@ class Demo extends Component {
                       <option value="warning">warning</option>
                       <option value="danger">danger</option>
                     </select>
+                  </div>
+                  <div className="form-group">
+                    <label for="message">Dismissible (by clicking on)</label>
+                    <input className="form-control" type="checkbox" name="dismissible"
+                           onChange={this._onDismissibleChange} checked={this.state.dismissible}/>
                   </div>
                   <div className="form-group">
                     <label for="message">Duration</label>
