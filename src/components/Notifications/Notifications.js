@@ -28,13 +28,15 @@ class Notifications extends Component {
    * @returns {XML}
    */
   _renderNotifications() {
+    // get all notifications and default values for notifications
     const {notifications, notificationConfig: {type, dismissible, expireAfter}} = this.props;
     return notifications.map((notification) => {
-      // push notification
       return (
         <Notification key={notification.id} id={notification.id} message={notification.message}
                       type={notification.type || type}
-                      dismissible={notification.dismissible === dismissible || true}
+                      dismissible={(notification.dismissible === null
+                      ? (dismissible === null ? true : dismissible)
+                      : notification.dismissible)}
                       expireAfter={notification.expireAfter || expireAfter || 5000}/>
       );
     });
