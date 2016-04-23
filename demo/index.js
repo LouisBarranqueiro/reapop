@@ -22,7 +22,7 @@ class Demo extends Component {
     this.state = {
       message: 'Hey buddy, i\'m a notification!',
       type: 'info',
-      duration: 5000,
+      expireAfter: 5000,
       dismissible: true
     }
   }
@@ -30,8 +30,12 @@ class Demo extends Component {
   _pushNotification(event) {
     event.preventDefault();
     const {pushNotification} = this.props;
-    console.log(this.state);
-    pushNotification(this.state.message, this.state.type, this.state.duration, this.state.dismissible);
+    pushNotification({
+      message: this.state.message,
+      type: this.state.type,
+      dismissible: this.state.dismissible,
+      expireAfter: this.state.expireAfter
+    });
   }
 
   _onMessageChange(event) {
@@ -43,7 +47,7 @@ class Demo extends Component {
   }
 
   _onDurationChange(event) {
-    this.setState({duration: event.target.value})
+    this.setState({expireAfter: event.target.value})
   }
 
   _onDismissibleChange(event) {
@@ -51,7 +55,6 @@ class Demo extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <Notifications/>
@@ -59,7 +62,7 @@ class Demo extends Component {
           <div
             className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
             <div className="panel panel-default">
-              <div className="panel-heading"> Notification creator</div>
+              <div className="panel-heading">Notification creator</div>
               <div className="panel-body">
                 <form onSubmit={this._pushNotification}>
                   <div className="form-group">
@@ -82,9 +85,9 @@ class Demo extends Component {
                            onChange={this._onDismissibleChange} checked={this.state.dismissible}/>
                   </div>
                   <div className="form-group">
-                    <label for="message">Duration</label>
+                    <label for="message">Expire after (sec)</label>
                     <input className="form-control" type="text" name="duration"
-                           onChange={this._onDurationChange} value={this.state.duration}/>
+                           onChange={this._onDurationChange} value={this.state.expireAfter}/>
                   </div>
                   <button type="submit" className="btn btn-primary btn-lg btn-block">Push</button>
                 </form>
