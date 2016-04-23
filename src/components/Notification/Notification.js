@@ -5,12 +5,14 @@ import {removeNotification} from '../../redux/modules/notifications';
 
 class Notification extends Component {
   static propTypes = {
-    id: React.PropTypes.number,
-    message: React.PropTypes.string,
-    type: React.PropTypes.string,
-    removeNotification: React.PropTypes.func
+    id: React.PropTypes.number.isRequired,
+    message: React.PropTypes.string.isRequired,
+    type: React.PropTypes.string.isRequired,
+    expireAfter: React.PropTypes.number.isRequired,
+    dismissible: React.PropTypes.bool.isRequired,
+    removeNotification: React.PropTypes.func.isRequired
   };
-
+  
   /**
    * Constructor
    * Bind methods
@@ -21,7 +23,7 @@ class Notification extends Component {
     super(props);
     this._remove = this._remove.bind(this);
   }
-
+  
   /**
    * Remove the notification
    * @private
@@ -31,13 +33,17 @@ class Notification extends Component {
     const {removeNotification, id} = this.props;
     removeNotification(id);
   }
-
+  
   /**
    * Render
    * @returns {XML}
    */
   render() {
-    const {message, type, dismissible} = this.props;
+    const {message, type, expireAfter, dismissible} = this.props;
+    // remove automatically notification after `expireAfter` time
+    if (expireAfter > 0) {
+      setTimeout(() => this._remove(), expireAfter);
+    }
     return (
       <div className={`${css['notification']} ${css[`notification-${type}`]}`}
            onClick={dismissible ? this._remove : ''}>
