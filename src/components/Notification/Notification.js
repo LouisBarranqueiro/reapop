@@ -8,7 +8,7 @@ class Notification extends Component {
     id: React.PropTypes.number.isRequired,
     message: React.PropTypes.string.isRequired,
     type: React.PropTypes.string.isRequired,
-    expireAfter: React.PropTypes.number.isRequired,
+    dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
     removeNotification: React.PropTypes.func.isRequired
   };
@@ -39,10 +39,10 @@ class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {message, type, expireAfter, dismissible} = this.props;
-    // remove automatically notification after `expireAfter` time
-    if (expireAfter > 0) {
-      setTimeout(() => this._remove(), expireAfter);
+    const {message, type, dismissAfter, dismissible} = this.props;
+    // remove automatically notification after `dismissAfter` time
+    if (dismissAfter > 0) {
+      setTimeout(() => this._remove(), dismissAfter);
     }
     return (
       <div className={`${css['notification']} ${css[`notification-${type}`]}`}

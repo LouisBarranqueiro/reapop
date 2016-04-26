@@ -22,7 +22,7 @@ class Demo extends Component {
     this.state = {
       message: 'Hey buddy, i\'m a notification!',
       type: 'info',
-      expireAfter: 5000,
+      dismissAfter: 2000,
       dismissible: true
     }
   }
@@ -34,7 +34,7 @@ class Demo extends Component {
       message: this.state.message,
       type: this.state.type,
       dismissible: this.state.dismissible,
-      expireAfter: this.state.expireAfter
+      dismissAfter: this.state.dismissAfter
     });
   }
 
@@ -47,7 +47,7 @@ class Demo extends Component {
   }
 
   _onDurationChange(event) {
-    this.setState({expireAfter: event.target.value})
+    this.setState({dismissAfter: event.target.value})
   }
 
   _onDismissibleChange(event) {
@@ -55,9 +55,14 @@ class Demo extends Component {
   }
 
   render() {
+    const config = {
+      type:'info',
+      dismissible:false,
+      dismissAfter:1000
+    };
     return (
       <div>
-        <Notifications/>
+        <Notifications notificationConfig={{}}/>
         <div className="container">
           <div
             className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
@@ -87,7 +92,7 @@ class Demo extends Component {
                   <div className="form-group">
                     <label for="message">Expire after (sec)</label>
                     <input className="form-control" type="text" name="duration"
-                           onChange={this._onDurationChange} value={this.state.expireAfter}/>
+                           onChange={this._onDurationChange} value={this.state.dismissAfter}/>
                   </div>
                   <button type="submit" className="btn btn-primary btn-lg btn-block">Push</button>
                 </form>

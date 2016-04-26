@@ -29,15 +29,13 @@ class Notifications extends Component {
    */
   _renderNotifications() {
     // get all notifications and default values for notifications
-    const {notifications, notificationConfig: {type, dismissible, expireAfter}} = this.props;
+    const {notifications, notificationConfig: {type, dismissible, dismissAfter}} = this.props;
     return notifications.map((notification) => {
       return (
         <Notification key={notification.id} id={notification.id} message={notification.message}
                       type={notification.type || type}
-                      dismissible={(notification.dismissible === null
-                      ? (dismissible === null ? true : dismissible)
-                      : notification.dismissible)}
-                      expireAfter={notification.expireAfter || expireAfter || 5000}/>
+                      dismissible={notification.dismissible === dismissible}
+                      dismissAfter={notification.dismissAfter || dismissAfter}/>
       );
     });
   }

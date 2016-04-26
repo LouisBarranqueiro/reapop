@@ -3,7 +3,7 @@ React &amp; Redux notifications system
 
 ## API documentation
 
-### Notifications component
+### Customize Notifications component
 
 | Properties         | Type   | Description |
 | ------------------ | :----: | ----------- |
@@ -13,15 +13,17 @@ React &amp; Redux notifications system
 
 ##### notificationConfig
 
-| Attribute   | Default value | Description |
-| ----------- | :-----------: | ----------- |
-| type        | null          | Type of message : info, success, warning, error |
-| expireAfter | 5000          | Time before the notification disappear (ms). 0: infinite |
-| dismissible | true          | Default value for a notification. Check the list |
+This object allow you to configure default behavior for your notifications
 
-### Actions
+| Attribute    | Default | Description |
+| ------------ | :-----: | ----------- |
+| type         | null    | Type of message : info, success, warning, error |
+| dismissAfter | 5000    | Time before the notification disappear (ms). 0: infinite |
+| dismissible  | true    | Define if a notification is dismissible by clicking on |
 
-#### Add a notification 
+#### Add a notification
+
+Adding notification are able through the `pushNotification` (redux action) function.
 
 ##### Syntax
 
@@ -30,13 +32,13 @@ pushNotification(notification);
 ```
 
 ##### Parameters
-
-| Parameter   | Default value | Description |
-| ----------- | :-----------: | ----------- |
-| message     | null          | Message displayed |
-| type        | null          | Type of message : info, success, warning, error |
-| expireAfter | 5000          | Time before the notification disappear (ms). 0: infinite |
-| dismissible | true          | Default value for a notification. Check the list |
+ 
+| Parameter    | Type    | Default | Description |
+| ------------ | :-----: | :-----: | ----------- |
+| message      | String  | null    | Message of the notification |
+| type         | String  | null    | Type of the notification : info, success, warning, error |
+| dismissible  | Boolean | true    | If the notification is dismissible by clicking on it or not |
+| dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
 
 ##### Example
 
@@ -44,7 +46,24 @@ pushNotification(notification);
 pushNotification({
   message: 'Hey buddy, I\'m a notification and you can't dismiss me!',
   type: 'info',
-  expireAfter: 10000,
+  dismissAfter: 10000,
   dismissible: false
 });
 ```
+
+#### Remove a notification
+
+Removing a notification id done with `removeNotification` (redux action) function.
+
+##### Syntax
+
+``` js
+removeNotification(id);
+```
+
+##### Parameters
+
+| Parameter   | Type   | Description |
+| ----------- | :----: | ----------- |
+| id          | Number | id of the notification |
+
