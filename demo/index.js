@@ -7,6 +7,7 @@ import {
   reducer as notificationsReducer,
   Notifications,
   addNotification,
+  updateNotification
 } from 'react-redux-notification';
 
 // React component
@@ -15,6 +16,7 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this._pushNotification = this._pushNotification.bind(this);
+    this._pushAndUpdateNotificationExample = this._pushAndUpdateNotificationExample.bind(this);
     this._onMessageChange = this._onMessageChange.bind(this);
     this._onTypeChange = this._onTypeChange.bind(this);
     this._onDurationChange = this._onDurationChange.bind(this);
@@ -36,6 +38,24 @@ class Demo extends Component {
       dismissible: this.state.dismissible,
       dismissAfter: this.state.dismissAfter
     });
+  }
+
+  _pushAndUpdateNotificationExample() {
+    event.preventDefault();
+    const {addNotification, updateNotification} = this.props;
+    let notif = addNotification({
+      message: 'Your file is uploading...',
+      type: 'info',
+      dismissible: false,
+      dismissAfter: 0
+    });
+    setTimeout(function() {
+      notif.type ='success';
+      notif.message ='Your file has been successfully uploaded';
+      notif.dismissible = true;
+      notif.dismissAfter = 5000;
+      updateNotification(notif);
+    }, 3000);
   }
 
   _onMessageChange(event) {
@@ -92,9 +112,12 @@ class Demo extends Component {
                   </div>
                   <button type="submit" className="btn btn-primary btn-lg btn-block">Push</button>
                 </form>
+                <hr/>
+                  <button onClick={this._pushAndUpdateNotificationExample} className="btn btn-success btn-lg btn-block">Notification updated example</button>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     );
@@ -110,7 +133,7 @@ const store =
   createStoreWithMiddleware(combineReducers({notifications: notificationsReducer}), {});
 
 // Connected Component
-const App = connect(null, {addNotification})(Demo);
+const App = connect(null, {addNotification, updateNotification})(Demo);
 
 render(
   <Provider store={store}>
