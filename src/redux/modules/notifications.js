@@ -58,12 +58,13 @@ export default handleActions({
     return [...state, payload];
   },
   [NOTIFICATION_UPDATE]: (state, {payload}) => {
-    // remove notification
-    state = state.filter((notification) => {
+    // get index of the notification
+    const index = state.findIndex((notification) => {
       return notification.id === payload.id;
     });
-    // add the new notification
-    return [...state, payload];
+    // replace the old notification by the new one
+    state[index] = payload;
+    return [...state];
   },
   [NOTIFICATION_REMOVE]: (state, {payload}) => {
     return state.filter((notification) => notification.id !== payload);
