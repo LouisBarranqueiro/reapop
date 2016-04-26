@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import {
   reducer as notificationsReducer,
   Notifications,
-  pushNotification
+  addNotification,
 } from 'react-redux-notification';
 
 // React component
@@ -22,15 +22,15 @@ class Demo extends Component {
     this.state = {
       message: 'Hey buddy, i\'m a notification!',
       type: 'info',
-      dismissAfter: 2000,
+      dismissAfter: 5000,
       dismissible: true
     }
   }
 
   _pushNotification(event) {
     event.preventDefault();
-    const {pushNotification} = this.props;
-    pushNotification({
+    const {addNotification} = this.props;
+    addNotification({
       message: this.state.message,
       type: this.state.type,
       dismissible: this.state.dismissible,
@@ -55,11 +55,7 @@ class Demo extends Component {
   }
 
   render() {
-    const config = {
-      type:'info',
-      dismissible:false,
-      dismissAfter:1000
-    };
+
     return (
       <div>
         <Notifications notificationConfig={{}}/>
@@ -114,7 +110,7 @@ const store =
   createStoreWithMiddleware(combineReducers({notifications: notificationsReducer}), {});
 
 // Connected Component
-const App = connect(null, {pushNotification})(Demo);
+const App = connect(null, {addNotification})(Demo);
 
 render(
   <Provider store={store}>
