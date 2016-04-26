@@ -47,9 +47,16 @@ export const removeNotification = createAction(NOTIFICATION_REMOVE, (id) => id);
 
 // Actions
 export const actions = {
-  addNotification: addNotification,
+  pushNotification: pushNotification,
   updateNotification: updateNotification,
   removeNotification: removeNotification
+};
+
+// Actions
+export const types = {
+  NOTIFICATION_ADD: NOTIFICATION_ADD,
+  NOTIFICATION_UPDATE: NOTIFICATION_UPDATE,
+  NOTIFICATION_REMOVE: NOTIFICATION_REMOVE
 };
 
 // Reducers
