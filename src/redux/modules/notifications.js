@@ -4,34 +4,65 @@ import {handleActions, createAction} from 'redux-actions';
 const INITIAL_DATA = [];
 // Action types
 const NOTIFICATION_ADD = 'NOTIFICATION_ADD';
+const NOTIFICATION_UPDATE = 'NOTIFICATION_UPDATE';
 const NOTIFICATION_REMOVE = 'NOTIFICATION_REMOVE';
 
 /**
- * Push a notification (Action)
+ * Add a notification
  * @param {Object} notification
  * @returns {Object} notification
  */
-export const pushNotification = createAction(NOTIFICATION_ADD, (notification) => {
-  notification.id = new Date().getTime();
+export const addNotification = (notification) => {
+  return (dispatch) => {
+    notification.id = new Date().getTime();
+    dispatch(pushNotification(notification));
+    return notification;
+  };
+};
+
+/**
+ * Add a notification (Redux action)
+ * @param {Object} notification
+ * @returns {Object} notification
+ */
+const pushNotification = createAction(NOTIFICATION_ADD, (notification) => {
   return notification;
 });
 
 /**
- * Remove a notification (Action)
- * @param {String} notification id
- * @returns {String} notification id
+ * Update a notification (Redux action)
+ * @param {Object} notification
+ * @returns {Object} notification
+ */
+export const updateNotification = createAction(NOTIFICATION_UPDATE, (notification) => {
+  return notification;
+});
+
+/**
+ * Remove a notification (Redux action)
+ * @param {Number} notification id
+ * @returns {Number} notification id
  */
 export const removeNotification = createAction(NOTIFICATION_REMOVE, (id) => id);
 
 // Actions
 export const actions = {
-  pushNotification: pushNotification,
+  addNotification: addNotification,
+  updateNotification: updateNotification,
   removeNotification: removeNotification
 };
 
 // Reducers
 export default handleActions({
   [NOTIFICATION_ADD]: (state, {payload}) => {
+    return [...state, payload];
+  },
+  [NOTIFICATION_UPDATE]: (state, {payload}) => {
+    // remove notification
+    state = state.filter((notification) => {
+      return notification.id === payload.id;
+    });
+    // add the new notification
     return [...state, payload];
   },
   [NOTIFICATION_REMOVE]: (state, {payload}) => {
