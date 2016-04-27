@@ -94,9 +94,9 @@ const sendResetPasswordLink = (props) => {
 | Properties            | Type   | Description |
 | --------------------- | :----: | ----------- |
 | defaultValues         | Object | Default value for a notification. Check [defaultValues attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--defaultvalues) |
-| className             | String | Class names of notifications container. Check [className attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--className) |
+| className             | String | Class names of notifications container. Check [className attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--classname) |
 | transition            | Object | Default transition for a notification. Check [transition attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--transition) |
-| notificationClassName | Object | Class names of a notification. Check [notificationClassName attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--notificationClassName) |
+| notificationClassName | Object | Class names of a notification. Check [notificationClassName attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--notificationclassname) |
 
 #### Property : `defaultValues`
 
