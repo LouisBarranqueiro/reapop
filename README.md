@@ -4,6 +4,12 @@
 
 A customizable React and Redux notifications system
 
+## Installation
+
+```
+npm install --save react-redux-notification
+```
+
 ## API documentation
 
 ### Customize Notifications and Notification component
