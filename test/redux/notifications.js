@@ -1,6 +1,6 @@
 import {expect} from 'chai';
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import reducer, {types, actions, addNotification} from '../../src/redux/modules/notifications';
 
 const notification = {
@@ -17,7 +17,7 @@ describe('Redux', () => {
         type: types.ADD_NOTIFICATION,
         payload: notification
       };
-      expect(actions.pushNotification(notification)).to.deep.equal(expectedAction)
+      expect(actions.pushNotification(notification)).to.deep.equal(expectedAction);
     });
 
     it('should create an action to add a notification and return a notification object (async)', () => {
@@ -37,7 +37,7 @@ describe('Redux', () => {
           id: notificationAdded.id
         })
       }];
-      expect(store.getActions()).to.deep.equal(expectedAction)
+      expect(store.getActions()).to.deep.equal(expectedAction);
     });
 
     it('should create an action to update a notification', () => {
@@ -45,7 +45,7 @@ describe('Redux', () => {
         type: types.UPDATE_NOTIFICATION,
         payload: notification
       };
-      expect(actions.updateNotification(notification)).to.deep.equal(expectedAction)
+      expect(actions.updateNotification(notification)).to.deep.equal(expectedAction);
     });
 
     it('should create an action to remove a notification', () => {
@@ -54,13 +54,13 @@ describe('Redux', () => {
         type: types.REMOVE_NOTIFICATION,
         payload: id
       };
-      expect(actions.removeNotification(id)).to.deep.equal(expectedAction)
+      expect(actions.removeNotification(id)).to.deep.equal(expectedAction);
     });
   });
 
   describe('reducers', () => {
     it('should return the initial state', () => {
-      expect(reducer(undefined, {})).to.deep.equal([])
+      expect(reducer(undefined, {})).to.deep.equal([]);
     });
 
     it('should handle ADD_NOTIFICATION', () => {
@@ -69,7 +69,7 @@ describe('Redux', () => {
           type: types.ADD_NOTIFICATION,
           payload: notification
         })
-      ).to.deep.equal([notification])
+      ).to.deep.equal([notification]);
     });
 
     it('should handle UPDATE_NOTIFICATION', () => {
@@ -85,7 +85,7 @@ describe('Redux', () => {
           type: types.UPDATE_NOTIFICATION,
           payload: newNotification
         })
-      ).to.deep.equal([newNotification])
+      ).to.deep.equal([newNotification]);
     });
 
     it('should handle REMOVE_NOTIFICATION', () => {
@@ -94,7 +94,7 @@ describe('Redux', () => {
           type: types.REMOVE_NOTIFICATION,
           payload: notification.id
         })
-      ).to.deep.equal([])
+      ).to.deep.equal([]);
     });
   });
 });
