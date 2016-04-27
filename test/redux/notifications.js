@@ -21,8 +21,7 @@ describe('actions', () => {
 
 describe('reducers', () => {
   it('should return the initial state', () => {
-    const expectedAction = [];
-    expect(reducer(undefined, {})).to.deep.equal(expectedAction)
+    expect(reducer(undefined, {})).to.deep.equal([])
   });
   
   it('should handle ADD_NOTIFICATION', () => {
@@ -31,9 +30,7 @@ describe('reducers', () => {
         type: types.ADD_NOTIFICATION,
         payload: notification
       })
-    ).to.deep.equal(
-      [notification]
-    )
+    ).to.deep.equal([notification])
   });
 
   it('should handle UPDATE_NOTIFICATION', () => {
@@ -49,9 +46,7 @@ describe('reducers', () => {
         type: types.UPDATE_NOTIFICATION,
         payload: newNotification
       })
-    ).to.deep.equal(
-      [newNotification]
-    )
+    ).to.deep.equal([newNotification])
   });
 
   it('should handle REMOVE_NOTIFICATION', () => {
@@ -60,8 +55,6 @@ describe('reducers', () => {
         type: types.REMOVE_NOTIFICATION,
         payload: notification.id
       })
-    ).to.deep.equal(
-      []
-    )
+    ).to.deep.equal([])
   });
 });
