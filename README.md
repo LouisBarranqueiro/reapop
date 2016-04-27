@@ -16,10 +16,10 @@ npm install --save react-redux-notification
 
 | Properties            | Type   | Description |
 | --------------------- | :----: | ----------- |
-| defaultValues         | Object | Default value for a notification. check [defaultValues attributes](#defaultValues) |
-| transition            | Object | Default transition for a notification. check [transition attributes](#transition) |
-| className             | String | Class names of notifications container. check [className attributes](#className) |
-| notificationClassName | Object | Class names of a notification. check [className attributes](#className) |
+| defaultValues         | Object | Default value for a notification. check [defaultValues attributes](https://github.com/LouisBarranqueiro/react-redux-notification#defaultValues) |
+| transition            | Object | Default transition for a notification. check [transition attributes](https://github.com/LouisBarranqueiro/react-redux-notification#transition) |
+| className             | String | Class names of notifications container. check [className attributes](https://github.com/LouisBarranqueiro/react-redux-notification#className) |
+| notificationClassName | Object | Class names of a notification. check [notificationClassName attributes](https://github.com/LouisBarranqueiro/react-redux-notification#notificationClassName) |
 
 #### Details of properties
 
@@ -91,7 +91,7 @@ const notificationClassName = {
   type: function(type) {
     return `notification-${type}`;
   },
-  icon: `fa notification-icon`
+  icon: 'fa notification-icon'
 };
 ```
 
