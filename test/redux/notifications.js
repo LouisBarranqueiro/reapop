@@ -20,7 +20,7 @@ describe('actions', () => {
     expect(actions.pushNotification(notification)).to.deep.equal(expectedAction)
   });
 
-  it('should create an action to add a notification and return a notification object ', () => {
+  it('should create an action to add a notification and return a notification object (async)', () => {
     const middlewares = [thunk];
     const mockStore = configureMockStore(middlewares);
     const notification = {
