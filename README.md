@@ -15,7 +15,6 @@ Render this component at the root of your web application to avoid position conf
 
 ``` js
 import React, {Component} from 'react';
-import {render} from 'react-dom';
 import {Notifications} from 'react-redux-notifications';
 
 class AHighLevelComponent extends Component {
@@ -36,19 +35,18 @@ class AHighLevelComponent extends Component {
 ``` js
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Notifications, addNotification as notify} from 'react-redux-notifications';
+import {addNotification as notify} from 'react-redux-notifications';
 
 class AmazingComponent extends Component {
   constructor(props) {
     super(props);
-    this._addNotification = this._addNotification.bind(this);
+    this._notify = this._notify.bind(this);
   }
 
-  _addNotification() {
+  _notify() {
     const {notify} = this.props;
-    // here 
     notify({
-      message: 'the first notification',
+      message: 'you clicked on the button',
       type: 'success',
       dismissible: true,
       dismissAfter: 3000
@@ -58,8 +56,7 @@ class AmazingComponent extends Component {
   render() {
     return (
       <div>
-        <Notifications/>
-        <button onClick={this._addNotification}>Add a notification</button>
+        <button onClick={this._notify}>Add a notification</button>
       </div>
     );
   }
@@ -96,14 +93,14 @@ const sendResetPasswordLink = (props) => {
 
 | Properties            | Type   | Description |
 | --------------------- | :----: | ----------- |
-| defaultValues         | Object | Default value for a notification. check [defaultValues attributes](https://github.com/LouisBarranqueiro/react-redux-notification#defaultValues) |
-| transition            | Object | Default transition for a notification. check [transition attributes](https://github.com/LouisBarranqueiro/react-redux-notification#transition) |
-| className             | String | Class names of notifications container. check [className attributes](https://github.com/LouisBarranqueiro/react-redux-notification#className) |
-| notificationClassName | Object | Class names of a notification. check [notificationClassName attributes](https://github.com/LouisBarranqueiro/react-redux-notification#notificationClassName) |
+| defaultValues         | Object | Default value for a notification. Check [defaultValues attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--defaultvalues) |
+| className             | String | Class names of notifications container. Check [className attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--className) |
+| transition            | Object | Default transition for a notification. Check [transition attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--transition) |
+| notificationClassName | Object | Class names of a notification. Check [notificationClassName attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--notificationClassName) |
 
 #### Property : `defaultValues`
 
-This object allow you to configure default behavior for your notifications
+This object allow you to configure default behavior for your notifications.
 
 | Attribute    | Type    | Default | Description |
 | ------------ | :-----: | :-----: | ----------- |
@@ -130,8 +127,20 @@ render() {
 
 #### Property : `className`
 
-It allow you to configure the class names of notifications container
+It allow you to configure class names of `Notifications` React component.
 
+##### JSX structure of `Notifications` React component
+
+``` html
+<div className={className}>
+    <TransitionGroup
+      transitionName={name}
+      transitionEnterTimeout={enterTimeout}
+      transitionLeaveTimeout={leaveTimeout}>
+      {this._renderNotifications()}
+    </TransitionGroup>
+</div>
+``` 
 ##### Example
 
 ``` js 
@@ -146,7 +155,7 @@ render() {
 
 #### Property : `transition`
 
-This object allow you to configure the animation for your notifications
+This object allow you to configure CSS animation of `Notification` React component.
 
 | Attribute    | Type    | Default | Description |
 | ------------ | :-----: | :-----: | ----------- |
@@ -180,23 +189,23 @@ render() {
 
 #### Property : `notificationClassName`
 
-This object allow you to configure the class names for your notification
+This object allow you to configure class names of `Notification` React component.
 
 | Attribute | Type     | Default | Description |
 | --------- | :------: | :-----: | ----------- |
-| main      | String   | 400     | Class names of notification container. **E.g**: `notification` |
-| type      | Function | 400     | Class names of notification container. Use to stylize the notification depending on its `type` value. **E.g**: `notification-type`. The function take one parameter (`type`), a String |
-| icon      | String   | Object  | Class names of notification icon container. **E.g**: `notification-icon` |
+| main      | String   | 400     | Apply on notification container. **E.g**: `notification` |
+| type      | Function | 400     | Apply on notification container. Use to stylize the notification depending on its `type` value. **E.g**: `notification-${type}`. The function take one parameter (`type`), a String |
+| icon      | String   | Object  | Apply on notification icon container. **E.g**: `notification-icon` |
 
-##### Notification React component JSX structure
+##### JSX structure of `Notification` React component
 
-``` html`
+``` html
 <div className={`${className.main} ${className.type(type)}`}
    onClick={dismissible ? this._remove : ''}>
 <i className={className.icon}></i>
 {message}
 </div>
-``
+```
 
 ##### Example
 
