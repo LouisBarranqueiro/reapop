@@ -7,7 +7,7 @@ import notificationCss from '../Notification/Notification.scss';
 
 // default values for a notification
 const defaultValues = {
-  type: 'info',
+  type: null,
   dismissible: true,
   dismissAfter: 5000
 };
