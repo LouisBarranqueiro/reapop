@@ -6,13 +6,17 @@ import thunk from 'redux-thunk';
 import {
   reducer as notificationsReducer,
   Notifications,
+  defaultValues,
+  defaultTransition,
+  defaultClassName,
+  defaultNotificationClassName,
   addNotification,
   updateNotification
 } from 'react-redux-notification';
 
 // React component
 class Demo extends Component {
-
+  
   constructor(props) {
     super(props);
     this._pushNotification = this._pushNotification.bind(this);
@@ -28,7 +32,7 @@ class Demo extends Component {
       dismissible: true
     }
   }
-
+  
   _pushNotification(event) {
     event.preventDefault();
     const {addNotification} = this.props;
@@ -39,7 +43,7 @@ class Demo extends Component {
       dismissAfter: this.state.dismissAfter
     });
   }
-
+  
   _pushAndUpdateNotificationExample() {
     event.preventDefault();
     const {addNotification, updateNotification} = this.props;
@@ -50,35 +54,34 @@ class Demo extends Component {
       dismissAfter: 0
     });
     setTimeout(function() {
-      notif.type ='success';
-      notif.message ='Your file has been successfully uploaded';
+      notif.type = 'success';
+      notif.message = 'Your file has been successfully uploaded';
       notif.dismissible = true;
       notif.dismissAfter = 5000;
       updateNotification(notif);
     }, 3000);
   }
-
+  
   _onMessageChange(event) {
     this.setState({message: event.target.value})
   }
-
+  
   _onTypeChange(event) {
     this.setState({type: event.target.value})
   }
-
+  
   _onDurationChange(event) {
     this.setState({dismissAfter: event.target.value})
   }
-
+  
   _onDismissibleChange(event) {
     this.setState({dismissible: event.target.checked})
   }
-
+  
   render() {
-
     return (
       <div>
-        <Notifications notificationConfig={{}}/>
+        <Notifications />
         <div className="container">
           <div
             className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
@@ -113,11 +116,13 @@ class Demo extends Component {
                   <button type="submit" className="btn btn-primary btn-lg btn-block">Push</button>
                 </form>
                 <hr/>
-                  <button onClick={this._pushAndUpdateNotificationExample} className="btn btn-success btn-lg btn-block">Notification updated example</button>
+                <button onClick={this._pushAndUpdateNotificationExample}
+                        className="btn btn-success btn-lg btn-block">Notification updated example
+                </button>
               </div>
             </div>
           </div>
-
+        
         </div>
       </div>
     );
