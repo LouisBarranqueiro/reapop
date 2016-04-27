@@ -34,7 +34,7 @@ class Notifications extends Component {
     className,
     notificationClassName
   };
-
+  
   // Properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
@@ -52,7 +52,7 @@ class Notifications extends Component {
       leaveTimeout: React.PropTypes.number.isRequired
     })
   };
-
+  
   /**
    * Constructor
    * Bind methods
@@ -63,7 +63,7 @@ class Notifications extends Component {
     super(props);
     this._renderNotifications = this._renderNotifications.bind(this);
   }
-
+  
   /**
    * Render notifications
    * @private
@@ -84,7 +84,7 @@ class Notifications extends Component {
       );
     });
   }
-
+  
   /**
    * Render
    * @returns {XML}
