@@ -3,9 +3,9 @@ import {handleActions, createAction} from 'redux-actions';
 // An array to store notifications object
 const INITIAL_DATA = [];
 // Action types
-const NOTIFICATION_ADD = 'NOTIFICATION_ADD';
-const NOTIFICATION_UPDATE = 'NOTIFICATION_UPDATE';
-const NOTIFICATION_REMOVE = 'NOTIFICATION_REMOVE';
+const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
+const UPDATE_NOTIFICATION = 'UPDATE_NOTIFICATION';
+const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
 
 /**
  * Add a notification
@@ -25,7 +25,7 @@ export const addNotification = (notification) => {
  * @param {Object} notification
  * @returns {Object} notification
  */
-const pushNotification = createAction(NOTIFICATION_ADD, (notification) => {
+const pushNotification = createAction(ADD_NOTIFICATION, (notification) => {
   return notification;
 });
 
@@ -34,7 +34,7 @@ const pushNotification = createAction(NOTIFICATION_ADD, (notification) => {
  * @param {Object} notification
  * @returns {Object} notification
  */
-export const updateNotification = createAction(NOTIFICATION_UPDATE, (notification) => {
+export const updateNotification = createAction(UPDATE_NOTIFICATION, (notification) => {
   return notification;
 });
 
@@ -43,7 +43,7 @@ export const updateNotification = createAction(NOTIFICATION_UPDATE, (notificatio
  * @param {Number} notification id
  * @returns {Number} notification id
  */
-export const removeNotification = createAction(NOTIFICATION_REMOVE, (id) => id);
+export const removeNotification = createAction(REMOVE_NOTIFICATION, (id) => id);
 
 // Actions
 export const actions = {
@@ -54,17 +54,17 @@ export const actions = {
 
 // Actions
 export const types = {
-  NOTIFICATION_ADD: NOTIFICATION_ADD,
-  NOTIFICATION_UPDATE: NOTIFICATION_UPDATE,
-  NOTIFICATION_REMOVE: NOTIFICATION_REMOVE
+  ADD_NOTIFICATION: ADD_NOTIFICATION,
+  UPDATE_NOTIFICATION: UPDATE_NOTIFICATION,
+  REMOVE_NOTIFICATION: REMOVE_NOTIFICATION
 };
 
 // Reducers
 export default handleActions({
-  [NOTIFICATION_ADD]: (state, {payload}) => {
+  [ADD_NOTIFICATION]: (state, {payload}) => {
     return [...state, payload];
   },
-  [NOTIFICATION_UPDATE]: (state, {payload}) => {
+  [UPDATE_NOTIFICATION]: (state, {payload}) => {
     // get index of the notification
     const index = state.findIndex((notification) => {
       return notification.id === payload.id;
@@ -73,7 +73,7 @@ export default handleActions({
     state[index] = payload;
     return [...state];
   },
-  [NOTIFICATION_REMOVE]: (state, {payload}) => {
+  [REMOVE_NOTIFICATION]: (state, {payload}) => {
     return state.filter((notification) => notification.id !== payload);
   }
 }, INITIAL_DATA);
