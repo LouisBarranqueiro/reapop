@@ -23,12 +23,12 @@ This object allow you to configure default behavior for your notifications
 
 #### Add a notification
 
-Adding notification are able through the `pushNotification` (redux action) function.
+Adding notification are able through the `pushNotification` (redux action) function. It returns the notification just added.
 
 ##### Syntax
 
 ``` js
-pushNotification(notification);
+addNotification(notification);
 ```
 
 ##### Parameters
@@ -43,7 +43,7 @@ pushNotification(notification);
 ##### Example
 
 ``` js
-pushNotification({
+addNotification({
   message: 'Hey buddy, I\'m a notification and you can't dismiss me!',
   type: 'info',
   dismissAfter: 10000,
