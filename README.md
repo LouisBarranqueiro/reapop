@@ -64,6 +64,7 @@ class AmazingComponent extends Component {
   _notify() {
     const {notify} = this.props;
     notify({
+      title: 'Welcome',
       message: 'you clicked on the button',
       type: 'success',
       dismissible: true,
@@ -213,15 +214,17 @@ This object allow you to configure class names of `Notification` React component
 | --------- | :------: | :-----: | ----------- |
 | main      | String   | 400     | Apply on notification container. **E.g**: `notification` |
 | type      | Function | 400     | Apply on notification container. Use to stylize the notification depending on its `type` value. **E.g**: `notification-${type}`. The function take one parameter (`type`), a String |
-| icon      | String   | Object  | Apply on notification icon container. **E.g**: `notification-icon` |
+| icon      | String   |         | Apply on notification icon container. **E.g**: `notification-icon` |
+| title     | String   |         | Apply on notification title container. **E.g**: `notification-title` |
 
 ##### JSX structure of `Notification` React component
 
 ``` html
 <div className={`${className.main} ${className.type(type)}`}
-   onClick={dismissible ? this._remove : ''}>
-<i className={className.icon}></i>
-{message}
+     onClick={dismissible ? this._remove : ''}>
+  <i className={className.icon}></i>
+  <p className={className.title}>{title}</p>
+  {message}
 </div>
 ```
 
@@ -234,7 +237,8 @@ render() {
     type: function(type) {
       return `my-notification-${type}`;
     },
-    icon: 'my-notification-icon'
+    icon: 'my-notification-icon',
+    title: 'my-notification-title'
   };
   return (
     <div>
@@ -258,6 +262,7 @@ addNotification(notification);
  
 | Parameter    | Type    | Default | Description |
 | ------------ | :-----: | :-----: | ----------- |
+| title        | String  |         | Title of the notification |
 | message      | String  |         | Message of the notification |
 | type         | String  | null    | Type of message : info, success, warning, error |
 | dismissible  | Boolean | true    | Define if a notification is dismissible by clicking on it |
@@ -267,6 +272,7 @@ addNotification(notification);
 
 ``` js
 const notif = addNotification({
+  title: 'Welcome',
   message: 'A message',
   type: 'info',
   dismissAfter: 10000,
@@ -276,10 +282,11 @@ console.log(JSON.stringify(notif));
 /*
 {
   id: 1461763123454,
+  title: "Welcome",
   message: "A message",
   type: "info",
-  dismissible: true,
-  dismissAfter: 5000
+  dismissAfter: 10000
+  dismissible: false,
 }
  */
 ```
@@ -299,6 +306,7 @@ updateNotification(notification);
 | Parameter    | Type    | Default | Description |
 | ------------ | :-----: | :-----: | ----------- |
 | id           | Number  |         | Id of the notification |
+| title        | String  |         | Title of the notification |
 | message      | String  |         | Message of the notification |
 | type         | String  | null    | Type of message : info, success, warning, error |
 | dismissible  | Boolean | true    | Define if a notification is dismissible by clicking on it |
@@ -308,6 +316,7 @@ updateNotification(notification);
 
 ``` js
 let notif = addNotification({
+  title: 'Upload status',
   message: 'Your file is uploading...',
   type: 'info',
   dismissible: false,
