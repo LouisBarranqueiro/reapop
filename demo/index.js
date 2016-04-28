@@ -6,11 +6,7 @@ import thunk from 'redux-thunk';
 import {
   reducer as notificationsReducer,
   Notifications,
-  defaultValues,
-  defaultTransition,
-  defaultClassName,
-  defaultNotificationClassName,
-  addNotification,
+  addNotification as notify,
   updateNotification
 } from 'react-redux-notification';
 
@@ -26,17 +22,26 @@ class Demo extends Component {
     this._onDurationChange = this._onDurationChange.bind(this);
     this._onDismissibleChange = this._onDismissibleChange.bind(this);
     this.state = {
-      message: 'Hey buddy, i\'m a notification!',
+      message: 'Hey buddy, welcome on the demo site! Here you can see what you can do with it.',
       type: 'info',
       dismissAfter: 5000,
       dismissible: true
     }
   }
-  
+
+  componentDidMount() {
+    const {notify, updateNotification} = this.props;
+    let notif = notify(this.state);
+    setTimeout(function() {
+      notif.message = 'If you got any questions, create an issue on Github repository.';
+      notif.dismissAfter = 5000;
+      updateNotification(notif);
+    }, 4000);
+  }
   _pushNotification(event) {
     event.preventDefault();
-    const {addNotification} = this.props;
-    addNotification({
+    const {notify} = this.props;
+    notify({
       message: this.state.message,
       type: this.state.type,
       dismissible: this.state.dismissible,
@@ -46,8 +51,8 @@ class Demo extends Component {
   
   _pushAndUpdateNotificationExample() {
     event.preventDefault();
-    const {addNotification, updateNotification} = this.props;
-    let notif = addNotification({
+    const {notify, updateNotification} = this.props;
+    let notif = notify({
       message: 'Your file is uploading...',
       type: 'info',
       dismissible: false,
@@ -79,12 +84,17 @@ class Demo extends Component {
   }
   
   render() {
+    const config = {
+      type: 'info',
+      dismissible:true,
+      dismissAfter:5000
+    };
     return (
       <div>
-        <Notifications />
-        <div className="container">
+        <Notifications defaultValues={config} />
+        <div className="container-fluid">
           <div
-            className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+            className="col-xs-10 col-xs-offset-1 col-sm-8 col-md-4">
             <div className="panel panel-default">
               <div className="panel-heading">Notification creator</div>
               <div className="panel-body">
@@ -113,11 +123,11 @@ class Demo extends Component {
                     <input className="form-control" type="text" name="duration"
                            onChange={this._onDurationChange} value={this.state.dismissAfter}/>
                   </div>
-                  <button type="submit" className="btn btn-primary btn-lg btn-block">Push</button>
+                  <button type="submit" className="btn btn-primary btn-block">Push</button>
                 </form>
                 <hr/>
                 <button onClick={this._pushAndUpdateNotificationExample}
-                        className="btn btn-success btn-lg btn-block">Notification updated example
+                        className="btn btn-success btn-block">Notification updated example
                 </button>
               </div>
             </div>
@@ -138,7 +148,7 @@ const store =
   createStoreWithMiddleware(combineReducers({notifications: notificationsReducer}), {});
 
 // Connected Component
-const App = connect(null, {addNotification, updateNotification})(Demo);
+const App = connect(null, {notify, updateNotification})(Demo);
 
 render(
   <Provider store={store}>
