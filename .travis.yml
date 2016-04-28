@@ -9,5 +9,4 @@ script:
   - npm run lint
   - npm test
 after_success:
-- bash .travis/build.sh
 - bash .travis/deploy.sh
