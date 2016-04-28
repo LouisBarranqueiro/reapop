@@ -132,10 +132,10 @@ const sendResetPasswordLink = (props) => {
 
 | Properties            | Type   | Description |
 | --------------------- | :----: | ----------- |
-| defaultValues         | Object | Default value for a notification. Check [defaultValues attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--defaultvalues) |
-| className             | String | Class names of notifications container. Check [className attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--classname) |
-| transition            | Object | Default transition for a notification. Check [transition attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--transition) |
-| notificationClassName | Object | Class names of a notification. Check [notificationClassName attributes](https://github.com/LouisBarranqueiro/react-redux-notification#property--notificationclassname) |
+| defaultValues         | Object | Default value for a notification. Check [defaultValues](https://github.com/LouisBarranqueiro/react-redux-notification#property--defaultvalues) attributes |
+| className             | String | Class names of notifications container. Check [className](https://github.com/LouisBarranqueiro/react-redux-notification#property--classname) attributes |
+| transition            | Object | Default transition for a notification. Check [transition](https://github.com/LouisBarranqueiro/react-redux-notification#property--transition) attributes |
+| notificationClassName | Object | Class names of a notification. Check [notificationClassName](https://github.com/LouisBarranqueiro/react-redux-notification#property--notificationclassname) attributes |
 
 #### Property : `defaultValues`
 
@@ -274,8 +274,6 @@ Adding notification is done with the `addNotification` function. It returns the 
 
 #### Syntax
 
-`notification` is an `Object`
-
 ``` js
 addNotification(notification);
 ```
@@ -284,7 +282,7 @@ addNotification(notification);
 
 | Parameter    | Type     | Description |
 | ------------ | :------: | ----------- |
-| notification | Object   | a notification object. Check its attributes just below |
+| notification | Object   | A [notification object](https://github.com/LouisBarranqueiro/react-redux-notification#notification-attributes) |
 
 #### Notification attributes
  
@@ -339,7 +337,7 @@ updateNotification(notification);
 
 | Parameter    | Type     | Description |
 | ------------ | :------: | ----------- |
-| notification | Object   | a notification object. Check its attributes just below |
+| notification | Object   | A [notification object](https://github.com/LouisBarranqueiro/react-redux-notification#notification-attributes-1) |
 
 #### Notification attributes
  
