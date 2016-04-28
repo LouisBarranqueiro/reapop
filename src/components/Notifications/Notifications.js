@@ -74,7 +74,8 @@ class Notifications extends Component {
     const {notifications, defaultValues: {type, dismissible, dismissAfter}, notificationClassName} = this.props;
     return notifications.map((notification) => {
       return (
-        <Notification key={notification.id} id={notification.id} message={notification.message}
+        <Notification key={notification.id} id={notification.id} title={notification.title}
+                      message={notification.message}
                       type={notification.type || type}
                       dismissible={notification.dismissible === dismissible}
                       dismissAfter={notification.dismissAfter != null

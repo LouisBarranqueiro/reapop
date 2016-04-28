@@ -64,6 +64,10 @@ $notification-error-icon: "\f05e";
         font-size:   2rem;
     }
 
+    &-title {
+        font-weight: 700;
+    }
+
     // color variants
     &-success {
         @include notification-variant($notification-success-bg, $notification-success-border, $notification-success-icon);

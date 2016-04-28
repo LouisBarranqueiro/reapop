@@ -10,7 +10,8 @@ export const className = {
     return css[`notification-${type}`];
   },
   // `fa` corresponds to font-awesome's class name
-  icon: `fa ${css['notification-icon']}`
+  icon: `fa ${css['notification-icon']}`,
+  title: css['notification-title']
 };
 
 class Notification extends Component {
@@ -51,15 +52,19 @@ class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {message, type, dismissAfter, dismissible, className} = this.props;
+    const {title, message, type, dismissAfter, dismissible, className} = this.props;
+    let titleDiv = null;
+    if (title) {
+      titleDiv = <p className={className.title}>{title}</p>
+    }
     // remove automatically notification after `dismissAfter` time
     if (dismissAfter > 0) {
       setTimeout(() => this._remove(), dismissAfter);
     }
     return (
-      <div className={`${className.main} ${className.type(type)}`}
-           onClick={dismissible ? this._remove : ''}>
+      <div className={`${className.main} ${className.type(type)}`} onClick={dismissible ? this._remove : ''}>
         <i className={className.icon}></i>
+        {titleDiv}
         {message}
       </div>
     );
