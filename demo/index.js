@@ -34,7 +34,7 @@ class Demo extends Component {
   componentDidMount() {
     const {notify, updateNotification} = this.props;
     let notif = notify(Object.assign({}, this.state, {
-      dismissAfter:0
+      dismissAfter: 0
     }));
     setTimeout(function() {
       notif.message = 'If you got any questions, create an issue on Github repository.';
@@ -42,6 +42,7 @@ class Demo extends Component {
       updateNotification(notif);
     }, 4000);
   }
+
   _addNotification(event) {
     event.preventDefault();
     const {notify} = this.props;
@@ -95,12 +96,12 @@ class Demo extends Component {
   render() {
     const config = {
       type: 'info',
-      dismissible:true,
-      dismissAfter:5000
+      dismissible: true,
+      dismissAfter: 5000
     };
     return (
       <div>
-        <Notifications defaultValues={config} />
+        <Notifications defaultValues={config}/>
         <div className="container-fluid">
           <div
             className="col-xs-10 col-xs-offset-1 col-sm-8 col-md-4">
@@ -137,7 +138,8 @@ class Demo extends Component {
                     <input className="form-control" type="text" name="duration"
                            onChange={this._onDurationChange} value={this.state.dismissAfter}/>
                   </div>
-                  <button type="submit" className="btn btn-primary btn-block">Add notification</button>
+                  <button type="submit" className="btn btn-primary btn-block">Add notification
+                  </button>
                 </form>
                 <hr/>
                 <button onClick={this._addAndUpdateNotificationExample}
@@ -154,12 +156,11 @@ class Demo extends Component {
 }
 
 // Store
-const createStoreWithMiddleware = compose(
-  applyMiddleware(thunk)
-)(createStore);
+const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);
 
-const store =
-  createStoreWithMiddleware(combineReducers({notifications: notificationsReducer}), {});
+const store = createStoreWithMiddleware(combineReducers({
+  notifications: notificationsReducer
+}), {});
 
 // Connected Component
 const App = connect(null, {notify, updateNotification})(Demo);
