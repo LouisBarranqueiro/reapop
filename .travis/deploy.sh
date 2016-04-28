@@ -1,4 +1,6 @@
 #!/bin/bash
+echo ${TRAVIS_NODE_VERSION:1:2}
+echo $TRAVIS_NODE_VERSION
 if [ "${TRAVIS_NODE_VERSION:1:2}" == "5" ]
 then
     # build
