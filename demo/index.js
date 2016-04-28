@@ -17,12 +17,14 @@ class Demo extends Component {
     super(props);
     this._pushNotification = this._pushNotification.bind(this);
     this._pushAndUpdateNotificationExample = this._pushAndUpdateNotificationExample.bind(this);
+    this._onTitleChange = this._onTitleChange.bind(this);
     this._onMessageChange = this._onMessageChange.bind(this);
     this._onTypeChange = this._onTypeChange.bind(this);
     this._onDurationChange = this._onDurationChange.bind(this);
     this._onDismissibleChange = this._onDismissibleChange.bind(this);
     this.state = {
-      message: 'Hey buddy, welcome on the demo site! Here you can see what you can do with it.',
+      title: 'Welcome on demo!',
+      message: 'Hey buddy, here you can see what you can do with it.',
       type: 'info',
       dismissAfter: 5000,
       dismissible: true
@@ -31,7 +33,9 @@ class Demo extends Component {
 
   componentDidMount() {
     const {notify, updateNotification} = this.props;
-    let notif = notify(this.state);
+    let notif = notify(Object.assign({}, this.state, {
+      dismissAfter:0
+    }));
     setTimeout(function() {
       notif.message = 'If you got any questions, create an issue on Github repository.';
       notif.dismissAfter = 5000;
@@ -42,6 +46,7 @@ class Demo extends Component {
     event.preventDefault();
     const {notify} = this.props;
     notify({
+      title: this.state.title,
       message: this.state.message,
       type: this.state.type,
       dismissible: this.state.dismissible,
@@ -66,7 +71,11 @@ class Demo extends Component {
       updateNotification(notif);
     }, 3000);
   }
-  
+
+  _onTitleChange(event) {
+    this.setState({title: event.target.value})
+  }
+
   _onMessageChange(event) {
     this.setState({message: event.target.value})
   }
@@ -99,6 +108,11 @@ class Demo extends Component {
               <div className="panel-heading">Notification creator</div>
               <div className="panel-body">
                 <form onSubmit={this._pushNotification}>
+                  <div className="form-group">
+                    <label for="title">Title</label>
+                    <input className="form-control" type="text" name="title"
+                           onChange={this._onTitleChange} value={this.state.title}/>
+                  </div>
                   <div className="form-group">
                     <label for="message">Message</label>
                     <textarea className="form-control" id="message" value={this.state.message}
