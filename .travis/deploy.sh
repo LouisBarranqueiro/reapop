@@ -2,6 +2,7 @@
 # build
 cd demo
 webpack
+cd ..
 
 # deploy
 set -o errexit -o nounset
