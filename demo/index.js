@@ -102,9 +102,9 @@ class Demo extends Component {
     return (
       <div>
         <Notifications defaultValues={config}/>
-        <div className="container-fluid">
+        <div className="container-fluid" style={{marginTop:'30px'}}>
           <div
-            className="col-xs-10 col-xs-offset-1 col-sm-8 col-md-4">
+            className="col-xs-12 col-sm-8 col-md-4" style={{maxWidth:'350px'}}>
             <div className="panel panel-default">
               <div className="panel-heading">Notification creator</div>
               <div className="panel-body">
