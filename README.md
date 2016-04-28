@@ -274,19 +274,29 @@ Adding notification is done with the `addNotification` function. It returns the 
 
 #### Syntax
 
+`notification` is an `Object`
+
 ``` js
 addNotification(notification);
 ```
 
 #### Parameters
+
+| Parameter    | Type     | Description |
+| ------------ | :------: | ----------- |
+| notification | Object   | a notification object. Check its attributes just below |
+
+#### Notification attributes
  
-| Parameter    | Type    | Default | Description |
-| ------------ | :-----: | :-----: | ----------- |
-| title        | String  |         | Title of the notification |
-| message      | String  |         | Message of the notification |
-| type         | String  | null    | Type of message : info, success, warning, error |
-| dismissible  | Boolean | true    | Define if a notification is dismissible by clicking on it |
-| dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
+| Attribute    | Type     | Default | Description |
+| ------------ | :------: | :-----: | ----------- |
+| title        | String   |         | Title of the notification |
+| message      | String   |         | Message of the notification |
+| type         | String   | null    | Type of message : info, success, warning, error |
+| dismissible  | Boolean  | true    | Define if a notification is dismissible by clicking on it |
+| dismissAfter | Number   | 5000    | Time before the notification disappear (ms). 0: infinite |
+| onAdd        | Function |         | Function executed at component lifecycle : `componentDidMount` |
+| onRemove     | Function |         | Function executed at component lifecycle : `componentWillUnmount` |
 
 #### Example
 
@@ -296,7 +306,10 @@ const notif = addNotification({
   message: 'A message',
   type: 'info',
   dismissAfter: 10000,
-  dismissible: false
+  dismissible: false,
+  onAdd: function() {
+    console.log('hey buddy');
+  }
 });
 console.log(JSON.stringify(notif));
 /*
@@ -307,6 +320,7 @@ console.log(JSON.stringify(notif));
   type: "info",
   dismissAfter: 10000
   dismissible: false,
+  onAdd: function()
 }
  */
 ```
@@ -322,15 +336,22 @@ updateNotification(notification);
 ```
 
 #### Parameters
+
+| Parameter    | Type     | Description |
+| ------------ | :------: | ----------- |
+| notification | Object   | a notification object. Check its attributes just below |
+
+#### Notification attributes
  
-| Parameter    | Type    | Default | Description |
-| ------------ | :-----: | :-----: | ----------- |
-| id           | Number  |         | Id of the notification |
-| title        | String  |         | Title of the notification |
-| message      | String  |         | Message of the notification |
-| type         | String  | null    | Type of message : info, success, warning, error |
-| dismissible  | Boolean | true    | Define if a notification is dismissible by clicking on it |
-| dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
+| Attribute    | Type     | Default | Description |
+| ------------ | :------: | :-----: | ----------- |
+| id           | Number   |         | Id of the notification |
+| title        | String   |         | Title of the notification |
+| message      | String   |         | Message of the notification |
+| type         | String   | null    | Type of message : info, success, warning, error |
+| dismissible  | Boolean  | true    | Define if a notification is dismissible by clicking on it |
+| dismissAfter | Number   | 5000    | Time before the notification disappear (ms). 0: infinite |
+| onRemove     | Function |         | Function executed at component lifecycle : `componentWillUnmount` |
 
 #### Example
 
@@ -348,6 +369,7 @@ setTimeout(function() {
   notif.message = 'Your file has been successfully uploaded';
   notif.dismissible = true;
   notif.dismissAfter = 5000;
+  notif.onRemove = function() {console.log('I see you soon');};
   updateNotification(notif);
 }, 3000);
 ```
