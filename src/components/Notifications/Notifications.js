@@ -81,6 +81,8 @@ class Notifications extends Component {
                       dismissAfter={notification.dismissAfter != null
                       ? notification.dismissAfter
                       : dismissAfter}
+                      onAdd={notification.onAdd}
+                      onRemove={notification.onRemove}
                       className={notificationClassName}/>
       );
     });

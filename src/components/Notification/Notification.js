@@ -15,6 +15,12 @@ export const className = {
 };
 
 class Notification extends Component {
+  // Default properties
+  static defaultProps = {
+    onAdd: function() {},
+    onRemove: function() {}
+  };
+
   // Properties types
   static propTypes = {
     id: React.PropTypes.number.isRequired,
@@ -24,6 +30,8 @@ class Notification extends Component {
     dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
     removeNotification: React.PropTypes.func.isRequired,
+    onAdd: React.PropTypes.func,
+    onRemove: React.PropTypes.func,
     className: React.PropTypes.object.isRequired
   };
 
@@ -47,7 +55,25 @@ class Notification extends Component {
     const {removeNotification, id} = this.props;
     removeNotification(id);
   }
-  
+
+  /**
+   * Run `onAdd` callback function when component is mounted
+   * @returns {void}
+   */
+  componentDidMount() {
+    const {onAdd} = this.props;
+    onAdd();
+  }
+
+  /**
+   * Run `onRemove` callback function when component will unmount
+   * @returns {void}
+   */
+  componentWillUnmount() {
+    const {onRemove} = this.props;
+    onRemove();
+  }
+
   /**
    * Render
    * @returns {XML}
