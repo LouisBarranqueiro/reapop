@@ -3,6 +3,20 @@
   
 A customizable React and Redux notifications system
 
+## Summary
+
+* [Demo](http://louisbarranqueiro.github.io/react-redux-notification/#demo)
+* [Installation](http://louisbarranqueiro.github.io/react-redux-notification/#installation)
+* [Integration](http://louisbarranqueiro.github.io/react-redux-notification/#integration)
+* [Usage](http://louisbarranqueiro.github.io/react-redux-notification/#integration)
+    * [In a React component](https://github.com/LouisBarranqueiro/react-redux-notification#in-a-react-component)
+    * [In a Redux module](https://github.com/LouisBarranqueiro/react-redux-notification#in-a-react-component)
+* [API documentation](http://louisbarranqueiro.github.io/react-redux-notification/#api-documentation)
+    * [Customize Notifications and Notification React component](https://github.com/LouisBarranqueiro/react-redux-notification#customize-notifications-and-notification-react-component)
+    * [Add a notification](https://github.com/LouisBarranqueiro/react-redux-notification#add-a-notification)
+    * [Update a notification](https://github.com/LouisBarranqueiro/react-redux-notification#update-a-notification)
+    * [Remove a notification](https://github.com/LouisBarranqueiro/react-redux-notification#remove-a-notification)
+
 ## Demo
 
 Check out the [demo](http://louisbarranqueiro.github.io/react-redux-notification/)
@@ -91,7 +105,7 @@ const sendResetPasswordLink = (props) => {
 
 ## API documentation
 
-### Customize Notifications and Notification React component
+### Customize `Notifications` and `Notification` React component
 
 `Notifications` and `Notification` React component are easily customizable trough the properties of `Notifications` Component.
 
