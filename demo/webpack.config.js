@@ -16,9 +16,9 @@ module.exports = {
     './index.html'
   ],
   output: {
-    path: path.join(__dirname, 'dist_demo'),
+    path: path.join(__dirname, '../dist'),
     filename: 'demo.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
   resolveLoader: {
     modulesDirectories: ['../node_modules']
