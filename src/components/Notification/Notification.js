@@ -18,8 +18,8 @@ class Notification extends Component {
   // Properties types
   static propTypes = {
     id: React.PropTypes.number.isRequired,
-    title: React.PropTypes.string.isRequired,
-    message: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string,
+    message: React.PropTypes.string,
     type: React.PropTypes.string.isRequired,
     dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
