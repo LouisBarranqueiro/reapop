@@ -1,10 +1,4 @@
 #!/bin/bash
-# build
-cd demo
-webpack
-cd ..
-
-# deploy
 set -o errexit -o nounset
 
 if [ "$TRAVIS_BRANCH" != "master" ]
@@ -12,7 +6,12 @@ then
   echo "This commit was made against the $TRAVIS_BRANCH and not the master! No deploy!"
   exit 0
 fi
+# build
+cd demo
+webpack
+cd ..
 
+# deploy
 rev=$(git rev-parse --short HEAD)
 
 cd dist
