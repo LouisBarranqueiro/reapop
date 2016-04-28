@@ -29,9 +29,7 @@ npm install --save react-redux-notification
 
 ## Integration
 
-* Render this component at the root of your web application to avoid position conflicts.
-
-**Example:**
+Render this component at the root of your web application to avoid position conflicts.
 
 ``` js
 import React, {Component} from 'react';
@@ -48,9 +46,7 @@ class ATopLevelComponent extends Component {
 }
 ```
 
-* Apply `thunk` middleware from [redux-thunk](https://github.com/gaearon/redux-thunk) to your redux store.
-
-**Example:**
+Apply `thunk` middleware from [redux-thunk](https://github.com/gaearon/redux-thunk) to your Redux store.
 
 ```js
 import {createStore, compose, applyMiddleware} from 'redux';
@@ -130,18 +126,18 @@ const sendResetPasswordLink = (props) => {
 
 `Notifications` and `Notification` React component are easily customizable trough the properties of `Notifications` Component.
 
-| Properties            | Type   | Description |
+| Property              | Type   | Description |
 | --------------------- | :----: | ----------- |
-| defaultValues         | Object | Default value for a notification. Check [defaultValues](https://github.com/LouisBarranqueiro/react-redux-notification#property--defaultvalues) attributes |
-| className             | String | Class names of notifications container. Check [className](https://github.com/LouisBarranqueiro/react-redux-notification#property--classname) attributes |
-| transition            | Object | Default transition for a notification. Check [transition](https://github.com/LouisBarranqueiro/react-redux-notification#property--transition) attributes |
-| notificationClassName | Object | Class names of a notification. Check [notificationClassName](https://github.com/LouisBarranqueiro/react-redux-notification#property--notificationclassname) attributes |
+| defaultValues         | Object | Default value for a notification. Check [defaultValues](https://github.com/LouisBarranqueiro/react-redux-notification#defaultvalues-properties) properties |
+| className             | String | Class names of notifications container. Check [className](https://github.com/LouisBarranqueiro/react-redux-notification#classname-properties) properties |
+| transition            | Object | Default transition for a notification. Check [transition](https://github.com/LouisBarranqueiro/react-redux-notification#transition-properties) properties |
+| notificationClassName | Object | Class names of a notification. Check [notificationClassName](https://github.com/LouisBarranqueiro/react-redux-notification#notificationclassname-properties) properties |
 
-#### Property : `defaultValues`
+#### `defaultValues` properties
 
 This object allow you to configure default behavior for your notifications.
 
-| Attribute    | Type    | Default | Description |
+| Property     | Type    | Default | Description |
 | ------------ | :-----: | :-----: | ----------- |
 | type         | String  | null    | Type of message : info, success, warning, error |
 | dismissible  | Boolean | true    | Define if a notification is dismissible by clicking on it |
@@ -164,7 +160,7 @@ render() {
 }
 ```
 
-#### Property : `className`
+#### `className` properties
 
 It allow you to configure class names of `Notifications` React component.
 
@@ -192,11 +188,11 @@ render() {
 }
 ```
 
-#### Property : `transition`
+#### `transition` properties
 
 This object allow you to configure CSS animation of `Notification` React component.
 
-| Attribute    | Type    | Default | Description |
+| Property     | Type    | Default | Description |
 | ------------ | :-----: | :-----: | ----------- |
 | enterTimeout | Number  | 400     | Duration of enter animation (ms) |
 | leaveTimeout | Number  | 400     | Duration of leave animation (ms) |
@@ -226,11 +222,11 @@ render() {
 }
 ```
 
-#### Property : `notificationClassName`
+#### `notificationClassName` properties
 
 This object allow you to configure class names of `Notification` React component.
 
-| Attribute | Type     | Default | Description |
+| Property  | Type     | Default | Description |
 | --------- | :------: | :-----: | ----------- |
 | main      | String   | 400     | Apply on notification container. **E.g**: `notification` |
 | type      | Function | 400     | Apply on notification container. Use to stylize the notification depending on its `type` value. **E.g**: `notification-${type}`. The function take one parameter (`type`), a String |
@@ -282,11 +278,11 @@ addNotification(notification);
 
 | Parameter    | Type     | Description |
 | ------------ | :------: | ----------- |
-| notification | Object   | A [notification object](https://github.com/LouisBarranqueiro/react-redux-notification#notification-attributes) |
+| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/react-redux-notification#notification-properties) object |
 
-#### Notification attributes
+#### Notification properties
  
-| Attribute    | Type     | Default | Description |
+| Property     | Type     | Default | Description |
 | ------------ | :------: | :-----: | ----------- |
 | title        | String   |         | Title of the notification |
 | message      | String   |         | Message of the notification |
@@ -337,11 +333,11 @@ updateNotification(notification);
 
 | Parameter    | Type     | Description |
 | ------------ | :------: | ----------- |
-| notification | Object   | A [notification object](https://github.com/LouisBarranqueiro/react-redux-notification#notification-attributes-1) |
+| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/react-redux-notification#notification-properties-1) object |
 
-#### Notification attributes
+#### Notification properties
  
-| Attribute    | Type     | Default | Description |
+| Property     | Type     | Default | Description |
 | ------------ | :------: | :-----: | ----------- |
 | id           | Number   |         | Id of the notification |
 | title        | String   |         | Title of the notification |
