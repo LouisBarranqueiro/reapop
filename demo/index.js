@@ -108,7 +108,7 @@ class Demo extends Component {
             <div className="panel panel-default">
               <div className="panel-heading">Notification creator</div>
               <div className="panel-body">
-                <form onSubmit={this._pushNotification}>
+                <form onSubmit={this._addNotification}>
                   <div className="form-group">
                     <label for="title">Title</label>
                     <input className="form-control" type="text" name="title"
