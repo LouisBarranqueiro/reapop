@@ -29,7 +29,9 @@ npm install --save react-redux-notification
 
 ## Integration
 
-Render this component at the root of your web application to avoid position conflicts.
+* Render this component at the root of your web application to avoid position conflicts.
+
+**Example:**
 
 ``` js
 import React, {Component} from 'react';
@@ -44,6 +46,24 @@ class ATopLevelComponent extends Component {
     );
   }
 }
+```
+
+* Apply `thunk` middleware from [redux-thunk](https://github.com/gaearon/redux-thunk) to your redux store.
+
+**Example:**
+
+```js
+import {createStore, compose, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+
+// store
+const createStoreWithMiddleware = compose(
+  applyMiddleware(thunk)
+)(createStore);
+const store = createStoreWithMiddleware(combineReducers({
+    // your reducers here
+  }), {});
+
 ```
 
 ## Usage
