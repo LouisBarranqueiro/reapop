@@ -3,6 +3,10 @@
   
 A customizable React and Redux notifications system
 
+## Demo
+
+Check out the [demo](http://louisbarranqueiro.github.io/react-redux-notification/)
+
 ## Installation
 
 ```
@@ -17,7 +21,7 @@ Render this component at the root of your web application to avoid position conf
 import React, {Component} from 'react';
 import {Notifications} from 'react-redux-notifications';
 
-class AHighLevelComponent extends Component {
+class ATopLevelComponent extends Component {
   render() { 
     return (
       <div>
