@@ -21,8 +21,7 @@ $notification-warning-icon: "\f071";
 
 $notification-error-bg: #ffffff;
 $notification-error-border: #f5311d;
-$notification-error-icon: "\f05e";
-$notification-error-icon: "\f05e";
+$notification-error-icon: "\f057";
 
 @mixin notification-variant($background, $border-color, $icon) {
     background-color: $background;
