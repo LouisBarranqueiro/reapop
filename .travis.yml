@@ -2,8 +2,12 @@ language: node_js
 node_js:
   - "5"
   - "4"
+install:
+  - npm install
+  - npm install -g webpack
 script:
   - npm run lint
   - npm test
 after_success:
+- bash .travis/build.sh
 - bash .travis/deploy.sh
