@@ -15,8 +15,8 @@ class Demo extends Component {
   
   constructor(props) {
     super(props);
-    this._pushNotification = this._pushNotification.bind(this);
-    this._pushAndUpdateNotificationExample = this._pushAndUpdateNotificationExample.bind(this);
+    this._addNotification = this._addNotification.bind(this);
+    this._addAndUpdateNotificationExample = this._addAndUpdateNotificationExample.bind(this);
     this._onTitleChange = this._onTitleChange.bind(this);
     this._onMessageChange = this._onMessageChange.bind(this);
     this._onTypeChange = this._onTypeChange.bind(this);
@@ -42,7 +42,7 @@ class Demo extends Component {
       updateNotification(notif);
     }, 4000);
   }
-  _pushNotification(event) {
+  _addNotification(event) {
     event.preventDefault();
     const {notify} = this.props;
     notify({
@@ -54,7 +54,7 @@ class Demo extends Component {
     });
   }
   
-  _pushAndUpdateNotificationExample() {
+  _addAndUpdateNotificationExample() {
     event.preventDefault();
     const {notify, updateNotification} = this.props;
     let notif = notify({
@@ -137,10 +137,10 @@ class Demo extends Component {
                     <input className="form-control" type="text" name="duration"
                            onChange={this._onDurationChange} value={this.state.dismissAfter}/>
                   </div>
-                  <button type="submit" className="btn btn-primary btn-block">Push</button>
+                  <button type="submit" className="btn btn-primary btn-block">Add notification</button>
                 </form>
                 <hr/>
-                <button onClick={this._pushAndUpdateNotificationExample}
+                <button onClick={this._addAndUpdateNotificationExample}
                         className="btn btn-success btn-block">Notification updated example
                 </button>
               </div>
