@@ -18,6 +18,7 @@ class Notification extends Component {
   // Properties types
   static propTypes = {
     id: React.PropTypes.number.isRequired,
+    title: React.PropTypes.string.isRequired,
     message: React.PropTypes.string.isRequired,
     type: React.PropTypes.string.isRequired,
     dismissAfter: React.PropTypes.number.isRequired,
@@ -55,7 +56,7 @@ class Notification extends Component {
     const {title, message, type, dismissAfter, dismissible, className} = this.props;
     let titleDiv = null;
     if (title) {
-      titleDiv = <p className={className.title}>{title}</p>
+      titleDiv = <p className={className.title}>{title}</p>;
     }
     // remove automatically notification after `dismissAfter` time
     if (dismissAfter > 0) {
