@@ -16,7 +16,8 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this._addNotification = this._addNotification.bind(this);
-    this._addAndUpdateNotificationExample = this._addAndUpdateNotificationExample.bind(this);
+    this._notificationUpdatedExample = this._notificationUpdatedExample.bind(this);
+    this._notificationWithCallbacksExample = this._notificationWithCallbacksExample.bind(this);
     this._onTitleChange = this._onTitleChange.bind(this);
     this._onMessageChange = this._onMessageChange.bind(this);
     this._onTypeChange = this._onTypeChange.bind(this);
@@ -54,9 +55,11 @@ class Demo extends Component {
       dismissAfter: this.state.dismissAfter
     });
   }
-  
-  _addAndUpdateNotificationExample() {
-    event.preventDefault();
+
+  /**
+   * Example of a notification updated
+   */
+  _notificationUpdatedExample() {
     const {notify, updateNotification} = this.props;
     let notif = notify({
       message: 'Your file is uploading...',
@@ -73,6 +76,25 @@ class Demo extends Component {
     }, 3000);
   }
 
+  /**
+   * Example of a notification with callbacks `onAdd` and `onRemove`
+   */
+  _notificationWithCallbacksExample() {
+    const {notify} = this.props;
+    notify({
+      message: 'Component is mounted',
+      type: 'info',
+      dismissible: false,
+      dismissAfter: 3000,
+      onAdd: function() {
+        alert('Notification component did mount');
+      },
+      onRemove: function() {
+        alert('Notification component will unmount');
+      }
+    });
+  }
+
   _onTitleChange(event) {
     this.setState({title: event.target.value})
   }
@@ -80,19 +102,19 @@ class Demo extends Component {
   _onMessageChange(event) {
     this.setState({message: event.target.value})
   }
-  
+
   _onTypeChange(event) {
     this.setState({type: event.target.value})
   }
-  
+
   _onDurationChange(event) {
     this.setState({dismissAfter: event.target.value})
   }
-  
+
   _onDismissibleChange(event) {
     this.setState({dismissible: event.target.checked})
   }
-  
+
   render() {
     const config = {
       type: 'info',
@@ -102,9 +124,9 @@ class Demo extends Component {
     return (
       <div>
         <Notifications defaultValues={config}/>
-        <div className="container-fluid" style={{marginTop:'30px'}}>
+        <div className="container-fluid">
           <div
-            className="col-xs-12 col-sm-8 col-md-4" style={{maxWidth:'350px'}}>
+            className="col-xs-10 col-xs-offset-1 col-sm-8 col-md-4" style={{maxWidth:'350px'}}>
             <div className="panel panel-default">
               <div className="panel-heading">Notification creator</div>
               <div className="panel-body">
@@ -142,13 +164,16 @@ class Demo extends Component {
                   </button>
                 </form>
                 <hr/>
-                <button onClick={this._addAndUpdateNotificationExample}
+                <button onClick={this._notificationUpdatedExample}
                         className="btn btn-success btn-block">Notification updated example
+                </button>
+                <button onClick={this._notificationWithCallbacksExample}
+                        className="btn btn-success btn-block">Notification with callbacks example
                 </button>
               </div>
             </div>
           </div>
-        
+
         </div>
       </div>
     );
@@ -157,7 +182,6 @@ class Demo extends Component {
 
 // Store
 const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);
-
 const store = createStoreWithMiddleware(combineReducers({
   notifications: notificationsReducer
 }), {});
@@ -168,6 +192,7 @@ const App = connect(null, {notify, updateNotification})(Demo);
 render(
   <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  ,
   document.getElementById('root')
 );
