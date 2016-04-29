@@ -8,53 +8,40 @@ const UPDATE_NOTIFICATION = 'UPDATE_NOTIFICATION';
 const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
 
 /**
- * Add a notification
+ * Add a notification (thunk action creator)
+ *
+ * We use a thunk here to call ADD_NOTIFICATION action
+ * and only return the notification object.
  * @param {Object} notification
  * @returns {Object} notification
  */
-export const addNotification = (notification) => {
-  return (dispatch) => {
-    notification.id = new Date().getTime();
-    notification.status = convertStatus(notification.status);
-    dispatch(pushNotification(notification));
-    return notification;
-  };
+export const addNotification = (notification) => (dispatch) => {
+  notification.id = new Date().getTime();
+  notification.status = convertStatus(notification.status);
+  dispatch(_addNotification(notification));
+  return notification;
 };
 
-/**
- * Add a notification (Redux action)
- * @param {Object} notification
- * @returns {Object} notification
- */
-const pushNotification = createAction(ADD_NOTIFICATION, (notification) => {
-  return notification;
-});
+// Add a notification (action creator)
+const _addNotification = createAction(ADD_NOTIFICATION, (notification) => notification);
 
-/**
- * Update a notification (Redux action)
- * @param {Object} notification
- * @returns {Object} notification
- */
+// Update a notification (action creator)
 export const updateNotification = createAction(UPDATE_NOTIFICATION, (notification) => {
   notification.status = convertStatus(notification.status);
   return notification;
 });
 
-/**
- * Remove a notification (Redux action)
- * @param {Number} notification id
- * @returns {Number} notification id
- */
+// Remove a notification (action creator)
 export const removeNotification = createAction(REMOVE_NOTIFICATION, (id) => id);
 
-// Actions
+// Action creators
 export const actions = {
-  pushNotification: pushNotification,
+  addNotification: addNotification,
   updateNotification: updateNotification,
   removeNotification: removeNotification
 };
 
-// Actions
+// Actions types
 export const types = {
   ADD_NOTIFICATION: ADD_NOTIFICATION,
   UPDATE_NOTIFICATION: UPDATE_NOTIFICATION,
