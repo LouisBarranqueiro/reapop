@@ -7,7 +7,8 @@
     "start": "cd demo && node server.js",
     "lint": "./node_modules/.bin/eslint .",
     "lint:fix": "./node_modules/.bin/eslint . --fix",
-    "test": "./node_modules/mocha/bin/mocha test/ --compilers js:babel-register --recursive"
+    "test": "./node_modules/mocha/bin/mocha test/ --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
