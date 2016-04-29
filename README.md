@@ -282,15 +282,15 @@ addNotification(notification);
 
 #### Notification properties
  
-| Property     | Type     | Default | Description |
-| ------------ | :------: | :-----: | ----------- |
-| title        | String   |         | Title of the notification |
-| message      | String   |         | Message of the notification |
-| status       | String   | null    | Status of notification : info, success, warning, error |
-| dismissible  | Boolean  | true    | Define if a notification is dismissible by clicking on it |
-| dismissAfter | Number   | 5000    | Time before the notification disappear (ms). 0: infinite |
-| onAdd        | Function |         | Function executed at component lifecycle : `componentDidMount` |
-| onRemove     | Function |         | Function executed at component lifecycle : `componentWillUnmount` |
+| Property     | Type             | Default | Description |
+| ------------ | :--------------: | :-----: | ----------- |
+| title        | String           |         | Title of the notification |
+| message      | String           |         | Message of the notification |
+| status       | String or Number | null    | Status of notification : info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the Notificaton component |
+| dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
+| dismissAfter | Number           | 5000    | Time before the notification disappear (ms). 0: infinite |
+| onAdd        | Function         |         | Function executed at component lifecycle : `componentDidMount` |
+| onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
 
 #### Example
 
@@ -337,15 +337,15 @@ updateNotification(notification);
 
 #### Notification properties
  
-| Property     | Type     | Default | Description |
-| ------------ | :------: | :-----: | ----------- |
-| id           | Number   |         | Id of the notification |
-| title        | String   |         | Title of the notification |
-| message      | String   |         | Message of the notification |
-| status       | String   | null    | Status of notification : info, success, warning, error |
-| dismissible  | Boolean  | true    | Define if a notification is dismissible by clicking on it |
-| dismissAfter | Number   | 5000    | Time before the notification disappear (ms). 0: infinite |
-| onRemove     | Function |         | Function executed at component lifecycle : `componentWillUnmount` |
+| Property     | Type             | Default | Description |
+| ------------ | :--------------: | :-----: | ----------- |
+| id           | Number           |         | Id of the notification |
+| title        | String           |         | Title of the notification |
+| message      | String           |         | Message of the notification |
+| status       | String or Number | null    | Status of notification : info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the Notificaton component |
+| dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
+| dismissAfter | Number           | 5000    | Time before the notification disappear (ms). 0: infinite |
+| onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
 
 #### Example
 
