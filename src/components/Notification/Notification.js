@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import css from './Notification.scss';
-import {removeNotification} from '../../redux/modules/notifications';
+import {removeNotification} from '../../store/notifications';
 
 // default className for Notification component
 export const className = {

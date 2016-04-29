@@ -6,7 +6,7 @@ import reducer, {
   addNotification,
   updateNotification,
   removeNotification
-} from '../../src/redux/modules/notifications';
+} from '../../src/store/notifications';
 import STATUS from '../../src/constants';
 
 // standard notification
@@ -19,7 +19,7 @@ const fixture = {
   dismissAfter: 4000
 };
 
-describe('Redux', () => {
+describe('Store', () => {
   describe('Actions', () => {
     describe('addNotification()', () => {
       it('should create an action to add a notification ' +

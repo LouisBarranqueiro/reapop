@@ -1,5 +1,5 @@
 import {handleActions, createAction} from 'redux-actions';
-import {convertStatus, validateNotification} from '../../helpers';
+import {convertStatus, validateNotification} from '../helpers';
 // An array to store notifications object
 const INITIAL_DATA = [];
 // Action types

@@ -1,4 +1,4 @@
-@import '../../style/variables';
+@import '../../styles/variables';
 
 @mixin box-shadow($shadow...) {
     -webkit-box-shadow: $shadow;

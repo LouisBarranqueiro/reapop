@@ -28,7 +28,7 @@ import reducer, {
   addNotification,
   updateNotification,
   removeNotification
-} from './redux/modules/notifications';
+} from './store/notifications';
 
 export {
   Notifications, actions, types, reducer, addNotification, updateNotification, removeNotification
