@@ -1,5 +1,5 @@
 import {handleActions, createAction} from 'redux-actions';
-
+import {convertStatus} from '../../helpers';
 // An array to store notifications object
 const INITIAL_DATA = [];
 // Action types
@@ -15,6 +15,7 @@ const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
 export const addNotification = (notification) => {
   return (dispatch) => {
     notification.id = new Date().getTime();
+    notification.status = convertStatus(notification.status);
     dispatch(pushNotification(notification));
     return notification;
   };
@@ -35,6 +36,7 @@ const pushNotification = createAction(ADD_NOTIFICATION, (notification) => {
  * @returns {Object} notification
  */
 export const updateNotification = createAction(UPDATE_NOTIFICATION, (notification) => {
+  notification.status = convertStatus(notification.status);
   return notification;
 });
 

@@ -26,7 +26,10 @@ class Notification extends Component {
     id: React.PropTypes.number.isRequired,
     title: React.PropTypes.string,
     message: React.PropTypes.string,
-    status: React.PropTypes.string.isRequired,
+    status: React.PropTypes.oneOfType([
+      React.PropTypes.string.isRequired,
+      React.PropTypes.number.isRequired
+    ]),
     dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
     removeNotification: React.PropTypes.func.isRequired,
