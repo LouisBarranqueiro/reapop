@@ -5,13 +5,13 @@ A customizable React and Redux notifications system
 
 ## Summary
 
-* [Demo](http://louisbarranqueiro.github.io/react-redux-notification/#demo)
-* [Installation](http://louisbarranqueiro.github.io/react-redux-notification/#installation)
-* [Integration](http://louisbarranqueiro.github.io/react-redux-notification/#integration)
-* [Usage](http://louisbarranqueiro.github.io/react-redux-notification/#integration)
+* [Demo](https://github.com/LouisBarranqueiro/react-redux-notification#demo)
+* [Installation](https://github.com/LouisBarranqueiro/react-redux-notification#installation)
+* [Integration](https://github.com/LouisBarranqueiro/react-redux-notification#integration)
+* [Usage](https://github.com/LouisBarranqueiro/react-redux-notification#integration)
     * [In a React component](https://github.com/LouisBarranqueiro/react-redux-notification#in-a-react-component)
     * [In a Redux module](https://github.com/LouisBarranqueiro/react-redux-notification#in-a-react-component)
-* [API documentation](http://louisbarranqueiro.github.io/react-redux-notification/#api-documentation)
+* [API documentation](https://github.com/LouisBarranqueiro/react-redux-notification#api-documentation)
     * [Customize Notifications and Notification React component](https://github.com/LouisBarranqueiro/react-redux-notification#customize-notifications-and-notification-react-component)
     * [Add a notification](https://github.com/LouisBarranqueiro/react-redux-notification#add-a-notification)
     * [Update a notification](https://github.com/LouisBarranqueiro/react-redux-notification#update-a-notification)
@@ -19,7 +19,7 @@ A customizable React and Redux notifications system
 
 ## Demo
 
-Check out the [demo](http://louisbarranqueiro.github.io/react-redux-notification/)
+Check out the [demo](https://github.com/LouisBarranqueiro/react-redux-notification)
 
 ## Installation
 
@@ -82,7 +82,7 @@ class AmazingComponent extends Component {
     notify({
       title: 'Welcome',
       message: 'you clicked on the button',
-      type: 'success',
+      status: 'success',
       dismissible: true,
       dismissAfter: 3000
     });
@@ -111,10 +111,10 @@ const sendResetPasswordLink = (props) => {
   return (dispatch) => {
     api.post('users/ask-reset-password', props)
       .then((res) => {
-        dispatch(notify({message:res.data.detail, type:'success'}));
+        dispatch(notify({message:res.data.detail, status:'success'}));
       })
       .catch((res) => {
-        dispatch(notify({message:res.data.detail, type:'error'}));
+        dispatch(notify({message:res.data.detail, status:'error'}));
       });
     };
 };
@@ -139,7 +139,7 @@ This object allow you to configure default behavior for your notifications.
 
 | Property     | Type    | Default | Description |
 | ------------ | :-----: | :-----: | ----------- |
-| type         | String  | null    | Type of message : info, success, warning, error |
+| status       | String  | null    | Status of notification : info, success, warning, error |
 | dismissible  | Boolean | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
 
@@ -148,9 +148,9 @@ This object allow you to configure default behavior for your notifications.
 ```js 
 render() {
   const defaultValues = {
-    type: 'info',
+    status: 'info',
     dismissible: false,
-    dismissAfter: 3000
+    dismissAfter: &k3000
   };
   return (
     <div>
@@ -229,14 +229,14 @@ This object allow you to configure class names of `Notification` React component
 | Property  | Type     | Default | Description |
 | --------- | :------: | :-----: | ----------- |
 | main      | String   | 400     | Apply on notification container. **E.g**: `notification` |
-| type      | Function | 400     | Apply on notification container. Use to stylize the notification depending on its `type` value. **E.g**: `notification-${type}`. The function take one parameter (`type`), a String |
+| status    | Function | 400     | Apply on notification container. Use to stylize the notification depending on its `status` value. **E.g**: `notification-${status}`. The function take one parameter (`status`), a String |
 | icon      | String   |         | Apply on notification icon container. **E.g**: `notification-icon` |
 | title     | String   |         | Apply on notification title container. **E.g**: `notification-title` |
 
 ##### JSX structure of `Notification` React component
 
 ``` html
-<div className={`${className.main} ${className.type(type)}`}
+<div className={`${className.main} ${className.status(status)}`}
      onClick={dismissible ? this._remove : ''}>
   <i className={className.icon}></i>
   <p className={className.title}>{title}</p>
@@ -250,8 +250,8 @@ This object allow you to configure class names of `Notification` React component
 render() {
   const notificationClassName = {
     main: 'my-notification-class',
-    type: function(type) {
-      return `my-notification-${type}`;
+    status: function(status) {
+      return `my-notification-${status}`;
     },
     icon: 'my-notification-icon',
     title: 'my-notification-title'
@@ -286,7 +286,7 @@ addNotification(notification);
 | ------------ | :------: | :-----: | ----------- |
 | title        | String   |         | Title of the notification |
 | message      | String   |         | Message of the notification |
-| type         | String   | null    | Type of message : info, success, warning, error |
+| status       | String   | null    | Status of notification : info, success, warning, error |
 | dismissible  | Boolean  | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number   | 5000    | Time before the notification disappear (ms). 0: infinite |
 | onAdd        | Function |         | Function executed at component lifecycle : `componentDidMount` |
@@ -298,7 +298,7 @@ addNotification(notification);
 const notif = addNotification({
   title: 'Welcome',
   message: 'A message',
-  type: 'info',
+  status: 'info',
   dismissAfter: 10000,
   dismissible: false,
   onAdd: function() {
@@ -311,7 +311,7 @@ console.log(JSON.stringify(notif));
   id: 1461763123454,
   title: "Welcome",
   message: "A message",
-  type: "info",
+  status: "info",
   dismissAfter: 10000
   dismissible: false,
   onAdd: function()
@@ -342,7 +342,7 @@ updateNotification(notification);
 | id           | Number   |         | Id of the notification |
 | title        | String   |         | Title of the notification |
 | message      | String   |         | Message of the notification |
-| type         | String   | null    | Type of message : info, success, warning, error |
+| status       | String   | null    | Status of notification : info, success, warning, error |
 | dismissible  | Boolean  | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number   | 5000    | Time before the notification disappear (ms). 0: infinite |
 | onRemove     | Function |         | Function executed at component lifecycle : `componentWillUnmount` |
@@ -353,13 +353,13 @@ updateNotification(notification);
 let notif = addNotification({
   title: 'Upload status',
   message: 'Your file is uploading...',
-  type: 'info',
+  status: 'info',
   dismissible: false,
   dismissAfter: 0
 });
 // simulate file upload
 setTimeout(function() {
-  notif.type = 'success';
+  notif.status = 'success';
   notif.message = 'Your file has been successfully uploaded';
   notif.dismissible = true;
   notif.dismissAfter = 5000;
