@@ -6,8 +6,8 @@ import {removeNotification} from '../../redux/modules/notifications';
 // default className for Notification component
 export const className = {
   main: css['notification'],
-  type: function(type) {
-    return css[`notification-${type}`];
+  status: function(status) {
+    return css[`notification-${status}`];
   },
   // `fa` corresponds to font-awesome's class name
   icon: `fa ${css['notification-icon']}`,
@@ -26,7 +26,7 @@ class Notification extends Component {
     id: React.PropTypes.number.isRequired,
     title: React.PropTypes.string,
     message: React.PropTypes.string,
-    type: React.PropTypes.string.isRequired,
+    status: React.PropTypes.string.isRequired,
     dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
     removeNotification: React.PropTypes.func.isRequired,
@@ -79,7 +79,7 @@ class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {title, message, type, dismissAfter, dismissible, className} = this.props;
+    const {title, message, status, dismissAfter, dismissible, className} = this.props;
     let titleDiv = null;
     if (title) {
       titleDiv = <p className={className.title}>{title}</p>;
@@ -89,7 +89,7 @@ class Notification extends Component {
       setTimeout(() => this._remove(), dismissAfter);
     }
     return (
-      <div className={`${className.main} ${className.type(type)}`} onClick={dismissible ? this._remove : ''}>
+      <div className={`${className.main} ${className.status(status)}`} onClick={dismissible ? this._remove : ''}>
         <i className={className.icon}></i>
         {titleDiv}
         {message}

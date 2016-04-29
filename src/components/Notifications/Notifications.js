@@ -7,7 +7,7 @@ import notificationCss from '../Notification/Notification.scss';
 
 // default values for a notification
 const defaultValues = {
-  type: null,
+  status: null,
   dismissible: true,
   dismissAfter: 5000
 };
@@ -39,7 +39,7 @@ class Notifications extends Component {
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
     defaultValues: React.PropTypes.shape({
-      type: React.PropTypes.oneOf(['info', 'success', 'warning', 'error']),
+      status: React.PropTypes.oneOf(['info', 'success', 'warning', 'error']),
       dismissible: React.PropTypes.bool.isRequired,
       dismissAfter: React.PropTypes.number.isRequired
     }),
@@ -71,12 +71,12 @@ class Notifications extends Component {
    */
   _renderNotifications() {
     // get all notifications and default values for notifications
-    const {notifications, defaultValues: {type, dismissible, dismissAfter}, notificationClassName} = this.props;
+    const {notifications, defaultValues: {status, dismissible, dismissAfter}, notificationClassName} = this.props;
     return notifications.map((notification) => {
       return (
         <Notification key={notification.id} id={notification.id} title={notification.title}
                       message={notification.message}
-                      type={notification.type || type}
+                      status={notification.status || status}
                       dismissible={notification.dismissible === dismissible}
                       dismissAfter={notification.dismissAfter != null
                       ? notification.dismissAfter
