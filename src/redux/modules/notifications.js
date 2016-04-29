@@ -1,5 +1,5 @@
 import {handleActions, createAction} from 'redux-actions';
-import {convertStatus} from '../../helpers';
+import {convertStatus, validateNotification} from '../../helpers';
 // An array to store notifications object
 const INITIAL_DATA = [];
 // Action types
@@ -16,6 +16,7 @@ const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
  * @returns {Object} notification
  */
 export const addNotification = (notification) => (dispatch) => {
+  validateNotification(notification);
   notification.id = new Date().getTime();
   notification.status = convertStatus(notification.status);
   dispatch(_addNotification(notification));
@@ -27,6 +28,11 @@ const _addNotification = createAction(ADD_NOTIFICATION, (notification) => notifi
 
 // Update a notification (action creator)
 export const updateNotification = createAction(UPDATE_NOTIFICATION, (notification) => {
+  if (!notification.id) {
+    throw new Error('A notification must have an `id` property to be updated');
+  }
+
+  validateNotification(notification);
   notification.status = convertStatus(notification.status);
   return notification;
 });
