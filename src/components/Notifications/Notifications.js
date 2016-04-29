@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import css from './Notifications.scss';
 import Notification, {className as notificationClassName} from '../Notification/Notification';
 import notificationCss from '../Notification/Notification.scss';
+import {INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../constants';
 
 // default values for a notification
 const defaultValues = {
@@ -39,7 +40,7 @@ class Notifications extends Component {
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
     defaultValues: React.PropTypes.shape({
-      status: React.PropTypes.oneOf(['info', 'success', 'warning', 'error']),
+      status: React.PropTypes.oneOf([INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS]),
       dismissible: React.PropTypes.bool.isRequired,
       dismissAfter: React.PropTypes.number.isRequired
     }),
