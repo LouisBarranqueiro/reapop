@@ -20,13 +20,13 @@ class Demo extends Component {
     this._notificationWithCallbacksExample = this._notificationWithCallbacksExample.bind(this);
     this._onTitleChange = this._onTitleChange.bind(this);
     this._onMessageChange = this._onMessageChange.bind(this);
-    this._onTypeChange = this._onTypeChange.bind(this);
-    this._onDurationChange = this._onDurationChange.bind(this);
+    this._onStatusChange = this._onStatusChange.bind(this);
+    this._onDismissAfterChange = this._onDismissAfterChange.bind(this);
     this._onDismissibleChange = this._onDismissibleChange.bind(this);
     this.state = {
       title: 'Welcome on demo!',
       message: 'Hey buddy, here you can see what you can do with it.',
-      type: 'info',
+      status: 'info',
       dismissAfter: 5000,
       dismissible: true
     }
@@ -50,7 +50,7 @@ class Demo extends Component {
     notify({
       title: this.state.title,
       message: this.state.message,
-      type: this.state.type,
+      status: this.state.status,
       dismissible: this.state.dismissible,
       dismissAfter: this.state.dismissAfter
     });
@@ -62,13 +62,14 @@ class Demo extends Component {
   _notificationUpdatedExample() {
     const {notify, updateNotification} = this.props;
     let notif = notify({
+      title: 'Upload status',
       message: 'Your file is uploading...',
-      type: 'info',
+      status: 'info',
       dismissible: false,
       dismissAfter: 0
     });
     setTimeout(function() {
-      notif.type = 'success';
+      notif.status = 'success';
       notif.message = 'Your file has been successfully uploaded';
       notif.dismissible = true;
       notif.dismissAfter = 5000;
@@ -83,7 +84,7 @@ class Demo extends Component {
     const {notify} = this.props;
     notify({
       message: 'Component is mounted',
-      type: 'info',
+      status: 'info',
       dismissible: false,
       dismissAfter: 3000,
       onAdd: function() {
@@ -103,11 +104,11 @@ class Demo extends Component {
     this.setState({message: event.target.value})
   }
 
-  _onTypeChange(event) {
-    this.setState({type: event.target.value})
+  _onStatusChange(event) {
+    this.setState({status: event.target.value})
   }
 
-  _onDurationChange(event) {
+  _onDismissAfterChange(event) {
     this.setState({dismissAfter: event.target.value})
   }
 
@@ -117,7 +118,7 @@ class Demo extends Component {
 
   render() {
     const config = {
-      type: 'info',
+      status: 'info',
       dismissible: true,
       dismissAfter: 5000
     };
@@ -126,14 +127,14 @@ class Demo extends Component {
         <Notifications defaultValues={config}/>
         <div className="container-fluid">
           <div
-            className="col-xs-10 col-xs-offset-1 col-sm-8 col-md-4" style={{maxWidth:'350px'}}>
+            className="col-xs-10 col-xs-offset-1 col-sm-8 col-md-4" style={{marginTop:'30px',maxWidth:'350px'}}>
             <div className="panel panel-default">
               <div className="panel-heading">Notification creator</div>
               <div className="panel-body">
                 <form onSubmit={this._addNotification}>
                   <div className="form-group">
                     <label for="title">Title</label>
-                    <input className="form-control" type="text" name="title"
+                    <input className="form-control" type="text" id="title" name="title"
                            onChange={this._onTitleChange} value={this.state.title}/>
                   </div>
                   <div className="form-group">
@@ -142,8 +143,8 @@ class Demo extends Component {
                               onChange={this._onMessageChange}></textarea>
                   </div>
                   <div className="form-group">
-                    <label for="message">Type</label>
-                    <select className="form-control" onChange={this._onTypeChange}>
+                    <label for="status">Status</label>
+                    <select className="form-control" id="status" name="status" onChange={this._onStatusChange}>
                       <option value="info">info</option>
                       <option value="success">success</option>
                       <option value="warning">warning</option>
@@ -151,14 +152,14 @@ class Demo extends Component {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label for="message">Dismissible (by clicking on)</label>
-                    <input className="form-control" type="checkbox" name="dismissible"
+                    <label for="dismissible">Dismissible (by clicking on)</label>
+                    <input className="form-control" type="checkbox" id="dismissible" name="dismissible"
                            onChange={this._onDismissibleChange} checked={this.state.dismissible}/>
                   </div>
                   <div className="form-group">
-                    <label for="message">Expire after (sec)</label>
-                    <input className="form-control" type="text" name="duration"
-                           onChange={this._onDurationChange} value={this.state.dismissAfter}/>
+                    <label for="dismissAfter">Expire after (sec)</label>
+                    <input className="form-control" type="text" name="dismissAfter"
+                           onChange={this._onDismissAfterChange} value={this.state.dismissAfter}/>
                   </div>
                   <button type="submit" className="btn btn-primary btn-block">Add notification
                   </button>
