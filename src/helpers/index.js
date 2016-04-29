@@ -12,13 +12,10 @@ export const convertStatus = function(status) {
     switch (true) {
       case /^1/.test(status):
         return INFO_STATUS;
-        break;
       case /^2/.test(status):
         return SUCCESS_STATUS;
-        break;
       case /^5/.test(status):
         return ERROR_STATUS;
-        break;
     }
   }
   return status;
