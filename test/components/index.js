@@ -1,3 +1,3 @@
 describe('Components', () => {
-  require('./Notifications');
+  require('./Notifications.test');
 });
