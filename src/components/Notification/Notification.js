@@ -14,7 +14,7 @@ export const className = {
   title: css['notification-title']
 };
 
-class Notification extends Component {
+export class Notification extends Component {
   // Default properties
   static defaultProps = {
     onAdd: function() {},

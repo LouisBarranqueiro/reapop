@@ -1,35 +1,66 @@
-import {expect} from 'chai';
-import React from 'react'
-import TestUtils from 'react-addons-test-utils'
-import {defaultValues, className, transition, Notifications} from '../../src/components/Notifications/Notifications';
+import React from 'react';
+import expect from 'expect';
+import expectJSX from 'expect-jsx';
+import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import {
+  defaultValues,
+  className,
+  transition,
+  Notifications
+} from '../../src/components/Notifications/Notifications';
 import {className as notificationClassName} from '../../src/components/Notification/Notification';
-/**
- * Return a rendered Notifications component
- * @param props
- * @returns {*}
- */
-function setup(props) {
-  const defaultProps = {
-    notifications: []
-  };
-  props = Object.assign({}, defaultProps, props);
+import STATUS from '../../src/constants';
+import {shallowRender, render} from '../helpers';
 
-  let node = window.document.createElement('div');
-  return TestUtils.renderIntoDocument(
-    <Notifications {...props}/>, node
-  );
-}
-describe('Notification', () => {
-  it('should render component', () => {
-    const component = setup();
-    expect(component).to.exist;
+expect.extend(expectJSX);
+
+describe('Notifications', () => {
+  it('should render component with correct JSX structure', () => {
+    const component = shallowRender(Notifications);
+    let expectedElement = (
+      <div className={className}>
+        <TransitionGroup
+          transitionName={transition.name}
+          transitionEnterTimeout={transition.enterTimeout}
+          transitionLeaveTimeout={transition.leaveTimeout}/>
+      </div>
+    );
+    expect(component).toEqualJSX(expectedElement);
   });
-
+  
   it('should render component with its default props', () => {
-    const component = setup();
-    expect(component.props.defaultValues).to.equal(defaultValues);
-    expect(component.props.className).to.equal(className);
-    expect(component.props.transition).to.equal(transition);
-    expect(component.props.notificationClassName).to.equal(notificationClassName);
+    const component = render(Notifications);
+    expect(component).toExist();
+    expect(component.props.defaultValues).toEqual(defaultValues);
+    expect(component.props.className).toEqual(className);
+    expect(component.props.transition).toEqual(transition);
+    expect(component.props.notificationClassName).toEqual(notificationClassName);
+  });
+  
+  it('should render component with custom props', () => {
+    const customProps = {
+      defaultValues: {
+        status: STATUS.info,
+        dismissAfter: 3333,
+        dismissible: false
+      },
+      className: 'custom-notification',
+      transition: {
+        enterTimeout: 333,
+        leaveTimeout: 333,
+        name: {
+          enter: 'custom-notification-enter',
+          enterActive: 'custom-notification-enterActive',
+          leave: 'custom-notification-leave',
+          leaveActive: 'custom-notification-leaveActive'
+        }
+      },
+      notificationClassName: 'custom-notification-classname'
+    };
+    const component = render(Notifications, customProps);
+    expect(component.props.defaultValues).toEqual(customProps.defaultValues);
+    expect(component.props.className).toEqual(customProps.className);
+    expect(component.props.transition).toEqual(customProps.transition);
+    expect(component.props.notificationClassName).toEqual(customProps.notificationClassName);
   });
 });

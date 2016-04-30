@@ -1,4 +1,3 @@
-
 describe('Components', () => {
   require('./Notifications');
 });
