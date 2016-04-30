@@ -1,0 +1,3 @@
+describe('Store', () => {
+  require('./notifications');
+});

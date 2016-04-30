@@ -19,7 +19,7 @@ const fixture = {
   dismissAfter: 4000
 };
 
-describe('Store', () => {
+describe('notifications', () => {
   describe('Actions', () => {
     describe('addNotification()', () => {
       it('should create an action to add a notification ' +
