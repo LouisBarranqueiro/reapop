@@ -25,21 +25,4 @@ describe('Helpers', () => {
       expect(convertStatus(1)).to.equal(1);
     });
   });
-  
-  describe('validateNotification()', () => {
-    it('should throw an error (notification without title and message)', () => {
-      expect(
-        validateNotification.bind(validateNotification, {})
-      ).to.throw(Error, 'A notification must have a `title` or a `message` property');
-    });
-
-    it('shouldn\'t throw an error', () => {
-      const notification = {
-        title: 'title'
-      };
-      expect(
-        validateNotification.bind(validateNotification, notification)
-      ).to.not.throw(Error);
-    });
-  });
 });

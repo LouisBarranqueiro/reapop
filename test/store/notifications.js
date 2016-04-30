@@ -75,36 +75,6 @@ describe('Store', () => {
         }];
         expect(store.getActions()).to.deep.equal(expectedAction);
       });
-
-      it('shouldn\'t create an action to add a notification ' +
-        '(notification without `title` and `message` property)', () => {
-        // setup
-        const middleware = [thunk];
-        const mockStore = configureMockStore(middleware);
-        const notification = {
-          // here we simulate an HTTP success status code (200 = OK)
-          status: 200,
-          dismissible: false,
-          dismissAfter: 4000
-        };
-        // init store
-        const store = mockStore({notifications: []});
-        // add a notification
-        let notificationAdded = {};
-        try {
-          notificationAdded = store.dispatch(addNotification(notification));
-        }
-        catch (error) {
-          // verify that error is thrown
-          expect(error).to.be.an.instanceof(Error);
-          expect(error.message)
-            .to.equal('A notification must have a `title` or a `message` property');
-        }
-        // verify that no notification is returned
-        expect(notificationAdded).to.deep.equal({});
-        // verify that actions of store is empty
-        expect(store.getActions()).to.deep.equal([]);
-      });
     });
 
     describe('updateNotification()', () => {
@@ -127,20 +97,6 @@ describe('Store', () => {
         };
         expect(updateNotification.bind(updateNotification, notification))
           .to.throw('A notification must have an `id` property to be updated')
-          .and.not.equal(expectedAction);
-      });
-
-      it('shouldn\'t create an action to update a notification ' +
-        '(notification without `title` and `message` property)', () => {
-        const notification = {
-          id: 123123123
-        };
-        const expectedAction = {
-          type: types.UPDATE_NOTIFICATION,
-          payload: notification
-        };
-        expect(updateNotification.bind(updateNotification, notification))
-          .to.throw('A notification must have a `title` or a `message` property')
           .and.not.equal(expectedAction);
       });
     });
