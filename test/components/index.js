@@ -1,3 +1,4 @@
 
 describe('Components', () => {
+  require('./Notifications');
 });

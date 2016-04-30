@@ -7,15 +7,15 @@ import notificationCss from '../Notification/Notification.scss';
 import {INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../constants';
 
 // default values for a notification
-const defaultValues = {
+export const defaultValues = {
   status: null,
   dismissible: true,
   dismissAfter: 5000
 };
 // default className for notifications container
-const className = css['notifications-container'];
+export const className = css['notifications-container'];
 // default transition for notifications
-const transition = {
+export const transition = {
   enterTimeout: 400,
   leaveTimeout: 400,
   // we must define transition class for each state because webpack rename css class
@@ -27,7 +27,7 @@ const transition = {
   }
 };
 
-class Notifications extends Component {
+export class Notifications extends Component {
   // Default properties
   static defaultProps = {
     defaultValues,
