@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {convertStatus, validateNotification} from '../../src/helpers';
+import {convertStatus} from '../../src/helpers';
 import {INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../src/constants';
 
 describe('Helpers', () => {
