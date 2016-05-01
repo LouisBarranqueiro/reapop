@@ -20,14 +20,3 @@ export function convertStatus(status) {
   }
   return status;
 }
-
-/**
- * Validate a notification
- * @param {Object} notification
- * @returns {void}
- */
-export function validateNotification(notification) {
-  if (!notification.title && !notification.message) {
-    throw new Error('A notification must have a `title` or a `message` property');
-  }
-}

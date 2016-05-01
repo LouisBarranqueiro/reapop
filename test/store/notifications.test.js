@@ -1,4 +1,3 @@
-import {expect} from 'chai';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import reducer, {
@@ -19,7 +18,7 @@ const fixture = {
   dismissAfter: 4000
 };
 
-describe('Store', () => {
+describe('notifications', () => {
   describe('Actions', () => {
     describe('addNotification()', () => {
       it('should create an action to add a notification ' +
@@ -45,7 +44,7 @@ describe('Store', () => {
             id: notificationAdded.id
           })
         }];
-        expect(store.getActions()).to.deep.equal(expectedAction);
+        expect(store.getActions()).toEqual(expectedAction);
       });
 
       it('should create an action to add a notification ' +
@@ -73,37 +72,7 @@ describe('Store', () => {
             status: STATUS.success
           })
         }];
-        expect(store.getActions()).to.deep.equal(expectedAction);
-      });
-
-      it('shouldn\'t create an action to add a notification ' +
-        '(notification without `title` and `message` property)', () => {
-        // setup
-        const middleware = [thunk];
-        const mockStore = configureMockStore(middleware);
-        const notification = {
-          // here we simulate an HTTP success status code (200 = OK)
-          status: 200,
-          dismissible: false,
-          dismissAfter: 4000
-        };
-        // init store
-        const store = mockStore({notifications: []});
-        // add a notification
-        let notificationAdded = {};
-        try {
-          notificationAdded = store.dispatch(addNotification(notification));
-        }
-        catch (error) {
-          // verify that error is thrown
-          expect(error).to.be.an.instanceof(Error);
-          expect(error.message)
-            .to.equal('A notification must have a `title` or a `message` property');
-        }
-        // verify that no notification is returned
-        expect(notificationAdded).to.deep.equal({});
-        // verify that actions of store is empty
-        expect(store.getActions()).to.deep.equal([]);
+        expect(store.getActions()).toEqual(expectedAction);
       });
     });
 
@@ -113,7 +82,7 @@ describe('Store', () => {
           type: types.UPDATE_NOTIFICATION,
           payload: fixture
         };
-        expect(updateNotification(fixture)).to.deep.equal(expectedAction);
+        expect(updateNotification(fixture)).toEqual(expectedAction);
       });
 
       it('shouldn\'t create an action to update a notification ' +
@@ -126,22 +95,8 @@ describe('Store', () => {
           payload: notification
         };
         expect(updateNotification.bind(updateNotification, notification))
-          .to.throw('A notification must have an `id` property to be updated')
-          .and.not.equal(expectedAction);
-      });
-
-      it('shouldn\'t create an action to update a notification ' +
-        '(notification without `title` and `message` property)', () => {
-        const notification = {
-          id: 123123123
-        };
-        const expectedAction = {
-          type: types.UPDATE_NOTIFICATION,
-          payload: notification
-        };
-        expect(updateNotification.bind(updateNotification, notification))
-          .to.throw('A notification must have a `title` or a `message` property')
-          .and.not.equal(expectedAction);
+          .toThrow('A notification must have an `id` property to be updated')
+          .toNotEqual(expectedAction);
       });
     });
 
@@ -152,14 +107,14 @@ describe('Store', () => {
           type: types.REMOVE_NOTIFICATION,
           payload: id
         };
-        expect(removeNotification(id)).to.deep.equal(expectedAction);
+        expect(removeNotification(id)).toEqual(expectedAction);
       });
     });
   });
 
   describe('Reducers', () => {
     it('should return the initial state', () => {
-      expect(reducer(undefined, {})).to.deep.equal([]);
+      expect(reducer(undefined, {})).toEqual([]);
     });
 
     it('should handle ADD_NOTIFICATION', () => {
@@ -168,7 +123,7 @@ describe('Store', () => {
           type: types.ADD_NOTIFICATION,
           payload: fixture
         })
-      ).to.deep.equal([fixture]);
+      ).toEqual([fixture]);
     });
 
     it('should handle UPDATE_NOTIFICATION', () => {
@@ -184,7 +139,7 @@ describe('Store', () => {
           type: types.UPDATE_NOTIFICATION,
           payload: newNotification
         })
-      ).to.deep.equal([newNotification]);
+      ).toEqual([newNotification]);
     });
 
     it('should handle REMOVE_NOTIFICATION', () => {
@@ -193,7 +148,7 @@ describe('Store', () => {
           type: types.REMOVE_NOTIFICATION,
           payload: fixture.id
         })
-      ).to.deep.equal([]);
+      ).toEqual([]);
     });
   });
 });
