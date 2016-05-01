@@ -1,6 +1,4 @@
 import React from 'react';
-import expect from 'expect';
-import expectJSX from 'expect-jsx';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import {
   defaultValues,
@@ -11,8 +9,6 @@ import {
 import {className as notificationClassName} from '../../src/components/Notification/Notification';
 import STATUS from '../../src/constants';
 import {shallowRender, render} from '../helpers';
-
-expect.extend(expectJSX);
 
 describe('Notifications', () => {
   it('should render component with correct JSX structure', () => {
@@ -27,7 +23,7 @@ describe('Notifications', () => {
     );
     expect(component).toEqualJSX(expectedElement);
   });
-  
+
   it('should render component with its default props', () => {
     const component = render(Notifications);
     expect(component).toExist();
@@ -36,7 +32,7 @@ describe('Notifications', () => {
     expect(component.props.transition).toEqual(transition);
     expect(component.props.notificationClassName).toEqual(notificationClassName);
   });
-  
+
   it('should render component with custom props', () => {
     const customProps = {
       defaultValues: {
