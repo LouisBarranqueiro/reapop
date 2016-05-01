@@ -1,39 +1,26 @@
-var path = require('path');
-var webpack = require('webpack');
+/* eslint-disable */
+import webpack from 'webpack'
 
 const cssModulesLoader = [
-  'css?sourceMap&-minimize',
+  'css?sourceMap&',
   'modules',
   'importLoaders=1',
   'localIdentName=[name]__[local]___[hash:base64:5]'
 ].join('&');
 
-module.exports = {
+// Webpack config for test
+const webpackConfig = {
   devtool: 'cheap-module-eval-source-map',
-  resolveLoader: {
-    modulesDirectories: ['./node_modules']
-  },
-  plugins: [
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.NormalModuleReplacementPlugin(
-      /^react-redux-notification/, function(data) {
-        data.request = path.resolve(__dirname, './src');
-      }
-    )
-  ],
   module: {
     loaders: [{
-      test: /\.(js|jsx)$/,
+      test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel'
-    }, {
-      test: /\.html$/,
-      loader: 'file?name=[name].[ext]'
     }, {
       test: /\.scss$/,
       loaders: ['style', cssModulesLoader, 'sass']
     }]
   }
 };
+
+export default webpackConfig;

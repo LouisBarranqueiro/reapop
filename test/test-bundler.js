@@ -6,5 +6,9 @@ import 'babel-polyfill';
 expect.extend(expectJSX);
 global.expect = expect;
 
-var context = require.context('./', true, /index\.js/);
-context.keys().forEach(context);
+// require all `test/**/index.js`
+const testsContext = require.context('./', true, /index\.js/);
+testsContext.keys().forEach(testsContext);
+// require all `src/**/*.js`
+const componentsContext = require.context('../src', true, /\.js$/);
+componentsContext.keys().forEach(componentsContext);
