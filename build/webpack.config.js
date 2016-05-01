@@ -19,7 +19,15 @@ const webpackConfig = {
     }, {
       test: /\.scss$/,
       loaders: ['style', cssModulesLoader, 'sass']
+    }, {
+      test: /\.json$/,
+      loader: 'json'
     }]
+  },
+  externals: {
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
   }
 };
 
