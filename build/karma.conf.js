@@ -5,11 +5,11 @@ module.exports = function(config) {
     // project root
     basePath: '../',
     files: [{
-        pattern: `./test/test-bundler.js`,
-        watched: false,
-        served: true,
-        included: true
-      }
+      pattern: './test/test-bundler.js',
+      watched: false,
+      served: true,
+      included: true
+    }
     ],
     plugins: [
       'karma-mocha',
@@ -34,5 +34,5 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     singleRun: true,
     concurrency: Infinity
-  })
+  });
 };

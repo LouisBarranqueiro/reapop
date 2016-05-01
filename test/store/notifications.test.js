@@ -97,7 +97,6 @@ describe('notifications', () => {
         expect(updateNotification.bind(updateNotification, notification))
           .toThrow('A notification must have an `id` property to be updated')
           .toNotEqual(expectedAction);
-
       });
     });
 
