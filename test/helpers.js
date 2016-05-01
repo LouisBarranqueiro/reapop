@@ -1,4 +1,3 @@
-import React from 'react';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 
@@ -7,5 +6,3 @@ export function mockStore(reducers) {
   const mockStore = configureMockStore(middleware);
   return mockStore(reducers);
 }
-
-
