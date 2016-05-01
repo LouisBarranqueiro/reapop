@@ -51,7 +51,14 @@ describe('Notifications', () => {
           leaveActive: 'custom-notification-leaveActive'
         }
       },
-      notificationClassName: 'custom-notification-classname'
+      notificationClassName: {
+        main: 'custom-notification-leaveActive',
+        type: function(type) {
+          return 'custom-notification-' + type;
+        },
+        title: 'custom-notification-title',
+        icon: 'custom-notification-icon'
+      }
     };
     const component = render(Notifications, customProps);
     expect(component.props.defaultValues).toEqual(customProps.defaultValues);
