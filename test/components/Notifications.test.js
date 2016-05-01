@@ -1,14 +1,9 @@
 import React from 'react';
-import {Provider} from 'react-redux';
-import {shallow, mount, render} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import {
-  defaultValues,
-  className,
-  transition,
-  Notifications
-} from '../../src/components/Notifications/Notifications';
-import {className as notificationClassName} from '../../src/components/Notification/Notification';
+import {Notifications, className, transition} from '../../src/components/Notifications/Notifications';
+import css from '../../src/components/Notifications/Notifications.scss';
+import notificationCss from '../../src/components/Notification/Notification.scss';
 import STATUS from '../../src/constants';
 
 // default props for Notifications component
@@ -50,6 +45,7 @@ const customProps = {
  * @param {Object} props
  * @returns {XML}
  */
+/* eslint-disable "react/prop-types" */
 function expectedNotificationsJSX(props = {className, transition}) {
   return (
     <div className={props.className}>
@@ -60,33 +56,66 @@ function expectedNotificationsJSX(props = {className, transition}) {
     </div>
   );
 }
+/* eslint-enable */
 
 describe('Notifications', () => {
   it('should render JSX and HTML correctly with default props', () => {
-    const wrapper = shallow(<Notifications {...defaultProps} />);
+    const wrapper = shallow(<Notifications {...defaultProps}/>);
     const expectedElement = shallow(expectedNotificationsJSX());
     expect(wrapper.html()).toEqual(expectedElement.html());
     expect(wrapper.debug()).toEqual(expectedElement.debug());
   });
   
   it('should mount with default props', () => {
-    const component = mount(<Notifications {...defaultProps} />);
+    // default value for notifications
+    const defaultValues = {
+      status: null,
+      dismissible: true,
+      dismissAfter: 5000
+    };
+    // default className for notifications container
+    const className = css['notifications-container'];
+    // default transition for notifications
+    const transition = {
+      enterTimeout: 400,
+      leaveTimeout: 400,
+      name: {
+        enter: notificationCss['notification-enter'],
+        enterActive: notificationCss['notification-enter-active'],
+        leave: notificationCss['notification-leave'],
+        leaveActive: notificationCss['notification-leave-active']
+      }
+    };
+    // default className for Notification component
+    const notificationClassName = {
+      main: notificationCss['notification'],
+      status: function(status) {
+        return notificationCss[`notification-${status}`];
+      },
+      icon: `fa ${notificationCss['notification-icon']}`,
+      title: notificationCss['notification-title']
+    };
+
+    const component = mount(<Notifications {...defaultProps}/>);
     expect(component).toExist();
     expect(component.props().defaultValues).toEqual(defaultValues);
     expect(component.props().className).toEqual(className);
     expect(component.props().transition).toEqual(transition);
-    expect(component.props().notificationClassName).toEqual(notificationClassName);
+    expect(component.props().notificationClassName.main).toEqual(notificationClassName.main);
+    expect(component.props().notificationClassName.status()).toEqual(notificationClassName.status());
+    expect(component.props().notificationClassName.icon).toEqual(notificationClassName.icon);
+    expect(component.props().notificationClassName.title).toEqual(notificationClassName.title);
   });
   
   it('should render JSX & HTML with custom props', () => {
-    const wrapper = shallow(<Notifications {...customProps} />);
+    const wrapper = shallow(<Notifications {...customProps}/>);
     const expectedElement = shallow(expectedNotificationsJSX(customProps));
     expect(wrapper.html()).toEqual(expectedElement.html());
     expect(wrapper.debug()).toEqual(expectedElement.debug());
   });
 
   it('should mount component with custom props', () => {
-    const wrapper = mount(<Notifications {...customProps} />);
+    const wrapper = mount(<Notifications {...customProps}/>);
     expect(wrapper.props().defaultValues).toEqual(customProps.defaultValues);
     expect(wrapper.props().className).toEqual(customProps.className);
     expect(wrapper.props().transition).toEqual(customProps.transition);
