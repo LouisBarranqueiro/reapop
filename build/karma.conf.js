@@ -1,38 +1,50 @@
+import path from 'path';
 import webpackConfig from './webpack.config.js';
 
-module.exports = function(config) {
-  config.set({
-    // project root
-    basePath: '../',
-    files: [{
-      pattern: './test/test-bundler.js',
-      watched: false,
-      served: true,
-      included: true
-    }
-    ],
-    plugins: [
-      'karma-mocha',
-      'karma-mocha-reporter',
-      'karma-phantomjs-launcher',
-      'karma-webpack'
-    ],
-    frameworks: ['mocha'],
-    preprocessors: {
-      './test/test-bundler.js': ['webpack']
-    },
-    webpack: webpackConfig,
-    webpackServer: {
-      noInfo: true
-    },
-    reporters: ['mocha'],
+const karmaConfig = {
+  // project root
+  basePath: '../',
+  files: ['./test/test-bundler.js'],
+  plugins: [
+    'karma-mocha',
+    'karma-mocha-reporter',
+    'karma-coverage',
+    'karma-phantomjs-launcher',
+    'karma-webpack'
+  ],
+  frameworks: ['mocha'],
+  preprocessors: {
+    './test/test-bundler.js': ['webpack']
+  },
+  webpack: webpackConfig,
+  webpackServer: {
+    noInfo: true
+  },
+  reporters: ['mocha', 'coverage'],
+  coverageReporter: {
+    reporters: [{
+      type: 'text'
+    }, {
+      type: 'html',
+      dir: 'coverage'
+    }]
+  },
+  port: 9876,
+  colors: true,
+  autoWatch: true,
+  browsers: ['PhantomJS'],
+  singleRun: true,
+  concurrency: Infinity
+};
+// Isparta is a code coverage tool for ES6 using babel.
+karmaConfig.webpack.module.preLoaders = [{
+  test: /\.js$/,
+  include: path.resolve('src'),
+  exclude: path.resolve('node_modules'),
+  loader: 'isparta'
+}];
 
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['PhantomJS'],
-    singleRun: true,
-    concurrency: Infinity
-  });
+module.exports = function(config) {
+  karmaConfig.logLevel = config.LOG_INFO;
+  config.set(karmaConfig);
 };
