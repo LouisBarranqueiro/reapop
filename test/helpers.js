@@ -1,35 +1,11 @@
 import React from 'react';
-import TestUtils, {createRenderer} from 'react-addons-test-utils';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 
-/**
- * Shallow render component
- * @param {Object} Component A React component
- * @param {Object} props Properties passed to the Component
- * @returns {*}
- */
-export function shallowRender(Component, props = {}) {
-  const defaultProps = {
-    notifications: []
-  };
-  props = Object.assign({}, defaultProps, props);
-  let renderer = createRenderer();
-  renderer.render(<Component {...props}/>);
-  return renderer.getRenderOutput();
+export function mockStore(reducers) {
+  const middleware = [thunk];
+  const mockStore = configureMockStore(middleware);
+  return mockStore(reducers);
 }
 
-/**
- * Render component in a detached DOM
- * @param {Object} Component A React component
- * @param {Object} props Properties passed to the Component
- * @returns {*}
- */
-export function render(Component, props = {}) {
-  const defaultProps = {
-    notifications: []
-  };
-  props = Object.assign({}, defaultProps, props);
-  let node = window.document.createElement('div');
-  return TestUtils.renderIntoDocument(
-    <Component {...props}/>, node
-  );
-}
+
