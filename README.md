@@ -150,7 +150,7 @@ render() {
   const defaultValues = {
     status: 'info',
     dismissible: false,
-    dismissAfter: &k3000
+    dismissAfter: 3000
   };
   return (
     <div>
@@ -226,12 +226,13 @@ render() {
 
 This object allow you to configure class names of `Notification` React component.
 
-| Property  | Type     | Default | Description |
-| --------- | :------: | :-----: | ----------- |
-| main      | String   | 400     | Apply on notification container. **E.g**: `notification` |
-| status    | Function | 400     | Apply on notification container. Use to stylize the notification depending on its `status` value. **E.g**: `notification-${status}`. The function take one parameter (`status`), a String |
-| icon      | String   |         | Apply on notification icon container. **E.g**: `notification-icon` |
-| title     | String   |         | Apply on notification title container. **E.g**: `notification-title` |
+| Property  | Type     | Description |
+| --------- | :------: | ----------- |
+| main      | String   | Apply on notification container. **E.g**: `notification` |
+| status    | Function | Apply on notification container. Use to stylize the notification depending on its `status` value. **E.g**: `notification-${status}`. The function take one parameter (`status`), a String |
+| icon      | String   | Apply on notification icon container. **E.g**: `notification-icon` |
+| title     | String   | Apply on notification title container. **E.g**: `notification-title` |
+| message   | String   | Apply on notification message container. **E.g**: `notification-message` |
 
 ##### JSX structure of `Notification` React component
 
@@ -239,8 +240,8 @@ This object allow you to configure class names of `Notification` React component
 <div className={`${className.main} ${className.status(status)}`}
      onClick={dismissible ? this._remove : ''}>
   <i className={className.icon}></i>
-  <p className={className.title}>{title}</p>
-  {message}
+  <h4 className={className.title}>{title}</h4>
+  <p className={className.message}{message}</p>
 </div>
 ```
 
@@ -255,6 +256,7 @@ render() {
     },
     icon: 'my-notification-icon',
     title: 'my-notification-title'
+    message: 'my-notification-message'
   };
   return (
     <div>

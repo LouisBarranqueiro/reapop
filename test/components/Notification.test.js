@@ -34,14 +34,16 @@ describe('Notification', () => {
     const {title, message, status, dismissible} = notification;
     let titleDiv = null;
     if (title) {
-      titleDiv = <p className={className.title}>{title}</p>;
+      titleDiv = <h4 className={className.title}>{title}</h4>;
     }
     return (
       <div className={`${className.main} ${className.status(status)}`}
            onClick={dismissible ? this._remove : ''}>
         <i className={className.icon}></i>
         {titleDiv}
-        {message}
+        <p className={className.message}>
+          {message}
+        </p>
       </div>
     );
   }
