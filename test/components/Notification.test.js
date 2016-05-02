@@ -111,7 +111,7 @@ describe('Notification', () => {
     const wrapper = mount(<Notification key={_notification.id} className={className}
       {..._notification} {...defaultProps}/>);
     try {
-      wrapper.unmount()
+      wrapper.unmount();
     }
     catch (error) {
       expect(error.stack).toMatch(/onRemove\ncomponentWillUnmount/);
