@@ -20,11 +20,12 @@ describe('Notification', () => {
 
   // default props for Notification component
   const defaultProps = {
-    removeNotification: function() {}
+    removeNotification: function() {
+    }
   };
 
   /**
-   * Return expected Notifications JSX
+   * Return expected JSX of Notification component
    * @param {Object} props
    * @returns {XML}
    */
@@ -44,7 +45,6 @@ describe('Notification', () => {
       </div>
     );
   }
-
   /* eslint-enable "react/prop-types" */
 
   it('should render JSX and HTML correctly (with title)', () => {
@@ -78,5 +78,44 @@ describe('Notification', () => {
     expect(wrapper.props().dismissAfter).toEqual(notification.dismissAfter);
     expect(wrapper.props().onAdd()).toEqual(notification.onAdd());
     expect(wrapper.props().onRemove()).toEqual(notification.onRemove());
+  });
+
+  it('should run onAdd() callback at componentDidMount() lifecycle', () => {
+    const errorMessage = 'onAdd() callback';
+    const _notification = Object.assign({}, notification, {
+      // here we throw an error to capture where
+      // the code has been executed before error was thrown
+      onAdd: function() {
+        throw new Error(errorMessage);
+      }
+    });
+    try {
+      mount(<Notification key={_notification.id} className={className}
+        {..._notification} {...defaultProps}/>);
+    }
+    catch (error) {
+      expect(error.stack).toMatch(/onAdd\ncomponentDidMount/);
+      expect(error.message).toEqual(errorMessage);
+    }
+  });
+
+  it('should run onRemove() callback at componentWillUnmount() lifecycle', () => {
+    const errorMessage = 'onRemove() callback';
+    const _notification = Object.assign({}, notification, {
+      // here we throw an error to capture where
+      // the code has been executed before error was thrown
+      onRemove: function() {
+        throw new Error(errorMessage);
+      }
+    });
+    const wrapper = mount(<Notification key={_notification.id} className={className}
+      {..._notification} {...defaultProps}/>);
+    try {
+      wrapper.unmount()
+    }
+    catch (error) {
+      expect(error.stack).toMatch(/onRemove\ncomponentWillUnmount/);
+      expect(error.message).toEqual(errorMessage);
+    }
   });
 });
