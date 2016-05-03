@@ -18,6 +18,7 @@ export const className = {
 export class Notification extends Component {
   // Default properties
   static defaultProps = {
+    className: className,
     onAdd: function() {
     },
     onRemove: function() {
