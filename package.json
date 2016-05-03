@@ -53,6 +53,7 @@
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
     "express": "^4.13.4",
+    "faker": "^3.1.0",
     "file-loader": "^0.8.5",
     "import": "0.0.6",
     "isparta-loader": "^2.0.0",
