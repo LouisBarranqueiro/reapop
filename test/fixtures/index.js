@@ -29,11 +29,12 @@ export function genNotifications(numb) {
 
 /**
  * Generate a notification
- * @returns {void}
+ * @param {Object} notification
+ * @returns {Object} notification
  */
-export function genNotification() {
+export function genNotification(notification = {}) {
   const numb = faker.random.number();
-  return {
+  return Object.assign({}, {
     id: faker.random.number(),
     title: faker.lorem.sentence(),
     message: faker.lorem.sentence(),
@@ -46,5 +47,5 @@ export function genNotification() {
     onRemove: function() {
       return numb * 2;
     }
-  };
+  }, notification);
 }
