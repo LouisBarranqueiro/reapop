@@ -1,7 +1,13 @@
 import React from 'react';
 import {mount, shallow} from 'enzyme';
+import {Provider} from 'react-redux';
 import STATUS from '../../src/constants';
-import {Notification, className} from '../../src/components/Notification/Notification';
+import {genNotification, mockStore} from '../fixtures';
+import {types} from '../../src/store/notifications';
+import ConnectNotification, {
+  Notification,
+  className
+} from '../../src/components/Notification/Notification';
 
 describe('Notification', () => {
   // a default notification
@@ -47,7 +53,22 @@ describe('Notification', () => {
       </div>
     );
   }
+
   /* eslint-enable "react/prop-types" */
+
+  it('should mount with passed props', () => {
+    const wrapper = mount(<Notification key={notification.id} className={className}
+      {...notification} {...defaultProps}/>);
+    expect(wrapper.props().removeNotification).toEqual(defaultProps.removeNotification);
+    expect(wrapper.props().id).toEqual(notification.id);
+    expect(wrapper.props().title).toEqual(notification.title);
+    expect(wrapper.props().message).toEqual(notification.message);
+    expect(wrapper.props().status).toEqual(notification.status);
+    expect(wrapper.props().dismissible).toEqual(notification.dismissible);
+    expect(wrapper.props().dismissAfter).toEqual(notification.dismissAfter);
+    expect(wrapper.props().onAdd()).toEqual(notification.onAdd());
+    expect(wrapper.props().onRemove()).toEqual(notification.onRemove());
+  });
 
   it('should render JSX and HTML correctly (with title)', () => {
     const wrapper = shallow(<Notification key={notification.id} className={className}
@@ -68,18 +89,20 @@ describe('Notification', () => {
     expect(wrapper.debug()).toEqual(expectedComponent.debug());
   });
 
-  it('should mount with passed props', () => {
-    const wrapper = mount(<Notification key={notification.id} className={className}
-      {...notification} {...defaultProps}/>);
-    expect(wrapper.props().removeNotification).toEqual(defaultProps.removeNotification);
-    expect(wrapper.props().id).toEqual(notification.id);
-    expect(wrapper.props().title).toEqual(notification.title);
-    expect(wrapper.props().message).toEqual(notification.message);
-    expect(wrapper.props().status).toEqual(notification.status);
-    expect(wrapper.props().dismissible).toEqual(notification.dismissible);
-    expect(wrapper.props().dismissAfter).toEqual(notification.dismissAfter);
-    expect(wrapper.props().onAdd()).toEqual(notification.onAdd());
-    expect(wrapper.props().onRemove()).toEqual(notification.onRemove());
+  it('should create an action to remove the notification when it is clicked', () => {
+    const notification = genNotification({dismissible: true});
+    const store = mockStore({notification: [notification]});
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    wrapper.find(ConnectNotification).simulate('click');
+    const expectedAction = {
+      type: types.REMOVE_NOTIFICATION,
+      payload: notification.id
+    };
+    expect(store.getActions()).toEqual([expectedAction]);
   });
 
   it('should run onAdd() callback at componentDidMount() lifecycle', () => {
