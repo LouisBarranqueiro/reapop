@@ -1,4 +1,4 @@
-import STATUS from '../src/constants';
+import STATUS from '../../src/constants';
 import faker from 'faker';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
