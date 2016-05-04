@@ -17,19 +17,20 @@ export function mockStore(reducers) {
 /**
  * Generate notifications
  * @param {Number} numb number of notifications generated
+ * @param {Object} notification a notification base
  * @returns {Array}
  */
-export function genNotifications(numb) {
+export function genNotifications(numb, notification = {}) {
   let notifications = [];
   for (let i = 0; i < numb; i++) {
-    notifications.push(genNotification());
+    notifications.push(genNotification(notification));
   }
   return notifications;
 }
 
 /**
  * Generate a notification
- * @param {Object} notification
+ * @param {Object} notification a notification base
  * @returns {Object} notification
  */
 export function genNotification(notification = {}) {
