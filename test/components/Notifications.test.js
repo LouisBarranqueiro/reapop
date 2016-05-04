@@ -108,11 +108,10 @@ describe('Notifications', () => {
   /* eslint-enable */
 
   it('should mount with default props', () => {
-    const component = mount(<Notifications {...defaultProps}/>);
-    expect(component).toExist();
-    expect(component.props().defaultValues).toEqual(defaultValues);
-    expect(component.props().className).toEqual(className);
-    expect(component.props().transition).toEqual(transition);
+    const wrapper = mount(<Notifications {...defaultProps}/>);
+    expect(wrapper.props().defaultValues).toEqual(defaultValues);
+    expect(wrapper.props().className).toEqual(className);
+    expect(wrapper.props().transition).toEqual(transition);
   });
 
   it('should mount component with custom props', () => {
