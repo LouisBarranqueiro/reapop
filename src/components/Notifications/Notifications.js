@@ -78,7 +78,9 @@ export class Notifications extends Component {
         <Notification key={notification.id} id={notification.id} title={notification.title}
                       message={notification.message}
                       status={notification.status || status}
-                      dismissible={notification.dismissible === dismissible}
+                      dismissible={notification.dismissible != null
+                      ? notification.dismissible
+                      : dismissible}
                       dismissAfter={notification.dismissAfter != null
                       ? notification.dismissAfter
                       : dismissAfter}

@@ -11,14 +11,18 @@ export const className = {
   },
   // `fa` corresponds to font-awesome's class name
   icon: `fa ${css['notification-icon']}`,
-  title: css['notification-title']
+  title: css['notification-title'],
+  message: ''
 };
 
 export class Notification extends Component {
   // Default properties
   static defaultProps = {
-    onAdd: function() {},
-    onRemove: function() {}
+    className: className,
+    onAdd: function() {
+    },
+    onRemove: function() {
+    }
   };
 
   // Properties types
@@ -85,17 +89,20 @@ export class Notification extends Component {
     const {title, message, status, dismissAfter, dismissible, className} = this.props;
     let titleDiv = null;
     if (title) {
-      titleDiv = <p className={className.title}>{title}</p>;
+      titleDiv = <h4 className={className.title}>{title}</h4>;
     }
     // remove automatically notification after `dismissAfter` time
     if (dismissAfter > 0) {
       setTimeout(() => this._remove(), dismissAfter);
     }
     return (
-      <div className={`${className.main} ${className.status(status)}`} onClick={dismissible ? this._remove : ''}>
+      <div className={`${className.main} ${className.status(status)}`}
+           onClick={dismissible ? this._remove : ''}>
         <i className={className.icon}></i>
         {titleDiv}
-        {message}
+        <p className={className.message}>
+          {message}
+        </p>
       </div>
     );
   }
