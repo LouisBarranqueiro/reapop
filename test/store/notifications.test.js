@@ -1,5 +1,5 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import faker from 'faker';
+import {mockStore, genNotification} from '../fixtures';
 import reducer, {
   types,
   addNotification,
@@ -8,40 +8,32 @@ import reducer, {
 } from '../../src/store/notifications';
 import STATUS from '../../src/constants';
 
-// standard notification
-const fixture = {
-  id: 1234567899874,
-  title: 'title',
-  message: 'message',
-  status: STATUS.error,
-  dismissible: false,
-  dismissAfter: 4000
-};
-
 describe('notifications', () => {
+  let notification = null;
+
+  beforeEach('generate a new notification', () => {
+    notification = genNotification();
+  });
+
   describe('Actions', () => {
     describe('addNotification()', () => {
+      let store = null;
+
+      beforeEach('init store', () => {
+        store = mockStore({notifications: []});
+      });
+
       it('should create an action to add a notification ' +
         '(add `id` property and convert status)', () => {
-        // setup
-        const middleware = [thunk];
-        const mockStore = configureMockStore(middleware);
-        const notification = {
-          title: 'title',
-          message: 'message',
-          status: STATUS.error,
-          dismissible: false,
-          dismissAfter: 4000
-        };
-        // init store
-        const store = mockStore({notifications: []});
-        // add a notification
+        notification.id = null;
+        // here we simulate an HTTP success status code (200 = OK)
+        notification.status = 200;
         const notificationAdded = store.dispatch(addNotification(notification));
-        // verify
         const expectedAction = [{
           type: types.ADD_NOTIFICATION,
           payload: Object.assign({}, notification, {
-            id: notificationAdded.id
+            id: notificationAdded.id,
+            status: STATUS.success
           })
         }];
         expect(store.getActions()).toEqual(expectedAction);
@@ -49,27 +41,12 @@ describe('notifications', () => {
 
       it('should create an action to add a notification ' +
         '(add `id` property and don\'t convert status)', () => {
-        // setup
-        const middleware = [thunk];
-        const mockStore = configureMockStore(middleware);
-        const notification = {
-          title: 'title',
-          message: 'message',
-          // here we simulate an HTTP success status code (200 = OK)
-          status: 200,
-          dismissible: false,
-          dismissAfter: 4000
-        };
-        // init store
-        const store = mockStore({notifications: []});
-        // add a notification
+        notification.id = null;
         const notificationAdded = store.dispatch(addNotification(notification));
-        // verify
         const expectedAction = [{
           type: types.ADD_NOTIFICATION,
           payload: Object.assign({}, notification, {
-            id: notificationAdded.id,
-            status: STATUS.success
+            id: notificationAdded.id
           })
         }];
         expect(store.getActions()).toEqual(expectedAction);
@@ -80,16 +57,14 @@ describe('notifications', () => {
       it('should create an action to update a notification', () => {
         const expectedAction = {
           type: types.UPDATE_NOTIFICATION,
-          payload: fixture
+          payload: notification
         };
-        expect(updateNotification(fixture)).toEqual(expectedAction);
+        expect(updateNotification(notification)).toEqual(expectedAction);
       });
 
       it('shouldn\'t create an action to update a notification ' +
         '(notification without `id` property)', () => {
-        const notification = {
-          title: 'title'
-        };
+        notification.id = null;
         const expectedAction = {
           type: types.UPDATE_NOTIFICATION,
           payload: notification
@@ -102,7 +77,7 @@ describe('notifications', () => {
 
     describe('removeNotification()', () => {
       it('should create an action to remove a notification', () => {
-        const id = fixture.id;
+        const id = faker.random.number();
         const expectedAction = {
           type: types.REMOVE_NOTIFICATION,
           payload: id
@@ -118,35 +93,35 @@ describe('notifications', () => {
     });
 
     it('should handle ADD_NOTIFICATION', () => {
+      const notification2 = genNotification();
       expect(
         reducer([], {
           type: types.ADD_NOTIFICATION,
-          payload: fixture
+          payload: notification
         })
-      ).toEqual([fixture]);
+      ).toEqual([notification]);
+      expect(
+        reducer([notification], {
+          type: types.ADD_NOTIFICATION,
+          payload: notification2
+        })
+      ).toEqual([notification, notification2]);
     });
 
     it('should handle UPDATE_NOTIFICATION', () => {
-      const newNotification = {
-        id: fixture.id,
-        message: 'message updated',
-        type: STATUS.error,
-        dismissible: true,
-        dismissAfter: 10000
-      };
       expect(
-        reducer([fixture], {
+        reducer([notification], {
           type: types.UPDATE_NOTIFICATION,
-          payload: newNotification
+          payload: notification
         })
-      ).toEqual([newNotification]);
+      ).toEqual([notification]);
     });
 
     it('should handle REMOVE_NOTIFICATION', () => {
       expect(
-        reducer([fixture], {
+        reducer([notification], {
           type: types.REMOVE_NOTIFICATION,
-          payload: fixture.id
+          payload: notification.id
         })
       ).toEqual([]);
     });
