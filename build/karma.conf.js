@@ -22,12 +22,8 @@ const karmaConfig = {
   },
   reporters: ['mocha', 'coverage'],
   coverageReporter: {
-    reporters: [{
-      type: 'text'
-    }, {
       type: 'html',
       dir: 'coverage'
-    }]
   },
   port: 9876,
   colors: true,
