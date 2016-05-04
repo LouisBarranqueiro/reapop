@@ -6,7 +6,7 @@ import ConnectNotifications, {Notifications} from '../../src/components/Notifica
 import ConnectNotification, {className as notificationClassName} from '../../src/components/Notification/Notification';
 import css from '../../src/components/Notifications/Notifications.scss';
 import notificationCss from '../../src/components/Notification/Notification.scss';
-import {genNotifications, mockStore} from '../fixtures';
+import {genNotification, genNotifications, mockStore} from '../fixtures';
 import STATUS from '../../src/constants';
 
 describe('Notifications', () => {
@@ -29,12 +29,10 @@ describe('Notifications', () => {
       leaveActive: notificationCss['notification-leave-active']
     }
   };
-
   // default props for Notifications component
   const defaultProps = {
     notifications: []
   };
-
   // full custom properties object for a Notifications component
   const customProps = {
     notifications: [],
@@ -67,13 +65,17 @@ describe('Notifications', () => {
   /**
    * Return expected Notifications JSX
    * @param {Object} props
+   * @param {Array} notifications an Array of notification object
    * @returns {XML}
    */
-  /* eslint-disable "react/prop-types" */
-  function renderExpectedNotifications(props = {className, transition, notificationClassName}, notifications = []) {
+  function renderExpectedNotifications(props = {
+    className,
+    transition,
+    notificationClassName
+  }, notifications = []) {
     /**
      * Render notifications
-     * @returns {Array} notifications (JSX)
+     * @returns {XML}
      */
     function renderNotifications() {
       const {status, dismissible, dismissAfter} = defaultValues;
@@ -105,7 +107,6 @@ describe('Notifications', () => {
       </div>
     );
   }
-  /* eslint-enable */
 
   it('should mount with default props', () => {
     const wrapper = mount(<Notifications {...defaultProps}/>);
@@ -122,16 +123,40 @@ describe('Notifications', () => {
     expect(wrapper.props().notificationClassName).toEqual(customProps.notificationClassName);
   });
 
-  it('should render no notifications (default props)', () => {
+  it('should render no notifications', () => {
     const wrapper = shallow(<Notifications {...defaultProps}/>);
     const expectedElement = shallow(renderExpectedNotifications());
     expect(wrapper.html()).toEqual(expectedElement.html());
+    // `equals()` doesn't work in this case, I don't know why so
     // we use `debug()` to check that `TransitionGroup` tag are present
     // because after being rendered, it becomes a `span` tag
     expect(wrapper.debug()).toEqual(expectedElement.debug());
   });
 
-  it('should render notifications (default props)', () => {
+  it('should render notifications with default values for notifications', () => {
+    const notification = genNotification();
+    delete notification.status;
+    delete notification.dismissAfter;
+    delete notification.dismissible;
+    const store = mockStore({notifications: [notification]});
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotifications {...defaultProps}/>
+      </Provider>
+    );
+    const props = wrapper.find(ConnectNotification).props();
+    const expectedElement = mount(
+      <Provider store={store}>
+        {renderExpectedNotifications(undefined, [notification])}
+      </Provider>
+    );
+    expect(props.status).toEqual(defaultValues.status);
+    expect(props.dismissible).toEqual(defaultValues.dismissible);
+    expect(props.dismissAfter).toEqual(defaultValues.dismissAfter);
+    expect(wrapper.html()).toEqual(expectedElement.html());
+  });
+
+  it('should render notifications', () => {
     const notifications = genNotifications(3);
     const store = mockStore({notifications});
     const wrapper = mount(
@@ -142,31 +167,6 @@ describe('Notifications', () => {
     const expectedElement = mount(
       <Provider store={store}>
         {renderExpectedNotifications(undefined, notifications)}
-      </Provider>
-    );
-    expect(wrapper.html()).toEqual(expectedElement.html());
-  });
-
-  it('should render no notifications (custom props)', () => {
-    const wrapper = shallow(<Notifications {...customProps}/>);
-    const expectedElement = shallow(renderExpectedNotifications(customProps));
-    expect(wrapper.html()).toEqual(expectedElement.html());
-    // we use `debug()` to check that `TransitionGroup` tag are present
-    // because after being rendered, it becomes a `span` tag
-    expect(wrapper.debug()).toEqual(expectedElement.debug());
-  });
-
-  it('should render notifications (custom props)', () => {
-    const notifications = genNotifications(3);
-    const store = mockStore({notifications});
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotifications {...customProps}/>
-      </Provider>
-    );
-    const expectedElement = mount(
-      <Provider store={store}>
-        {renderExpectedNotifications(customProps, notifications)}
       </Provider>
     );
     expect(wrapper.html()).toEqual(expectedElement.html());
