@@ -183,13 +183,8 @@ describe('Notification', () => {
     expect(store.getActions()).toEqual([]);
   });
 
-  // here we do not use arrow function because their lexical
-  // binding of the `this`value makes them unable to access the Mocha
-  // context, and statements like `this.timeout(1000);` will not work
-  // inside an arrow function.
-  it('should create an action to remove the notification after `dismissAfter` duration', function(done) {
-    this.timeout(5000);
-    notification.dismissAfter = 2000;
+  it('should create an action to remove the notification after `dismissAfter` duration', (done) => {
+    notification.dismissAfter = 10;
     mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -199,17 +194,14 @@ describe('Notification', () => {
       type: types.REMOVE_NOTIFICATION,
       payload: notification.id
     };
+    expect(store.getActions()).toEqual([]);
     setTimeout(() => {
       expect(store.getActions()).toEqual([expectedAction]);
       done();
-    }, 2500);
+    }, 15);
   });
 
-  // here we do not use arrow function because their lexical
-  // binding of the `this`value makes them unable to access the Mocha
-  // context, and statements like `this.timeout(1000);` will not work
-  // inside an arrow function.
-  it('should not create an action to remove the notification after `dismissAfter` duration (dismissAfter = 0)', function(done) {
+  it('should not create an action to remove the notification after `dismissAfter` duration (dismissAfter = 0)', (done) => {
     notification.dismissAfter = 0;
     mount(
       <Provider store={store}>
@@ -219,6 +211,6 @@ describe('Notification', () => {
     setTimeout(() => {
       expect(store.getActions()).toEqual([]);
       done();
-    }, 1000);
+    }, 10);
   });
 });
