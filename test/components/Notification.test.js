@@ -65,10 +65,8 @@ describe('Notification', () => {
     expect(wrapper.props().className.message).toEqual(className.message);
     expect(wrapper.props().className.status()).toEqual(className.status());
     expect(wrapper.props().removeNotification).toEqual(removeNotification);
-    expect(wrapper.props().onAdd()).toEqual((() => {
-    })());
-    expect(wrapper.props().onRemove()).toEqual((() => {
-    })());
+    expect(wrapper.props().onAdd()).toEqual((() => {})());
+    expect(wrapper.props().onRemove()).toEqual((() => {})());
   });
 
   it('should render JSX and HTML correctly (with title)', () => {
