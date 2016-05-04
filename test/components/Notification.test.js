@@ -113,6 +113,16 @@ describe('Notification', () => {
       expect(error.stack).toMatch(/onAdd\ncomponentDidMount/);
       expect(error.message).toEqual(errorMessage);
     }
+    // and we update function to check that
+    // component mount without any error
+    notification.onAdd = () => {
+      return 0;
+    };
+    mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
   });
 
   it('should run onRemove() callback at componentWillUnmount() lifecycle', () => {
@@ -122,7 +132,7 @@ describe('Notification', () => {
     notification.onRemove = () => {
       throw new Error(errorMessage);
     };
-    const wrapper = mount(
+    let wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
       </Provider>
@@ -134,6 +144,17 @@ describe('Notification', () => {
       expect(error.stack).toMatch(/onRemove\ncomponentWillUnmount/);
       expect(error.message).toEqual(errorMessage);
     }
+    // and we update function without `throw` call to check that
+    // component unmount without any error
+    notification.onRemove = () => {
+      return 0;
+    };
+    wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    wrapper.unmount();
   });
 
   it('should create an action to remove the notification when it is clicked', () => {
