@@ -172,6 +172,17 @@ describe('Notification', () => {
     expect(store.getActions()).toEqual([expectedAction]);
   });
 
+  it('should not create an action to remove the notification when it is clicked (dismissible : false)', () => {
+    notification.dismissible = false;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    wrapper.find(ConnectNotification).simulate('click');
+    expect(store.getActions()).toEqual([]);
+  });
+
   // here we do not use arrow function because their lexical
   // binding of the `this`value makes them unable to access the Mocha
   // context, and statements like `this.timeout(1000);` will not work
