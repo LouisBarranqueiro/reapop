@@ -42,10 +42,21 @@ export function genNotification(notification = {}) {
     status: faker.random.objectElement(STATUS),
     dismissible: faker.random.boolean(),
     dismissAfter: faker.random.number(),
-    onAdd: function() {
+    actions: [{
+      name: faker.lorem.words(),
+      onClick: () => {
+        return numb * 2;
+      }
+    }, {
+      name: faker.lorem.words(),
+      onClick: () => {
+        return numb * 3;
+      }
+    }],
+    onAdd: () => {
       return numb;
     },
-    onRemove: function() {
+    onRemove: () => {
       return numb * 2;
     }
   }, notification);
