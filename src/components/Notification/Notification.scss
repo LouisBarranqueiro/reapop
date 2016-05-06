@@ -5,8 +5,10 @@
     box-shadow:         $shadow;
 }
 
-// notifications variables
+$primary-color: #349ef3;
+// notification variables
 $notification-max-width: 360px;
+
 $notification-success-bg: #ffffff;
 $notification-success-border: #4dc657;
 $notification-success-icon: "\f058";
@@ -26,15 +28,8 @@ $notification-error-icon: "\f057";
 @mixin notification-variant($background, $border-color, $icon) {
     background-color: $background;
     color:            #524c4c;
+    border-left:      2px solid #{$border-color};
 
-    @media (min-width: #{$screen-sm-min}) {
-        border-left: 2px solid #{$border-color};
-
-    }
-
-    @media (max-width: #{$screen-xs-max}) {
-        border-top: 2px solid #{$border-color};
-    }
     .notification-icon:before {
         content: $icon;
         color:   $border-color;
@@ -42,19 +37,45 @@ $notification-error-icon: "\f057";
 }
 
 .notification {
-    display:         block;
-    width:           auto;
-    box-sizing:      border-box;
-    position:        relative;
-    padding:         10px 20px;
-    padding-left:    55px;
-    border:          none;
-    cursor:          pointer;
-    z-index:         999;
-    transition:      all .4s ease-in;
+    display:  block;
+    position: relative;
+    border:   none;
+    z-index:  99999;
     @include box-shadow(0 1px 3px -1px rgba(0, 0, 0, 0.3));
-    -moz-box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.3);
 
+    &-meta {
+        display:      inline-block;
+        box-sizing:   border-box;
+        padding:      10px 20px;
+        padding-left: 55px;
+    }
+    // global style for action buttons
+    &-actions {
+        box-sizing:     border-box;
+        position:       relative;
+        vertical-align: top;
+        display:        table;
+        float:          right;
+
+        .notification-action {
+            box-sizing:     border-box;
+            display:        table-cell;
+            vertical-align: middle;
+            padding:        0;
+            background:     white;
+            outline:        none;
+            text-align:     center;
+            border:         none;
+            border-left:    1px solid rgba(0, 0, 0, 0.09);
+
+            &:hover {
+                color: $primary-color;
+            }
+            &:active {
+                color: darken($primary-color, 10%);
+            }
+        }
+    }
     &-icon {
         position:    absolute;
         top:         10px;
@@ -62,37 +83,81 @@ $notification-error-icon: "\f057";
         font-family: 'FontAwesome';
         font-size:   2rem;
     }
-
     &-title {
         margin-top:  1px;
         font-size:   1.5rem;
         font-weight: 700;
     }
-
+    &-message {
+        margin-bottom: 0;
+    }
+    &--dismissible {
+        cursor: pointer;
+    }
     // color variants
-    &-success {
+    &--success {
         @include notification-variant($notification-success-bg, $notification-success-border, $notification-success-icon);
     }
-
-    &-info {
+    &--info {
         @include notification-variant($notification-info-bg, $notification-info-border, $notification-info-icon);
     }
-
-    &-warning {
+    &--warning {
         @include notification-variant($notification-warning-bg, $notification-warning-border, $notification-warning-icon);
     }
-
-    &-error {
+    &--error {
         @include notification-variant($notification-error-bg, $notification-error-border, $notification-error-icon);
+    }
+    // change size of action buttons and meta div
+    // for small to large screen
+    @media (min-width: #{$screen-sm-min}) {
+        &--actions-1 .notification-meta,
+        &--actions-2 .notification-meta {
+            width: calc(100% - 80px);
+        }
+        &--actions-1 .notification-action {
+            height: 100%;
+        }
+        &--actions-2 .notification-action {
+            height: 50%;
+        }
+        &-actions {
+            width: 80px;
+
+            .notification-action {
+                width: 100%;
+
+                &:nth-child(2) {
+                    border-top: 1px solid rgba(0, 0, 0, 0.09);
+                }
+            }
+        }
+    }
+    // change size of action buttons and meta div
+    // for extra small screen
+    @media (max-width: #{$screen-xs-max}) {
+        &--actions-1 .notification-meta {
+            width: calc(100% - 80px);
+        }
+        &--actions-2 .notification-meta {
+            width: calc(100% - 160px);
+        }
+        &-actions {
+            .notification-action {
+                width:   80px;
+                height:  100%;
+            }
+        }
     }
 }
 
 // Animation : slide left to right for small to large screens
 @media (min-width: #{$screen-sm-min}) {
     .notification {
+        transition:    opacity .4s, right .4s;
         right:         0;
         position:      relative;
         margin-bottom: 20px;
+        width:         100%;
 
         // Animations
         // enter animation (start)
@@ -123,8 +188,10 @@ $notification-error-icon: "\f057";
 // Animation : slide top to bottom for extra small screens
 @media (max-width: #{$screen-xs-max}) {
     .notification {
-        top:      0;
-        position: relative;
+        width:      100%;
+        transition: opacity .4s, top .4s;
+        top:        0;
+        position:   relative;
         // Animations
         // enter animation (start)
         &-enter {
