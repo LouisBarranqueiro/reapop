@@ -44,11 +44,13 @@ export function genNotification(notification = {}) {
     dismissAfter: faker.random.number(),
     actions: [{
       name: faker.lorem.words(),
+      primary: faker.random.boolean(),
       onClick: () => {
         return numb * 2;
       }
     }, {
       name: faker.lorem.words(),
+      primary: faker.random.boolean(),
       onClick: () => {
         return numb * 3;
       }
