@@ -86,6 +86,7 @@ export class Notifications extends Component {
                       : dismissAfter}
                       onAdd={notification.onAdd}
                       onRemove={notification.onRemove}
+                      actions={notification.actions}
                       className={notificationClassName}/>
       );
     });
