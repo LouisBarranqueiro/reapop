@@ -129,18 +129,9 @@ export class Notification extends Component {
   render() {
     const {id, title, message, status, dismissAfter, dismissible, className, actions} = this.props;
     const isDismissible = (dismissible && actions.length === 0);
-    let titleDiv = null;
-    let messageDiv = null;
     let actionDiv = null;
     let style = {};
-    // add title
-    if (title) {
-      titleDiv = <h4 className={className.title}>{title}</h4>;
-    }
-    // add message
-    if (message) {
-      messageDiv = <p className={className.message}>{message}</p>;
-    }
+
     // add action button(s)
     if (actions.length) {
       // We use `ref` to get height of notification.
@@ -169,8 +160,12 @@ export class Notification extends Component {
            onClick={isDismissible ? this._remove : ''}>
         <i className={className.icon}></i>
         <div className={className.meta}>
-          {titleDiv}
-          {messageDiv}
+          {(title
+            ? <h4 className={className.title}>{title}</h4>
+            : '')}
+          {(message
+          ? <p className={className.message}>{message}</p>
+          : '')}
         </div>
         {actionDiv}
       </div>
