@@ -248,6 +248,8 @@ describe('Notification', () => {
 
   it('should create an action to remove the notification after `dismissAfter` duration', (done) => {
     notification.dismissAfter = 10;
+    // remove actions otherwise remove is not called after `dismissAfter`duration
+    notification.actions = [];
     mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
