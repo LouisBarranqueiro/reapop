@@ -10,12 +10,12 @@ export const className = {
   title: css['notification-title'],
   message: css['notification-message'],
   icon: `fa ${css['notification-icon']}`,
-  status: function(status) {
+  status: (status) => {
     return css[`notification--${status}`];
   },
   dismissible: css['notification--dismissible'],
   // `fa` corresponds to font-awesome's class name
-  actions: function(count) {
+  actions: (count) => {
     if (count === 1) {
       return css['notification--actions-1'];
     }
@@ -31,9 +31,9 @@ export class Notification extends Component {
   // Default properties
   static defaultProps = {
     className: className,
-    onAdd: function() {
+    onAdd: () => {
     },
-    onRemove: function() {
+    onRemove: () => {
     },
     actions: []
   };

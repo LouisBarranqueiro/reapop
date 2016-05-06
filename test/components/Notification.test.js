@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {genNotification, mockStore} from '../fixtures';
@@ -34,27 +34,73 @@ describe('Notification', () => {
     action: css['notification-action']
   };
 
-  /**
-   * Return expected JSX of Notification component
-   * @param {Object} props
-   * @returns {XML}
-   */
-  function renderExpectedNotification(notification) {
-    const {title, message, status, dismissible} = notification;
-    let titleDiv = null;
-    if (title) {
-      titleDiv = <h4 className={className.title}>{title}</h4>;
+  // Expected Notification component
+  // used to test render method of Notification component
+  class ExpectedNotification extends Component {
+    static defaultProps = {
+      className: className,
+      actions: []
+    };
+
+    componentDidMount() {
+      const {id, actions} = this.props;
+      if (actions.length && this.refs[id]) {
+        this.forceUpdate();
+      }
     }
-    return (
-      <div className={`${className.main} ${className.status(status)}`}
-           onClick={dismissible ? this._remove : ''}>
-        <i className={className.icon}></i>
-        {titleDiv}
-        <p className={className.message}>
-          {message}
-        </p>
-      </div>
-    );
+
+    renderActions() {
+      const {actions, className} = this.props;
+      return actions.map((action) => {
+        return (
+          <button key={action.name} className={className.action}
+                  onClick={action.onClick}>
+            {(action.primary
+              ? <b>{action.name}</b>
+              : action.name)}
+          </button>
+        );
+      });
+    }
+
+    render() {
+      const {id, title, message, status, dismissible, className, actions} = this.props;
+      const isDismissible = (dismissible && actions.length === 0);
+      let titleDiv = null;
+      let actionDiv = null;
+      let style = {};
+      if (title) {
+        titleDiv = <h4 className={className.title}>{title}</h4>;
+      }
+      if (actions.length) {
+        if (this.refs[id]) {
+          style = {
+            height: this.refs[id].clientHeight
+          };
+        }
+        actionDiv = (
+          <div className={className.actions()} style={style}
+               onClick={dismissible ? this._remove : ''}>
+            {this.renderActions()}
+          </div>
+        );
+      }
+
+      return (
+        <div ref={id} className={
+           `${className.main} ${className.status(status)} ${(isDismissible ? className.dismissible : '')} ${className.actions(actions.length)}`}
+             onClick={isDismissible ? this._remove : ''}>
+          <i className={className.icon}></i>
+          <div className={className.meta}>
+            {titleDiv}
+            <p className={className.message}>
+              {message}
+            </p>
+          </div>
+          {actionDiv}
+        </div>
+      );
+    }
   }
 
   beforeEach('generate a new notification and init store', () => {
@@ -92,7 +138,9 @@ describe('Notification', () => {
         <ConnectNotification key={notification.id} {...notification}/>
       </Provider>
     );
-    const expectedComponent = mount(renderExpectedNotification(notification));
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
 
@@ -105,7 +153,9 @@ describe('Notification', () => {
       </Provider>
     );
 
-    const expectedComponent = mount(renderExpectedNotification(notification));
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
 
