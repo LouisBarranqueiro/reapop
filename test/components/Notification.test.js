@@ -316,18 +316,6 @@ describe('Notification', () => {
     expect(store.getActions()).toEqual([expectedAction]);
   });
 
-  it('should not create an action to remove the notification ' +
-    'when it is clicked (dismissible : false)', () => {
-    notification.dismissible = false;
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification key={notification.id} {...notification}/>
-      </Provider>
-    );
-    wrapper.find(ConnectNotification).simulate('click');
-    expect(store.getActions()).toEqual([]);
-  });
-
   it('should create an action to remove the notification ' +
     'when a action button is clicked (dismissible : false)', () => {
     // we set `dismissible` to `false` to be sure
@@ -344,6 +332,39 @@ describe('Notification', () => {
       payload: notification.id
     };
     expect(store.getActions()).toEqual([expectedAction]);
+  });
+
+  it('should create an action to remove the notification after ' +
+    '`dismissAfter` duration', (done) => {
+    notification.dismissAfter = 10;
+    // remove actions otherwise `remove()` is not called after `dismissAfter` duration
+    notification.actions = [];
+    mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    const expectedAction = {
+      type: types.REMOVE_NOTIFICATION,
+      payload: notification.id
+    };
+    expect(store.getActions()).toEqual([]);
+    setTimeout(() => {
+      expect(store.getActions()).toEqual([expectedAction]);
+      done();
+    }, 15);
+  });
+
+  it('should not create an action to remove the notification ' +
+    'when it is clicked (dismissible : false)', () => {
+    notification.dismissible = false;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    wrapper.find(ConnectNotification).simulate('click');
+    expect(store.getActions()).toEqual([]);
   });
 
   it('should not create an action to remove the notification ' +
@@ -374,27 +395,6 @@ describe('Notification', () => {
       expect(store.getActions()).toEqual([]);
       done();
     }, 10);
-  });
-
-  it('should create an action to remove the notification after ' +
-    '`dismissAfter` duration', (done) => {
-    notification.dismissAfter = 10;
-    // remove actions otherwise `remove()` is not called after `dismissAfter` duration
-    notification.actions = [];
-    mount(
-      <Provider store={store}>
-        <ConnectNotification key={notification.id} {...notification}/>
-      </Provider>
-    );
-    const expectedAction = {
-      type: types.REMOVE_NOTIFICATION,
-      payload: notification.id
-    };
-    expect(store.getActions()).toEqual([]);
-    setTimeout(() => {
-      expect(store.getActions()).toEqual([expectedAction]);
-      done();
-    }, 15);
   });
 
   it('should not create an action to remove the notification after ' +
