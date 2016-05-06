@@ -49,7 +49,7 @@ describe('Notification', () => {
       }
     }
 
-    renderActions() {
+    _renderActions() {
       const {actions, className} = this.props;
       return actions.map((action) => {
         return (
@@ -66,12 +66,9 @@ describe('Notification', () => {
     render() {
       const {id, title, message, status, dismissible, className, actions} = this.props;
       const isDismissible = (dismissible && actions.length === 0);
-      let titleDiv = null;
       let actionDiv = null;
       let style = {};
-      if (title) {
-        titleDiv = <h4 className={className.title}>{title}</h4>;
-      }
+
       if (actions.length) {
         if (this.refs[id]) {
           style = {
@@ -81,7 +78,7 @@ describe('Notification', () => {
         actionDiv = (
           <div className={className.actions()} style={style}
                onClick={dismissible ? this._remove : ''}>
-            {this.renderActions()}
+            {this._renderActions()}
           </div>
         );
       }
@@ -92,10 +89,12 @@ describe('Notification', () => {
              onClick={isDismissible ? this._remove : ''}>
           <i className={className.icon}></i>
           <div className={className.meta}>
-            {titleDiv}
-            <p className={className.message}>
-              {message}
-            </p>
+            {(title
+              ? <h4 className={className.title}>{title}</h4>
+              : '')}
+            {(message
+              ? <p className={className.message}>{message}</p>
+              : '')}
           </div>
           {actionDiv}
         </div>
@@ -123,13 +122,19 @@ describe('Notification', () => {
     expect(wrapper.props().className.status()).toEqual(className.status());
     expect(wrapper.props().className.dismissible).toEqual(className.dismissible);
     expect(wrapper.props().className.actions()).toEqual(className.actions());
+    expect(wrapper.props().className.actions(1)).toEqual(className.actions(1));
+    expect(wrapper.props().className.actions(2)).toEqual(className.actions(2));
     expect(wrapper.props().className.action).toEqual(className.action);
     expect(wrapper.props().removeNotification).toEqual(removeNotification);
-    expect(wrapper.props().onAdd()).toEqual((() => {})());
-    expect(wrapper.props().onRemove()).toEqual((() => {})());
+    expect(wrapper.props().onAdd()).toEqual((() => {
+    })());
+    expect(wrapper.props().onRemove()).toEqual((() => {
+    })());
   });
 
   it('should render JSX and HTML correctly (with title)', () => {
+    // `dismissible` is set to `false` to be sure
+    // that notification will not disappear
     notification.dismissible = false;
     const wrapper = mount(
       <Provider store={store}>
@@ -143,8 +148,83 @@ describe('Notification', () => {
   });
 
   it('should render JSX and HTML correctly (without title)', () => {
+    // `dismissible` is set to `false` to be sure
+    // that notification will not disappear
     notification.dismissible = false;
     notification.title = null;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
+  it('should render JSX and HTML correctly (with message)', () => {
+    // `dismissible` is set to `false` to be sure
+    // that notification will not disappear
+    notification.dismissible = false;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
+  it('should render JSX and HTML correctly (without message)', () => {
+    // `dismissible` is set to `false` to be sure
+    // that notification will not disappear
+    notification.dismissible = false;
+    notification.message = null;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
+  it('should render JSX and HTML correctly (without actions)', () => {
+    notification.actions = [];
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
+  it('should render JSX and HTML correctly (with 1 action)', () => {
+    notification.actions = notification.actions.slice(0, 1);
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
+  it('should render JSX and HTML correctly (with 2 actions)', () => {
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -219,7 +299,8 @@ describe('Notification', () => {
     wrapper.unmount();
   });
 
-  it('should create an action to remove the notification when it is clicked', () => {
+  it('should create an action to remove the notification ' +
+    'when it is clicked', () => {
     notification.dismissible = true;
     notification.actions = [];
     const wrapper = mount(
@@ -235,7 +316,8 @@ describe('Notification', () => {
     expect(store.getActions()).toEqual([expectedAction]);
   });
 
-  it('should not create an action to remove the notification when it is clicked (dismissible : false)', () => {
+  it('should not create an action to remove the notification ' +
+    'when it is clicked (dismissible : false)', () => {
     notification.dismissible = false;
     const wrapper = mount(
       <Provider store={store}>
@@ -246,7 +328,56 @@ describe('Notification', () => {
     expect(store.getActions()).toEqual([]);
   });
 
-  it('should create an action to remove the notification after `dismissAfter` duration', (done) => {
+  it('should create an action to remove the notification ' +
+    'when a action button is clicked (dismissible : false)', () => {
+    // we set `dismissible` to `false` to be sure
+    // that dismissible is ignored in this case
+    notification.dismissible = false;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    wrapper.find(`.${css['notification-action']}`).first().simulate('click');
+    const expectedAction = {
+      type: types.REMOVE_NOTIFICATION,
+      payload: notification.id
+    };
+    expect(store.getActions()).toEqual([expectedAction]);
+  });
+
+  it('should not create an action to remove the notification ' +
+    'when it is clicked (actions.length > 0)', (done) => {
+    // we set `dismissible` to `true` to be sure that
+    // `actions.length` must equals `0` to allow removing
+    // same thing for `dismissAfter`
+    notification.dismissible = true;
+    notification.dismissAfter = 5;
+    let wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    wrapper.find(ConnectNotification).simulate('click');
+    expect(store.getActions()).toEqual([]);
+    // we remove an action and test it again
+    notification.actions = notification.actions.slice(0, 1);
+    wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    wrapper.find(ConnectNotification).simulate('click');
+    expect(store.getActions()).toEqual([]);
+    // check after `dismissAfter` duration
+    setTimeout(() => {
+      expect(store.getActions()).toEqual([]);
+      done();
+    }, 10);
+  });
+
+  it('should create an action to remove the notification after ' +
+    '`dismissAfter` duration', (done) => {
     notification.dismissAfter = 10;
     // remove actions otherwise `remove()` is not called after `dismissAfter` duration
     notification.actions = [];
@@ -266,7 +397,8 @@ describe('Notification', () => {
     }, 15);
   });
 
-  it('should not create an action to remove the notification after `dismissAfter` duration (dismissAfter = 0)', (done) => {
+  it('should not create an action to remove the notification after ' +
+    '`dismissAfter` duration (dismissAfter = 0)', (done) => {
     notification.dismissAfter = 0;
     mount(
       <Provider store={store}>
