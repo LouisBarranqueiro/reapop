@@ -108,7 +108,7 @@ export class Notification extends Component {
    * Render action button(s)
    * @returns {*}
    */
-  renderActions() {
+  _renderActions() {
     const {actions, className} = this.props;
     return actions.map((action) => {
       return (
@@ -130,11 +130,16 @@ export class Notification extends Component {
     const {id, title, message, status, dismissAfter, dismissible, className, actions} = this.props;
     const isDismissible = (dismissible && actions.length === 0);
     let titleDiv = null;
+    let messageDiv = null;
     let actionDiv = null;
     let style = {};
     // add title
     if (title) {
       titleDiv = <h4 className={className.title}>{title}</h4>;
+    }
+    // add message
+    if (message) {
+      messageDiv = <p className={className.message}>{message}</p>;
     }
     // add action button(s)
     if (actions.length) {
@@ -147,13 +152,13 @@ export class Notification extends Component {
       }
       actionDiv = (
         <div className={className.actions()} style={style}
-             onClick={dismissible ? this._remove : ''}>
-          {this.renderActions()}
+             onClick={this._remove}>
+          {this._renderActions()}
         </div>
       );
     }
-    // if there is no actions it remove automatically
-    // the notification after `dismissAfter` time
+    // if there is no actions, it remove automatically
+    // the notification after `dismissAfter` duration
     else if (dismissAfter > 0) {
       setTimeout(() => this._remove(), dismissAfter);
     }
@@ -165,9 +170,7 @@ export class Notification extends Component {
         <i className={className.icon}></i>
         <div className={className.meta}>
           {titleDiv}
-          <p className={className.message}>
-            {message}
-          </p>
+          {messageDiv}
         </div>
         {actionDiv}
       </div>
