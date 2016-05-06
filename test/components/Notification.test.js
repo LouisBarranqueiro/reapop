@@ -13,12 +13,25 @@ describe('Notification', () => {
   // default className for Notification component
   const className = {
     main: css['notification'],
-    status: function(status) {
-      return css[`notification-${status}`];
-    },
-    icon: `fa ${css['notification-icon']}`,
+    meta: css['notification-meta'],
     title: css['notification-title'],
-    message: ''
+    message: css['notification-message'],
+    icon: `fa ${css['notification-icon']}`,
+    status: function(status) {
+      return css[`notification--${status}`];
+    },
+    dismissible: css['notification--dismissible'],
+    // `fa` corresponds to font-awesome's class name
+    actions: function(count) {
+      if (count === 1) {
+        return css['notification--actions-1'];
+      }
+      else if (count === 2) {
+        return css['notification--actions-2'];
+      }
+      return css['notification-actions'];
+    },
+    action: css['notification-action']
   };
 
   /**
@@ -26,7 +39,6 @@ describe('Notification', () => {
    * @param {Object} props
    * @returns {XML}
    */
-  /* eslint-disable "react/prop-types" */
   function renderExpectedNotification(notification) {
     const {title, message, status, dismissible} = notification;
     let titleDiv = null;
@@ -45,8 +57,6 @@ describe('Notification', () => {
     );
   }
 
-  /* eslint-enable "react/prop-types" */
-
   beforeEach('generate a new notification and init store', () => {
     notification = genNotification();
     store = mockStore({notifications: []});
@@ -60,10 +70,14 @@ describe('Notification', () => {
                     removeNotification={removeNotification}/>
     );
     expect(wrapper.props().className.main).toEqual(className.main);
-    expect(wrapper.props().className.icon).toEqual(className.icon);
+    expect(wrapper.props().className.meta).toEqual(className.meta);
     expect(wrapper.props().className.title).toEqual(className.title);
     expect(wrapper.props().className.message).toEqual(className.message);
+    expect(wrapper.props().className.icon).toEqual(className.icon);
     expect(wrapper.props().className.status()).toEqual(className.status());
+    expect(wrapper.props().className.dismissible).toEqual(className.dismissible);
+    expect(wrapper.props().className.actions()).toEqual(className.actions());
+    expect(wrapper.props().className.action).toEqual(className.action);
     expect(wrapper.props().removeNotification).toEqual(removeNotification);
     expect(wrapper.props().onAdd()).toEqual((() => {
     })());

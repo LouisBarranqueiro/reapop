@@ -7,14 +7,14 @@ import {removeNotification} from '../../store/notifications';
 export const className = {
   main: css['notification'],
   meta: css['notification-meta'],
+  title: css['notification-title'],
+  message: css['notification-message'],
+  icon: `fa ${css['notification-icon']}`,
   status: function(status) {
     return css[`notification--${status}`];
   },
   dismissible: css['notification--dismissible'],
   // `fa` corresponds to font-awesome's class name
-  icon: `fa ${css['notification-icon']}`,
-  title: css['notification-title'],
-  message: css['notification-message'],
   actions: function(count) {
     if (count === 1) {
       return css['notification--actions-1'];
