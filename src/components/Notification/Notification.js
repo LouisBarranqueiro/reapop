@@ -152,8 +152,9 @@ export class Notification extends Component {
         </div>
       );
     }
-    // remove automatically notification after `dismissAfter` time
-    if (dismissAfter > 0) {
+    // if there is no actions it remove automatically
+    // the notification after `dismissAfter` time
+    else if (dismissAfter > 0) {
       setTimeout(() => this._remove(), dismissAfter);
     }
     
