@@ -223,6 +223,7 @@ describe('Notification', () => {
 
   it('should create an action to remove the notification when it is clicked', () => {
     notification.dismissible = true;
+    notification.actions = [];
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
