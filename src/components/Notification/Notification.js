@@ -55,7 +55,7 @@ export class Notification extends Component {
     actions: React.PropTypes.arrayOf(
       React.PropTypes.shape({
         name: React.PropTypes.string.isRequired,
-        onClick: React.PropTypes.func.isRequired
+        onClick: React.PropTypes.func
       })
     ),
     className: React.PropTypes.object.isRequired
