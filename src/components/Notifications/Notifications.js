@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import TransitionGroup from 'react/lib/ReactTransitionGroup';
 import {connect} from 'react-redux';
 import css from './Notifications.scss';
-import Notification, {className as notificationClassName} from '../Notification/Notification';
-import notificationCss from '../Notification/Notification.scss';
+import Notification from '../Notification/Notification';
 import {INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../constants';
 
 // default values for a notification
@@ -14,26 +13,12 @@ export const defaultValues = {
 };
 // default className for notifications container
 export const className = css['notifications-container'];
-// default transition for notifications
-export const transition = {
-  enterTimeout: 400,
-  leaveTimeout: 400,
-  // we must define transition class for each state because webpack rename css class
-  name: {
-    enter: notificationCss['notification-enter'],
-    enterActive: notificationCss['notification-enter-active'],
-    leave: notificationCss['notification-leave'],
-    leaveActive: notificationCss['notification-leave-active']
-  }
-};
 
 export class Notifications extends Component {
   // Default properties
   static defaultProps = {
     defaultValues,
-    transition,
-    className,
-    notificationClassName
+    className
   };
   
   // Properties types
@@ -44,8 +29,7 @@ export class Notifications extends Component {
       dismissible: React.PropTypes.bool.isRequired,
       dismissAfter: React.PropTypes.number.isRequired
     }),
-    // should be `React.PropTypes.object.isRequired` but it raise an error with it
-    notificationClassName: React.PropTypes.object.isRequired,
+    notificationClassName: React.PropTypes.object,
     className: React.PropTypes.string.isRequired,
     transition: React.PropTypes.shape({
       name: React.PropTypes.object.isRequired,
@@ -72,7 +56,7 @@ export class Notifications extends Component {
    */
   _renderNotifications() {
     // get all notifications and default values for notifications
-    const {notifications, defaultValues: {status, dismissible, dismissAfter}, notificationClassName} = this.props;
+    const {notifications, defaultValues: {status, dismissible, dismissAfter}, notificationClassName, transition} = this.props;
     return notifications.map((notification) => {
       return (
         <Notification key={notification.id} id={notification.id} title={notification.title}
@@ -87,7 +71,8 @@ export class Notifications extends Component {
                       onAdd={notification.onAdd}
                       onRemove={notification.onRemove}
                       actions={notification.actions}
-                      className={notificationClassName}/>
+                      className={notificationClassName}
+                      transition={transition}/>
       );
     });
   }
@@ -97,19 +82,10 @@ export class Notifications extends Component {
    * @returns {XML}
    */
   render() {
-    const {
-      className, transition: {
-      name,
-      enterTimeout,
-      leaveTimeout
-    }
-    } = this.props;
+    const {className} = this.props;
     return (
       <div className={className}>
-        <TransitionGroup
-          transitionName={name}
-          transitionEnterTimeout={enterTimeout}
-          transitionLeaveTimeout={leaveTimeout}>
+        <TransitionGroup>
           {this._renderNotifications()}
         </TransitionGroup>
       </div>
