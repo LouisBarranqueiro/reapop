@@ -70,6 +70,53 @@ export class Notification extends Component {
   constructor(props) {
     super(props);
     this._remove = this._remove.bind(this);
+    this._updateHeight = this._updateHeight.bind(this);
+    // initial state
+    this.state = {
+      height: ''
+    }
+  }
+
+  /**
+   * We get the new height of the notification to re-render the notification
+   * to apply it on action buttons container
+   * @private
+   * @returns {void}
+   */
+  _updateHeight() {
+    const {id} = this.props;
+    // We use `ref` to get height of notification.
+    // We simulate a height of 100% or 50% for buttons depending on number of actions
+    // check css file to understand
+    this.setState({
+      height: this.refs[id].clientHeight
+    });
+  }
+  
+  /**
+   * Run `onAdd` callback function when component is mounted
+   * @returns {void}
+   */
+  componentDidMount() {
+    const {id, onAdd, actions} = this.props;
+    // update the component to render correctly the action buttons
+    if (actions.length && this.refs[id]) {
+      this._updateHeight();
+      window.addEventListener('resize', this._updateHeight);
+    }
+    onAdd();
+  }
+
+  /**
+   * Run `onRemove` callback function when component will unmount
+   * @returns {void}
+   */
+  componentWillUnmount() {
+    const {onRemove, actions} = this.props;
+    if (actions.length) {
+      window.removeEventListener('resize', this._updateHeight);
+    }
+    onRemove();
   }
 
   /**
@@ -80,28 +127,6 @@ export class Notification extends Component {
   _remove() {
     const {removeNotification, id} = this.props;
     removeNotification(id);
-  }
-
-  /**
-   * Run `onAdd` callback function when component is mounted
-   * @returns {void}
-   */
-  componentDidMount() {
-    const {id, onAdd, actions} = this.props;
-    // update the component to render correctly the action buttons
-    if (actions.length && this.refs[id]) {
-      this.forceUpdate();
-    }
-    onAdd();
-  }
-
-  /**
-   * Run `onRemove` callback function when component will unmount
-   * @returns {void}
-   */
-  componentWillUnmount() {
-    const {onRemove} = this.props;
-    onRemove();
   }
 
   /**
@@ -128,32 +153,13 @@ export class Notification extends Component {
    */
   render() {
     const {id, title, message, status, dismissAfter, dismissible, className, actions} = this.props;
+    const {height} = this.state;
     const isDismissible = (dismissible && actions.length === 0);
-    let actionDiv = null;
-    let style = {};
-
-    // add action button(s)
-    if (actions.length) {
-      // We use `ref` to get height of notification.
-      // We simulate a height of 100% or 50% for buttons depending on number of actions
-      if (this.refs[id]) {
-        style = {
-          height: this.refs[id].clientHeight
-        };
-      }
-      actionDiv = (
-        <div className={className.actions()} style={style}
-             onClick={this._remove}>
-          {this._renderActions()}
-        </div>
-      );
-    }
     // if there is no actions, it remove automatically
     // the notification after `dismissAfter` duration
-    else if (dismissAfter > 0) {
+    if (actions.length === 0 && dismissAfter > 0) {
       setTimeout(() => this._remove(), dismissAfter);
     }
-    
     return (
       <div ref={id} className={
            `${className.main} ${className.status(status)} ${(isDismissible ? className.dismissible : '')} ${className.actions(actions.length)}`}
@@ -164,10 +170,15 @@ export class Notification extends Component {
             ? <h4 className={className.title}>{title}</h4>
             : '')}
           {(message
-          ? <p className={className.message}>{message}</p>
-          : '')}
+            ? <p className={className.message}>{message}</p>
+            : '')}
         </div>
-        {actionDiv}
+        {(actions.length
+          ? <div className={className.actions()} style={{height}}
+                 onClick={this._remove}>
+                {this._renderActions()}
+            </div>
+          : '')}
       </div>
     );
   }
