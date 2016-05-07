@@ -77,7 +77,7 @@ describe('Notification', () => {
         }
         actionDiv = (
           <div className={className.actions()} style={style}
-               onClick={dismissible ? this._remove : ''}>
+               onClick={this._remove}>
             {this._renderActions()}
           </div>
         );
