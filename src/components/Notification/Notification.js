@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import css from './Notification.scss';
 import {removeNotification} from '../../store/notifications';
+import connectWithTransitionGroup from 'babel!connect-with-transition-group';
 
 // default className for Notification component
 export const className = {
@@ -27,10 +28,24 @@ export const className = {
   action: css['notification-action']
 };
 
+// default transition for Notification component
+export const transition = {
+  enterTimeout: 400,
+  leaveTimeout: 400,
+  // we must define transition class for each state because webpack rename css class
+  name: {
+    enter: css['notification-enter'],
+    enterActive: css['notification-enter-active'],
+    leave: css['notification-leave'],
+    leaveActive: css['notification-leave-active']
+  }
+};
+
 export class Notification extends Component {
   // Default properties
   static defaultProps = {
     className: className,
+    transition: transition,
     onAdd: () => {
     },
     onRemove: () => {
@@ -58,7 +73,12 @@ export class Notification extends Component {
         onClick: React.PropTypes.func
       })
     ),
-    className: React.PropTypes.object.isRequired
+    className: React.PropTypes.object.isRequired,
+    transition: React.PropTypes.shape({
+      name: React.PropTypes.object.isRequired,
+      enterTimeout: React.PropTypes.number.isRequired,
+      leaveTimeout: React.PropTypes.number.isRequired
+    })
   };
 
   /**
@@ -73,8 +93,9 @@ export class Notification extends Component {
     this._updateHeight = this._updateHeight.bind(this);
     // initial state
     this.state = {
+      animateClass: '',
       height: ''
-    }
+    };
   }
 
   /**
@@ -92,19 +113,76 @@ export class Notification extends Component {
       height: this.refs[id].clientHeight
     });
   }
-  
+
+  /**
+   * Run enter animation
+   * @param {Function} callback
+   * @returns {void}
+   */
+  enterAnimation(callback) {
+    const {enterTimeout, name: {enter, enterActive}} = this.props.transition;
+    this.setState({
+      animateClass: `${enter} ${enterActive}`
+    });
+    setTimeout(() => {
+      callback();
+    }, enterTimeout);
+  }
+
+  /**
+   * Update height of action button and run enter animation
+   * @param {Function} callback
+   * @returns {void}
+   */
+  componentWillEnter(callback) {
+    const {id, actions} = this.props;
+    // if notification got action buttons, we update the component
+    if (actions.length && this.refs[id]) {
+      this._updateHeight();
+      window.addEventListener('resize', this._updateHeight);
+    }
+    // after updated the height, we run enter animation
+    setTimeout(() => {
+      this.enterAnimation(callback);
+    }, 1);
+  }
+
   /**
    * Run `onAdd` callback function when component is mounted
    * @returns {void}
    */
   componentDidMount() {
-    const {id, onAdd, actions} = this.props;
-    // update the component to render correctly the action buttons
-    if (actions.length && this.refs[id]) {
-      this._updateHeight();
-      window.addEventListener('resize', this._updateHeight);
-    }
+    const {onAdd} = this.props;
     onAdd();
+  }
+
+  /**
+   * Run leave animation
+   * @returns {void}
+   */
+  leaveAnimation() {
+    const {leave, leaveActive} = this.props.transition.name;
+    this.setState({
+      animateClass: `${leave} ${leaveActive}`
+    });
+    setTimeout(() => {
+      this.setState({
+        animateClass: ''
+      });
+    }, 1);
+  }
+
+  /**
+   * Run leave animation
+   * @param {Function} callback
+   * @returns {void}
+   */
+  componentWillLeave(callback) {
+    const {leaveTimeout} = this.props.transition;
+    this.leaveAnimation();
+    setTimeout(() => {
+      callback();
+    }, leaveTimeout);
   }
 
   /**
@@ -152,8 +230,10 @@ export class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {id, title, message, status, dismissAfter, dismissible, className, actions} = this.props;
-    const {height} = this.state;
+    const {id, title, message, status, dismissAfter,
+      dismissible, className, actions
+    } = this.props;
+    const {height, animateClass} = this.state;
     const isDismissible = (dismissible && actions.length === 0);
     // if there is no actions, it remove automatically
     // the notification after `dismissAfter` duration
@@ -162,7 +242,11 @@ export class Notification extends Component {
     }
     return (
       <div ref={id} className={
-           `${className.main} ${className.status(status)} ${(isDismissible ? className.dismissible : '')} ${className.actions(actions.length)}`}
+           `${className.main} ${className.status(status)}
+            ${(isDismissible ? className.dismissible : '')}
+            ${className.actions(actions.length)}
+            ${css['notification-enter']}
+            ${animateClass}`}
            onClick={isDismissible ? this._remove : ''}>
         <i className={className.icon}></i>
         <div className={className.meta}>
@@ -174,14 +258,15 @@ export class Notification extends Component {
             : '')}
         </div>
         {(actions.length
-          ? <div className={className.actions()} style={{height}}
-                 onClick={this._remove}>
-                {this._renderActions()}
-            </div>
+          ? <div className={className.actions()} style={{height}} onClick={this._remove}>
+          {this._renderActions()}
+          </div>
           : '')}
       </div>
     );
   }
 }
 
-export default connect(null, {removeNotification})(Notification);
+export default connectWithTransitionGroup(
+  connect(null, {removeNotification}, null, {withRef: true})(Notification)
+);
