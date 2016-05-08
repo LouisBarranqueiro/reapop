@@ -126,7 +126,8 @@ describe('Notification', () => {
      * @returns {XML}
      */
     render() {
-      const {id, title, message, status, dismissAfter,
+      const {
+        id, title, message, status, dismissAfter,
         dismissible, className, actions
       } = this.props;
       const {height} = this.state;
@@ -192,7 +193,15 @@ describe('Notification', () => {
     })());
   });
 
-  it('should render JSX and HTML correctly (with title)', () => {
+  it('should mount with initial state', () => {
+    const wrapper = mount(
+      <Notification key={notification.id} {...notification}
+                    removeNotification={removeNotification}/>
+    );
+    expect(wrapper.state('height')).toEqual(0);
+  });
+
+  it('should render component (with title)', () => {
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -204,7 +213,7 @@ describe('Notification', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
 
-  it('should render JSX and HTML correctly (without title)', () => {
+  it('should render component (without title)', () => {
     notification.title = null;
     const wrapper = mount(
       <Provider store={store}>
@@ -218,7 +227,7 @@ describe('Notification', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
 
-  it('should render JSX and HTML correctly (with message)', () => {
+  it('should render component (with message)', () => {
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -230,7 +239,7 @@ describe('Notification', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
 
-  it('should render JSX and HTML correctly (without message)', () => {
+  it('should render component (without message)', () => {
     notification.message = null;
     const wrapper = mount(
       <Provider store={store}>
@@ -244,35 +253,35 @@ describe('Notification', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
 
-  it('should render JSX and HTML correctly (without actions)', () => {
+  it('should render component (with 2 action buttons)', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
+  it('should render component (with 1 action button)', () => {
+    delete notification.actions[1];
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+  
+  it('should render component (without action buttons)', () => {
     notification.actions = [];
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification key={notification.id} {...notification}/>
-      </Provider>
-    );
-
-    const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} {...notification}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
-  });
-
-  it('should render JSX and HTML correctly (with 1 action)', () => {
-    notification.actions = notification.actions.slice(0, 1);
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification key={notification.id} {...notification}/>
-      </Provider>
-    );
-
-    const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} {...notification}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
-  });
-
-  it('should render JSX and HTML correctly (with 2 actions)', () => {
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
