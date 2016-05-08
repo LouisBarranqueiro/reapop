@@ -42,6 +42,7 @@ $notification-error-icon: "\f057";
     border:   none;
     z-index:  99999;
     @include box-shadow(0 1px 3px -1px rgba(0, 0, 0, 0.3));
+    clear:    both;
 
     &-meta {
         display:      inline-block;
@@ -51,11 +52,10 @@ $notification-error-icon: "\f057";
     }
     // global style for action buttons
     &-actions {
-        box-sizing:     border-box;
-        position:       relative;
-        vertical-align: top;
-        display:        table;
-        float:          right;
+        box-sizing: border-box;
+        position:   relative;
+        display:    table;
+        float:      right;
 
         .notification-action {
             box-sizing:     border-box;
@@ -143,8 +143,8 @@ $notification-error-icon: "\f057";
         }
         &-actions {
             .notification-action {
-                width:   80px;
-                height:  100%;
+                width:  80px;
+                height: 100%;
             }
         }
     }
