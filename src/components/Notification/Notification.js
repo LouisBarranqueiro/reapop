@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import css from './Notification.scss';
 import {removeNotification} from '../../store/notifications';
-import connectWithTransitionGroup from 'babel!connect-with-transition-group';
 
 // default className for Notification component
 export const className = {
@@ -210,6 +209,4 @@ export class Notification extends Component {
   }
 }
 
-export default connectWithTransitionGroup(
-  connect(null, {removeNotification}, null, {withRef: true})(Notification)
-);
+export default connect(null, {removeNotification}, null, {withRef: true})(Notification);
