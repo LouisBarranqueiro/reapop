@@ -99,7 +99,7 @@ export class Notification extends Component {
   }
 
   /**
-   * We get the new height of the notification to re-render the notification
+   * We get the new height of the notification
    * to apply it on action buttons container
    * @private
    * @returns {void}
@@ -115,74 +115,18 @@ export class Notification extends Component {
   }
 
   /**
-   * Run enter animation
-   * @param {Function} callback
+   * Run `onAdd` callback function when component is mounted
    * @returns {void}
    */
-  enterAnimation(callback) {
-    const {enterTimeout, name: {enter, enterActive}} = this.props.transition;
-    this.setState({
-      animateClass: `${enter} ${enterActive}`
-    });
-    setTimeout(() => {
-      callback();
-    }, enterTimeout);
-  }
-
-  /**
-   * Update height of action button and run enter animation
-   * @param {Function} callback
-   * @returns {void}
-   */
-  componentWillEnter(callback) {
+  componentDidMount() {
+    const {onAdd} = this.props;
     const {id, actions} = this.props;
     // if notification got action buttons, we update the component
     if (actions.length && this.refs[id]) {
       this._updateHeight();
       window.addEventListener('resize', this._updateHeight);
     }
-    // after updated the height, we run enter animation
-    setTimeout(() => {
-      this.enterAnimation(callback);
-    }, 1);
-  }
-
-  /**
-   * Run `onAdd` callback function when component is mounted
-   * @returns {void}
-   */
-  componentDidMount() {
-    const {onAdd} = this.props;
     onAdd();
-  }
-
-  /**
-   * Run leave animation
-   * @returns {void}
-   */
-  leaveAnimation() {
-    const {leave, leaveActive} = this.props.transition.name;
-    this.setState({
-      animateClass: `${leave} ${leaveActive}`
-    });
-    setTimeout(() => {
-      this.setState({
-        animateClass: ''
-      });
-    }, 1);
-  }
-
-  /**
-   * Run leave animation
-   * @param {Function} callback
-   * @returns {void}
-   */
-  componentWillLeave(callback) {
-    const {leaveTimeout} = this.props.transition;
-    this.leaveAnimation();
-    setTimeout(() => {
-      callback();
-    }, leaveTimeout);
   }
 
   /**
@@ -233,7 +177,7 @@ export class Notification extends Component {
     const {id, title, message, status, dismissAfter,
       dismissible, className, actions
     } = this.props;
-    const {height, animateClass} = this.state;
+    const {height} = this.state;
     const isDismissible = (dismissible && actions.length === 0);
     // if there is no actions, it remove automatically
     // the notification after `dismissAfter` duration
@@ -245,8 +189,7 @@ export class Notification extends Component {
            `${className.main} ${className.status(status)}
             ${(isDismissible ? className.dismissible : '')}
             ${className.actions(actions.length)}
-            ${css['notification-enter']}
-            ${animateClass}`}
+            ${css['notification-enter']}`}
            onClick={isDismissible ? this._remove : ''}>
         <i className={className.icon}></i>
         <div className={className.meta}>

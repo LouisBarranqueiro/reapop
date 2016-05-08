@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import TransitionGroup from 'react/lib/ReactTransitionGroup';
+import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import {connect} from 'react-redux';
 import css from './Notifications.scss';
-import Notification from '../Notification/Notification';
+import Notification, {transition} from '../Notification/Notification';
 import {INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../constants';
 
 // default values for a notification
@@ -83,9 +83,13 @@ export class Notifications extends Component {
    */
   render() {
     const {className} = this.props;
+    const {name, enterTimeout, leaveTimeout} = transition;
     return (
       <div className={className}>
-        <TransitionGroup>
+        <TransitionGroup
+          transitionName={name}
+          transitionEnterTimeout={enterTimeout}
+          transitionLeaveTimeout={leaveTimeout}>
           {this._renderNotifications()}
         </TransitionGroup>
       </div>
