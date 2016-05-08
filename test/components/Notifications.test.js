@@ -3,9 +3,11 @@ import {shallow, mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import ConnectNotifications, {Notifications} from '../../src/components/Notifications/Notifications';
-import ConnectNotification, {className as notificationClassName} from '../../src/components/Notification/Notification';
+import ConnectNotification, {
+  transition,
+  className as notificationClassName
+} from '../../src/components/Notification/Notification';
 import css from '../../src/components/Notifications/Notifications.scss';
-import notificationCss from '../../src/components/Notification/Notification.scss';
 import {genNotification, genNotifications, mockStore} from '../fixtures';
 import STATUS from '../../src/constants';
 
@@ -18,17 +20,7 @@ describe('Notifications', () => {
   };
   // default className for notifications container
   const className = css['notifications-container'];
-  // default transition for notifications
-  const transition = {
-    enterTimeout: 400,
-    leaveTimeout: 400,
-    name: {
-      enter: notificationCss['notification-enter'],
-      enterActive: notificationCss['notification-enter-active'],
-      leave: notificationCss['notification-leave'],
-      leaveActive: notificationCss['notification-leave-active']
-    }
-  };
+
   // default props for Notifications component
   const defaultProps = {
     notifications: []
@@ -85,24 +77,27 @@ describe('Notifications', () => {
           <ConnectNotification key={notification.id} id={notification.id} title={notification.title}
                                message={notification.message}
                                status={notification.status || status}
-                               dismissible={notification.dismissible === dismissible}
+                               dismissible={notification.dismissible != null
+                                ? notification.dismissible
+                                : dismissible}
                                dismissAfter={notification.dismissAfter != null
-                      ? notification.dismissAfter
-                      : dismissAfter}
+                                ? notification.dismissAfter
+                                : dismissAfter}
                                onAdd={notification.onAdd}
                                onRemove={notification.onRemove}
                                actions={notification.actions}
-                               className={notificationClassName}/>
+                               className={notificationClassName}
+                               transition={transition}/>
         );
       });
     }
-
+    const {name, enterTimeout, leaveTimeout} = props.transition;
     return (
       <div className={props.className}>
         <TransitionGroup
-          transitionName={props.transition.name}
-          transitionEnterTimeout={props.transition.enterTimeout}
-          transitionLeaveTimeout={props.transition.leaveTimeout}>
+          transitionName={name}
+          transitionEnterTimeout={enterTimeout}
+          transitionLeaveTimeout={leaveTimeout}>
           {renderNotifications()}
         </TransitionGroup>
       </div>
@@ -113,7 +108,6 @@ describe('Notifications', () => {
     const wrapper = mount(<Notifications {...defaultProps}/>);
     expect(wrapper.props().defaultValues).toEqual(defaultValues);
     expect(wrapper.props().className).toEqual(className);
-    expect(wrapper.props().transition).toEqual(transition);
   });
 
   it('should mount component with custom props', () => {
