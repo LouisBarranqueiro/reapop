@@ -33,26 +33,11 @@ describe('Notification', () => {
     },
     action: css['notification-action']
   };
-
-  // default transition for Notification component
-  const transition = {
-    enterTimeout: 400,
-    leaveTimeout: 400,
-    // we must define transition class for each state because webpack rename css class
-    name: {
-      enter: css['notification-enter'],
-      enterActive: css['notification-enter-active'],
-      leave: css['notification-leave'],
-      leaveActive: css['notification-leave-active']
-    }
-  };
-
   // Expected Notification component
   // used to compare HTML
   class ExpectedNotification extends Component {
     static defaultProps = {
       className: className,
-      transition: transition,
       onAdd: () => {
       },
       onRemove: () => {
@@ -200,7 +185,6 @@ describe('Notification', () => {
     expect(wrapper.props().className.actions(1)).toEqual(className.actions(1));
     expect(wrapper.props().className.actions(2)).toEqual(className.actions(2));
     expect(wrapper.props().className.action).toEqual(className.action);
-    expect(wrapper.props().transition).toEqual(transition);
     expect(wrapper.props().removeNotification).toEqual(removeNotification);
     expect(wrapper.props().onAdd()).toEqual((() => {
     })());

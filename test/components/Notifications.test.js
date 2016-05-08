@@ -8,6 +8,7 @@ import ConnectNotification, {
   className as notificationClassName
 } from '../../src/components/Notification/Notification';
 import css from '../../src/components/Notifications/Notifications.scss';
+import notificationCSS from '../../src/components/Notification/Notification.scss';
 import {genNotification, genNotifications, mockStore} from '../fixtures';
 import STATUS from '../../src/constants';
 
@@ -20,10 +21,20 @@ describe('Notifications', () => {
   };
   // default className for notifications container
   const className = css['notifications-container'];
-
   // default props for Notifications component
   const defaultProps = {
     notifications: []
+  };
+  // default transition for Notification component
+  const transition = {
+    enterTimeout: 400,
+    leaveTimeout: 400,
+    name: {
+      enter: notificationCSS['notification-enter'],
+      enterActive: notificationCSS['notification-enter-active'],
+      leave: notificationCSS['notification-leave'],
+      leaveActive: notificationCSS['notification-leave-active']
+    }
   };
   // full custom properties object for a Notifications component
   const customProps = {
@@ -108,6 +119,7 @@ describe('Notifications', () => {
     const wrapper = mount(<Notifications {...defaultProps}/>);
     expect(wrapper.props().defaultValues).toEqual(defaultValues);
     expect(wrapper.props().className).toEqual(className);
+    expect(wrapper.props().transition).toEqual(transition);
   });
 
   it('should mount component with custom props', () => {
