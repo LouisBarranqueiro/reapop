@@ -114,10 +114,8 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentWillUnmount() {
-    const {onRemove, actions} = this.props;
-    if (actions.length) {
-      window.removeEventListener('resize', this._updateHeight);
-    }
+    const {onRemove} = this.props;
+    window.removeEventListener('resize', this._updateHeight);
     onRemove();
   }
 
