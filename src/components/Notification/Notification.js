@@ -27,24 +27,10 @@ export const className = {
   action: css['notification-action']
 };
 
-// default transition for Notification component
-export const transition = {
-  enterTimeout: 400,
-  leaveTimeout: 400,
-  // we must define transition class for each state because webpack rename css class
-  name: {
-    enter: css['notification-enter'],
-    enterActive: css['notification-enter-active'],
-    leave: css['notification-leave'],
-    leaveActive: css['notification-leave-active']
-  }
-};
-
 export class Notification extends Component {
   // Default properties
   static defaultProps = {
     className: className,
-    transition: transition,
     onAdd: () => {
     },
     onRemove: () => {
@@ -72,12 +58,7 @@ export class Notification extends Component {
         onClick: React.PropTypes.func
       })
     ),
-    className: React.PropTypes.object.isRequired,
-    transition: React.PropTypes.shape({
-      name: React.PropTypes.object.isRequired,
-      enterTimeout: React.PropTypes.number.isRequired,
-      leaveTimeout: React.PropTypes.number.isRequired
-    })
+    className: React.PropTypes.object.isRequired
   };
 
   /**
@@ -209,4 +190,4 @@ export class Notification extends Component {
   }
 }
 
-export default connect(null, {removeNotification}, null, {withRef: true})(Notification);
+export default connect(null, {removeNotification})(Notification);

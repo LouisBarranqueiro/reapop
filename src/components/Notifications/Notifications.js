@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import {connect} from 'react-redux';
 import css from './Notifications.scss';
-import Notification, {transition} from '../Notification/Notification';
+import Notification from '../Notification/Notification';
+import notificationCSS from '../Notification/Notification.scss';
 import {INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../constants';
 
 // default values for a notification
@@ -13,12 +14,24 @@ export const defaultValues = {
 };
 // default className for notifications container
 export const className = css['notifications-container'];
+// default transition for Notification component
+export const transition = {
+  enterTimeout: 400,
+  leaveTimeout: 400,
+  name: {
+    enter: notificationCSS['notification-enter'],
+    enterActive: notificationCSS['notification-enter-active'],
+    leave: notificationCSS['notification-leave'],
+    leaveActive: notificationCSS['notification-leave-active']
+  }
+};
 
 export class Notifications extends Component {
   // Default properties
   static defaultProps = {
     defaultValues,
-    className
+    className,
+    transition
   };
   
   // Properties types
@@ -56,7 +69,7 @@ export class Notifications extends Component {
    */
   _renderNotifications() {
     // get all notifications and default values for notifications
-    const {notifications, defaultValues: {status, dismissible, dismissAfter}, notificationClassName, transition} = this.props;
+    const {notifications, defaultValues: {status, dismissible, dismissAfter}, notificationClassName} = this.props;
     return notifications.map((notification) => {
       return (
         <Notification key={notification.id} id={notification.id} title={notification.title}
@@ -71,8 +84,7 @@ export class Notifications extends Component {
                       onAdd={notification.onAdd}
                       onRemove={notification.onRemove}
                       actions={notification.actions}
-                      className={notificationClassName}
-                      transition={transition}/>
+                      className={notificationClassName}/>
       );
     });
   }
@@ -82,8 +94,7 @@ export class Notifications extends Component {
    * @returns {XML}
    */
   render() {
-    const {className} = this.props;
-    const {name, enterTimeout, leaveTimeout} = transition;
+    const {className, transition: {name, enterTimeout, leaveTimeout}} = this.props;
     return (
       <div className={className}>
         <TransitionGroup
