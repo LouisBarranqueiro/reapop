@@ -17,12 +17,12 @@ describe('Notification', () => {
     title: css['notification-title'],
     message: css['notification-message'],
     icon: `fa ${css['notification-icon']}`,
-    status: function(status) {
+    status: (status) => {
       return css[`notification--${status}`];
     },
     dismissible: css['notification--dismissible'],
     // `fa` corresponds to font-awesome's class name
-    actions: function(count) {
+    actions: (count) => {
       if (count === 1) {
         return css['notification--actions-1'];
       }
@@ -34,21 +34,94 @@ describe('Notification', () => {
     action: css['notification-action']
   };
 
+  // default transition for Notification component
+  const transition = {
+    enterTimeout: 400,
+    leaveTimeout: 400,
+    // we must define transition class for each state because webpack rename css class
+    name: {
+      enter: css['notification-enter'],
+      enterActive: css['notification-enter-active'],
+      leave: css['notification-leave'],
+      leaveActive: css['notification-leave-active']
+    }
+  };
+
   // Expected Notification component
-  // used to test render method of Notification component
+  // used to compare HTML
   class ExpectedNotification extends Component {
     static defaultProps = {
       className: className,
+      transition: transition,
+      onAdd: () => {
+      },
+      onRemove: () => {
+      },
       actions: []
     };
 
-    componentDidMount() {
-      const {id, actions} = this.props;
-      if (actions.length && this.refs[id]) {
-        this.forceUpdate();
-      }
+    /**
+     * Constructor
+     * Bind methods
+     * @param {Object} props
+     * @returns {void}
+     */
+    constructor(props) {
+      super(props);
+      this._remove = this._remove.bind(this);
+      this._updateHeight = this._updateHeight.bind(this);
+      // initial state
+      this.state = {
+        animateClass: '',
+        height: ''
+      };
     }
 
+    /**
+     * We get the new height of the notification
+     * to apply it on action buttons container
+     * @private
+     * @returns {void}
+     */
+    _updateHeight() {
+      const {id} = this.props;
+      // We use `ref` to get height of notification.
+      // We simulate a height of 100% or 50% for buttons depending on number of actions
+      // check css file to understand
+      this.setState({
+        height: this.refs[id].clientHeight
+      });
+    }
+
+    /**
+     * Run `onAdd` callback function when component is mounted
+     * @returns {void}
+     */
+    componentDidMount() {
+      const {onAdd} = this.props;
+      const {id, actions} = this.props;
+      // if notification got action buttons, we update the component
+      if (actions.length && this.refs[id]) {
+        this._updateHeight();
+        window.addEventListener('resize', this._updateHeight);
+      }
+      onAdd();
+    }
+
+    /**
+     * Remove the notification
+     * @private
+     * @returns {void}
+     */
+    _remove() {
+      const {removeNotification, id} = this.props;
+      removeNotification(id);
+    }
+
+    /**
+     * Render action button(s)
+     * @returns {*}
+     */
     _renderActions() {
       const {actions, className} = this.props;
       return actions.map((action) => {
@@ -63,29 +136,27 @@ describe('Notification', () => {
       });
     }
 
+    /**
+     * Render
+     * @returns {XML}
+     */
     render() {
-      const {id, title, message, status, dismissible, className, actions} = this.props;
+      const {id, title, message, status, dismissAfter,
+        dismissible, className, actions
+      } = this.props;
+      const {height} = this.state;
       const isDismissible = (dismissible && actions.length === 0);
-      let actionDiv = null;
-      let style = {};
-
-      if (actions.length) {
-        if (this.refs[id]) {
-          style = {
-            height: this.refs[id].clientHeight
-          };
-        }
-        actionDiv = (
-          <div className={className.actions()} style={style}
-               onClick={this._remove}>
-            {this._renderActions()}
-          </div>
-        );
+      // if there is no actions, it remove automatically
+      // the notification after `dismissAfter` duration
+      if (actions.length === 0 && dismissAfter > 0) {
+        setTimeout(() => this._remove(), dismissAfter);
       }
-
       return (
         <div ref={id} className={
-           `${className.main} ${className.status(status)} ${(isDismissible ? className.dismissible : '')} ${className.actions(actions.length)}`}
+           `${className.main} ${className.status(status)}
+            ${(isDismissible ? className.dismissible : '')}
+            ${className.actions(actions.length)}
+            ${css['notification-enter']}`}
              onClick={isDismissible ? this._remove : ''}>
           <i className={className.icon}></i>
           <div className={className.meta}>
@@ -96,7 +167,11 @@ describe('Notification', () => {
               ? <p className={className.message}>{message}</p>
               : '')}
           </div>
-          {actionDiv}
+          {(actions.length
+            ? <div className={className.actions()} style={{height}} onClick={this._remove}>
+            {this._renderActions()}
+            </div>
+            : '')}
         </div>
       );
     }
@@ -125,6 +200,7 @@ describe('Notification', () => {
     expect(wrapper.props().className.actions(1)).toEqual(className.actions(1));
     expect(wrapper.props().className.actions(2)).toEqual(className.actions(2));
     expect(wrapper.props().className.action).toEqual(className.action);
+    expect(wrapper.props().transition).toEqual(transition);
     expect(wrapper.props().removeNotification).toEqual(removeNotification);
     expect(wrapper.props().onAdd()).toEqual((() => {
     })());
@@ -133,9 +209,6 @@ describe('Notification', () => {
   });
 
   it('should render JSX and HTML correctly (with title)', () => {
-    // `dismissible` is set to `false` to be sure
-    // that notification will not disappear
-    notification.dismissible = false;
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -148,9 +221,6 @@ describe('Notification', () => {
   });
 
   it('should render JSX and HTML correctly (without title)', () => {
-    // `dismissible` is set to `false` to be sure
-    // that notification will not disappear
-    notification.dismissible = false;
     notification.title = null;
     const wrapper = mount(
       <Provider store={store}>
@@ -165,9 +235,6 @@ describe('Notification', () => {
   });
 
   it('should render JSX and HTML correctly (with message)', () => {
-    // `dismissible` is set to `false` to be sure
-    // that notification will not disappear
-    notification.dismissible = false;
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -180,9 +247,6 @@ describe('Notification', () => {
   });
 
   it('should render JSX and HTML correctly (without message)', () => {
-    // `dismissible` is set to `false` to be sure
-    // that notification will not disappear
-    notification.dismissible = false;
     notification.message = null;
     const wrapper = mount(
       <Provider store={store}>
