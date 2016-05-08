@@ -73,7 +73,6 @@ export class Notification extends Component {
     this._updateHeight = this._updateHeight.bind(this);
     // initial state
     this.state = {
-      animateClass: '',
       height: ''
     };
   }
