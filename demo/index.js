@@ -6,16 +6,15 @@ var config = require('./build/webpack.config');
 var express = require('express');
 var app = new express(); // eslint-disable-line
 var port = 3000;
-
 var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
 app.use(webpackHotMiddleware(compiler));
 
 // 1. serve static files
-app.use(express.static(path.resolve(__dirname, '/src/static')));
+app.use('/static', express.static(path.join(__dirname, '/src/static')));
 // 2. otherwise, send `index.html` file for all routes
 app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, '/src/index.html'));
+  res.sendFile(path.join(__dirname, '/src/index.html'));
 });
 // define port
 app.set('port', (process.env.PORT || port));
