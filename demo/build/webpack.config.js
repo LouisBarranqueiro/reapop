@@ -42,6 +42,9 @@ module.exports = {
     }, {
       test: /\.scss$/,
       loaders: ['style', cssModulesLoader, 'sass']
+    }, {
+      test: /\.(png|jpg|jpeg)$/,
+      loader: 'url?limit=8192'
     }]
   }
 };
