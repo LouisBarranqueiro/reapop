@@ -10,10 +10,13 @@ const cssModulesLoader = [
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
+  resolve: {
+    root: '../'
+  },
   entry: [
     'webpack-hot-middleware/client',
-    './index',
-    './index.html'
+    './src/index',
+    './src/index.html'
   ],
   output: {
     path: path.join(__dirname, '../dist'),
@@ -24,12 +27,11 @@ module.exports = {
     modulesDirectories: ['../node_modules']
   },
   plugins: [
-    // new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.NormalModuleReplacementPlugin(
       /^react-redux-notification/, function(data) {
-        data.request = path.resolve(__dirname, '../src');
+        data.request = path.resolve(__dirname, '../../src');
       }
     )
   ],
@@ -38,7 +40,7 @@ module.exports = {
       test: /\.js$/,
       loaders: ['babel'],
       exclude: /node_modules/,
-      include: [path.join(__dirname), path.join(__dirname, '../src')]
+      include: [path.join(__dirname, '../../'), path.join(__dirname, '../src')]
     }, {
       test: /\.html$/,
       loader: 'file?name=[name].[ext]'

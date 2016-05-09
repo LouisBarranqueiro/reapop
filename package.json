@@ -4,7 +4,7 @@
   "description": "A notifications component that works with React & Redux",
   "main": "index.js",
   "scripts": {
-    "start": "cd demo && node server.js",
+    "start": "cd demo && node index.js",
     "lint": "./node_modules/.bin/eslint .",
     "lint:fix": "./node_modules/.bin/eslint . --fix",
     "test": "babel-node ./node_modules/karma/bin/karma start ./build/karma.conf.js",

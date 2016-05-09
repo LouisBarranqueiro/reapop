@@ -1,0 +1,77 @@
+.onoffswitch {
+    position:            relative;
+    width:               75px;
+    -webkit-user-select: none;
+    -moz-user-select:    none;
+    -ms-user-select:     none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display:       block;
+    overflow:      hidden;
+    cursor:        pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.onoffswitch-inner {
+    display:     block;
+    width:       200%;
+    margin-left: -100%;
+    transition:  margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display:     block;
+    float:       left;
+    width:       50%;
+    height:      33px;
+    padding:     0;
+    line-height: 33px;
+    font-size:   14px;
+    color:       white;
+    box-sizing:  border-box;
+    font-weight: normal;
+}
+
+.onoffswitch-inner:before {
+    content:          "YES";
+    padding-left:     8px;
+    background-color: #ffffff;
+    color:            #4dc657;
+}
+
+.onoffswitch-inner:after {
+    content:          "NO";
+    padding-right:    8px;
+    background-color: #ffffff;
+    text-align:       right;
+    color:#c4c4c4;
+}
+
+.onoffswitch-switch {
+    display:       block;
+    width:         25px;
+    margin:        4.5px;
+    background-color: #c4c4c4;
+    position:      absolute;
+    top:           0;
+    bottom:        0;
+    right:         37px;
+    border:        2px solid #FFFFF;
+    border-radius: 4px;
+    transition:    all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right:            0px;
+    background-color: #4dc657;
+}
