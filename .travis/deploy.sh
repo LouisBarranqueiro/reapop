@@ -8,7 +8,10 @@ then
 fi
 # build
 cd demo
+# build app
 webpack --config build/webpack.config.js
+# copy static files
+cp src/static dist/
 cd ..
 
 # deploy
