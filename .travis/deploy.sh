@@ -8,7 +8,7 @@ then
 fi
 # build
 cd demo
-webpack --config build/
+webpack --config build/webpack.config.js
 cd ..
 
 # deploy
