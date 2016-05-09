@@ -28,12 +28,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.NormalModuleReplacementPlugin(
-      /^react-redux-notification/, function(data) {
-        data.request = path.resolve(__dirname, '../../src');
-      }
-    )
+    new webpack.NoErrorsPlugin()
   ],
   module: {
     loaders: [{
