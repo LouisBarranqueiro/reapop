@@ -12,7 +12,7 @@ class Demo extends Component {
     };
     return (
       <div className={css['background']}>
-        <div id="background"></div>
+        <div id='background'></div>
         <Notifications defaultValues={config}/>
         <Sidebar/>
       </div>

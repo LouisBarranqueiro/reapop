@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {
-  Notifications,
   addNotification as notify,
   updateNotification
 } from '../../../../src/index';
@@ -9,6 +8,16 @@ import {css} from './index';
 import NotificationCreator from '../NotificationCreator';
 
 class Sidebar extends Component {
+  static propTypes = {
+    notify: React.PropTypes.func.isRequired,
+    updateNotification: React.PropTypes.func.isRequired
+  };
+
+  /**
+   * Bind methods and init state
+   * @param {Object} props
+   * @returns {void}
+   */
   constructor(props) {
     super(props);
     this._notificationUpdatedExample = this._notificationUpdatedExample.bind(this);
@@ -28,7 +37,7 @@ class Sidebar extends Component {
         name: '',
         primary: false
       }
-    }
+    };
   }
 
   componentDidMount() {
@@ -49,6 +58,8 @@ class Sidebar extends Component {
 
   /**
    * Example of a notification updated
+   * @returns {void}
+   * @private
    */
   _notificationUpdatedExample() {
     const {notify, updateNotification} = this.props;
@@ -70,6 +81,8 @@ class Sidebar extends Component {
 
   /**
    * Example of a notification with callbacks `onAdd` and `onRemove`
+   * @returns {void}
+   * @private
    */
   _notificationWithCallbacksExample() {
     const {notify} = this.props;
@@ -87,6 +100,11 @@ class Sidebar extends Component {
     });
   }
 
+  /**
+   * Render component
+   * @returns {XML}
+   * @private
+   */
   render() {
     return (
       <div className={css['sidebar']}>

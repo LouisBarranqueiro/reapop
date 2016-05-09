@@ -19,7 +19,7 @@ class Input extends Component {
     return (
       <div className='form-group'>
         <div className={css['onoffswitch']}>
-          <input type="checkbox"
+          <input type='checkbox'
                  className={css['onoffswitch-checkbox']}
                  id={variable.name}
             {...variable}
