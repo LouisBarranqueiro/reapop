@@ -6,4 +6,13 @@
     height:     100%;
     padding:    15px;
     background: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.logo {
+    display:block;
+    background: url('/static/images/reapop-logo.png');
+    width: 121px;
+    height:60px;
+    margin:0 auto;
 }
