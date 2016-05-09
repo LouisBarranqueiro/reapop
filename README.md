@@ -1,30 +1,30 @@
-# react-redux-notification
-[![npm version](https://img.shields.io/npm/v/react-redux-notification.svg?style=flat-square)](https://www.npmjs.com/package/react-redux-notification) [![npm dependencies](https://img.shields.io/david/LouisBarranqueiro/react-redux-notification.svg?style=flat-square)](https://www.npmjs.com/package/react-redux-notification) [![npm dependencies](https://img.shields.io/david/dev/LouisBarranqueiro/react-redux-notification.svg?style=flat-square)](https://www.npmjs.com/package/react-redux-notification) [![travis build status](https://img.shields.io/travis/LouisBarranqueiro/react-redux-notification/master.svg?style=flat-square)](https://travis-ci.org/LouisBarranqueiro/react-redux-notification) [![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/react-redux-notification.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/react-redux-notification) [![npm download/month](https://img.shields.io/npm/dm/react-redux-notification.svg?style=flat-square)](https://www.npmjs.com/package/react-redux-notification) [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/react-redux-notification.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/react-redux-notification)
+# Reapop
+[![npm version](https://img.shields.io/npm/v/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm dependencies](https://img.shields.io/david/LouisBarranqueiro/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm dependencies](https://img.shields.io/david/dev/LouisBarranqueiro/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![travis build status](https://img.shields.io/travis/LouisBarranqueiro/reapop/master.svg?style=flat-square)](https://travis-ci.org/LouisBarranqueiro/reapop) [![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/reapop.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/reapop) [![npm download/month](https://img.shields.io/npm/dm/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/reapop.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/reapop)
   
-A customizable React and Redux notifications system
+A React & Redux notifications component
 
 ## Summary
 
-* [Demo](https://github.com/LouisBarranqueiro/react-redux-notification#demo)
-* [Installation](https://github.com/LouisBarranqueiro/react-redux-notification#installation)
-* [Integration](https://github.com/LouisBarranqueiro/react-redux-notification#integration)
-* [Usage](https://github.com/LouisBarranqueiro/react-redux-notification#integration)
-    * [In a React component](https://github.com/LouisBarranqueiro/react-redux-notification#in-a-react-component)
-    * [In a Redux module](https://github.com/LouisBarranqueiro/react-redux-notification#in-a-react-component)
-* [API documentation](https://github.com/LouisBarranqueiro/react-redux-notification#api-documentation)
-    * [Customize Notifications and Notification React component](https://github.com/LouisBarranqueiro/react-redux-notification#customize-notifications-and-notification-react-component)
-    * [Add a notification](https://github.com/LouisBarranqueiro/react-redux-notification#add-a-notification)
-    * [Update a notification](https://github.com/LouisBarranqueiro/react-redux-notification#update-a-notification)
-    * [Remove a notification](https://github.com/LouisBarranqueiro/react-redux-notification#remove-a-notification)
+* [Demo](https://github.com/LouisBarranqueiro/reapop#demo)
+* [Installation](https://github.com/LouisBarranqueiro/reapop#installation)
+* [Integration](https://github.com/LouisBarranqueiro/reapop#integration)
+* [Usage](https://github.com/LouisBarranqueiro/reapop#integration)
+    * [In a React component](https://github.com/LouisBarranqueiro/reapop#in-a-react-component)
+    * [In a Redux module](https://github.com/LouisBarranqueiro/reapop#in-a-react-component)
+* [API documentation](https://github.com/LouisBarranqueiro/reapop#api-documentation)
+    * [Customize Notifications and Notification React component](https://github.com/LouisBarranqueiro/reapop#customize-notifications-and-notification-react-component)
+    * [Add a notification](https://github.com/LouisBarranqueiro/reapop#add-a-notification)
+    * [Update a notification](https://github.com/LouisBarranqueiro/reapop#update-a-notification)
+    * [Remove a notification](https://github.com/LouisBarranqueiro/reapop#remove-a-notification)
 
 ## Demo
 
-Check out the [demo](https://github.com/LouisBarranqueiro/react-redux-notification)
+Check out the [demo](https://github.com/LouisBarranqueiro/reapop/)
 
 ## Installation
 
 ```
-npm install --save react-redux-notification
+npm install --save reapop
 ```
 
 ## Integration
@@ -33,7 +33,7 @@ Render this component at the root of your web application to avoid position conf
 
 ``` js
 import React, {Component} from 'react';
-import {Notifications} from 'react-redux-notifications';
+import {Notifications} from 'reapop';
 
 class ATopLevelComponent extends Component {
   render() { 
@@ -69,7 +69,7 @@ const store = createStoreWithMiddleware(combineReducers({
 ``` js
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addNotification as notify} from 'react-redux-notifications';
+import {addNotification as notify} from 'reapop';
 
 class AmazingComponent extends Component {
   constructor(props) {
@@ -103,7 +103,7 @@ export default connect(null, {notify})(AmazingComponent);
 ### In a Redux module
 
 ``` js
-import {addNotification as notify} from 'react-redux-notification';
+import {addNotification as notify} from 'reapop';
 
 // we add a notification to inform user about
 // state of his request (success or failure) 
@@ -128,10 +128,10 @@ const sendResetPasswordLink = (props) => {
 
 | Property              | Type   | Description |
 | --------------------- | :----: | ----------- |
-| defaultValues         | Object | Default value for a notification. Check [defaultValues](https://github.com/LouisBarranqueiro/react-redux-notification#defaultvalues-properties) properties |
-| className             | String | Class names of notifications container. Check [className](https://github.com/LouisBarranqueiro/react-redux-notification#classname-properties) properties |
-| transition            | Object | Default transition for a notification. Check [transition](https://github.com/LouisBarranqueiro/react-redux-notification#transition-properties) properties |
-| notificationClassName | Object | Class names of a notification. Check [notificationClassName](https://github.com/LouisBarranqueiro/react-redux-notification#notificationclassname-properties) properties |
+| defaultValues         | Object | Default value for a notification. Check [defaultValues](https://github.com/LouisBarranqueiro/reapop#defaultvalues-properties) properties |
+| className             | String | Class names of notifications container. Check [className](https://github.com/LouisBarranqueiro/reapop#classname-properties) properties |
+| transition            | Object | Default transition for a notification. Check [transition](https://github.com/LouisBarranqueiro/reapop#transition-properties) properties |
+| notificationClassName | Object | Class names of a notification. Check [notificationClassName](https://github.com/LouisBarranqueiro/reapop#notificationclassname-properties) properties |
 
 #### `defaultValues` properties
 
@@ -280,7 +280,7 @@ addNotification(notification);
 
 | Parameter    | Type     | Description |
 | ------------ | :------: | ----------- |
-| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/react-redux-notification#notification-properties) object |
+| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop#notification-properties) object |
 
 #### Notification properties
  
@@ -335,7 +335,7 @@ updateNotification(notification);
 
 | Parameter    | Type     | Description |
 | ------------ | :------: | ----------- |
-| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/react-redux-notification#notification-properties-1) object |
+| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop#notification-properties-1) object |
 
 #### Notification properties
  
@@ -389,4 +389,4 @@ removeNotification(id);
 
 # License 
 
-react-redux-notification is under [MIT License](https://github.com/LouisBarranqueiro/react-redux-notification/blob/master/LICENSE)
+reapop is under [MIT License](https://github.com/LouisBarranqueiro/reapop/blob/master/LICENSE)
