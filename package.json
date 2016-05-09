@@ -1,8 +1,8 @@
 {
-  "name": "react-redux-notification",
+  "name": "reapop",
   "version": "0.1.0",
   "description": "A notifications component that works with React & Redux",
-  "main": "index.js",
+  "main": "demo/index.js",
   "scripts": {
     "start": "cd demo && node index.js",
     "lint": "./node_modules/.bin/eslint .",
@@ -12,9 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://LouisBarranqueiro@github.com/LouisBarranqueiro/react-redux-notification.git"
+    "url": "git+https://LouisBarranqueiro@github.com/LouisBarranqueiro/reapop.git"
   },
   "keywords": [
+    "reapop",
     "react",
     "redux",
     "notifications",
@@ -24,9 +25,9 @@
   "author": "Louis Barranqueiro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LouisBarranqueiro/react-redux-notification/issues"
+    "url": "https://github.com/LouisBarranqueiro/reapop/issues"
   },
-  "homepage": "https://github.com/LouisBarranqueiro/react-redux-notification#readme",
+  "homepage": "https://github.com/LouisBarranqueiro/reapop#readme",
   "peerDependencies": {
     "redux": "^2.0.0 || ^3.0.0",
     "react-redux": "^2.0.0 || ^3.1.0 || ^4.0.0",
