@@ -29,6 +29,7 @@ class NotificationCreator extends Component {
     this._onAction1PrimaryChange = this._onAction1PrimaryChange.bind(this);
     this._onAction2NameChange = this._onAction2NameChange.bind(this);
     this._onAction2PrimaryChange = this._onAction2PrimaryChange.bind(this);
+    this._showActions = this._showActions.bind(this);
     this.state = {
       showActions: false,
       notification: {
