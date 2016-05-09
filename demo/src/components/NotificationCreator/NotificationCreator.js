@@ -8,6 +8,11 @@ import {
 } from '../../../../src/index';
 
 class NotificationCreator extends Component {
+  /**
+   * Bind methods and define initial state
+   * @param {Object} props
+   * @returns {void}
+   */
   constructor(props) {
     super(props);
     this._addNotification = this._addNotification.bind(this);
@@ -39,6 +44,12 @@ class NotificationCreator extends Component {
     }
   }
 
+  /**
+   * Add a notification
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _addNotification(event) {
     event.preventDefault();
     const {notification, notification:{actions}} = this.state;
@@ -60,6 +71,12 @@ class NotificationCreator extends Component {
     });
   }
 
+  /**
+   * Update title
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onTitleChange(event) {
     const newState = update(this.state, {
       notification: {
@@ -69,6 +86,12 @@ class NotificationCreator extends Component {
     this.setState(newState);
   }
 
+  /**
+   * Update message
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onMessageChange(event) {
     const newState = update(this.state, {
       notification: {
@@ -78,6 +101,12 @@ class NotificationCreator extends Component {
     this.setState(newState);
   }
 
+  /**
+   * Update status
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onStatusChange(event) {
     const newState = update(this.state, {
       notification: {
@@ -87,24 +116,42 @@ class NotificationCreator extends Component {
     this.setState(newState);
   }
 
+  /**
+   * Update dismiss duration
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onDismissAfterChange(event) {
     const newState = update(this.state, {
-      dismissAfter: {
-        status: {$set: event.target.value}
+      notification: {
+        dismissAfter: {$set: event.target.value}
       }
     });
     this.setState(newState);
   }
 
+  /**
+   * Update `dismissisble` variable state
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onDismissibleChange(event) {
     const newState = update(this.state, {
-      dismissible: {
-        status: {$set: event.target.checked}
+      notification: {
+        dismissible: {$set: event.target.checked}
       }
     });
     this.setState(newState);
   }
 
+  /**
+   * Update first action name
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onAction1NameChange(event) {
     const newState = update(this.state, {
       notification: {
@@ -118,6 +165,12 @@ class NotificationCreator extends Component {
     this.setState(newState);
   }
 
+  /**
+   * Update first action status
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onAction1PrimaryChange(event) {
     const newState = update(this.state, {
       notification: {
@@ -131,6 +184,12 @@ class NotificationCreator extends Component {
     this.setState(newState);
   }
 
+  /**
+   * Update second action name
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onAction2NameChange(event) {
     const newState = update(this.state, {
       notification: {
@@ -144,6 +203,12 @@ class NotificationCreator extends Component {
     this.setState(newState);
   }
 
+  /**
+   * Update second action status
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
   _onAction2PrimaryChange(event) {
     const newState = update(this.state, {
       notification: {
@@ -157,6 +222,11 @@ class NotificationCreator extends Component {
     this.setState(newState);
   }
 
+  /**
+   * Render action buttons form
+   * @returns {XML}
+   * @private
+   */
   _renderActions() {
     const {actions} = this.state.notification;
     console.log(actions);
@@ -192,6 +262,10 @@ class NotificationCreator extends Component {
     );
   }
 
+  /**
+   * Render form
+   * @returns {XML}
+   */
   render() {
     const {title, message, dismissAfter, dismissible} = this.state.notification;
     return (
@@ -218,23 +292,29 @@ class NotificationCreator extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label for="dismissAfter">Dismiss after (ms)</label>
-            <input className="form-control" type="text" name="dismissAfter"
-                   onChange={this._onDismissAfterChange}
-                   value={dismissAfter}/>
+            <div className="row">
+              <div className="col-xs-6">
+                <label for="dismissAfter">Dismiss after (ms)</label>
+                <input className="form-control" type="text" name="dismissAfter"
+                       onChange={this._onDismissAfterChange}
+                       value={dismissAfter}/>
+              </div>
+              <div className="col-xs-6">
+                <label for="dismissible">Dismissible (by clicking on it)</label>
+                <Switch label="dismissible"
+                        variable={{name:'dismissible',checked:dismissible,onChange:this._onDismissibleChange}}/>
+              </div>
+            </div>
           </div>
           <div className="form-group">
-            <label for="dismissible">Dismissible (by clicking on it)</label>
-            <Switch label="dismissible"
-                    variable={{name:'dismissible',checked:dismissible,onChange:this._onDismissibleChange}}/>
+            <label>Actions</label>
+            {(this.state.showActions
+              ? this._renderActions()
+              : <button onClick={() => {this.setState({showActions: true})}}
+                        className="btn btn-success" style={{display:'block',marginBottom:'15px'}}>
+              Add action buttons
+            </button>)}
           </div>
-          {(this.state.showActions
-            ? this._renderActions()
-            : <button onClick={() => {this.setState({showActions: true})}}
-                      className="btn btn-success btn-block">
-            Add action buttons
-          </button>)}
-          <hr/>
           <button type="submit" className="btn btn-primary btn-block">
             Notify
           </button>
