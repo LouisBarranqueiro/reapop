@@ -12,7 +12,6 @@ cd demo
 webpack --config build/webpack.config.js
 # copy static files
 cp -R src/static dist/
-cd ..
 
 # deploy
 rev=$(git rev-parse --short HEAD)
