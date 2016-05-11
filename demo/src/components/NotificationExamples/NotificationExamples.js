@@ -36,11 +36,9 @@ class NotificationExamples extends Component {
       status: 'info',
       dismissible: false,
       dismissAfter: 0,
-      actions:[
-        {
-          name:'ok'
-        }
-      ]
+      actions: [{
+        name: 'ok'
+      }]
 
     });
     setTimeout(function() {
@@ -81,9 +79,15 @@ class NotificationExamples extends Component {
     return (
       <div>
         <h4>Examples</h4>
-        <button className='btn btn-primary btn-block' onClick={this._notificationUpdatedExample}>Notification updated</button>
-        <button className='btn btn-primary btn-block' onClick={this._notificationWithCallbacksExample}>Notification with callbacks </button>
-        <button className='btn btn-primary btn-block' onClick={this._notificationUpdatedExample}>Notification with actions callbacks</button>
+        <button className='btn btn-primary btn-block' onClick={this._notificationUpdatedExample}>
+          Notification updated
+        </button>
+        <button className='btn btn-primary btn-block'
+                onClick={this._notificationWithCallbacksExample}>Notification with callbacks
+        </button>
+        <button className='btn btn-primary btn-block' onClick={this._notificationUpdatedExample}>
+          Notification with actions callbacks
+        </button>
       </div>
     );
   }
