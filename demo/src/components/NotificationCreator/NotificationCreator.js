@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import update from 'react/lib/update';
 import {connect} from 'react-redux';
 import Switch from '../Switch';
-import {
-  addNotification as notify,
-  updateNotification
-} from '../../../../src/index';
+import {addNotification as notify} from '../../../../src/index';
 
 class NotificationCreator extends Component {
   static propTypes = {
@@ -29,9 +26,7 @@ class NotificationCreator extends Component {
     this._onAction1PrimaryChange = this._onAction1PrimaryChange.bind(this);
     this._onAction2NameChange = this._onAction2NameChange.bind(this);
     this._onAction2PrimaryChange = this._onAction2PrimaryChange.bind(this);
-    this._showActions = this._showActions.bind(this);
     this.state = {
-      showActions: false,
       notification: {
         title: 'Welcome on demo!',
         message: 'Hey buddy, here you can see what you can do with it.',
@@ -226,16 +221,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
-  /**
-   * Display actions options
-   * @returns {void}
-   * @private
-   */
-  _showActions() {
-    this.setState({showActions: true});
-  }
-  
+
   /**
    * Render action buttons form
    * @returns {XML}
@@ -330,4 +316,4 @@ class NotificationCreator extends Component {
   }
 }
 
-export default connect(null, {notify, updateNotification})(NotificationCreator);
+export default connect(null, {notify})(NotificationCreator);
