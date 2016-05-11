@@ -11,7 +11,7 @@ cd demo
 # build app
 webpack --config build/webpack.config.js
 # copy static files
-cp src/static dist/
+cp -R src/static dist/
 cd ..
 
 # deploy
