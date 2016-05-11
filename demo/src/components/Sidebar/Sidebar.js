@@ -108,7 +108,7 @@ class Sidebar extends Component {
   render() {
     return (
       <div className={css['sidebar']}>
-        <div className={css['logo']}></div>
+        <div className={css['logo']}>Reapop</div>
         <hr/>
         <NotificationCreator/>
       </div>

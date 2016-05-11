@@ -1,3 +1,5 @@
+@import '../../styles/_variables.scss';
+
 .sidebar {
     position:   fixed;
     top:        0;
@@ -9,10 +11,11 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
+
 .logo {
-    display:block;
-    background: url('/static/images/reapop-logo.png');
-    width: 121px;
-    height:60px;
-    margin:0 auto;
+    font-family: 'ArtelyInks';
+    font-size:   55px;
+    margin:-20px auto;
+    text-align:  center;
+    color:       $primary-color;
 }

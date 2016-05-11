@@ -5,6 +5,7 @@ import {createStore, compose, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import App from './components/Demo';
 import {reducer as notificationsReducer} from '../../src/index';
+import './styles/style.scss';
 
 // store
 const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);

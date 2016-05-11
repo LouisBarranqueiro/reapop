@@ -1,0 +1,17 @@
+@import './_variables.scss';
+
+@font-face {
+    font-family: 'ArtelyInks';
+    font-style:  normal;
+    font-weight: 400;
+    src:         url('/static/fonts/ArtelyInks.ttf') format('truetype');
+}
+
+// override style of primary button of Bootstrap
+:global {
+    .btn-primary {
+        background-color: $primary-color !important;
+        border-color:     $primary-color !important;
+
+    }
+}
