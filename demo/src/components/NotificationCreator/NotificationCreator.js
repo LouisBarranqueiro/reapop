@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import update from 'react/lib/update';
 import {connect} from 'react-redux';
 import Switch from '../Switch';
-import {
-  addNotification as notify,
-  updateNotification
-} from '../../../../src/index';
+import {addNotification as notify} from '../../../../src/index';
 
 class NotificationCreator extends Component {
+  static propTypes = {
+    notify: React.PropTypes.func.isRequired
+  };
+  
   /**
    * Bind methods and define initial state
    * @param {Object} props
@@ -26,7 +27,6 @@ class NotificationCreator extends Component {
     this._onAction2NameChange = this._onAction2NameChange.bind(this);
     this._onAction2PrimaryChange = this._onAction2PrimaryChange.bind(this);
     this.state = {
-      showActions: false,
       notification: {
         title: 'Welcome on demo!',
         message: 'Hey buddy, here you can see what you can do with it.',
@@ -41,9 +41,9 @@ class NotificationCreator extends Component {
           primary: false
         }]
       }
-    }
+    };
   }
-
+  
   /**
    * Add a notification
    * @param {Object} event
@@ -52,7 +52,7 @@ class NotificationCreator extends Component {
    */
   _addNotification(event) {
     event.preventDefault();
-    const {notification, notification:{actions}} = this.state;
+    const {notification, notification: {actions}} = this.state;
     const {notify} = this.props;
     let _actions = [];
     if (actions[0].name) {
@@ -70,7 +70,7 @@ class NotificationCreator extends Component {
       actions: _actions
     });
   }
-
+  
   /**
    * Update title
    * @param {Object} event
@@ -85,7 +85,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update message
    * @param {Object} event
@@ -100,7 +100,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update status
    * @param {Object} event
@@ -115,7 +115,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update dismiss duration
    * @param {Object} event
@@ -130,7 +130,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update `dismissisble` variable state
    * @param {Object} event
@@ -145,7 +145,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update first action name
    * @param {Object} event
@@ -164,7 +164,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update first action status
    * @param {Object} event
@@ -183,7 +183,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update second action name
    * @param {Object} event
@@ -202,7 +202,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update second action status
    * @param {Object} event
@@ -229,39 +229,38 @@ class NotificationCreator extends Component {
    */
   _renderActions() {
     const {actions} = this.state.notification;
-    console.log(actions);
     return (
-      <div className="form-group">
-        <div className="row">
-          <div className="col-xs-5">
-            <label>Name</label>
-            <input className="form-control" type="text" name="action1-name"
+      <div>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <label>First action</label>
+            <input className='form-control' type='text' name='action1-name'
                    onChange={this._onAction1NameChange}
                    value={actions[0].name}/>
           </div>
-          <div className="col-xs-7">
+          <div className='col-xs-6'>
             <label>Primary action</label>
-            <Switch label="action1-primary"
-                    variable={{name:'action1-primary',checked:actions[0].primary,onChange:this._onAction1PrimaryChange}}/>
+            <Switch label='action1-primary'
+                    variable={{name: 'action1-primary', checked: actions[0].primary, onChange: this._onAction1PrimaryChange}}/>
           </div>
         </div>
-        <div className="row">
-          <div className="col-xs-5">
-            <label>Name</label>
-            <input className="form-control" type="text" name="action2-name"
+        <div className='row'>
+          <div className='col-xs-6'>
+            <label>Second action</label>
+            <input className='form-control' type='text' name='action2-name'
                    onChange={this._onAction2NameChange}
                    value={actions[1].name}/>
           </div>
-          <div className="col-xs-7">
+          <div className='col-xs-6'>
             <label>Primary action</label>
-            <Switch label="action2-primary"
-                    variable={{name:'action2-primary',checked:actions[1].primary,onChange:this._onAction2PrimaryChange}}/>
+            <Switch label='action2-primary'
+                    variable={{name: 'action2-primary', checked: actions[1].primary, onChange: this._onAction2PrimaryChange}}/>
           </div>
         </div>
       </div>
     );
   }
-
+  
   /**
    * Render form
    * @returns {XML}
@@ -271,51 +270,44 @@ class NotificationCreator extends Component {
     return (
       <div>
         <form onSubmit={this._addNotification}>
-          <div className="form-group">
-            <label for="title">Title</label>
-            <input className="form-control" type="text" id="title" name="title"
+          <div className='form-group'>
+            <label htmlFor='title'>Title</label>
+            <input className='form-control' type='text' id='title' name='title'
                    onChange={this._onTitleChange} value={title}/>
           </div>
-          <div className="form-group">
-            <label for="message">Message</label>
-                    <textarea className="form-control" id="message" value={message}
-                              onChange={this._onMessageChange}></textarea>
+          <div className='form-group'>
+            <label htmlFor='message'>Message</label>
+            <textarea className='form-control' id='message' value={message}
+                      onChange={this._onMessageChange}>
+            </textarea>
           </div>
-          <div className="form-group">
-            <label for="status">Status</label>
-            <select className="form-control" id="status" name="status"
+          <div className='form-group'>
+            <label htmlFor='status'>Status</label>
+            <select className='form-control' id='status' name='status'
                     onChange={this._onStatusChange}>
-              <option value="info">info</option>
-              <option value="success">success</option>
-              <option value="warning">warning</option>
-              <option value="error">error</option>
+              <option value='info'>info</option>
+              <option value='success'>success</option>
+              <option value='warning'>warning</option>
+              <option value='error'>error</option>
             </select>
           </div>
-          <div className="form-group">
-            <div className="row">
-              <div className="col-xs-6">
-                <label for="dismissAfter">Dismiss after (ms)</label>
-                <input className="form-control" type="text" name="dismissAfter"
+          <div>
+            <div className='row'>
+              <div className='col-xs-6'>
+                <label htmlFor='dismissAfter'>Dismiss after (ms)</label>
+                <input className='form-control' type='text' name='dismissAfter'
                        onChange={this._onDismissAfterChange}
                        value={dismissAfter}/>
               </div>
-              <div className="col-xs-6">
-                <label for="dismissible">Dismissible (by clicking on it)</label>
-                <Switch label="dismissible"
-                        variable={{name:'dismissible',checked:dismissible,onChange:this._onDismissibleChange}}/>
+              <div className='col-xs-6'>
+                <label htmlFor='dismissible'>Dismissible (by clicking on it)</label>
+                <Switch label='dismissible'
+                        variable={{name: 'dismissible', checked: dismissible, onChange: this._onDismissibleChange}}/>
               </div>
             </div>
           </div>
-          <div className="form-group">
-            <label>Actions</label>
-            {(this.state.showActions
-              ? this._renderActions()
-              : <button onClick={() => {this.setState({showActions: true})}}
-                        className="btn btn-success" style={{display:'block',marginBottom:'15px'}}>
-              Add action buttons
-            </button>)}
-          </div>
-          <button type="submit" className="btn btn-primary btn-block">
+          {this._renderActions()}
+          <button type='submit' className='btn btn-primary btn-block'>
             Notify
           </button>
         </form>
@@ -324,4 +316,4 @@ class NotificationCreator extends Component {
   }
 }
 
-export default connect(null, {notify, updateNotification})(NotificationCreator);
+export default connect(null, {notify})(NotificationCreator);

@@ -8,7 +8,10 @@ then
 fi
 # build
 cd demo
-webpack
+# build app
+webpack --config build/webpack.config.js
+# copy static files
+cp src/static dist/
 cd ..
 
 # deploy
@@ -20,7 +23,7 @@ git init
 git config user.name "Travis Bot"
 git config user.email $USER_EMAIL
 
-git remote add upstream "https://$GH_TOKEN@github.com/LouisBarranqueiro/react-redux-notification.git"
+git remote add upstream "https://$GH_TOKEN@github.com/LouisBarranqueiro/reapop.git"
 git fetch upstream
 git reset upstream/gh-pages
 
