@@ -38,8 +38,6 @@ class Sidebar extends Component {
   render() {
     return (
       <div className={css['sidebar']}>
-        <div className={css['logo']}>Reapop</div>
-        <hr/>
         <NotificationCreator/>
         <hr/>
         <NotificationExamples/>

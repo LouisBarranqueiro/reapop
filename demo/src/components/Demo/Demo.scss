@@ -1,10 +1,45 @@
+@import '../../styles/_variables.scss';
+
 .background {
-    background: #EECDA3; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #eecda3;
+    background: -webkit-linear-gradient(to top, #eecda3, #ef629f);
+    background: linear-gradient(to top, #eecda3, #ef629f);
     position:   fixed;
     top:        0;
     left:       0;
     width:      100%;
     height:     100%;
 }
+
+.logo-container {
+    display:   block;
+    position:  fixed;
+    top:       50%;
+    left:      50%;
+    transform: translateY(-50%) translateX(calc(-50% + #{$sidebar-width} / 2));
+    color:     white;
+}
+
+.logo {
+    font-family: 'ArtelyInks';
+    // change size for extra small screens
+    @media (max-width: #{$screen-xs-max}) {
+        font-size: 80px;
+    }
+    // change size for large screens
+    @media (min-width: #{$screen-sm-min}) {
+        font-size: 120px;
+    }
+}
+
+.description {
+    // change size for extra small screens
+    @media (max-width: #{$screen-xs-max}) {
+        font-size: 15px;
+    }
+    // change size for large screens
+    @media (min-width: #{$screen-sm-min}) {
+        font-size: 16px;
+    }
+}
+

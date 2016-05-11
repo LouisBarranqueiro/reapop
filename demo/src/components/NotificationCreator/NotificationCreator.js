@@ -269,6 +269,7 @@ class NotificationCreator extends Component {
     const {title, message, dismissAfter, dismissible} = this.state.notification;
     return (
       <div>
+        <h4 className='text-center'>Notification Creator</h4>
         <form onSubmit={this._addNotification}>
           <div className='form-group'>
             <label htmlFor='title'>Title</label>

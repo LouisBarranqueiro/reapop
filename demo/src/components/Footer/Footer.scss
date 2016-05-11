@@ -1,0 +1,21 @@
+@import '../../styles/_variables.scss';
+
+.footer {
+    display:   block;
+    position:  fixed;
+    bottom:    15px;
+    left:      50%;
+    font-size: 15px;
+    transform: translateX(calc(-50% + #{$sidebar-width} / 2));
+    color:     white;
+
+    a {
+        color:  white;
+        cursor: pointer;
+        &:hover,
+        &:active {
+            color:           white;
+            text-decoration: underline;
+        }
+    }
+}

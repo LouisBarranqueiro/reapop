@@ -4,18 +4,10 @@
     position:   fixed;
     top:        0;
     left:       0;
-    width:      300px;
+    width:      $sidebar-width;
     height:     100%;
     padding:    15px;
     background: white;
     overflow-y: auto;
     overflow-x: hidden;
-}
-
-.logo {
-    font-family: 'ArtelyInks';
-    font-size:   55px;
-    margin:-20px auto;
-    text-align:  center;
-    color:       $primary-color;
 }
