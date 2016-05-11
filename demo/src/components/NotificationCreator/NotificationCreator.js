@@ -244,28 +244,28 @@ class NotificationCreator extends Component {
   _renderActions() {
     const {actions} = this.state.notification;
     return (
-      <div className='form-group'>
+      <div>
         <div className='row'>
-          <div className='col-xs-5'>
-            <label>Name</label>
+          <div className='col-xs-6'>
+            <label>First action</label>
             <input className='form-control' type='text' name='action1-name'
                    onChange={this._onAction1NameChange}
                    value={actions[0].name}/>
           </div>
-          <div className='col-xs-7'>
+          <div className='col-xs-6'>
             <label>Primary action</label>
             <Switch label='action1-primary'
                     variable={{name: 'action1-primary', checked: actions[0].primary, onChange: this._onAction1PrimaryChange}}/>
           </div>
         </div>
         <div className='row'>
-          <div className='col-xs-5'>
-            <label>Name</label>
+          <div className='col-xs-6'>
+            <label>Second action</label>
             <input className='form-control' type='text' name='action2-name'
                    onChange={this._onAction2NameChange}
                    value={actions[1].name}/>
           </div>
-          <div className='col-xs-7'>
+          <div className='col-xs-6'>
             <label>Primary action</label>
             <Switch label='action2-primary'
                     variable={{name: 'action2-primary', checked: actions[1].primary, onChange: this._onAction2PrimaryChange}}/>
@@ -305,7 +305,7 @@ class NotificationCreator extends Component {
               <option value='error'>error</option>
             </select>
           </div>
-          <div className='form-group'>
+          <div>
             <div className='row'>
               <div className='col-xs-6'>
                 <label htmlFor='dismissAfter'>Dismiss after (ms)</label>
@@ -320,16 +320,7 @@ class NotificationCreator extends Component {
               </div>
             </div>
           </div>
-          <div className='form-group'>
-            <label>Actions</label>
-            {(this.state.showActions
-                ? this._renderActions()
-                : <button onClick={this._showActions} className='btn btn-success'
-                          style={{display: 'block', marginBottom: '15px'}}>
-                  Add action buttons
-                </button>
-            )}
-          </div>
+          {this._renderActions()}
           <button type='submit' className='btn btn-primary btn-block'>
             Notify
           </button>
