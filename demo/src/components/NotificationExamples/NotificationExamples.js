@@ -20,7 +20,6 @@ class NotificationExamples extends Component {
   constructor(props) {
     super(props);
     this._notificationUpdatedExample = this._notificationUpdatedExample.bind(this);
-    this._notificationWithCallbacksExample = this._notificationWithCallbacksExample.bind(this);
   }
 
   /**
@@ -37,7 +36,11 @@ class NotificationExamples extends Component {
       dismissible: false,
       dismissAfter: 0,
       actions: [{
-        name: 'ok'
+        name: 'OK',
+        primary: true,
+        onClick: function() {
+          alert('You clicked on OK button.');
+        }
       }]
 
     });
@@ -46,29 +49,21 @@ class NotificationExamples extends Component {
       notif.message = 'Your file has been successfully uploaded';
       notif.dismissible = true;
       notif.dismissAfter = 5000;
+      notif.actions = [{
+        name: 'OK',
+        primary: true,
+        onClick: function() {
+          alert('You clicked on OK button.');
+        }
+      }, {
+        name: 'Details',
+        onClick: function() {
+          alert('You clicked on Details button.');
+        }
+
+      }];
       updateNotification(notif);
     }, 3000);
-  }
-
-  /**
-   * Example of a notification with callbacks `onAdd` and `onRemove`
-   * @returns {void}
-   * @private
-   */
-  _notificationWithCallbacksExample() {
-    const {notify} = this.props;
-    notify({
-      message: 'Component is mounted',
-      status: 'info',
-      dismissible: false,
-      dismissAfter: 3000,
-      onAdd: function() {
-        alert('Notification component did mount');
-      },
-      onRemove: function() {
-        alert('Notification component will unmount');
-      }
-    });
   }
 
   /**
@@ -78,15 +73,9 @@ class NotificationExamples extends Component {
   render() {
     return (
       <div>
-        <h4>Examples</h4>
-        <button className='btn btn-primary btn-block' onClick={this._notificationUpdatedExample}>
-          Notification updated
-        </button>
         <button className='btn btn-primary btn-block'
-                onClick={this._notificationWithCallbacksExample}>Notification with callbacks
-        </button>
-        <button className='btn btn-primary btn-block' onClick={this._notificationUpdatedExample}>
-          Notification with actions callbacks
+                onClick={this._notificationUpdatedExample}>
+          Notification updated example
         </button>
       </div>
     );

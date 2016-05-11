@@ -13,9 +13,16 @@
 }
 
 .logo {
+    display:     block;
     font-family: 'ArtelyInks';
     font-size:   55px;
-    margin:-20px auto;
+    margin:      -20px auto;
     text-align:  center;
     color:       $primary-color;
+
+    &:hover,
+    &:active {
+        color:           $primary-color;
+        text-decoration: none !important;
+    }
 }
