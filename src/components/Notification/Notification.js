@@ -16,7 +16,10 @@ export const className = {
   dismissible: css['notification--dismissible'],
   // `fa` corresponds to font-awesome's class name
   actions: (count) => {
-    if (count === 1) {
+    if (count === 0) {
+      return;
+    }
+    else if (count === 1) {
       return css['notification--actions-1'];
     }
     else if (count === 2) {
@@ -70,27 +73,6 @@ export class Notification extends Component {
   constructor(props) {
     super(props);
     this._remove = this._remove.bind(this);
-    this._updateHeight = this._updateHeight.bind(this);
-    // initial state
-    this.state = {
-      height: ''
-    };
-  }
-
-  /**
-   * We get the new height of the notification
-   * to apply it on action buttons container
-   * @private
-   * @returns {void}
-   */
-  _updateHeight() {
-    const {id} = this.props;
-    // We use `ref` to get height of notification.
-    // We simulate a height of 100% or 50% for buttons depending on number of actions
-    // check css file to understand
-    this.setState({
-      height: this.refs[id].clientHeight
-    });
   }
 
   /**
@@ -99,12 +81,6 @@ export class Notification extends Component {
    */
   componentDidMount() {
     const {onAdd} = this.props;
-    const {id, actions} = this.props;
-    // if notification got action buttons, we update the component
-    if (actions.length && this.refs[id]) {
-      this._updateHeight();
-      window.addEventListener('resize', this._updateHeight);
-    }
     onAdd();
   }
 
@@ -114,7 +90,6 @@ export class Notification extends Component {
    */
   componentWillUnmount() {
     const {onRemove} = this.props;
-    window.removeEventListener('resize', this._updateHeight);
     onRemove();
   }
 
@@ -151,10 +126,10 @@ export class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {id, title, message, status, dismissAfter,
+    const {
+      id, title, message, status, dismissAfter,
       dismissible, className, actions
     } = this.props;
-    const {height} = this.state;
     const isDismissible = (dismissible && actions.length === 0);
     // if there is no actions, it remove automatically
     // the notification after `dismissAfter` duration
@@ -165,8 +140,7 @@ export class Notification extends Component {
       <div ref={id} className={
            `${className.main} ${className.status(status)}
             ${(isDismissible ? className.dismissible : '')}
-            ${className.actions(actions.length)}
-            ${css['notification-enter']}`}
+            ${className.actions(actions.length)}`}
            onClick={isDismissible ? this._remove : ''}>
         <i className={className.icon}></i>
         <div className={className.meta}>
@@ -178,8 +152,8 @@ export class Notification extends Component {
             : '')}
         </div>
         {(actions.length
-          ? <div className={className.actions()} style={{height}} onClick={this._remove}>
-          {this._renderActions()}
+          ? <div className={className.actions()} onClick={this._remove}>
+            {this._renderActions()}
           </div>
           : '')}
       </div>
