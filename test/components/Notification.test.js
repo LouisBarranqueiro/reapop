@@ -98,8 +98,8 @@ describe('Notification', () => {
           </div>
           {(actions.length
             ? <div className={className.actions()} onClick={this._remove}>
-            {this._renderActions()}
-          </div>
+              {this._renderActions()}
+            </div>
             : '')}
         </div>
       );
