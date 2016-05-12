@@ -2,7 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import css from './Notification.scss';
 import {removeNotification} from '../../store/notifications';
-import {DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../constants';
+import {
+  DEFAULT_STATUS,
+  INFO_STATUS,
+  SUCCESS_STATUS,
+  WARNING_STATUS,
+  ERROR_STATUS
+} from '../../constants';
 
 // default className for Notification component
 export const className = {
@@ -42,13 +48,14 @@ export class Notification extends Component {
     },
     actions: []
   };
-
+  
   // Properties types
   static propTypes = {
     id: React.PropTypes.number.isRequired,
     title: React.PropTypes.string,
     message: React.PropTypes.string,
-    status: React.PropTypes.oneOf([DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS]),
+    status: React.PropTypes.oneOf([DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS,
+      ERROR_STATUS]),
     dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
     removeNotification: React.PropTypes.func.isRequired,
@@ -60,9 +67,10 @@ export class Notification extends Component {
         onClick: React.PropTypes.func
       })
     ),
+    allowHTML: React.PropTypes.bool,
     className: React.PropTypes.object.isRequired
   };
-
+  
   /**
    * Constructor
    * Bind methods
@@ -73,7 +81,7 @@ export class Notification extends Component {
     super(props);
     this._remove = this._remove.bind(this);
   }
-
+  
   /**
    * Run `onAdd` callback function when component is mounted
    * @returns {void}
@@ -82,7 +90,7 @@ export class Notification extends Component {
     const {onAdd} = this.props;
     onAdd();
   }
-
+  
   /**
    * Run `onRemove` callback function when component will unmount
    * @returns {void}
@@ -91,7 +99,7 @@ export class Notification extends Component {
     const {onRemove} = this.props;
     onRemove();
   }
-
+  
   /**
    * Remove the notification
    * @private
@@ -101,7 +109,19 @@ export class Notification extends Component {
     const {removeNotification, id} = this.props;
     removeNotification(id);
   }
-
+  
+  /**
+   * Return HTML message
+   * @returns {Object}
+   * @private
+   */
+  _messageToHTML() {
+    const {message} = this.props;
+    return {
+      __html: message
+    };
+  }
+  
   /**
    * Render action button(s)
    * @returns {*}
@@ -121,7 +141,7 @@ export class Notification extends Component {
       );
     });
   }
-
+  
   /**
    * Render
    * @returns {XML}
@@ -129,7 +149,7 @@ export class Notification extends Component {
   render() {
     const {
       id, title, message, status, dismissAfter,
-      dismissible, className, actions
+      dismissible, className, actions, allowHTML
     } = this.props;
     const isDismissible = (dismissible && actions.length === 0);
     // if there is no actions, it remove automatically
@@ -137,6 +157,7 @@ export class Notification extends Component {
     if (actions.length === 0 && dismissAfter > 0) {
       setTimeout(() => this._remove(), dismissAfter);
     }
+
     return (
       <div ref={id} className={
            `${className.main} ${className.status(status)}
@@ -149,13 +170,15 @@ export class Notification extends Component {
             ? <h4 className={className.title}>{title}</h4>
             : '')}
           {(message
-            ? <p className={className.message}>{message}</p>
+            ? (allowHTML
+            ? <p className={className.message}
+                 dangerouslySetInnerHTML={this._messageToHTML()}/>
+            : <p className={className.message}>{message}</p>)
             : '')}
         </div>
         {(actions.length
-          ? <div className={className.actions()} onClick={this._remove}>
-          {this._renderActions()}
-          </div>
+          ? <div className={className.actions()}
+                 onClick={this._remove}>{this._renderActions()}</div>
           : '')}
       </div>
     );
