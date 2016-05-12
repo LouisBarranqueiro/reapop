@@ -26,6 +26,7 @@ class NotificationCreator extends Component {
     this._onAction1PrimaryChange = this._onAction1PrimaryChange.bind(this);
     this._onAction2NameChange = this._onAction2NameChange.bind(this);
     this._onAction2PrimaryChange = this._onAction2PrimaryChange.bind(this);
+    this._onAllowHTMLChange = this._onAllowHTMLChange.bind(this);
     this.state = {
       notification: {
         title: 'Welcome on demo!',
@@ -39,7 +40,8 @@ class NotificationCreator extends Component {
         }, {
           name: '',
           primary: false
-        }]
+        }],
+        allowHTML: false
       }
     };
   }
@@ -67,7 +69,8 @@ class NotificationCreator extends Component {
       status: notification.status,
       dismissible: notification.dismissible,
       dismissAfter: notification.dismissAfter,
-      actions: _actions
+      actions: _actions,
+      allowHTML: notification.allowHTML
     });
   }
   
@@ -223,42 +226,18 @@ class NotificationCreator extends Component {
   }
 
   /**
-   * Render action buttons form
-   * @returns {XML}
+   * Update `dismissisble` variable state
+   * @param {Object} event
+   * @returns {void}
    * @private
    */
-  _renderActions() {
-    const {actions} = this.state.notification;
-    return (
-      <div>
-        <div className='row'>
-          <div className='col-xs-6'>
-            <label>First action</label>
-            <input className='form-control' type='text' name='action1-name'
-                   onChange={this._onAction1NameChange}
-                   value={actions[0].name}/>
-          </div>
-          <div className='col-xs-6'>
-            <label>Primary action</label>
-            <Switch label='action1-primary'
-                    variable={{name: 'action1-primary', checked: actions[0].primary, onChange: this._onAction1PrimaryChange}}/>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-xs-6'>
-            <label>Second action</label>
-            <input className='form-control' type='text' name='action2-name'
-                   onChange={this._onAction2NameChange}
-                   value={actions[1].name}/>
-          </div>
-          <div className='col-xs-6'>
-            <label>Primary action</label>
-            <Switch label='action2-primary'
-                    variable={{name: 'action2-primary', checked: actions[1].primary, onChange: this._onAction2PrimaryChange}}/>
-          </div>
-        </div>
-      </div>
-    );
+  _onAllowHTMLChange(event) {
+    const newState = update(this.state, {
+      notification: {
+        allowHTML: {$set: event.target.checked}
+      }
+    });
+    this.setState(newState);
   }
   
   /**
@@ -266,7 +245,7 @@ class NotificationCreator extends Component {
    * @returns {XML}
    */
   render() {
-    const {title, message, dismissAfter, dismissible} = this.state.notification;
+    const {title, message, dismissAfter, dismissible, allowHTML, actions} = this.state.notification;
     return (
       <div>
         <h4 className='text-center'>Notification Creator</h4>
@@ -308,7 +287,39 @@ class NotificationCreator extends Component {
               </div>
             </div>
           </div>
-          {this._renderActions()}
+          <div>
+            <div className='row'>
+              <div className='col-xs-6'>
+                <label>First action</label>
+                <input className='form-control' type='text' name='action1-name'
+                  onChange={this._onAction1NameChange}
+                  value={actions[0].name}/>
+              </div>
+              <div className='col-xs-6'>
+                <label>Primary action</label>
+                <Switch label='action1-primary'
+                  variable={{name: 'action1-primary', checked: actions[0].primary, onChange: this._onAction1PrimaryChange}}/>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-xs-6'>
+                <label>Second action</label>
+                <input className='form-control' type='text' name='action2-name'
+                  onChange={this._onAction2NameChange}
+                  value={actions[1].name}/>
+              </div>
+              <div className='col-xs-6'>
+                <label>Primary action</label>
+                <Switch label='action2-primary'
+                  variable={{name: 'action2-primary', checked: actions[1].primary, onChange: this._onAction2PrimaryChange}}/>
+              </div>
+            </div>
+          </div>
+          <div className='form-group'>
+            <label>Allow HTML in message</label>
+            <Switch label='allowHTML'
+              variable={{name: 'allowHTML', checked: allowHTML, onChange: this._onAllowHTMLChange}}/>
+          </div>
           <button type='submit' className='btn btn-primary btn-block'>
             Notify
           </button>

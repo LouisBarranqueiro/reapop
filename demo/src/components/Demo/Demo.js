@@ -9,7 +9,8 @@ class Demo extends Component {
     const config = {
       status: 'info',
       dismissible: true,
-      dismissAfter: 5000
+      dismissAfter: 5000,
+      allowHTML: true
     };
     return (
       <div className={css['background']}>
