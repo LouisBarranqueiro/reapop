@@ -14,6 +14,7 @@
             "requireParamDescription": false
         }],
         "react/jsx-indent-props": 0,
+        "jsx-quotes": ["error", "prefer-single"],
         "react/jsx-space-before-closing":[2, "never"],
         "brace-style": [2, "stroustrup"],
         "space-before-function-paren":[2, "never"],
