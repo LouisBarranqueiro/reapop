@@ -34,7 +34,8 @@ describe('Notification', () => {
       }
       return css['notification-actions'];
     },
-    action: css['notification-action']
+    action: css['notification-action'],
+    actionText: css['notification-action-text']
   };
   // Expected Notification component
   // used to compare HTML
@@ -58,9 +59,11 @@ describe('Notification', () => {
         return (
           <button key={action.name} className={className.action}
                   onClick={action.onClick}>
-            {(action.primary
-              ? <b>{action.name}</b>
-              : action.name)}
+            <span className={className.actionText}>
+              {(action.primary
+                ? <b>{action.name}</b>
+                : action.name)}
+            </span>
           </button>
         );
       });

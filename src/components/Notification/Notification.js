@@ -27,7 +27,8 @@ export const className = {
     }
     return css['notification-actions'];
   },
-  action: css['notification-action']
+  action: css['notification-action'],
+  actionText: css['notification-action-text']
 };
 
 export class Notification extends Component {
@@ -113,9 +114,11 @@ export class Notification extends Component {
       return (
         <button key={action.name} className={className.action}
                 onClick={action.onClick}>
-          {(action.primary
-            ? <b>{action.name}</b>
-            : action.name)}
+          <span className={className.actionText}>
+            {(action.primary
+              ? <b>{action.name}</b>
+              : action.name)}
+          </span>
         </button>
       );
     });
@@ -153,7 +156,7 @@ export class Notification extends Component {
         </div>
         {(actions.length
           ? <div className={className.actions()} onClick={this._remove}>
-            {this._renderActions()}
+          {this._renderActions()}
           </div>
           : '')}
       </div>

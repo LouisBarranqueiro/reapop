@@ -37,12 +37,13 @@ $notification-error-icon: "\f057";
 }
 
 .notification {
-    display:  table;
-    height:   100%;
-    position: relative;
-    border:   none;
+    min-height: 40px;
+    display:    table;
+    height:     100%;
+    position:   relative;
+    border:     none;
     @include box-shadow(0 1px 3px -1px rgba(0, 0, 0, 0.3));
-    z-index:  999;
+    z-index:    999;
 
     &-meta {
         display:      table-cell;
@@ -59,6 +60,7 @@ $notification-error-icon: "\f057";
         vertical-align: top;
 
         .notification-action {
+            min-height:  45px;
             box-sizing:  border-box;
             padding:     0;
             background:  white;
@@ -67,6 +69,17 @@ $notification-error-icon: "\f057";
             outline:     none;
             text-align:  center;
 
+            &-text {
+                display:       block;
+                height:        25px;
+                // width of an action button with 10px of padding
+                width:         70px;
+                white-space:   nowrap;
+                overflow:      hidden;
+                margin:        0 auto;
+                text-overflow: ellipsis;
+                text-align:    center;
+            }
             &:hover {
                 color: $primary-color;
             }
