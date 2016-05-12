@@ -224,7 +224,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-
+  
   /**
    * Update `dismissisble` variable state
    * @param {Object} event
@@ -252,19 +252,19 @@ class NotificationCreator extends Component {
         <form onSubmit={this._addNotification}>
           <div className='form-group'>
             <label htmlFor='title'>Title</label>
-            <input className='form-control' type='text' id='title' name='title'
-                   onChange={this._onTitleChange} value={title}/>
+            <input className='form-control' type='text' id='title' name='title' value={title}
+              onChange={this._onTitleChange}/>
           </div>
           <div className='form-group'>
             <label htmlFor='message'>Message</label>
             <textarea className='form-control' id='message' value={message}
-                      onChange={this._onMessageChange}>
+              onChange={this._onMessageChange}>
             </textarea>
           </div>
           <div className='form-group'>
             <label htmlFor='status'>Status</label>
             <select className='form-control' id='status' name='status'
-                    onChange={this._onStatusChange}>
+              onChange={this._onStatusChange}>
               <option value='default'>Default</option>
               <option value='info'>Info</option>
               <option value='success'>Success</option>
@@ -277,48 +277,45 @@ class NotificationCreator extends Component {
               <div className='col-xs-6'>
                 <label htmlFor='dismissAfter'>Dismiss after (ms)</label>
                 <input className='form-control' type='text' name='dismissAfter'
-                       onChange={this._onDismissAfterChange}
-                       value={dismissAfter}/>
+                  onChange={this._onDismissAfterChange} value={dismissAfter}/>
               </div>
               <div className='col-xs-6'>
                 <label htmlFor='dismissible'>Dismissible (by clicking on it)</label>
-                <Switch label='dismissible'
-                        variable={{name: 'dismissible', checked: dismissible, onChange: this._onDismissibleChange}}/>
+                <Switch name='dismissible' checked={dismissible}
+                  onChange={this._onDismissibleChange}/>
               </div>
             </div>
           </div>
           <div>
             <div className='row'>
               <div className='col-xs-6'>
-                <label>First action</label>
+                <label htmlFor='action1-name'>First action</label>
                 <input className='form-control' type='text' name='action1-name'
-                  onChange={this._onAction1NameChange}
-                  value={actions[0].name}/>
+                  value={actions[0].name} onChange={this._onAction1NameChange}/>
               </div>
               <div className='col-xs-6'>
-                <label>Primary action</label>
-                <Switch label='action1-primary'
-                  variable={{name: 'action1-primary', checked: actions[0].primary, onChange: this._onAction1PrimaryChange}}/>
+                <label htmlFor='action1-primary'>Primary action</label>
+                <Switch name='action1-primary' checked={actions[0].primary}
+                  onChange={this._onAction1PrimaryChange}/>
               </div>
             </div>
             <div className='row'>
               <div className='col-xs-6'>
-                <label>Second action</label>
+                <label htmlFor='action2-name'>Second action</label>
                 <input className='form-control' type='text' name='action2-name'
-                  onChange={this._onAction2NameChange}
-                  value={actions[1].name}/>
+                  onChange={this._onAction2NameChange} value={actions[1].name}/>
               </div>
               <div className='col-xs-6'>
-                <label>Primary action</label>
-                <Switch label='action2-primary'
-                  variable={{name: 'action2-primary', checked: actions[1].primary, onChange: this._onAction2PrimaryChange}}/>
+                <label htmlFor='action2-primary'>Primary action</label>
+                <Switch name='action2-primary' checked={actions[1].primary}
+                  onChange={this._onAction2PrimaryChange}/>
               </div>
             </div>
           </div>
           <div className='form-group'>
-            <label>Allow HTML in message</label>
-            <Switch label='allowHTML'
-              variable={{name: 'allowHTML', checked: allowHTML, onChange: this._onAllowHTMLChange}}/>
+            <label htmlFor='allowHTML'>Allow HTML in message</label>
+            <Switch name='allowHTML' checked={allowHTML}
+              onChange={this._onAllowHTMLChange}/>
           </div>
           <button type='submit' className='btn btn-primary btn-block'>
             Notify

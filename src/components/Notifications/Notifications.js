@@ -4,7 +4,13 @@ import {connect} from 'react-redux';
 import css from './Notifications.scss';
 import Notification from '../Notification/Notification';
 import notificationCSS from '../Notification/Notification.scss';
-import {DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../constants';
+import {
+  DEFAULT_STATUS,
+  INFO_STATUS,
+  SUCCESS_STATUS,
+  WARNING_STATUS,
+  ERROR_STATUS
+} from '../../constants';
 
 // default values for a notification
 export const defaultValues = {
@@ -39,7 +45,8 @@ export class Notifications extends Component {
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
     defaultValues: React.PropTypes.shape({
-      status: React.PropTypes.oneOf([DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS]),
+      status: React.PropTypes.oneOf([DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS,
+        ERROR_STATUS]),
       dismissible: React.PropTypes.bool.isRequired,
       dismissAfter: React.PropTypes.number.isRequired,
       allowHTML: React.PropTypes.bool.isRequired
@@ -71,24 +78,22 @@ export class Notifications extends Component {
    */
   _renderNotifications() {
     // get all notifications and default values for notifications
-    const {notifications, defaultValues: {status, dismissible, dismissAfter, allowHTML}, notificationClassName} = this.props;
+    const {
+      notifications, notificationClassName,
+      defaultValues: {status, dismissible, dismissAfter, allowHTML}
+    } = this.props;
     return notifications.map((notification) => {
+      const hasDismissibleProp = typeof notification.dismissible === 'boolean';
+      const hasDismissAfterProp = typeof notification.dismissAfter === 'number';
+      const hasAllowHTMLProp = typeof notification.allowHTML === 'boolean';
       return (
         <Notification key={notification.id} id={notification.id} title={notification.title}
-                      message={notification.message} status={notification.status || status}
-                      dismissible={typeof notification.dismissible === 'boolean'
-                      ? notification.dismissible
-                      : dismissible}
-                      dismissAfter={typeof notification.allowHTML === 'number'
-                      ? notification.dismissAfter
-                      : dismissAfter}
-                      onAdd={notification.onAdd}
-                      onRemove={notification.onRemove}
-                      actions={notification.actions}
-                      allowHTML={typeof notification.allowHTML === 'boolean'
-                      ? notification.allowHTML
-                      : allowHTML}
-                      className={notificationClassName}/>
+          message={notification.message} status={notification.status || status}
+          dismissible={hasDismissibleProp ? notification.dismissible : dismissible}
+          dismissAfter={hasDismissAfterProp ? notification.dismissAfter : dismissAfter}
+          allowHTML={hasAllowHTMLProp ? notification.allowHTML : allowHTML}
+          onAdd={notification.onAdd} onRemove={notification.onRemove}
+          actions={notification.actions} className={notificationClassName}/>
       );
     });
   }
@@ -101,9 +106,7 @@ export class Notifications extends Component {
     const {className, transition: {name, enterTimeout, leaveTimeout}} = this.props;
     return (
       <div className={className}>
-        <TransitionGroup
-          transitionName={name}
-          transitionEnterTimeout={enterTimeout}
+        <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
           transitionLeaveTimeout={leaveTimeout}>
           {this._renderNotifications()}
         </TransitionGroup>

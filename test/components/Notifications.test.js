@@ -4,7 +4,6 @@ import {Provider} from 'react-redux';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import ConnectNotifications, {Notifications} from '../../src/components/Notifications/Notifications';
 import ConnectNotification, {
-  transition,
   className as notificationClassName
 } from '../../src/components/Notification/Notification';
 import css from '../../src/components/Notifications/Notifications.scss';
@@ -104,24 +103,17 @@ describe('Notifications', () => {
       const {status, dismissible, dismissAfter, allowHTML} = defaultValues;
       const {notificationClassName} = props;
       return notifications.map((notification) => {
+        const hasDismissibleProp = typeof notification.dismissible === 'boolean';
+        const hasDismissAfterProp = typeof notification.dismissAfter === 'number';
+        const hasAllowHTMLProp = typeof notification.allowHTML === 'boolean';
         return (
           <ConnectNotification key={notification.id} id={notification.id} title={notification.title}
-                               message={notification.message}
-                               status={notification.status || status}
-                               dismissible={notification.dismissible != null
-                                ? notification.dismissible
-                                : dismissible}
-                               dismissAfter={notification.dismissAfter != null
-                                ? notification.dismissAfter
-                                : dismissAfter}
-                               allowHTML={typeof notification.allowHTML === 'boolean'
-                                ? notification.allowHTML
-                                : allowHTML}
-                               onAdd={notification.onAdd}
-                               onRemove={notification.onRemove}
-                               actions={notification.actions}
-                               className={notificationClassName}
-                               transition={transition}/>
+            message={notification.message} status={notification.status || status}
+            dismissible={hasDismissibleProp ? notification.dismissible : dismissible}
+            dismissAfter={hasDismissAfterProp ? notification.dismissAfter : dismissAfter}
+            allowHTML={hasAllowHTMLProp ? notification.allowHTML : allowHTML}
+            onAdd={notification.onAdd} onRemove={notification.onRemove}
+            actions={notification.actions} className={notificationClassName}/>
         );
       });
     }
@@ -129,9 +121,7 @@ describe('Notifications', () => {
     const {name, enterTimeout, leaveTimeout} = props.transition;
     return (
       <div className={props.className}>
-        <TransitionGroup
-          transitionName={name}
-          transitionEnterTimeout={enterTimeout}
+        <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
           transitionLeaveTimeout={leaveTimeout}>
           {renderNotifications()}
         </TransitionGroup>

@@ -4,32 +4,32 @@ $notifications-max-width: 350px;
 
 // notifications panel
 .notifications-container {
-  position: fixed;
-  z-index:  99999;
+    position: fixed;
+    z-index:  99999;
 }
 
 @media (max-width: #{$screen-xs-max}) {
-  .notifications-container {
-    width: 100%;
-    top:   0;
-    left:  0;
-  }
+    .notifications-container {
+        width: 100%;
+        top:   0;
+        left:  0;
+    }
 }
 
 @media (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-max}) {
-  .notifications-container {
-    max-width: $notifications-max-width;
-    width:     40%;
-    top:       20px;
-    right:     20px;
-  }
+    .notifications-container {
+        max-width: $notifications-max-width;
+        width:     40%;
+        top:       20px;
+        right:     20px;
+    }
 }
 
 @media (min-width: #{$screen-lg-min}) {
-  .notifications-container {
-    max-width: $notifications-max-width;
-    width:     30%;
-    top:       20px;
-    right:     20px;
-  }
+    .notifications-container {
+        max-width: $notifications-max-width;
+        width:     30%;
+        top:       20px;
+        right:     20px;
+    }
 }

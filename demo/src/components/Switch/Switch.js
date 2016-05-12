@@ -6,8 +6,10 @@ class Input extends Component {
    * propTypes
    */
   static propTypes = {
-    variable: React.PropTypes.object.isRequired,
-    label: React.PropTypes.string.isRequired
+    name: React.PropTypes.string.isRequired,
+    onChange: React.PropTypes.func.isRequired,
+    checked: React.PropTypes.bool.isRequired,
+    variable: React.PropTypes.object
   };
 
   /**
@@ -15,20 +17,15 @@ class Input extends Component {
    * @returns {XML}
    */
   render() {
-    const {variable, label} = this.props;
+    const {variable, name, onChange, checked} = this.props;
     return (
-      <div className='form-group'>
-        <div className={css['onoffswitch']}>
-          <input type='checkbox'
-                 className={css['onoffswitch-checkbox']}
-                 id={variable.name}
-            {...variable}
-                 />
-          <label className={css['onoffswitch-label']} htmlFor={variable.name}>
-            <span className={css['onoffswitch-inner']}></span>
-            <span className={css['onoffswitch-switch']}></span>
-          </label>
-        </div>
+      <div className={css['onoffswitch']}>
+        <input type='checkbox' className={css['onoffswitch-checkbox']} id={name} name={name}
+          onChange={onChange} checked={checked} {...variable}/>
+        <label className={css['onoffswitch-label']} htmlFor={name}>
+          <span className={css['onoffswitch-inner']}></span>
+          <span className={css['onoffswitch-switch']}></span>
+        </label>
       </div>
     );
   }

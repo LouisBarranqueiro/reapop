@@ -73,8 +73,7 @@ class NotificationExamples extends Component {
   render() {
     return (
       <div>
-        <button className='btn btn-primary btn-block'
-                onClick={this._notificationUpdatedExample}>
+        <button className='btn btn-primary btn-block' onClick={this._notificationUpdatedExample}>
           Notification updated example
         </button>
       </div>

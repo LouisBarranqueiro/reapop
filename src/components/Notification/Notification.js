@@ -130,8 +130,7 @@ export class Notification extends Component {
     const {actions, className} = this.props;
     return actions.map((action) => {
       return (
-        <button key={action.name} className={className.action}
-                onClick={action.onClick}>
+        <button key={action.name} className={className.action} onClick={action.onClick}>
           <span className={className.actionText}>
             {(action.primary
               ? <b>{action.name}</b>
@@ -147,8 +146,7 @@ export class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {
-      id, title, message, status, dismissAfter,
+    const {title, message, status, dismissAfter,
       dismissible, className, actions, allowHTML
     } = this.props;
     const isDismissible = (dismissible && actions.length === 0);
@@ -157,13 +155,13 @@ export class Notification extends Component {
     if (actions.length === 0 && dismissAfter > 0) {
       setTimeout(() => this._remove(), dismissAfter);
     }
-
+    
     return (
-      <div ref={id} className={
+      <div className={
            `${className.main} ${className.status(status)}
             ${(isDismissible ? className.dismissible : '')}
             ${className.actions(actions.length)}`}
-           onClick={isDismissible ? this._remove : ''}>
+        onClick={isDismissible ? this._remove : ''}>
         <i className={className.icon}></i>
         <div className={className.meta}>
           {(title
@@ -171,14 +169,12 @@ export class Notification extends Component {
             : '')}
           {(message
             ? (allowHTML
-            ? <p className={className.message}
-                 dangerouslySetInnerHTML={this._messageToHTML()}/>
+            ? <p className={className.message} dangerouslySetInnerHTML={this._messageToHTML()}/>
             : <p className={className.message}>{message}</p>)
             : '')}
         </div>
         {(actions.length
-          ? <div className={className.actions()}
-                 onClick={this._remove}>{this._renderActions()}</div>
+          ? <div className={className.actions()} onClick={this._remove}>{this._renderActions()}</div>
           : '')}
       </div>
     );
