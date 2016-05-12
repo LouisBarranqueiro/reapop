@@ -133,6 +133,7 @@ describe('Notification', () => {
     expect(wrapper.props().className.actions(1)).toEqual(className.actions(1));
     expect(wrapper.props().className.actions(2)).toEqual(className.actions(2));
     expect(wrapper.props().className.action).toEqual(className.action);
+    expect(wrapper.props().className.actionText).toEqual(className.actionText);
     expect(wrapper.props().removeNotification).toEqual(removeNotification);
     expect(wrapper.props().onAdd()).toEqual((() => {
     })());
