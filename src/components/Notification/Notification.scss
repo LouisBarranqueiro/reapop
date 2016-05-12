@@ -13,6 +13,9 @@ $notification-success-bg: #ffffff;
 $notification-success-border: #4dc657;
 $notification-success-icon: "\f058";
 
+$notification-default-bg: #ffffff;
+$notification-default-border: #ffffff;
+
 $notification-info-bg: #ffffff;
 $notification-info-border: #349ef3;
 $notification-info-icon: "\f05a";
@@ -30,9 +33,11 @@ $notification-error-icon: "\f057";
     border-left:      2px solid #{$border-color};
     color:            #524c4c;
 
-    .notification-icon:before {
-        content: $icon;
-        color:   $border-color;
+    @if $icon != '' {
+        .notification-icon:before {
+            content: $icon;
+            color:   $border-color;
+        }
     }
 }
 
@@ -45,12 +50,17 @@ $notification-error-icon: "\f057";
     @include box-shadow(0 1px 3px -1px rgba(0, 0, 0, 0.3));
     z-index:    999;
 
+    // add extra padding to let space for icon
+    &:not(&--default) {
+        .notification-meta {
+            padding-left: 55px;
+        }
+    }
     &-meta {
-        display:      table-cell;
-        box-sizing:   border-box;
-        width:        100%;
-        padding:      10px 20px;
-        padding-left: 55px;
+        display:    table-cell;
+        box-sizing: border-box;
+        width:      100%;
+        padding:    10px 20px;
     }
     // global style for action buttons
     &-actions {
@@ -60,7 +70,7 @@ $notification-error-icon: "\f057";
         vertical-align: top;
 
         .notification-action {
-            min-height:  45px;
+            min-height:  40px;
             box-sizing:  border-box;
             padding:     0;
             background:  white;
@@ -107,6 +117,9 @@ $notification-error-icon: "\f057";
         cursor: pointer;
     }
     // color variants
+    &--default {
+        @include notification-variant($notification-default-bg, $notification-default-border, '');
+    }
     &--success {
         @include notification-variant($notification-success-bg, $notification-success-border, $notification-success-icon);
     }
@@ -122,6 +135,8 @@ $notification-error-icon: "\f057";
     // change size of action buttons and meta div
     // for small to large screen
     @media (min-width: #{$screen-sm-min}) {
+        margin-bottom: 20px;
+
         &--actions-1 .notification-action {
             height: 100%;
         }
@@ -144,6 +159,8 @@ $notification-error-icon: "\f057";
     // change size of action buttons and meta div
     // for extra small screen
     @media (max-width: #{$screen-xs-max}) {
+        width: 100%;
+
         &--actions-1 {
             .notification-actions {
                 width: $notification-action-width;
@@ -170,10 +187,9 @@ $notification-error-icon: "\f057";
 // Animation : slide left to right for small to large screens
 @media (min-width: #{$screen-sm-min}) {
     .notification {
-        margin-bottom: 20px;
-        position:      relative;
-        right:         0;
-        transition:    opacity .4s, right .4s;
+        position:   relative;
+        right:      0;
+        transition: opacity .4s, right .4s;
         // Animations
         // enter animation (start)
         &-enter {
@@ -203,7 +219,6 @@ $notification-error-icon: "\f057";
 // Animation : slide top to bottom for extra small screens
 @media (max-width: #{$screen-xs-max}) {
     .notification {
-        width:      100%;
         position:   relative;
         top:        0;
         transition: opacity .4s, top .4s;

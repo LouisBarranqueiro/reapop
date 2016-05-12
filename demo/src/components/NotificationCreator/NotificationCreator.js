@@ -30,7 +30,7 @@ class NotificationCreator extends Component {
       notification: {
         title: 'Welcome on demo!',
         message: 'Hey buddy, here you can see what you can do with it.',
-        status: 'info',
+        status: 'default',
         dismissAfter: 5000,
         dismissible: true,
         actions: [{
@@ -286,10 +286,11 @@ class NotificationCreator extends Component {
             <label htmlFor='status'>Status</label>
             <select className='form-control' id='status' name='status'
                     onChange={this._onStatusChange}>
-              <option value='info'>info</option>
-              <option value='success'>success</option>
-              <option value='warning'>warning</option>
-              <option value='error'>error</option>
+              <option value='default'>Default</option>
+              <option value='info'>Info</option>
+              <option value='success'>Success</option>
+              <option value='warning'>Warning</option>
+              <option value='error'>Error</option>
             </select>
           </div>
           <div>

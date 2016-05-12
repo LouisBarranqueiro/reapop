@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import css from './Notification.scss';
 import {removeNotification} from '../../store/notifications';
+import {DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS} from '../../constants';
 
 // default className for Notification component
 export const className = {
@@ -47,10 +48,7 @@ export class Notification extends Component {
     id: React.PropTypes.number.isRequired,
     title: React.PropTypes.string,
     message: React.PropTypes.string,
-    status: React.PropTypes.oneOfType([
-      React.PropTypes.string.isRequired,
-      React.PropTypes.number.isRequired
-    ]),
+    status: React.PropTypes.oneOf([DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS, ERROR_STATUS]),
     dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
     removeNotification: React.PropTypes.func.isRequired,
