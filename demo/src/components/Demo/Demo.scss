@@ -22,13 +22,15 @@
 
 .logo {
     font-family: 'ArtelyInks';
-    // change size for extra small screens
-    @media (max-width: #{$screen-xs-max}) {
-        font-size: 80px;
-    }
     // change size for large screens
     @media (min-width: #{$screen-sm-min}) {
+        margin-top:-60px;
         font-size: 120px;
+    }
+    // change size for extra small screens
+    @media (max-width: #{$screen-xs-max}) {
+        margin-top:-40px;
+        font-size: 80px;
     }
 }
 
