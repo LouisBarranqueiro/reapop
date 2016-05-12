@@ -42,6 +42,7 @@ export function genNotification(notification = {}) {
     status: faker.random.objectElement(STATUS),
     dismissible: faker.random.boolean(),
     dismissAfter: faker.random.number(),
+    allowHTML: faker.random.boolean(),
     actions: [{
       name: faker.lorem.words(),
       primary: faker.random.boolean(),
