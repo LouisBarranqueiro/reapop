@@ -50,6 +50,18 @@ describe('Notification', () => {
     };
 
     /**
+     * Return HTML message
+     * @returns {Object}
+     * @private
+     */
+    _messageToHTML() {
+      const {message} = this.props;
+      return {
+        __html: message
+      };
+    }
+    
+    /**
      * Render action button(s)
      * @returns {*}
      */
@@ -76,7 +88,7 @@ describe('Notification', () => {
     render() {
       const {
         id, title, message, status, dismissAfter,
-        dismissible, className, actions
+        dismissible, className, actions, allowHTML
       } = this.props;
       const isDismissible = (dismissible && actions.length === 0);
       // if there is no actions, it remove automatically
@@ -96,13 +108,15 @@ describe('Notification', () => {
               ? <h4 className={className.title}>{title}</h4>
               : '')}
             {(message
-              ? <p className={className.message}>{message}</p>
+              ? (allowHTML
+              ? <p className={className.message}
+                   dangerouslySetInnerHTML={this._messageToHTML()}/>
+              : <p className={className.message}>{message}</p>)
               : '')}
           </div>
           {(actions.length
-            ? <div className={className.actions()} onClick={this._remove}>
-              {this._renderActions()}
-            </div>
+            ? <div className={className.actions()}
+                   onClick={this._remove}>{this._renderActions()}</div>
             : '')}
         </div>
       );
@@ -168,6 +182,21 @@ describe('Notification', () => {
   });
 
   it('should render component (with message)', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    );
+    const expectedComponent = mount(
+      <ExpectedNotification key={notification.id} {...notification}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+  
+  it('should render component (with HTML message)', () => {
+    // add HTML in message and allow HTML
+    notification.message = `${notification.message} <b>HEY</b>`;
+    notification.allowHTML = true;
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>

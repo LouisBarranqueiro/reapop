@@ -17,7 +17,8 @@ describe('Notifications', () => {
   const defaultValues = {
     status: null,
     dismissible: true,
-    dismissAfter: 5000
+    dismissAfter: 5000,
+    allowHTML: false
   };
   // default className for notifications container
   const className = css['notifications-container'];
@@ -42,7 +43,8 @@ describe('Notifications', () => {
     defaultValues: {
       status: STATUS.info,
       dismissAfter: 3333,
-      dismissible: false
+      dismissible: false,
+      allowHTML: true
     },
     className: 'custom-notification',
     transition: {
@@ -56,12 +58,30 @@ describe('Notifications', () => {
       }
     },
     notificationClassName: {
-      main: 'custom-notification',
-      status: function(status) {
-        return 'custom-notification-' + status;
+      main: css['custom-notification'],
+      meta: css['custom-notification-meta'],
+      title: css['custom-notification-title'],
+      message: css['custom-notification-message'],
+      icon: `fa ${css['custom-notification-icon']}`,
+      status: (status) => {
+        return css[`custom-notification--${status}`];
       },
-      title: 'custom-notification-title',
-      icon: 'custom-notification-icon'
+      dismissible: css['custom-notification--dismissible'],
+      // `fa` corresponds to font-awesome's class name
+      actions: (count) => {
+        if (count === 0) {
+          return;
+        }
+        else if (count === 1) {
+          return css['custom-notification--actions-1'];
+        }
+        else if (count === 2) {
+          return css['custom-notification--actions-2'];
+        }
+        return css['custom-notification-actions'];
+      },
+      action: css['custom-notification-action'],
+      actionText: css['custom-notification-action-text']
     }
   };
 
@@ -81,7 +101,7 @@ describe('Notifications', () => {
      * @returns {XML}
      */
     function renderNotifications() {
-      const {status, dismissible, dismissAfter} = defaultValues;
+      const {status, dismissible, dismissAfter, allowHTML} = defaultValues;
       const {notificationClassName} = props;
       return notifications.map((notification) => {
         return (
@@ -94,6 +114,9 @@ describe('Notifications', () => {
                                dismissAfter={notification.dismissAfter != null
                                 ? notification.dismissAfter
                                 : dismissAfter}
+                               allowHTML={typeof notification.allowHTML === 'boolean'
+                                ? notification.allowHTML
+                                : allowHTML}
                                onAdd={notification.onAdd}
                                onRemove={notification.onRemove}
                                actions={notification.actions}
@@ -102,6 +125,7 @@ describe('Notifications', () => {
         );
       });
     }
+
     const {name, enterTimeout, leaveTimeout} = props.transition;
     return (
       <div className={props.className}>
