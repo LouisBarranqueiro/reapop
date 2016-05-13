@@ -159,6 +159,7 @@ describe('Notifications', () => {
     delete notification.status;
     delete notification.dismissAfter;
     delete notification.dismissible;
+    delete notification.allowHTML;
     const store = mockStore({notifications: [notification]});
     const wrapper = mount(
       <Provider store={store}>
@@ -174,6 +175,7 @@ describe('Notifications', () => {
     expect(props.status).toEqual(defaultValues.status);
     expect(props.dismissible).toEqual(defaultValues.dismissible);
     expect(props.dismissAfter).toEqual(defaultValues.dismissAfter);
+    expect(props.allowHTML).toEqual(defaultValues.allowHTML);
     expect(wrapper.html()).toEqual(expectedElement.html());
   });
 
