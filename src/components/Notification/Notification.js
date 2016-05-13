@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import css from './Notification.scss';
+import {Timer} from '../../helpers';
 import {removeNotification} from '../../store/notifications';
 import {
   DEFAULT_STATUS,
@@ -37,6 +38,20 @@ export const className = {
   action: css['notification-action'],
   actionText: css['notification-action-text']
 };
+
+/**
+ * Create a timer
+ * @param {Number} dismissAfter
+ * @param {Array} actions
+ * @param {Function} callback
+ * @returns {Function|null} a Timer
+ */
+function createTimer(dismissAfter, actions, callback) {
+  if (dismissAfter > 0 && (!actions || (actions && actions.length === 0))) {
+    return new Timer(callback, dismissAfter);
+  }
+  return null;
+}
 
 export class Notification extends Component {
   // Default properties
@@ -78,8 +93,14 @@ export class Notification extends Component {
    * @returns {void}
    */
   constructor(props) {
+    const {dismissAfter, actions} = props;
     super(props);
     this._remove = this._remove.bind(this);
+    this._pauseTimer = this._pauseTimer.bind(this);
+    this._resumeTimer = this._resumeTimer.bind(this);
+    this.state = {
+      timer: createTimer(dismissAfter, actions, this._remove)
+    };
   }
   
   /**
@@ -99,7 +120,19 @@ export class Notification extends Component {
     const {onRemove} = this.props;
     onRemove();
   }
-  
+
+  /**
+   * Update timer
+   * @param {Object} nextProps
+   * @returns {void}
+   */
+  componentWillReceiveProps(nextProps) {
+    const {dismissAfter, actions} = nextProps;
+    this.setState({
+      timer: createTimer(dismissAfter, actions, this._remove)
+    });
+  }
+
   /**
    * Remove the notification
    * @private
@@ -109,7 +142,27 @@ export class Notification extends Component {
     const {removeNotification, id} = this.props;
     removeNotification(id);
   }
-  
+
+  /**
+   * Pauses the timer
+   * @returns {void}
+   * @private
+   */
+  _pauseTimer() {
+    const {timer} = this.state;
+    timer.pause();
+  }
+
+  /**
+   * Resumes the timer
+   * @returns {void}
+   * @private
+   */
+  _resumeTimer() {
+    const {timer} = this.state;
+    timer.resume();
+  }
+
   /**
    * Return HTML message
    * @returns {Object}
@@ -146,22 +199,19 @@ export class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {title, message, status, dismissAfter,
-      dismissible, className, actions, allowHTML
-    } = this.props;
+    const {title, message, status, dismissible, className, actions, allowHTML} = this.props;
+    const {timer} = this.state;
     const isDismissible = (dismissible && actions.length === 0);
-    // if there is no actions, it remove automatically
-    // the notification after `dismissAfter` duration
-    if (actions.length === 0 && dismissAfter > 0) {
-      setTimeout(() => this._remove(), dismissAfter);
+    if (timer) {
+      this._resumeTimer();
     }
-    
     return (
       <div className={
            `${className.main} ${className.status(status)}
             ${(isDismissible ? className.dismissible : '')}
             ${className.actions(actions.length)}`}
-        onClick={isDismissible ? this._remove : ''}>
+        onClick={isDismissible ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
+        onMouseLeave={timer ? this._resumeTimer : ''}>
         <i className={className.icon}></i>
         <div className={className.meta}>
           {(title
@@ -174,7 +224,9 @@ export class Notification extends Component {
             : '')}
         </div>
         {(actions.length
-          ? <div className={className.actions()} onClick={this._remove}>{this._renderActions()}</div>
+          ? <div className={className.actions()} onClick={this._remove}>
+          {this._renderActions()}
+          </div>
           : '')}
       </div>
     );
