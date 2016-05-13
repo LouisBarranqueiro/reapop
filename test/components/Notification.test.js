@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {genNotification, mockStore} from '../fixtures';
+import {Timer} from '../../src/helpers';
 import {types, removeNotification} from '../../src/store/notifications';
 import css from '../../src/components/Notification/Notification.scss';
 import ConnectNotification, {Notification} from '../../src/components/Notification/Notification';
@@ -86,7 +87,8 @@ describe('Notification', () => {
      * @returns {XML}
      */
     render() {
-      const {title, message, status, dismissAfter,
+      const {
+        title, message, status, dismissAfter,
         dismissible, className, actions, allowHTML
       } = this.props;
       const isDismissible = (dismissible && actions.length === 0);
@@ -154,7 +156,37 @@ describe('Notification', () => {
     expect(wrapper.props().onRemove()).toEqual((() => {
     })());
   });
-  
+
+  it('should mount with initial state', () => {
+    // without a timer
+    let wrapper = mount(
+      <Notification key={notification.id} {...notification}
+        removeNotification={removeNotification}/>
+    );
+    expect(wrapper.state().timer).toEqual(null);
+    // with a timer
+    delete notification.actions;
+    wrapper = mount(
+      <Notification key={notification.id} {...notification}
+        removeNotification={removeNotification}/>
+    );
+    expect(wrapper.state().timer).toBeA(Timer);
+  });
+
+  it('should update state when receiving new props (', () => {
+    // state component will be init without timer because it have actions
+    let wrapper = mount(
+      <Notification key={notification.id} {...notification}
+        removeNotification={removeNotification}/>
+    );
+    expect(wrapper.state().timer).toEqual(null);
+    // we delete actions to provoke creation of a Timer
+    // at `componentWillReceivedProps()` component lifecycle
+    notification.actions = [];
+    wrapper.setProps(notification);
+    expect(wrapper.state().timer).toBeA(Timer);
+  });
+
   it('should render component (with title)', () => {
     const wrapper = mount(
       <Provider store={store}>
@@ -392,7 +424,7 @@ describe('Notification', () => {
     wrapper.find(ConnectNotification).simulate('click');
     expect(store.getActions()).toEqual([]);
   });
-  
+
   it('should not create an action to remove the notification ' +
     'when it is clicked (actions.length > 0)', (done) => {
     // we set `dismissible` to `true` to be sure that
@@ -422,7 +454,7 @@ describe('Notification', () => {
       done();
     }, 10);
   });
-  
+
   it('should not create an action to remove the notification after ' +
     '`dismissAfter` duration (dismissAfter = 0)', (done) => {
     notification.dismissAfter = 0;
@@ -435,5 +467,36 @@ describe('Notification', () => {
       expect(store.getActions()).toEqual([]);
       done();
     }, 10);
+  });
+
+  it('should not create an action to remove the notification ' +
+    'while mouse is hovering it', (done) => {
+    notification.dismissAfter = 10;
+    delete notification.actions;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification key={notification.id} {...notification}/>
+      </Provider>
+    ).find(ConnectNotification);
+    const expectedAction = {
+      type: types.REMOVE_NOTIFICATION,
+      payload: notification.id
+    };
+    // hover notification after 5s
+    setTimeout(() => {
+      wrapper.simulate('mouseEnter');
+    }, 5);
+    // check 5s after `dismissAfter` duration that the store
+    // is empty because mouse is hovering the notification
+    setTimeout(() => {
+      expect(store.getActions()).toEqual([]);
+      // we leave notification
+      wrapper.simulate('mouseLeave');
+    }, 15);
+    // and we check that the store contains an action
+    setTimeout(() => {
+      expect(store.getActions()).toEqual([expectedAction]);
+      done();
+    }, 21);
   });
 });
