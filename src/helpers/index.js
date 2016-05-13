@@ -20,3 +20,29 @@ export function convertStatus(status) {
   }
   return status;
 }
+
+/**
+ * Create a Timer
+ * @param {Function} callback
+ * @param {Number} delay
+ * @constructor
+ */
+export function Timer(callback, delay) {
+  let timerId;
+  let start;
+  let remaining = delay;
+
+  this.pause = () => {
+    clearTimeout(timerId);
+    remaining -= new Date() - start;
+  };
+  this.resume = () => {
+    start = new Date();
+    clearTimeout(timerId);
+    timerId = setTimeout(callback, remaining);
+  };
+
+  this.getTimeRemaining = () => {
+    return remaining;
+  };
+}
