@@ -13,11 +13,6 @@ export const className = {
 };
 
 export class Notifications extends Component {
-  // Default properties
-  static defaultProps = {
-    notifications: []
-  };
-  
   // Properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
