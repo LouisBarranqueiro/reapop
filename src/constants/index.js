@@ -12,14 +12,14 @@ export const STATUS = [
   ERROR_STATUS
 ];
 
-export const TOP_LEFT_POSITON = 'tl';
-export const TOP_RIGHT_POSITON = 'tr';
-export const BOTTOM_LEFT_POSITON = 'bl';
-export const BOTTOM_RIGHT_POSITON = 'br';
+export const TOP_LEFT_POSITION = 'tl';
+export const TOP_RIGHT_POSITION = 'tr';
+export const BOTTOM_LEFT_POSITION = 'bl';
+export const BOTTOM_RIGHT_POSITION = 'br';
 
 export const POSITIONS = [
-  TOP_LEFT_POSITON,
-  TOP_RIGHT_POSITON,
-  BOTTOM_LEFT_POSITON,
-  BOTTOM_RIGHT_POSITON
+  TOP_LEFT_POSITION,
+  TOP_RIGHT_POSITION,
+  BOTTOM_LEFT_POSITION,
+  BOTTOM_RIGHT_POSITION
 ];
