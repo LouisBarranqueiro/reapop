@@ -20,7 +20,12 @@ export const defaultValues = {
   allowHTML: false
 };
 // default className for notifications container
-export const className = css['notifications-container'];
+export const className = {
+  main: css['notifications-container'],
+  position: function(position) {
+    return css[`notifications-container--${position}`];
+  }
+};
 // default transition for Notification component
 export const transition = {
   enterTimeout: 400,
@@ -36,6 +41,7 @@ export const transition = {
 export class Notifications extends Component {
   // Default properties
   static defaultProps = {
+    position: 'tr',
     defaultValues,
     className,
     transition
@@ -43,6 +49,7 @@ export class Notifications extends Component {
   
   // Properties types
   static propTypes = {
+    position: React.PropTypes.string.isRequired,
     notifications: React.PropTypes.array.isRequired,
     defaultValues: React.PropTypes.shape({
       status: React.PropTypes.oneOf([DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS,
@@ -52,7 +59,10 @@ export class Notifications extends Component {
       allowHTML: React.PropTypes.bool.isRequired
     }),
     notificationClassName: React.PropTypes.object,
-    className: React.PropTypes.string.isRequired,
+    className: React.PropTypes.shape({
+      main: React.PropTypes.string.isRequired,
+      position: React.PropTypes.func.isRequired
+    }),
     transition: React.PropTypes.shape({
       name: React.PropTypes.object.isRequired,
       enterTimeout: React.PropTypes.number.isRequired,
@@ -70,7 +80,7 @@ export class Notifications extends Component {
     super(props);
     this._renderNotifications = this._renderNotifications.bind(this);
   }
-  
+
   /**
    * Render notifications
    * @private
@@ -78,13 +88,13 @@ export class Notifications extends Component {
    */
   _renderNotifications() {
     // get all notifications and default values for notifications
-    const {
-      notifications, notificationClassName,
+    const {notifications, notificationClassName,
       defaultValues: {status, dismissible, dismissAfter, allowHTML}
     } = this.props;
+
     return notifications.map((notification) => {
       const hasDismissibleProp = typeof notification.dismissible === 'boolean';
-      const hasDismissAfterProp = typeof notification.dismissAfter === 'number';
+      const hasDismissAfterProp = notification.dismissAfter >= 0;
       const hasAllowHTMLProp = typeof notification.allowHTML === 'boolean';
       return (
         <Notification key={notification.id} id={notification.id} title={notification.title}
@@ -103,9 +113,10 @@ export class Notifications extends Component {
    * @returns {XML}
    */
   render() {
-    const {className, transition: {name, enterTimeout, leaveTimeout}} = this.props;
+    const {className, position, transition: {name, enterTimeout, leaveTimeout}} = this.props;
+
     return (
-      <div className={className}>
+      <div className={`${className.main} ${className.position(position)}`}>
         <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
           transitionLeaveTimeout={leaveTimeout}>
           {this._renderNotifications()}

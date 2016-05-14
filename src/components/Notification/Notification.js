@@ -25,7 +25,7 @@ export const className = {
   // `fa` corresponds to font-awesome's class name
   actions: (count) => {
     if (count === 0) {
-      return;
+      return '';
     }
     else if (count === 1) {
       return css['notification--actions-1'];

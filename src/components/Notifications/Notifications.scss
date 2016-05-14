@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 
-$notifications-max-width: 350px;
+$notification-max-width: 350px;
 
 // notifications panel
 .notifications-container {
@@ -16,20 +16,28 @@ $notifications-max-width: 350px;
     }
 }
 
-@media (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-max}) {
+// Container position
+@media (min-width: #{$screen-sm-min}) {
     .notifications-container {
-        max-width: $notifications-max-width;
+        max-width: $notification-max-width;
         width:     40%;
-        top:       20px;
-        right:     20px;
+
+        &--tr {
+            top:   20px;
+            right: 20px;
+        }
+        &--tl {
+            top:  20px;
+            left: 20px;
+        }
+        &--br {
+            bottom: 0;
+            right:  20px;
+        }
+        &--bl {
+            bottom: 0;
+            left:   20px;
+        }
     }
 }
 
-@media (min-width: #{$screen-lg-min}) {
-    .notifications-container {
-        max-width: $notifications-max-width;
-        width:     30%;
-        top:       20px;
-        right:     20px;
-    }
-}
