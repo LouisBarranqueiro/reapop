@@ -19,6 +19,7 @@ class NotificationCreator extends Component {
     this._addNotification = this._addNotification.bind(this);
     this._onTitleChange = this._onTitleChange.bind(this);
     this._onMessageChange = this._onMessageChange.bind(this);
+    this._onPositionChange = this._onPositionChange.bind(this);
     this._onStatusChange = this._onStatusChange.bind(this);
     this._onDismissAfterChange = this._onDismissAfterChange.bind(this);
     this._onDismissibleChange = this._onDismissibleChange.bind(this);
@@ -31,6 +32,7 @@ class NotificationCreator extends Component {
       notification: {
         title: 'Welcome on demo!',
         message: 'Hey buddy, here you can see what you can do with it.',
+        position: 'tr',
         status: 'default',
         dismissAfter: 5000,
         dismissible: true,
@@ -66,6 +68,7 @@ class NotificationCreator extends Component {
     notify({
       title: notification.title,
       message: notification.message,
+      position: notification.position,
       status: notification.status,
       dismissible: notification.dismissible,
       dismissAfter: notification.dismissAfter,
@@ -114,6 +117,21 @@ class NotificationCreator extends Component {
     const newState = update(this.state, {
       notification: {
         status: {$set: event.target.value}
+      }
+    });
+    this.setState(newState);
+  }
+
+  /**
+   * Update position
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
+  _onPositionChange(event) {
+    const newState = update(this.state, {
+      notification: {
+        position: {$set: event.target.value}
       }
     });
     this.setState(newState);
@@ -262,17 +280,31 @@ class NotificationCreator extends Component {
             </textarea>
           </div>
           <div className='form-group'>
-            <label htmlFor='status'>Status</label>
-            <select className='form-control' id='status' name='status'
-              onChange={this._onStatusChange}>
-              <option value='default'>Default</option>
-              <option value='info'>Info</option>
-              <option value='success'>Success</option>
-              <option value='warning'>Warning</option>
-              <option value='error'>Error</option>
-            </select>
+            <div className='row'>
+              <div className='col-xs-6'>
+                <label htmlFor='status'>Position</label>
+                <select className='form-control' id='position' name='position'
+                  onChange={this._onPositionChange}>
+                  <option value='tr'>Top right</option>
+                  <option value='tl'>Top left</option>
+                  <option value='br'>Bottom right</option>
+                  <option value='bl'>Bottom left</option>
+                </select>
+              </div>
+              <div className='col-xs-6'>
+                <label htmlFor='status'>Status</label>
+                <select className='form-control' id='status' name='status'
+                  onChange={this._onStatusChange}>
+                  <option value='default'>Default</option>
+                  <option value='info'>Info</option>
+                  <option value='success'>Success</option>
+                  <option value='warning'>Warning</option>
+                  <option value='error'>Error</option>
+                </select>
+              </div>
+            </div>
           </div>
-          <div>
+          <div className='form-group'>
             <div className='row'>
               <div className='col-xs-6'>
                 <label htmlFor='dismissAfter'>Dismiss after (ms)</label>
