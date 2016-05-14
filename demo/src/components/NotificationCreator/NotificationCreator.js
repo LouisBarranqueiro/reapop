@@ -318,7 +318,7 @@ class NotificationCreator extends Component {
               </div>
             </div>
           </div>
-          <div>
+          <div className='form-group'>
             <div className='row'>
               <div className='col-xs-6'>
                 <label htmlFor='action1-name'>First action</label>
