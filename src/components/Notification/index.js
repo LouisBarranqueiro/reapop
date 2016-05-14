@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import css from './Notification.scss';
+import css from './styles.scss';
 import {Timer} from '../../helpers';
 import {removeNotification} from '../../store/notifications';
 import {STATUS} from '../../constants';
