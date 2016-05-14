@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
-import {Notifications} from '../../../../src/index';
+import Notifications from '../../../../src/index';
 import {css} from './index';
 
 class Demo extends Component {
