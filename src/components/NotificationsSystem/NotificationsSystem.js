@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import {connect} from 'react-redux';
-import css from './Notifications.scss';
+import {css} from './';
 import Notification from '../Notification/Notification';
 import notificationCSS from '../Notification/Notification.scss';
 import {
