@@ -6,7 +6,7 @@ import reducer, {
   updateNotification,
   removeNotification
 } from '../../src/store/notifications';
-import STATUS from '../../src/constants';
+import {SUCCESS_STATUS} from '../../src/constants';
 
 describe('notifications', () => {
   let notification = null;
@@ -33,7 +33,7 @@ describe('notifications', () => {
           type: types.ADD_NOTIFICATION,
           payload: Object.assign({}, notification, {
             id: notificationAdded.id,
-            status: STATUS.success
+            status: SUCCESS_STATUS
           })
         }];
         expect(store.getActions()).toEqual(expectedAction);
