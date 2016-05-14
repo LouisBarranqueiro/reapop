@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import css from './styles.scss';
-import Notification, {className as notificationClassName, transition} from '../Notification';
+import Notification from '../Notification';
 import {STATUS, BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION} from '../../constants';
 
 // default className for notifications container
@@ -29,7 +29,7 @@ export class Notifications extends Component {
       dismissAfter: React.PropTypes.number.isRequired,
       allowHTML: React.PropTypes.bool.isRequired
     }),
-    notificationClassName: React.PropTypes.object,
+    notificationClassName: React.PropTypes.object.isRequired,
     className: React.PropTypes.shape({
       main: React.PropTypes.string.isRequired,
       position: React.PropTypes.func.isRequired
