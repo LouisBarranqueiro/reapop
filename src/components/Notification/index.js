@@ -5,7 +5,16 @@ import {Timer} from '../../helpers';
 import {removeNotification} from '../../store/notifications';
 import {STATUS} from '../../constants';
 
-// default className for Notification component
+// default values for a notification
+export const defaultValues = {
+  status: null,
+  position: 'tr',
+  dismissible: true,
+  dismissAfter: 5000,
+  allowHTML: false
+};
+
+// default className for a notification
 export const className = {
   main: css['notification'],
   meta: css['notification-meta'],
@@ -31,6 +40,18 @@ export const className = {
   },
   action: css['notification-action'],
   actionText: css['notification-action-text']
+};
+
+// default transition for a notification
+export const transition = {
+  enterTimeout: 400,
+  leaveTimeout: 400,
+  name: {
+    enter: css['notification-enter'],
+    enterActive: css['notification-enter-active'],
+    leave: css['notification-leave'],
+    leaveActive: css['notification-leave-active']
+  }
 };
 
 /**

@@ -1,20 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {className as notificationClassName} from '../Notification';
-import NotificationsContainer, {
-  className as containerClassName,
-  transition
-} from '../NotificationsContainer';
+import {defaultValues, className as notificationClassName, transition} from '../Notification';
+import NotificationsContainer, {className as containerClassName} from '../NotificationsContainer';
 import {STATUS, POSITIONS} from '../../constants';
 
-// default values for a notification
-export const defaultValues = {
-  status: null,
-  position: 'tr',
-  dismissible: true,
-  dismissAfter: 5000,
-  allowHTML: false
-};
 // default config
 export const config = {
   smallScreenMin: 768
