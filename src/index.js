@@ -21,7 +21,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 */
-import NotificationsSystem from './components/NotificationsSystem/NotificationsSystem';
+import NotificationsSystem from './components/NotificationsSystem';
 import reducer, {
   actions,
   types,
