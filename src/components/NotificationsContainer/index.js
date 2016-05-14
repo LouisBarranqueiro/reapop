@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import css from './styles.scss';
-import Notification, {className as notificationClassName} from '../Notification';
-import notificationCSS from '../Notification/styles.scss';
+import Notification, {className as notificationClassName, transition} from '../Notification';
 import {STATUS, BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION} from '../../constants';
 
 // default className for notifications container
@@ -10,17 +9,6 @@ export const className = {
   main: css['notifications-container'],
   position: function(position) {
     return css[`notifications-container--${position}`];
-  }
-};
-// default transition for Notification component
-export const transition = {
-  enterTimeout: 400,
-  leaveTimeout: 400,
-  name: {
-    enter: notificationCSS['notification-enter'],
-    enterActive: notificationCSS['notification-enter-active'],
-    leave: notificationCSS['notification-leave'],
-    leaveActive: notificationCSS['notification-leave-active']
   }
 };
 
@@ -79,7 +67,7 @@ export class Notifications extends Component {
 
     // when notifications are displayed at the bottom,
     // we display notifications from bottom to top
-    if ([BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION].indexOf(position) > 0) {
+    if ([BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION].indexOf(position) >= 0) {
       notifications = notifications.reverse();
     }
 
