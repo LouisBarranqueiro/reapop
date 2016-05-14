@@ -15,12 +15,17 @@ export const defaultValues = {
   dismissAfter: 5000,
   allowHTML: false
 };
+// default config
+export const config = {
+  smallScreenMin: 768
+};
 
 const className = 'notifications-system';
 
 export class Notifications extends Component {
   // Default properties
   static defaultProps = {
+    config,
     defaultValues,
     className,
     containerClassName,
@@ -31,6 +36,7 @@ export class Notifications extends Component {
   // Properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
+    config: React.PropTypes.object.isRequired,
     defaultValues: React.PropTypes.shape({
       status: React.PropTypes.oneOf(STATUS),
       dismissible: React.PropTypes.bool.isRequired,
@@ -62,7 +68,15 @@ export class Notifications extends Component {
    * @private
    */
   _renderNotificationsContainers() {
-    const {notifications, defaultValues: {position}} = this.props;
+    const {notifications, defaultValues: {position}, config: {smallScreenMin}} = this.props;
+    // render all notifications in the same container at the top for small screens
+    if (window.innerWidth < smallScreenMin) {
+      return (
+        <NotificationsContainer key='top' position='top' transition={transition}
+          className={containerClassName} defaultValues={defaultValues}
+          notificationClassName={notificationClassName} notifications={notifications}/>
+      );
+    }
     let positions = [...POSITIONS];
     // extract the default position of all positions
     positions.splice(positions.indexOf(position), 1);
