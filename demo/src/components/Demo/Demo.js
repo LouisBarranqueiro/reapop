@@ -8,6 +8,7 @@ class Demo extends Component {
   render() {
     const config = {
       status: 'info',
+      position: 'tr',
       dismissible: true,
       dismissAfter: 5000,
       allowHTML: true
