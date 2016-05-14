@@ -2,11 +2,11 @@ import React from 'react';
 import {shallow, mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import ConnectNotifications, {Notifications} from '../../src/components/Notifications/Notifications';
+import ConnectNotifications, {Notifications} from '../../src/components/NotificationsSystem/NotificationsSystem';
 import ConnectNotification, {
   className as notificationClassName
 } from '../../src/components/Notification/Notification';
-import css from '../../src/components/Notifications/Notifications.scss';
+import css from '../../src/components/NotificationsSystem/NotificationsSystem.scss';
 import notificationCSS from '../../src/components/Notification/Notification.scss';
 import {genNotification, genNotifications, mockStore} from '../fixtures';
 import STATUS from '../../src/constants';
