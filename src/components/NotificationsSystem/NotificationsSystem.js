@@ -1,65 +1,46 @@
 import React, {Component} from 'react';
-import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import {connect} from 'react-redux';
-import {css} from './';
-import Notification from '../Notification/Notification';
-import notificationCSS from '../Notification/Notification.scss';
-import {
-  DEFAULT_STATUS,
-  INFO_STATUS,
-  SUCCESS_STATUS,
-  WARNING_STATUS,
-  ERROR_STATUS
-} from '../../constants';
+import {className as notificationClassName} from '../Notification/Notification';
+import NotificationsContainer, {
+  className as containerClassName,
+  transition
+} from '../NotificationsContainer';
+import {STATUS, POSITIONS} from '../../constants';
 
 // default values for a notification
 export const defaultValues = {
   status: null,
+  position: 'tr',
   dismissible: true,
   dismissAfter: 5000,
   allowHTML: false
 };
-// default className for notifications container
-export const className = {
-  main: css['notifications-container'],
-  position: function(position) {
-    return css[`notifications-container--${position}`];
-  }
-};
-// default transition for Notification component
-export const transition = {
-  enterTimeout: 400,
-  leaveTimeout: 400,
-  name: {
-    enter: notificationCSS['notification-enter'],
-    enterActive: notificationCSS['notification-enter-active'],
-    leave: notificationCSS['notification-leave'],
-    leaveActive: notificationCSS['notification-leave-active']
-  }
-};
+
+const className = 'notifications-system';
 
 export class Notifications extends Component {
   // Default properties
   static defaultProps = {
-    position: 'tr',
     defaultValues,
     className,
+    containerClassName,
+    notificationClassName,
     transition
   };
-  
+
   // Properties types
   static propTypes = {
-    position: React.PropTypes.string.isRequired,
     notifications: React.PropTypes.array.isRequired,
     defaultValues: React.PropTypes.shape({
-      status: React.PropTypes.oneOf([DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS,
-        ERROR_STATUS]),
+      status: React.PropTypes.oneOf(STATUS),
       dismissible: React.PropTypes.bool.isRequired,
+      position: React.PropTypes.string.isRequired,
       dismissAfter: React.PropTypes.number.isRequired,
       allowHTML: React.PropTypes.bool.isRequired
     }),
+    className: React.PropTypes.string,
     notificationClassName: React.PropTypes.object,
-    className: React.PropTypes.shape({
+    containerClassName: React.PropTypes.shape({
       main: React.PropTypes.string.isRequired,
       position: React.PropTypes.func.isRequired
     }),
@@ -69,58 +50,55 @@ export class Notifications extends Component {
       leaveTimeout: React.PropTypes.number.isRequired
     })
   };
-  
-  /**
-   * Constructor
-   * Bind methods
-   * @param {Object} props
-   * @returns {void}
-   */
+
   constructor(props) {
     super(props);
-    this._renderNotifications = this._renderNotifications.bind(this);
+    this._renderNotificationsContainers = this._renderNotificationsContainers.bind(this);
   }
 
   /**
-   * Render notifications
-   * @private
+   * Render notifications containers
    * @returns {XML}
+   * @private
    */
-  _renderNotifications() {
-    // get all notifications and default values for notifications
-    const {notifications, notificationClassName,
-      defaultValues: {status, dismissible, dismissAfter, allowHTML}
-    } = this.props;
-
-    return notifications.map((notification) => {
-      const hasDismissibleProp = typeof notification.dismissible === 'boolean';
-      const hasDismissAfterProp = notification.dismissAfter >= 0;
-      const hasAllowHTMLProp = typeof notification.allowHTML === 'boolean';
-      return (
-        <Notification key={notification.id} id={notification.id} title={notification.title}
-          message={notification.message} status={notification.status || status}
-          dismissible={hasDismissibleProp ? notification.dismissible : dismissible}
-          dismissAfter={hasDismissAfterProp ? notification.dismissAfter : dismissAfter}
-          allowHTML={hasAllowHTMLProp ? notification.allowHTML : allowHTML}
-          onAdd={notification.onAdd} onRemove={notification.onRemove}
-          actions={notification.actions} className={notificationClassName}/>
-      );
+  _renderNotificationsContainers() {
+    const {notifications, defaultValues: {position}} = this.props;
+    let positions = [...POSITIONS];
+    // extract the default position of all positions
+    positions.splice(positions.indexOf(position), 1);
+    let notifs = notifications.filter((notif) => {
+      return (!notif.position || notif.position === position);
     });
+    // init array with all notifications with default position
+    let JSX = [
+      <NotificationsContainer key={position} position={position} transition={transition}
+        className={containerClassName} defaultValues={defaultValues}
+        notificationClassName={notificationClassName} notifications={notifs}/>
+    ];
+    // fill array with others containers
+    JSX = JSX.concat(positions.map((position) => {
+      let notifs = notifications.filter((notif) => {
+        return position === notif.position;
+      });
+      return (
+        <NotificationsContainer key={position} position={position} transition={transition}
+          className={containerClassName} defaultValues={defaultValues}
+          notificationClassName={notificationClassName} notifications={notifs}/>
+      );
+    }));
+    return JSX;
   }
-  
+
   /**
    * Render
    * @returns {XML}
    */
   render() {
-    const {className, position, transition: {name, enterTimeout, leaveTimeout}} = this.props;
+    const {className} = this.props;
 
     return (
-      <div className={`${className.main} ${className.position(position)}`}>
-        <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
-          transitionLeaveTimeout={leaveTimeout}>
-          {this._renderNotifications()}
-        </TransitionGroup>
+      <div className={className}>
+        {this._renderNotificationsContainers()}
       </div>
     );
   }
