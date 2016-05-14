@@ -3,7 +3,7 @@ import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import css from './styles.scss';
 import Notification, {className as notificationClassName} from '../Notification';
 import notificationCSS from '../Notification/styles.scss';
-import {STATUS} from '../../constants';
+import {STATUS, BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION} from '../../constants';
 
 // default className for notifications container
 export const className = {
@@ -71,10 +71,18 @@ export class Notifications extends Component {
    */
   _renderNotifications() {
     // get all notifications and default values for notifications
-    const {notifications, notificationClassName,
+    const {
+      position, notificationClassName,
       defaultValues: {status, dismissible, dismissAfter, allowHTML}
     } = this.props;
-    
+    let {notifications} = this.props;
+
+    // when notifications are displayed at the bottom,
+    // we display notifications from bottom to top
+    if ([BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION].indexOf(position) > 0) {
+      notifications = notifications.reverse();
+    }
+
     return notifications.map((notification) => {
       const hasDismissibleProp = typeof notification.dismissible === 'boolean';
       const hasDismissAfterProp = notification.dismissAfter >= 0;
