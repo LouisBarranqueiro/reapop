@@ -1,11 +1,19 @@
 /* eslint-disable */
-import webpack from 'webpack'
+import path from 'path';
+import webpack from 'webpack';
 
-const cssModulesLoader = [
-  'css?sourceMap&',
+const CSSModulesLoader = [
+  'css?sourceMap&-minimize',
   'modules',
   'importLoaders=1',
-  'localIdentName=[name]__[local]___[hash:base64:5]'
+  'localIdentName=[name]__[local]'
+].join('&');
+
+const ReapopCSSModulesLoader = [
+  'css?sourceMap&-minimize',
+  'modules',
+  'importLoaders=1',
+  'localIdentName=Reapop__[local]'
 ].join('&');
 
 // Webpack config for test
@@ -18,7 +26,12 @@ const webpackConfig = {
       loader: 'babel'
     }, {
       test: /\.scss$/,
-      loaders: ['style', cssModulesLoader, 'sass']
+      include: [path.join(__dirname, '../src')],
+      loaders: ['style', ReapopCSSModulesLoader, 'sass']
+    }, {
+      test: /\.scss$/,
+      exclude: [path.join(__dirname, '../src')],
+      loaders: ['style', CSSModulesLoader, 'sass']
     }, {
       test: /\.json$/,
       loader: 'json'
