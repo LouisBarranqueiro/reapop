@@ -57,7 +57,7 @@ var webpackConfig = {
 };
 
 if (process.env.NODE_ENV === 'developement' || !process.env.TRAVIS) {
-  webpack.entry.push('webpack-hot-middleware/client');
+  webpackConfig.entry.push('webpack-hot-middleware/client');
   webpackConfig.plugins = [];
 }
 
