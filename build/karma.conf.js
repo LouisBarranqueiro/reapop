@@ -23,7 +23,7 @@ const karmaConfig = {
   },
   reporters: ['mocha', 'coverage'],
   coverageReporter: {
-    type: 'text',
+    type: 'html',
     dir: 'coverage'
   },
   port: 9876,
