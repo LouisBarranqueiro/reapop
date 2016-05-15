@@ -25,11 +25,11 @@ class RandomNotificationCreator extends Component {
    */
   _randomNotification() {
     const {notify} = this.props;
-    const actions = [];
+    const buttons = [];
     if (faker.random.boolean()) {
       for (let i = 0; i < 2; i++) {
         if (faker.random.boolean()) {
-          actions.push({
+          buttons.push({
             name: faker.lorem.word(),
             primary: faker.random.boolean()
           });
@@ -44,7 +44,7 @@ class RandomNotificationCreator extends Component {
       dismissible: faker.random.boolean(),
       dismissAfter: 3000,
       allowHTML: faker.random.boolean(),
-      actions: actions
+      buttons: buttons
     });
   }
 

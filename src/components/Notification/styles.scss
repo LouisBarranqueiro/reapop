@@ -3,7 +3,7 @@
 $primary-color: #349ef3;
 // notification variables
 $notification-max-width: 360px;
-$notification-action-width: 90px;
+$notification-button-width: 90px;
 
 @mixin box-shadow($shadow...) {
     -webkit-box-shadow: $shadow;
@@ -63,14 +63,14 @@ $notification-error-icon: "\f057";
         width:      100%;
         padding:    10px 20px;
     }
-    // global style for action buttons
-    &-actions {
+    // global style for buttons
+    &-buttons {
         display:        table-cell;
         box-sizing:     border-box;
         height:         100%;
         vertical-align: top;
 
-        .notification-action {
+        .notification-button {
             min-height:  40px;
             box-sizing:  border-box;
             padding:     0;
@@ -83,7 +83,7 @@ $notification-error-icon: "\f057";
             &-text {
                 display:       block;
                 height:        25px;
-                // width of an action button with 10px of padding
+                // width of a button with 10px of padding
                 width:         70px;
                 white-space:   nowrap;
                 overflow:      hidden;
@@ -133,23 +133,23 @@ $notification-error-icon: "\f057";
     &--error {
         @include notification-variant($notification-error-bg, $notification-error-border, $notification-error-icon);
     }
-    // change size of action buttons and meta div
+    // change size of buttons and meta div
     // for small to large screen
     @media (min-width: #{$screen-sm-min}) {
         margin-bottom: 20px;
 
-        &--actions-1 .notification-action {
+        &--buttons-1 .notification-button {
             height: 100%;
         }
-        &--actions-2 .notification-action {
+        &--buttons-2 .notification-button {
             height: 50%;
         }
-        &-actions {
-            width: $notification-action-width;
+        &-buttons {
+            width: $notification-button-width;
 
-            .notification-action {
+            .notification-button {
                 display: block;
-                width:   $notification-action-width;
+                width:   $notification-button-width;
 
                 &:nth-child(2) {
                     border-top: 1px solid rgba(0, 0, 0, 0.09);
@@ -157,28 +157,28 @@ $notification-error-icon: "\f057";
             }
         }
     }
-    // change size of action buttons and meta div
+    // change size of buttons and meta div
     // for extra small screen
     @media (max-width: #{$screen-xs-max}) {
         width: 100%;
 
-        &--actions-1 {
-            .notification-actions {
-                width: $notification-action-width;
+        &--buttons-1 {
+            .notification-buttons {
+                width: $notification-button-width;
             }
         }
-        &--actions-2 {
+        &--buttons-2 {
             .notification-meta {
-                width: calc(100% - #{$notification-action-width} * 2)
+                width: calc(100% - #{$notification-button-width} * 2)
             }
-            .notification-actions {
-                width: calc(#{$notification-action-width} * 2);
+            .notification-buttons {
+                width: calc(#{$notification-button-width} * 2);
             }
         }
-        &-actions {
-            .notification-action {
+        &-buttons {
+            .notification-button {
                 display: inline-block;
-                width:   $notification-action-width;
+                width:   $notification-button-width;
                 height:  100%;
             }
         }

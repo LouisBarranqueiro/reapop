@@ -27,31 +27,31 @@ export const className = {
   },
   dismissible: css['notification--dismissible'],
   // `fa` corresponds to font-awesome's class name
-  actions: (count) => {
+  buttons: (count) => {
     if (count === 0) {
       return '';
     }
     else if (count === 1) {
-      return css['notification--actions-1'];
+      return css['notification--buttons-1'];
     }
     else if (count === 2) {
-      return css['notification--actions-2'];
+      return css['notification--buttons-2'];
     }
-    return css['notification-actions'];
+    return css['notification-buttons'];
   },
-  action: css['notification-action'],
-  actionText: css['notification-action-text']
+  button: css['notification-button'],
+  buttonText: css['notification-button-text']
 };
 
 /**
  * Create a timer
  * @param {Number} dismissAfter
- * @param {Array} actions
+ * @param {Array} buttons
  * @param {Function} callback
  * @returns {Function|null} a Timer
  */
-function createTimer(dismissAfter, actions, callback) {
-  if (dismissAfter > 0 && (!actions || (actions && actions.length === 0))) {
+function createTimer(dismissAfter, buttons, callback) {
+  if (dismissAfter > 0 && (!buttons || (buttons && buttons.length === 0))) {
     return new Timer(callback, dismissAfter);
   }
   return null;
@@ -68,7 +68,7 @@ export class Notification extends Component {
     allowHTML: defaultValues.allowHTML,
     onAdd: () => {},
     onRemove: () => {},
-    actions: []
+    buttons: []
   };
   
   // Properties types
@@ -83,7 +83,7 @@ export class Notification extends Component {
     removeNotification: React.PropTypes.func.isRequired,
     onAdd: React.PropTypes.func,
     onRemove: React.PropTypes.func,
-    actions: React.PropTypes.arrayOf(
+    buttons: React.PropTypes.arrayOf(
       React.PropTypes.shape({
         name: React.PropTypes.string.isRequired,
         onClick: React.PropTypes.func
@@ -99,13 +99,13 @@ export class Notification extends Component {
    * @returns {void}
    */
   constructor(props) {
-    const {dismissAfter, actions} = props;
+    const {dismissAfter, buttons} = props;
     super(props);
     this._remove = this._remove.bind(this);
     this._pauseTimer = this._pauseTimer.bind(this);
     this._resumeTimer = this._resumeTimer.bind(this);
     this.state = {
-      timer: createTimer(dismissAfter, actions, this._remove)
+      timer: createTimer(dismissAfter, buttons, this._remove)
     };
   }
   
@@ -133,9 +133,9 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentWillReceiveProps(nextProps) {
-    const {dismissAfter, actions} = nextProps;
+    const {dismissAfter, buttons} = nextProps;
     this.setState({
-      timer: createTimer(dismissAfter, actions, this._remove)
+      timer: createTimer(dismissAfter, buttons, this._remove)
     });
   }
 
@@ -182,18 +182,18 @@ export class Notification extends Component {
   }
   
   /**
-   * Render action button(s)
+   * Render button(s)
    * @returns {*}
    */
-  _renderActions() {
-    const {actions, className} = this.props;
-    return actions.map((action) => {
+  _renderButtons() {
+    const {buttons, className} = this.props;
+    return buttons.map((button) => {
       return (
-        <button key={action.name} className={className.action} onClick={action.onClick}>
-          <span className={className.actionText}>
-            {(action.primary
-              ? <b>{action.name}</b>
-              : action.name)}
+        <button key={button.name} className={className.button} onClick={button.onClick}>
+          <span className={className.buttonText}>
+            {(button.primary
+              ? <b>{button.name}</b>
+              : button.name)}
           </span>
         </button>
       );
@@ -205,9 +205,9 @@ export class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {title, message, status, dismissible, className, actions, allowHTML} = this.props;
+    const {title, message, status, dismissible, className, buttons, allowHTML} = this.props;
     const {timer} = this.state;
-    const isDismissible = (dismissible && actions.length === 0);
+    const isDismissible = (dismissible && buttons.length === 0);
     if (timer) {
       this._resumeTimer();
     }
@@ -215,7 +215,7 @@ export class Notification extends Component {
       <div className={
            `${className.main} ${className.status(status)}
             ${(isDismissible ? className.dismissible : '')}
-            ${className.actions(actions.length)}`}
+            ${className.buttons(buttons.length)}`}
         onClick={isDismissible ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
         onMouseLeave={timer ? this._resumeTimer : ''}>
         <i className={className.icon}></i>
@@ -229,9 +229,9 @@ export class Notification extends Component {
             : <p className={className.message}>{message}</p>)
             : '')}
         </div>
-        {(actions.length
-          ? <div className={className.actions()} onClick={this._remove}>
-          {this._renderActions()}
+        {(buttons.length
+          ? <div className={className.buttons()} onClick={this._remove}>
+          {this._renderButtons()}
           </div>
           : '')}
       </div>

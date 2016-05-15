@@ -23,10 +23,10 @@ class NotificationCreator extends Component {
     this._onStatusChange = this._onStatusChange.bind(this);
     this._onDismissAfterChange = this._onDismissAfterChange.bind(this);
     this._onDismissibleChange = this._onDismissibleChange.bind(this);
-    this._onAction1NameChange = this._onAction1NameChange.bind(this);
-    this._onAction1PrimaryChange = this._onAction1PrimaryChange.bind(this);
-    this._onAction2NameChange = this._onAction2NameChange.bind(this);
-    this._onAction2PrimaryChange = this._onAction2PrimaryChange.bind(this);
+    this._onButton1NameChange = this._onButton1NameChange.bind(this);
+    this._onButton1PrimaryChange = this._onButton1PrimaryChange.bind(this);
+    this._onButton2NameChange = this._onButton2NameChange.bind(this);
+    this._onButton2PrimaryChange = this._onButton2PrimaryChange.bind(this);
     this._onAllowHTMLChange = this._onAllowHTMLChange.bind(this);
     this.state = {
       notification: {
@@ -36,7 +36,7 @@ class NotificationCreator extends Component {
         status: 'default',
         dismissAfter: 5000,
         dismissible: true,
-        actions: [{
+        buttons: [{
           name: '',
           primary: true
         }, {
@@ -56,14 +56,14 @@ class NotificationCreator extends Component {
    */
   _addNotification(event) {
     event.preventDefault();
-    const {notification, notification: {actions}} = this.state;
+    const {notification, notification: {buttons}} = this.state;
     const {notify} = this.props;
-    let _actions = [];
-    if (actions[0].name) {
-      _actions.push(actions[0]);
+    let _buttons = [];
+    if (buttons[0].name) {
+      _buttons.push(buttons[0]);
     }
-    if (actions[1].name) {
-      _actions.push(actions[1]);
+    if (buttons[1].name) {
+      _buttons.push(buttons[1]);
     }
     notify({
       title: notification.title,
@@ -72,7 +72,7 @@ class NotificationCreator extends Component {
       status: notification.status,
       dismissible: notification.dismissible,
       dismissAfter: notification.dismissAfter,
-      actions: _actions,
+      buttons: _buttons,
       allowHTML: notification.allowHTML
     });
   }
@@ -168,15 +168,15 @@ class NotificationCreator extends Component {
   }
   
   /**
-   * Update first action name
+   * Update first button name
    * @param {Object} event
    * @returns {void}
    * @private
    */
-  _onAction1NameChange(event) {
+  _onButton1NameChange(event) {
     const newState = update(this.state, {
       notification: {
-        actions: {
+        buttons: {
           0: {
             name: {$set: event.target.value}
           }
@@ -187,15 +187,15 @@ class NotificationCreator extends Component {
   }
   
   /**
-   * Update first action status
+   * Update first button status
    * @param {Object} event
    * @returns {void}
    * @private
    */
-  _onAction1PrimaryChange(event) {
+  _onButton1PrimaryChange(event) {
     const newState = update(this.state, {
       notification: {
-        actions: {
+        buttons: {
           0: {
             primary: {$set: event.target.checked}
           }
@@ -206,15 +206,15 @@ class NotificationCreator extends Component {
   }
   
   /**
-   * Update second action name
+   * Update second button name
    * @param {Object} event
    * @returns {void}
    * @private
    */
-  _onAction2NameChange(event) {
+  _onButton2NameChange(event) {
     const newState = update(this.state, {
       notification: {
-        actions: {
+        buttons: {
           1: {
             name: {$set: event.target.value}
           }
@@ -225,15 +225,15 @@ class NotificationCreator extends Component {
   }
   
   /**
-   * Update second action status
+   * Update second button status
    * @param {Object} event
    * @returns {void}
    * @private
    */
-  _onAction2PrimaryChange(event) {
+  _onButton2PrimaryChange(event) {
     const newState = update(this.state, {
       notification: {
-        actions: {
+        buttons: {
           1: {
             primary: {$set: event.target.checked}
           }
@@ -263,7 +263,7 @@ class NotificationCreator extends Component {
    * @returns {XML}
    */
   render() {
-    const {title, message, dismissAfter, dismissible, allowHTML, actions} = this.state.notification;
+    const {title, message, dismissAfter, dismissible, allowHTML, buttons} = this.state.notification;
     return (
       <div>
         <h4 className='text-center'>Notification Creator</h4>
@@ -321,26 +321,26 @@ class NotificationCreator extends Component {
           <div className='form-group'>
             <div className='row'>
               <div className='col-xs-6'>
-                <label htmlFor='action1-name'>First action</label>
+                <label htmlFor='button1-name'>First button</label>
                 <input className='form-control' type='text' name='action1-name'
-                  value={actions[0].name} onChange={this._onAction1NameChange}/>
+                  value={buttons[0].name} onChange={this._onButton1NameChange}/>
               </div>
               <div className='col-xs-6'>
-                <label htmlFor='action1-primary'>Primary action</label>
-                <Switch name='action1-primary' checked={actions[0].primary}
-                  onChange={this._onAction1PrimaryChange}/>
+                <label htmlFor='button1-primary'>Primary button</label>
+                <Switch name='button1-primary' checked={buttons[0].primary}
+                  onChange={this._onButton1PrimaryChange}/>
               </div>
             </div>
             <div className='row'>
               <div className='col-xs-6'>
-                <label htmlFor='action2-name'>Second action</label>
-                <input className='form-control' type='text' name='action2-name'
-                  onChange={this._onAction2NameChange} value={actions[1].name}/>
+                <label htmlFor='button2-name'>Second button</label>
+                <input className='form-control' type='text' name='button2-name'
+                  onChange={this._onButton2NameChange} value={buttons[1].name}/>
               </div>
               <div className='col-xs-6'>
-                <label htmlFor='action2-primary'>Primary action</label>
-                <Switch name='action2-primary' checked={actions[1].primary}
-                  onChange={this._onAction2PrimaryChange}/>
+                <label htmlFor='button2-primary'>Primary button</label>
+                <Switch name='button2-primary' checked={buttons[1].primary}
+                  onChange={this._onButton2PrimaryChange}/>
               </div>
             </div>
           </div>

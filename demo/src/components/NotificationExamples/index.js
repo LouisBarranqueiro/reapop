@@ -34,7 +34,7 @@ class NotificationExamples extends Component {
       status: 'info',
       dismissible: false,
       dismissAfter: 0,
-      actions: [{
+      buttons: [{
         name: 'OK',
         primary: true,
         onClick: function() {
@@ -48,7 +48,7 @@ class NotificationExamples extends Component {
       notif.message = 'Your file has been successfully uploaded';
       notif.dismissible = true;
       notif.dismissAfter = 5000;
-      notif.actions = [{
+      notif.buttons = [{
         name: 'OK',
         primary: true,
         onClick: function() {

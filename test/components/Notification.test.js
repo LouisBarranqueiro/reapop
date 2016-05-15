@@ -32,20 +32,20 @@ describe('<Notification/>', () => {
     },
     dismissible: css['notification--dismissible'],
     // `fa` corresponds to font-awesome's class name
-    actions: (count) => {
+    buttons: (count) => {
       if (count === 0) {
         return '';
       }
       else if (count === 1) {
-        return css['notification--actions-1'];
+        return css['notification--buttons-1'];
       }
       else if (count === 2) {
-        return css['notification--actions-2'];
+        return css['notification--buttons-2'];
       }
-      return css['notification-actions'];
+      return css['notification-buttons'];
     },
-    action: css['notification-action'],
-    actionText: css['notification-action-text']
+    button: css['notification-button'],
+    buttonText: css['notification-button-text']
   };
   // Expected Notification component
   // used to compare HTML
@@ -61,7 +61,7 @@ describe('<Notification/>', () => {
       },
       onRemove: () => {
       },
-      actions: [],
+      buttons: [],
       allowHTML: defaultValues.allowHTML
     };
     
@@ -78,19 +78,19 @@ describe('<Notification/>', () => {
     }
     
     /**
-     * Render action button(s)
+     * Render button(s)
      * @returns {*}
      */
-    _renderActions() {
-      const {actions, className} = this.props;
-      return actions.map((action) => {
+    _renderButtons() {
+      const {buttons, className} = this.props;
+      return buttons.map((button) => {
         return (
-          <button key={action.name} className={className.action}
-            onClick={action.onClick}>
-            <span className={className.actionText}>
-              {(action.primary
-                ? <b>{action.name}</b>
-                : action.name)}
+          <button key={button.name} className={className.button}
+            onClick={button.onClick}>
+            <span className={className.buttonText}>
+              {(button.primary
+                ? <b>{button.name}</b>
+                : button.name)}
             </span>
           </button>
         );
@@ -104,12 +104,12 @@ describe('<Notification/>', () => {
     render() {
       const {
         title, message, status, dismissAfter,
-        dismissible, className, actions, allowHTML
+        dismissible, className, buttons, allowHTML
       } = this.props;
-      const isDismissible = (dismissible && actions.length === 0);
-      // if there is no actions, it remove automatically
+      const isDismissible = (dismissible && buttons.length === 0);
+      // if there is no buttons, it remove automatically
       // the notification after `dismissAfter` duration
-      if (actions.length === 0 && dismissAfter > 0) {
+      if (buttons.length === 0 && dismissAfter > 0) {
         setTimeout(() => this._remove(), dismissAfter);
       }
 
@@ -117,7 +117,7 @@ describe('<Notification/>', () => {
         <div className={
            `${className.main} ${className.status(status)}
             ${(isDismissible ? className.dismissible : '')}
-            ${className.actions(actions.length)}`}
+            ${className.buttons(buttons.length)}`}
           onClick={isDismissible ? this._remove : ''}>
           <i className={className.icon}></i>
           <div className={className.meta}>
@@ -130,9 +130,9 @@ describe('<Notification/>', () => {
               : <p className={className.message}>{message}</p>)
               : '')}
           </div>
-          {(actions.length
-            ? <div className={className.actions()} onClick={this._remove}>
-            {this._renderActions()}
+          {(buttons.length
+            ? <div className={className.buttons()} onClick={this._remove}>
+            {this._renderButtons()}
             </div>
             : '')}
         </div>
@@ -153,7 +153,7 @@ describe('<Notification/>', () => {
     delete notification.allowHTML;
     delete notification.onAdd;
     delete notification.onRemove;
-    delete notification.actions;
+    delete notification.buttons;
     const props = mount(
       <Notification key={notification.id} {...notification}
         removeNotification={removeNotification}/>
@@ -165,7 +165,7 @@ describe('<Notification/>', () => {
     expect(props.allowHTML).toEqual(defaultValues.allowHTML);
     expect(props.onAdd()).toEqual((() => {})());
     expect(props.onRemove()).toEqual((() => {})());
-    expect(props.actions).toEqual([]);
+    expect(props.buttons).toEqual([]);
     expect(props.className.main).toEqual(className.main);
     expect(props.className.meta).toEqual(className.meta);
     expect(props.className.title).toEqual(className.title);
@@ -173,12 +173,12 @@ describe('<Notification/>', () => {
     expect(props.className.icon).toEqual(className.icon);
     expect(props.className.status()).toEqual(className.status());
     expect(props.className.dismissible).toEqual(className.dismissible);
-    expect(props.className.actions()).toEqual(className.actions());
-    expect(props.className.actions(0)).toEqual(className.actions(0));
-    expect(props.className.actions(1)).toEqual(className.actions(1));
-    expect(props.className.actions(2)).toEqual(className.actions(2));
-    expect(props.className.action).toEqual(className.action);
-    expect(props.className.actionText).toEqual(className.actionText);
+    expect(props.className.buttons()).toEqual(className.buttons());
+    expect(props.className.buttons(0)).toEqual(className.buttons(0));
+    expect(props.className.buttons(1)).toEqual(className.buttons(1));
+    expect(props.className.buttons(2)).toEqual(className.buttons(2));
+    expect(props.className.button).toEqual(className.button);
+    expect(props.className.buttonText).toEqual(className.buttonText);
     expect(props.removeNotification).toEqual(removeNotification);
   });
 
@@ -190,7 +190,7 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.state().timer).toEqual(null);
     // with a timer
-    delete notification.actions;
+    delete notification.buttons;
     wrapper = mount(
       <Notification key={notification.id} {...notification}
         removeNotification={removeNotification}/>
@@ -199,15 +199,15 @@ describe('<Notification/>', () => {
   });
 
   it('should update state when receiving new props (', () => {
-    // state component will be init without timer because it have actions
+    // state component will be init without timer because it have buttons
     let wrapper = mount(
       <Notification key={notification.id} {...notification}
         removeNotification={removeNotification}/>
     );
     expect(wrapper.state().timer).toEqual(null);
-    // we delete actions to provoke creation of a Timer
+    // we delete buttons to provoke creation of a Timer
     // at `componentWillReceivedProps()` component lifecycle
-    notification.actions = [];
+    notification.buttons = [];
     wrapper.setProps(notification);
     expect(wrapper.state().timer).toBeA(Timer);
   });
@@ -279,7 +279,7 @@ describe('<Notification/>', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
   
-  it('should render component (with 2 action buttons)', () => {
+  it('should render component (with 2 buttons)', () => {
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -292,8 +292,8 @@ describe('<Notification/>', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
   
-  it('should render component (with 1 action button)', () => {
-    delete notification.actions[1];
+  it('should render component (with 1 button)', () => {
+    delete notification.buttons[1];
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -306,8 +306,8 @@ describe('<Notification/>', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
   
-  it('should render component (without action buttons)', () => {
-    notification.actions = [];
+  it('should render component (without buttons)', () => {
+    notification.buttons = [];
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -385,7 +385,7 @@ describe('<Notification/>', () => {
   it('should create an action to remove the notification ' +
     'when it is clicked', () => {
     notification.dismissible = true;
-    notification.actions = [];
+    notification.buttons = [];
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -409,7 +409,7 @@ describe('<Notification/>', () => {
         <ConnectNotification key={notification.id} {...notification}/>
       </Provider>
     );
-    wrapper.find(`.${css['notification-action']}`).first().simulate('click');
+    wrapper.find(`.${css['notification-button']}`).first().simulate('click');
     const expectedAction = {
       type: types.REMOVE_NOTIFICATION,
       payload: notification.id
@@ -420,8 +420,8 @@ describe('<Notification/>', () => {
   it('should create an action to remove the notification after ' +
     '`dismissAfter` duration', (done) => {
     notification.dismissAfter = 10;
-    // remove actions otherwise `remove()` is not called after `dismissAfter` duration
-    notification.actions = [];
+    // remove buttons otherwise `remove()` is not called after `dismissAfter` duration
+    notification.buttons = [];
     mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -451,9 +451,9 @@ describe('<Notification/>', () => {
   });
 
   it('should not create an action to remove the notification ' +
-    'when it is clicked (actions.length > 0)', (done) => {
+    'when it is clicked (no buttons)', (done) => {
     // we set `dismissible` to `true` to be sure that
-    // `actions.length` must equals `0` to allow removing
+    // `buttons.length` must equals `0` to allow removing
     // same thing for `dismissAfter`
     notification.dismissible = true;
     notification.dismissAfter = 5;
@@ -464,8 +464,8 @@ describe('<Notification/>', () => {
     );
     wrapper.find(ConnectNotification).simulate('click');
     expect(store.getActions()).toEqual([]);
-    // we remove an action and test it again
-    notification.actions = notification.actions.slice(0, 1);
+    // we remove an button and test it again
+    notification.buttons = notification.buttons.slice(0, 1);
     wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>
@@ -497,7 +497,7 @@ describe('<Notification/>', () => {
   it('should not create an action to remove the notification ' +
     'while mouse is hovering it', (done) => {
     notification.dismissAfter = 10;
-    delete notification.actions;
+    delete notification.buttons;
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification key={notification.id} {...notification}/>

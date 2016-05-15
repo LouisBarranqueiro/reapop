@@ -61,20 +61,20 @@ describe('<NotificationsSystem/>', () => {
         return `custom-notification--${status}`;
       },
       dismissible: 'custom-notification--dismissible',
-      actions: (count) => {
+      buttons: (count) => {
         if (count === 0) {
           return '';
         }
         else if (count === 1) {
-          return 'custom-notification--actions-1';
+          return 'custom-notification--buttons-1';
         }
         else if (count === 2) {
-          return 'custom-notification--actions-2';
+          return 'custom-notification--buttons-2';
         }
-        return 'custom-notification-actions';
+        return 'custom-notification-buttons';
       },
-      action: 'custom-notification-action',
-      actionText: 'custom-notification-action-text'
+      button: 'custom-notification-button',
+      buttonText: 'custom-notification-button-text'
     }
   };
 

@@ -70,7 +70,7 @@ describe('<NotificationsContainer/>', () => {
             dismissAfter={hasDismissAfterProp ? notification.dismissAfter : dismissAfter}
             allowHTML={hasAllowHTMLProp ? notification.allowHTML : allowHTML}
             onAdd={notification.onAdd} onRemove={notification.onRemove}
-            actions={notification.actions} className={notificationClassName}/>
+            buttons={notification.buttons} className={notificationClassName}/>
         );
       });
     }
