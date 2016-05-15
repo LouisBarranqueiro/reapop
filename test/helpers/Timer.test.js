@@ -12,7 +12,8 @@ describe('Timer()', () => {
     }, 5);
     // check timer after 10s
     setTimeout(() => {
-      expect(timer.getTimeRemaining() === 15).toEqual(true);
+      expect(timer.getTimeRemaining() < 16).toEqual(true);
+      expect(timer.getTimeRemaining() >= 14).toEqual(true);
       // resume timer
       timer.resume();
     }, 10);
@@ -22,7 +23,8 @@ describe('Timer()', () => {
     }, 15);
     // check timer after 20s
     setTimeout(() => {
-      expect(timer.getTimeRemaining() === 10).toEqual(true);
+      expect(timer.getTimeRemaining() < 11).toEqual(true);
+      expect(timer.getTimeRemaining() >= 9).toEqual(true);
       done();
     }, 20);
   });

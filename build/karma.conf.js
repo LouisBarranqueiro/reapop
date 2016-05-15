@@ -10,6 +10,7 @@ const karmaConfig = {
     'karma-mocha-reporter',
     'karma-coverage',
     'karma-phantomjs-launcher',
+    'karma-chrome-launcher',
     'karma-webpack'
   ],
   frameworks: ['mocha'],
@@ -29,6 +30,12 @@ const karmaConfig = {
   colors: true,
   autoWatch: true,
   browsers: ['PhantomJS'],
+  customLaunchers: {
+    ChromeTravisCI: {
+      base: 'Chrome',
+      flags: ['--window-size=400,400']
+    }
+  },
   singleRun: true,
   concurrency: Infinity
 };
@@ -39,6 +46,10 @@ karmaConfig.webpack.module.preLoaders = [{
   exclude: path.resolve('node_modules'),
   loader: 'isparta'
 }];
+
+if (process.env.TRAVIS) {
+  configuration.browsers = ['ChromeTravisCI'];
+}
 
 module.exports = function(config) {
   karmaConfig.logLevel = config.LOG_INFO;
