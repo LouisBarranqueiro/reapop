@@ -13,5 +13,3 @@ script:
   - npm test
 after_success:
   - bash .travis/deploy.sh
-env:
-- NODE_ENV=production
