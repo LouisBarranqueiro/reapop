@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import _ from 'lodash';
 import {defaultValues, className as notificationClassName} from '../Notification';
 import NotificationsContainer, {className as containerClassName, transition} from '../NotificationsContainer';
 import {POSITIONS} from '../../constants';

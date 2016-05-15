@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
+import _ from 'lodash';
 import ConnectedNotificationsSystem, {NotificationsSystem} from '../../src/components/NotificationsSystem';
 import Notification, {
   defaultValues,
