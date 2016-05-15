@@ -1,4 +1,4 @@
-import {STATUS} from '../../src/constants';
+import {STATUS, POSITIONS} from '../../src/constants';
 import faker from 'faker';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
@@ -39,6 +39,7 @@ export function genNotification(notification = {}) {
     id: faker.random.number(),
     title: faker.lorem.sentence(),
     message: faker.lorem.sentence(),
+    position: faker.random.arrayElement(POSITIONS),
     status: faker.random.arrayElement(STATUS),
     dismissible: faker.random.boolean(),
     dismissAfter: faker.random.number(),
