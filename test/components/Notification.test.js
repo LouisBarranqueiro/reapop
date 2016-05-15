@@ -6,7 +6,7 @@ import {Timer} from '../../src/helpers';
 import {types, removeNotification} from '../../src/store/notifications';
 import css from '../../src/components/Notification/styles.scss';
 import ConnectNotification, {Notification} from '../../src/components/Notification';
-import {DEFAULT_STATUS, TOP_RIGHT_POSITION} from '../../src/constants';
+import {STATUS, POSITIONS} from '../../src/constants';
 
 describe('<Notification/>', () => {
   let notification = null;
@@ -14,8 +14,8 @@ describe('<Notification/>', () => {
 
   // default value for notifications
   const defaultValues = {
-    status: DEFAULT_STATUS,
-    position: TOP_RIGHT_POSITION,
+    status: STATUS.default,
+    position: POSITIONS.topRight,
     dismissible: true,
     dismissAfter: 5000,
     allowHTML: false

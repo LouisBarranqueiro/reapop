@@ -54,7 +54,7 @@ export class NotificationsSystem extends Component {
           notificationClassName={notificationClassName} notifications={notifications}/>
       );
     }
-    let positions = [...POSITIONS];
+    let positions = _.values(POSITIONS);
     // extract the default position of all positions
     positions.splice(positions.indexOf(position), 1);
     let notifs = notifications.filter((notif) => {

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import css from './styles.scss';
 import Notification, {defaultValues, className as notificationClassName} from '../Notification';
-import {STATUS, BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION} from '../../constants';
+import {STATUS, POSITIONS} from '../../constants';
 
 // default className for notifications container
 export const className = {
@@ -38,8 +38,8 @@ export class Notifications extends Component {
     notifications: React.PropTypes.array.isRequired,
     position: React.PropTypes.string.isRequired,
     defaultValues: React.PropTypes.shape({
-      status: React.PropTypes.oneOf(STATUS),
-      position: React.PropTypes.string.isRequired,
+      status: React.PropTypes.oneOf(_.values(STATUS)),
+      position: React.PropTypes.oneOf(_.values(POSITIONS)),
       dismissible: React.PropTypes.bool.isRequired,
       dismissAfter: React.PropTypes.number.isRequired,
       allowHTML: React.PropTypes.bool.isRequired
@@ -82,7 +82,7 @@ export class Notifications extends Component {
 
     // when notifications are displayed at the bottom,
     // we display notifications from bottom to top
-    if ([BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION].indexOf(position) >= 0) {
+    if ([POSITIONS.bottomLeft, POSITIONS.bottomRight].indexOf(position) >= 0) {
       notifications = notifications.reverse();
     }
 

@@ -11,7 +11,7 @@ import NotificationsContainer, {
 } from '../../src/components/NotificationsContainer';
 import css from '../../src/components/NotificationsContainer/styles.scss';
 import {genNotifications, mockStore} from '../fixtures';
-import {STATUS, INFO_STATUS, POSITIONS, TOP_RIGHT_POSITION} from '../../src/constants';
+import {STATUS, POSITIONS} from '../../src/constants';
 
 describe('<NotificationsSystem/>', () => {
   // default config
@@ -27,8 +27,8 @@ describe('<NotificationsSystem/>', () => {
       smallScreenMin: 480
     },
     defaultValues: {
-      status: INFO_STATUS,
-      position: TOP_RIGHT_POSITION,
+      status: STATUS.info,
+      position: POSITIONS.topRight,
       dismissible: false,
       dismissAfter: 3333,
       allowHTML: true
@@ -94,7 +94,7 @@ describe('<NotificationsSystem/>', () => {
       notifications: React.PropTypes.array.isRequired,
       config: React.PropTypes.object.isRequired,
       defaultValues: React.PropTypes.shape({
-        status: React.PropTypes.oneOf(STATUS),
+        status: React.PropTypes.oneOf(_.values(STATUS)),
         dismissible: React.PropTypes.bool.isRequired,
         position: React.PropTypes.string.isRequired,
         dismissAfter: React.PropTypes.number.isRequired,
@@ -133,7 +133,7 @@ describe('<NotificationsSystem/>', () => {
             notificationClassName={notificationClassName} notifications={notifications}/>
         );
       }
-      let positions = [...POSITIONS];
+      let positions = _.values(POSITIONS);
       // extract the default position of all positions
       positions.splice(positions.indexOf(position), 1);
       let notifs = notifications.filter((notif) => {
