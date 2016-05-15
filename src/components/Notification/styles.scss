@@ -10,38 +10,6 @@ $notification-action-width: 90px;
     box-shadow:         $shadow;
 }
 
-@mixin notification-animation($direction) {
-    .notification {
-        position:   relative;
-        #{$direction}:      0;
-        transition: opacity .4s, #{$direction} .4s;
-        // Animations
-        // enter animation (start)
-        &-enter {
-            opacity: 0.01;
-            #{$direction}:   -#{$notification-max-width};
-
-            // enter animation (end)
-            &.notification-enter-active {
-                #{$direction}:   0;
-                opacity: 1;
-            }
-        }
-        // leave animation (start)
-        &-leave {
-            opacity: 1;
-            #{$direction}:   0;
-
-            // leave animation (end)
-            &.notification-leave-active {
-                opacity: 0.01;
-                #{$direction}:   -#{$notification-max-width};
-            }
-
-        }
-    }
-}
-
 $notification-success-bg: #ffffff;
 $notification-success-border: #4dc657;
 $notification-success-icon: "\f058";
@@ -213,54 +181,6 @@ $notification-error-icon: "\f057";
                 width:   $notification-action-width;
                 height:  100%;
             }
-        }
-    }
-}
-
-// Animation : slide top to bottom for extra small screens
-@media (max-width: #{$screen-xs-max}) {
-    .notification {
-        position:   relative;
-        top:        0;
-        transition: opacity .4s, top .4s;
-        // Animations
-        // enter animation (start)
-        &-enter {
-            top: -150px;
-
-            // enter animation (end)
-            &.notification-enter-active {
-                top:     0;
-                opacity: 1;
-            }
-        }
-        // leave animation (start)
-        &-leave {
-            opacity: 1;
-            top:     0;
-
-            // leave animation (end)
-            &.notification-leave-active {
-                opacity: 0.01;
-                top:     -150px;
-            }
-        }
-    }
-}
-// Animation depending on notifications container position (small to large screens)
-@media (min-width: #{$screen-sm-min}) {
-    .notifications-container {
-        &--tr {
-            @include notification-animation('right');
-        }
-        &--tl {
-            @include notification-animation('left');
-        }
-        &--br {
-            @include notification-animation('right');
-        }
-        &--bl {
-            @include notification-animation('left');
         }
     }
 }

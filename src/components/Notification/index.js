@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 import css from './styles.scss';
 import {Timer} from '../../helpers';
 import {removeNotification} from '../../store/notifications';
-import {STATUS} from '../../constants';
+import {STATUS, DEFAULT_STATUS, TOP_RIGHT_POSITION} from '../../constants';
 
-// default values for a notification
+// default value for notifications
 export const defaultValues = {
-  status: null,
-  position: 'tr',
+  status: DEFAULT_STATUS,
+  position: TOP_RIGHT_POSITION,
   dismissible: true,
   dismissAfter: 5000,
   allowHTML: false
@@ -42,18 +42,6 @@ export const className = {
   actionText: css['notification-action-text']
 };
 
-// default transition for a notification
-export const transition = {
-  enterTimeout: 400,
-  leaveTimeout: 400,
-  name: {
-    enter: css['notification-enter'],
-    enterActive: css['notification-enter-active'],
-    leave: css['notification-leave'],
-    leaveActive: css['notification-leave-active']
-  }
-};
-
 /**
  * Create a timer
  * @param {Number} dismissAfter
@@ -72,15 +60,19 @@ export class Notification extends Component {
   // Default properties
   static defaultProps = {
     className: className,
-    onAdd: () => {
-    },
-    onRemove: () => {
-    },
+    status: defaultValues.status,
+    position: defaultValues.position,
+    dismissible: defaultValues.dismissible,
+    dismissAfter: defaultValues.dismissAfter,
+    allowHTML: defaultValues.allowHTML,
+    onAdd: () => {},
+    onRemove: () => {},
     actions: []
   };
   
   // Properties types
   static propTypes = {
+    className: React.PropTypes.object.isRequired,
     id: React.PropTypes.number.isRequired,
     title: React.PropTypes.string,
     message: React.PropTypes.string,
@@ -96,8 +88,7 @@ export class Notification extends Component {
         onClick: React.PropTypes.func
       })
     ),
-    allowHTML: React.PropTypes.bool,
-    className: React.PropTypes.object.isRequired
+    allowHTML: React.PropTypes.bool
   };
   
   /**
