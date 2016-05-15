@@ -1,7 +1,7 @@
 {
   "name": "reapop",
   "version": "0.1.0",
-  "description": "A React and Redux notifications component",
+  "description": "A React and Redux notifications system",
   "main": "demo/index.js",
   "scripts": {
     "start": "cd demo && node index.js",
