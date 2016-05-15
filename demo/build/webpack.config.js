@@ -1,3 +1,4 @@
+/* eslint-disable */
 var path = require('path');
 var webpack = require('webpack');
 
@@ -56,9 +57,12 @@ var webpackConfig = {
   }
 };
 
-if (process.env.NODE_ENV === 'developement' || !process.env.TRAVIS) {
+if (process.env.NODE_ENV == 'development' || !process.env.TRAVIS) {
   webpackConfig.entry.push('webpack-hot-middleware/client');
-  webpackConfig.plugins = [];
+  webpackConfig.plugins = [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ];
 }
 
 module.exports = webpackConfig;
