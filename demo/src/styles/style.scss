@@ -13,4 +13,7 @@
         background-color: $primary-color !important;
         border-color:     $primary-color !important;
     }
+    html {
+        -webkit-font-smoothing: antialiased;
+    }
 }
