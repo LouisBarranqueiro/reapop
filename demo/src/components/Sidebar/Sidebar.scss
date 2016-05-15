@@ -11,9 +11,3 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
-
-@media (max-width: #{$screen-xs-max}) {
-    .sidebar {
-        display: none;
-    }
-}
