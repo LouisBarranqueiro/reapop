@@ -2,6 +2,38 @@
 
 $notification-max-width: 350px;
 
+@mixin notification-animation($direction) {
+    .notification {
+        position:   relative;
+        #{$direction}:      0;
+        transition: opacity .4s, #{$direction} .4s;
+        // Animations
+        // enter animation (start)
+        &-enter {
+            opacity: 0.01;
+            #{$direction}:   -#{$notification-max-width};
+
+            // enter animation (end)
+            &.notification-enter-active {
+                #{$direction}:   0;
+                opacity: 1;
+            }
+        }
+        // leave animation (start)
+        &-leave {
+            opacity: 1;
+            #{$direction}:   0;
+
+            // leave animation (end)
+            &.notification-leave-active {
+                opacity: 0.01;
+                #{$direction}:   -#{$notification-max-width};
+            }
+
+        }
+    }
+}
+
 // notifications panel
 .notifications-container {
     position: fixed;
@@ -16,7 +48,8 @@ $notification-max-width: 350px;
     }
 }
 
-// Container position
+// Container position and animation depending on
+// notifications container position (small to large screens)
 @media (min-width: #{$screen-sm-min}) {
     .notifications-container {
         max-width: $notification-max-width;
@@ -25,19 +58,52 @@ $notification-max-width: 350px;
         &--tr {
             top:   20px;
             right: 20px;
+            @include notification-animation('right');
         }
         &--tl {
             top:  20px;
             left: 20px;
+            @include notification-animation('left');
         }
         &--br {
             bottom: 0;
             right:  20px;
+            @include notification-animation('right');
         }
         &--bl {
             bottom: 0;
             left:   20px;
+            @include notification-animation('left');
         }
     }
 }
+// Animation : slide top to bottom for extra small screens
+@media (max-width: #{$screen-xs-max}) {
+    .notification {
+        position:   relative;
+        top:        0;
+        transition: opacity .4s, top .4s;
+        // Animations
+        // enter animation (start)
+        &-enter {
+            top: -150px;
 
+            // enter animation (end)
+            &.notification-enter-active {
+                top:     0;
+                opacity: 1;
+            }
+        }
+        // leave animation (start)
+        &-leave {
+            opacity: 1;
+            top:     0;
+
+            // leave animation (end)
+            &.notification-leave-active {
+                opacity: 0.01;
+                top:     -150px;
+            }
+        }
+    }
+}

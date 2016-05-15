@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import css from './styles.scss';
-import Notification from '../Notification';
+import Notification, {defaultValues, className as notificationClassName} from '../Notification';
 import {STATUS, BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION} from '../../constants';
 
 // default className for notifications container
@@ -11,8 +11,28 @@ export const className = {
     return css[`notifications-container--${position}`];
   }
 };
+// default transition for notifications
+export const transition = {
+  enterTimeout: 400,
+  leaveTimeout: 400,
+  name: {
+    enter: css['notification-enter'],
+    enterActive: css['notification-enter-active'],
+    leave: css['notification-leave'],
+    leaveActive: css['notification-leave-active']
+  }
+};
 
 export class Notifications extends Component {
+  // default types
+  static defaultProps = {
+    notifications: [],
+    className,
+    defaultValues,
+    transition,
+    notificationClassName
+  };
+
   // Properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
@@ -24,7 +44,7 @@ export class Notifications extends Component {
       dismissAfter: React.PropTypes.number.isRequired,
       allowHTML: React.PropTypes.bool.isRequired
     }),
-    notificationClassName: React.PropTypes.object.isRequired,
+    notificationClassName: React.PropTypes.object,
     className: React.PropTypes.shape({
       main: React.PropTypes.string.isRequired,
       position: React.PropTypes.func.isRequired
