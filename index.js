@@ -21,26 +21,27 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
  */
-import NotificationsSystem from './components/NotificationsSystem';
-import {STATUS, POSITIONS} from './constants';
+import NotificationsSystem from './src/components/NotificationsSystem';
+import {STATUS, POSITIONS} from './src/constants';
 import reducer, {
   actions,
   types,
   addNotification,
   updateNotification,
   removeNotification
-} from './store/notifications';
+} from './src/store/notifications';
 
 export {
   // constants
   STATUS,
   POSITIONS,
-  // components
-  NotificationsSystem,
-  // actions, reducers
+  // actions
   actions,
+  // actions types
   types,
+  // reducer
   reducer,
+  // all actions separately
   addNotification,
   updateNotification,
   removeNotification

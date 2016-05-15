@@ -1,4 +1,4 @@
-import {INFO_STATUS, SUCCESS_STATUS, ERROR_STATUS} from '../constants';
+import {STATUS} from '../constants';
 
 /**
  * Convert status in a understandable status for the Notification component
@@ -11,11 +11,11 @@ export function convertStatus(status) {
   if (reHttpStatusCode.test(status)) {
     switch (true) {
       case /^1/.test(status):
-        return INFO_STATUS;
+        return STATUS.info;
       case /^2/.test(status):
-        return SUCCESS_STATUS;
+        return STATUS.success;
       case /^(4|5)/.test(status):
-        return ERROR_STATUS;
+        return STATUS.error;
     }
   }
   return status;

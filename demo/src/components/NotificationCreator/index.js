@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import update from 'react/lib/update';
 import {connect} from 'react-redux';
 import Switch from '../Switch';
-import {addNotification as notify} from '../../../../src';
+import {addNotification as notify} from '../../../../index';
 
 class NotificationCreator extends Component {
   static propTypes = {

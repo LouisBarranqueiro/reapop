@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {
   addNotification as notify,
   updateNotification
-} from '../../../../src';
+} from '../../../../index';
 
 class NotificationExamples extends Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {STATUS, POSITIONS, addNotification as notify} from '../../../../src';
+import {STATUS, POSITIONS, addNotification as notify} from '../../../../index';
 import css from './styles.scss';
 
 class RandomNotificationCreator extends Component {

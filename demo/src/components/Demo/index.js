@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
 import RandomNotificationCreator from '../RandomNotificationCreator';
-import NotificationsSystem, {addNotification as notify, updateNotification} from '../../../../src/';
+import NotificationsSystem, {addNotification as notify, updateNotification} from '../../../../index';
 import css from './styles.scss';
 
 class Demo extends Component {

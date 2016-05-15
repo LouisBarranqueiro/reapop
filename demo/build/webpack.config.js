@@ -31,7 +31,7 @@ var webpackConfig = {
     publicPath: '/'
   },
   resolveLoader: {
-    modulesDirectories: ['../node_modules']
+    modulesDirectories: ['../node_modules', './node_modules']
   },
   module: {
     loaders: [{
