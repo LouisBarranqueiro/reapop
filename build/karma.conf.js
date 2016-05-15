@@ -33,7 +33,7 @@ const karmaConfig = {
   customLaunchers: {
     ChromeTravisCI: {
       base: 'Chrome',
-      flags: ['--window-size=400,400']
+      flags: ['--window-size=400,400', '--no-sandbox']
     }
   },
   singleRun: true,
@@ -48,7 +48,7 @@ karmaConfig.webpack.module.preLoaders = [{
 }];
 
 if (process.env.TRAVIS) {
-  configuration.browsers = ['ChromeTravisCI'];
+  karmaConfig.browsers = ['ChromeTravisCI'];
 }
 
 module.exports = function(config) {
