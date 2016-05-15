@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {defaultValues, className as notificationClassName, transition} from '../Notification';
-import NotificationsContainer, {className as containerClassName} from '../NotificationsContainer';
-import {STATUS, POSITIONS} from '../../constants';
+import {defaultValues, className as notificationClassName} from '../Notification';
+import NotificationsContainer, {className as containerClassName, transition} from '../NotificationsContainer';
+import {POSITIONS} from '../../constants';
 
 // default config
 export const config = {
@@ -11,12 +11,13 @@ export const config = {
 
 const className = 'notifications-system';
 
-export class Notifications extends Component {
+export class NotificationsSystem extends Component {
   // Default properties
   static defaultProps = {
+    notifications: [],
+    className,
     config,
     defaultValues,
-    className,
     containerClassName,
     notificationClassName,
     transition
@@ -25,25 +26,12 @@ export class Notifications extends Component {
   // Properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
-    config: React.PropTypes.object.isRequired,
-    defaultValues: React.PropTypes.shape({
-      status: React.PropTypes.oneOf(STATUS),
-      dismissible: React.PropTypes.bool.isRequired,
-      position: React.PropTypes.string.isRequired,
-      dismissAfter: React.PropTypes.number.isRequired,
-      allowHTML: React.PropTypes.bool.isRequired
-    }),
     className: React.PropTypes.string,
-    notificationClassName: React.PropTypes.object,
-    containerClassName: React.PropTypes.shape({
-      main: React.PropTypes.string.isRequired,
-      position: React.PropTypes.func.isRequired
-    }),
-    transition: React.PropTypes.shape({
-      name: React.PropTypes.object.isRequired,
-      enterTimeout: React.PropTypes.number.isRequired,
-      leaveTimeout: React.PropTypes.number.isRequired
-    })
+    config: React.PropTypes.object.isRequired,
+    defaultValues: React.PropTypes.object.isRequired,
+    notificationClassName: React.PropTypes.object.isRequired,
+    containerClassName: React.PropTypes.object.isRequired,
+    transition: React.PropTypes.object.isRequired
   };
   
   constructor(props) {
@@ -118,4 +106,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Notifications);
+export default connect(mapStateToProps)(NotificationsSystem);
