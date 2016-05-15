@@ -15,13 +15,12 @@ const ReapopCSSModulesLoader = [
   'localIdentName=Reapop__[local]'
 ].join('&');
 
-module.exports = {
+var webpackConfig = {
   devtool: 'cheap-module-eval-source-map',
   resolve: {
     root: '../'
   },
   entry: [
-    'webpack-hot-middleware/client',
     './src/index',
     './src/index.html'
   ],
@@ -33,10 +32,6 @@ module.exports = {
   resolveLoader: {
     modulesDirectories: ['../node_modules']
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
   module: {
     loaders: [{
       test: /\.js$/,
@@ -60,3 +55,10 @@ module.exports = {
     }]
   }
 };
+
+if (process.env.NODE_ENV === 'developement' || !process.env.TRAVIS) {
+  webpack.entry.push('webpack-hot-middleware/client');
+  webpackConfig.plugins = [];
+}
+
+module.exports = webpackConfig;
