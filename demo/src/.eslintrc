@@ -1,0 +1,6 @@
+{
+    "extends": "../../.eslintrc",
+    "globals": {
+        "faker": false
+    }
+}
