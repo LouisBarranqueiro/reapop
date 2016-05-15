@@ -12,36 +12,41 @@
 }
 
 .logo-container {
-    display:   block;
-    position:  fixed;
-    top:       50%;
-    left:      50%;
-    transform: translateY(-50%) translateX(calc(-50% + #{$sidebar-width} / 2));
-    color:     white;
+    display:    block;
+    position:   fixed;
+    box-sizing: border-box;
+    padding:    10px;
+    top:        50%;
+    left:       50%;
+    color:      white;
 }
 
 .logo {
     font-family: 'ArtelyInks';
-    // change size for large screens
-    @media (min-width: #{$screen-sm-min}) {
+}
+
+@media (min-width: #{$screen-sm-min}) {
+    .logo-container {
+        transform: translateY(-50%) translateX(calc(-50% + #{$sidebar-width} / 2));
+    }
+    .logo {
         margin-top: -60px;
         font-size:  120px;
     }
-    // change size for extra small screens
-    @media (max-width: #{$screen-xs-max}) {
-        margin-top: -40px;
-        font-size:  80px;
-    }
-}
-
-.description {
-    // change size for extra small screens
-    @media (max-width: #{$screen-xs-max}) {
-        font-size: 15px;
-    }
-    // change size for large screens
-    @media (min-width: #{$screen-sm-min}) {
+    .description {
         font-size: 16px;
     }
 }
 
+@media (max-width: #{$screen-xs-max}) {
+    .logo-container {
+        transform: translateY(-50%) translateX(-50%);
+    }
+    .logo {
+        margin-top: -40px;
+        font-size:  80px;
+    }
+    .description {
+        font-size: 15px;
+    }
+}

@@ -2,11 +2,14 @@
 
 .footer {
     display:   block;
+    width:      100%;
+    box-sizing: border-box;
+    padding:    10px;
     position:  fixed;
     bottom:    15px;
     left:      50%;
     font-size: 15px;
-    transform: translateX(calc(-50% + #{$sidebar-width} / 2));
+    text-align: center;
     color:     white;
 
     a {
@@ -17,5 +20,16 @@
             color:           white;
             text-decoration: underline;
         }
+    }
+}
+
+@media (max-width: #{$screen-xs-max}) {
+    .footer {
+        transform: translateX(-50%);
+    }
+}
+@media (min-width: #{$screen-sm-min}) {
+    .footer {
+        transform: translateX(calc(-50% + #{$sidebar-width} / 2));
     }
 }
