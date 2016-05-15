@@ -5,14 +5,14 @@ A React and Redux notifications system
 
 ## Summary
 
-* [Demo](https://github.com/LouisBarranqueiro/reapop)
+* [Demo](https://github.com/LouisBarranqueiro/reapop#demo)
 * [Installation](https://github.com/LouisBarranqueiro/reapop#installation)
 * [Integration](https://github.com/LouisBarranqueiro/reapop#integration)
-* [Usage](https://github.com/LouisBarranqueiro/reapop#integration)
+* [Usage](https://github.com/LouisBarranqueiro/reapop#usage)
     * [In a React component](https://github.com/LouisBarranqueiro/reapop#in-a-react-component)
-    * [In a Redux module](https://github.com/LouisBarranqueiro/reapop#in-a-react-component)
+    * [In a Redux module](https://github.com/LouisBarranqueiro/reapop#in-a-redux-module)
 * [API documentation](https://github.com/LouisBarranqueiro/reapop#api-documentation)
-    * [Customize Notifications and Notification React component](https://github.com/LouisBarranqueiro/reapop#customize-style-and-behavior)
+    * [Customize style and behavior](https://github.com/LouisBarranqueiro/reapop#customize-style-and-behavior)
     * [Add a notification](https://github.com/LouisBarranqueiro/reapop#add-a-notification)
     * [Update a notification](https://github.com/LouisBarranqueiro/reapop#update-a-notification)
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop#remove-a-notification)
@@ -256,7 +256,7 @@ This object allow you to configure default behavior for your notifications.
 
 ``` js 
 import React, {Component} from 'react';
-import NotificationsSystem from 'react';
+import NotificationsSystem, {STATUS, POSITIONS} from 'reapop';
 
 class AComponent extends Component {
   render() {
