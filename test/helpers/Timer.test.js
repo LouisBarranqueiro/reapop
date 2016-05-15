@@ -12,6 +12,7 @@ describe('Timer()', () => {
     }, 5);
     // check timer after 10s
     setTimeout(() => {
+      // we add a short margin otherwise the test failed on Chrome
       expect(timer.getTimeRemaining() < 16).toEqual(true);
       expect(timer.getTimeRemaining() >= 14).toEqual(true);
       // resume timer
@@ -23,6 +24,7 @@ describe('Timer()', () => {
     }, 15);
     // check timer after 20s
     setTimeout(() => {
+      // we add a short margin otherwise the test failed on Chrome
       expect(timer.getTimeRemaining() < 11).toEqual(true);
       expect(timer.getTimeRemaining() >= 9).toEqual(true);
       done();
