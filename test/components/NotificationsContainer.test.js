@@ -10,7 +10,7 @@ import Notification, {
   className as notificationClassName,
   transition
 } from '../../src/components/Notification';
-import {TOP_LEFT_POSITION, BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION} from '../../src/constants';
+import {POSITIONS} from '../../src/constants';
 
 describe('<NotificationsContainer/>', () => {
   let notifications = [];
@@ -55,7 +55,7 @@ describe('<NotificationsContainer/>', () => {
 
       // when notifications are displayed at the bottom,
       // we display notifications from bottom to top
-      if ([BOTTOM_LEFT_POSITION, BOTTOM_RIGHT_POSITION].indexOf(position) >= 0) {
+      if ([POSITIONS.bottomLeft, POSITIONS.bottomRight].indexOf(position) >= 0) {
         notifications = notifications.reverse();
       }
 
@@ -96,14 +96,14 @@ describe('<NotificationsContainer/>', () => {
 
   it('should mount with default props', () => {
     const wrapper = mount(
-      <NotificationContainer position={TOP_LEFT_POSITION} notifications={[]} transition={transition}
+      <NotificationContainer position={POSITIONS.topLeft} notifications={[]} transition={transition}
         notificationClassName={notificationClassName} defaultValues={defaultValues}/>
     );
     const props = wrapper.props();
     expect(props.className.main).toEqual(className.main);
     expect(
-      props.className.position(TOP_LEFT_POSITION)
-    ).toEqual(className.position(TOP_LEFT_POSITION));
+      props.className.position(POSITIONS.topLeft)
+    ).toEqual(className.position(POSITIONS.topLeft));
     expect(props.defaultValues).toEqual(defaultValues);
     expect(props.transition).toEqual(transition);
     expect(props.notificationClassName).toEqual(notificationClassName);
@@ -111,11 +111,11 @@ describe('<NotificationsContainer/>', () => {
   
   it('should render no notifications', () => {
     const wrapper = shallow(
-      <NotificationContainer position={TOP_LEFT_POSITION} notifications={[]} transition={transition}
+      <NotificationContainer position={POSITIONS.topLeft} notifications={[]} transition={transition}
         notificationClassName={notificationClassName} defaultValues={defaultValues}/>
     );
     const expectedWrapper = shallow(
-      <ExpectedNotificationContainer position={TOP_LEFT_POSITION} notifications={[]}
+      <ExpectedNotificationContainer position={POSITIONS.topLeft} notifications={[]}
         transition={transition} notificationClassName={notificationClassName}
         defaultValues={defaultValues}/>
     );
@@ -129,14 +129,14 @@ describe('<NotificationsContainer/>', () => {
   it('should render notifications', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <NotificationContainer position={TOP_LEFT_POSITION} notifications={notifications}
+        <NotificationContainer position={POSITIONS.topLeft} notifications={notifications}
           transition={transition}
           notificationClassName={notificationClassName} defaultValues={defaultValues}/>
       </Provider>
     );
     const expectedWrapper = mount(
       <Provider store={store}>
-        <ExpectedNotificationContainer store={store} position={TOP_LEFT_POSITION}
+        <ExpectedNotificationContainer store={store} position={POSITIONS.topLeft}
           notifications={notifications}
           transition={transition} notificationClassName={notificationClassName}
           defaultValues={defaultValues}/>
@@ -153,14 +153,14 @@ describe('<NotificationsContainer/>', () => {
     delete notification.allowHTML;
     const wrapper = mount(
       <Provider store={store}>
-        <NotificationContainer position={BOTTOM_LEFT_POSITION} notifications={[notification]}
+        <NotificationContainer position={POSITIONS.bottomLeft} notifications={[notification]}
           transition={transition}
           notificationClassName={notificationClassName} defaultValues={defaultValues}/>
       </Provider>
     );
     const expectedWrapper = mount(
       <Provider store={store}>
-        <ExpectedNotificationContainer position={BOTTOM_LEFT_POSITION} notifications={[notification]}
+        <ExpectedNotificationContainer position={POSITIONS.bottomLeft} notifications={[notification]}
           transition={transition}
           notificationClassName={notificationClassName} defaultValues={defaultValues}/>
       </Provider>
@@ -180,14 +180,14 @@ describe('<NotificationsContainer/>', () => {
     const expectedNotifications = [...notifications].reverse();
     const wrapper = mount(
       <Provider store={store}>
-        <NotificationContainer position={BOTTOM_LEFT_POSITION} notifications={notifications1}
+        <NotificationContainer position={POSITIONS.bottomLeft} notifications={notifications1}
           transition={transition}
           notificationClassName={notificationClassName} defaultValues={defaultValues}/>
       </Provider>
     );
     const expectedWrapper = mount(
       <Provider store={store}>
-        <ExpectedNotificationContainer position={BOTTOM_LEFT_POSITION}
+        <ExpectedNotificationContainer position={POSITIONS.bottomLeft}
           notifications={notifications2}
           transition={transition} notificationClassName={notificationClassName}
           defaultValues={defaultValues}/>

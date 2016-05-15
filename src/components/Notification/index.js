@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import css from './styles.scss';
+import _ from 'lodash';
 import {Timer} from '../../helpers';
 import {removeNotification} from '../../store/notifications';
-import {STATUS, DEFAULT_STATUS, TOP_RIGHT_POSITION} from '../../constants';
+import {STATUS, POSITIONS} from '../../constants';
 
 // default value for notifications
 export const defaultValues = {
-  status: DEFAULT_STATUS,
-  position: TOP_RIGHT_POSITION,
+  status: STATUS.default,
+  position: POSITIONS.topRight,
   dismissible: true,
   dismissAfter: 5000,
   allowHTML: false
@@ -76,7 +77,7 @@ export class Notification extends Component {
     id: React.PropTypes.number.isRequired,
     title: React.PropTypes.string,
     message: React.PropTypes.string,
-    status: React.PropTypes.oneOf(STATUS),
+    status: React.PropTypes.oneOf(_.values(STATUS)),
     dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
     removeNotification: React.PropTypes.func.isRequired,

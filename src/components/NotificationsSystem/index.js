@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import _ from 'lodash';
 import {defaultValues, className as notificationClassName} from '../Notification';
 import NotificationsContainer, {className as containerClassName, transition} from '../NotificationsContainer';
 import {POSITIONS} from '../../constants';
@@ -54,7 +55,7 @@ export class NotificationsSystem extends Component {
           notificationClassName={notificationClassName} notifications={notifications}/>
       );
     }
-    let positions = [...POSITIONS];
+    let positions = _.values(POSITIONS);
     // extract the default position of all positions
     positions.splice(positions.indexOf(position), 1);
     let notifs = notifications.filter((notif) => {

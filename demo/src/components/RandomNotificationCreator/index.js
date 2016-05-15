@@ -39,8 +39,8 @@ class RandomNotificationCreator extends Component {
     notify({
       title: (faker.random.boolean() ? faker.lorem.sentence(5) : ''),
       message: faker.lorem.sentence(5),
-      position: faker.random.arrayElement(POSITIONS),
-      status: faker.random.arrayElement(STATUS),
+      position: faker.random.objectElement(POSITIONS),
+      status: faker.random.objectElement(STATUS),
       dismissible: faker.random.boolean(),
       dismissAfter: 3000,
       allowHTML: faker.random.boolean(),
