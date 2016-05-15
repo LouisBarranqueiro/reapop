@@ -20,8 +20,9 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
-*/
+ */
 import NotificationsSystem from './components/NotificationsSystem';
+import {STATUS, POSITIONS} from './constants';
 import reducer, {
   actions,
   types,
@@ -31,6 +32,17 @@ import reducer, {
 } from './store/notifications';
 
 export {
-  NotificationsSystem, actions, types, reducer, addNotification, updateNotification, removeNotification
+  // constants
+  STATUS,
+  POSITIONS,
+  // components
+  NotificationsSystem,
+  // actions, reducers
+  actions,
+  types,
+  reducer,
+  addNotification,
+  updateNotification,
+  removeNotification
 };
 export default NotificationsSystem;
