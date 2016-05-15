@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import css from './Notification.scss';
+import css from './styles.scss';
 import {Timer} from '../../helpers';
 import {removeNotification} from '../../store/notifications';
-import {
-  DEFAULT_STATUS,
-  INFO_STATUS,
-  SUCCESS_STATUS,
-  WARNING_STATUS,
-  ERROR_STATUS
-} from '../../constants';
+import {STATUS, DEFAULT_STATUS, TOP_RIGHT_POSITION} from '../../constants';
 
-// default className for Notification component
+// default value for notifications
+export const defaultValues = {
+  status: DEFAULT_STATUS,
+  position: TOP_RIGHT_POSITION,
+  dismissible: true,
+  dismissAfter: 5000,
+  allowHTML: false
+};
+
+// default className for a notification
 export const className = {
   main: css['notification'],
   meta: css['notification-meta'],
@@ -25,7 +28,7 @@ export const className = {
   // `fa` corresponds to font-awesome's class name
   actions: (count) => {
     if (count === 0) {
-      return;
+      return '';
     }
     else if (count === 1) {
       return css['notification--actions-1'];
@@ -57,20 +60,23 @@ export class Notification extends Component {
   // Default properties
   static defaultProps = {
     className: className,
-    onAdd: () => {
-    },
-    onRemove: () => {
-    },
+    status: defaultValues.status,
+    position: defaultValues.position,
+    dismissible: defaultValues.dismissible,
+    dismissAfter: defaultValues.dismissAfter,
+    allowHTML: defaultValues.allowHTML,
+    onAdd: () => {},
+    onRemove: () => {},
     actions: []
   };
   
   // Properties types
   static propTypes = {
+    className: React.PropTypes.object.isRequired,
     id: React.PropTypes.number.isRequired,
     title: React.PropTypes.string,
     message: React.PropTypes.string,
-    status: React.PropTypes.oneOf([DEFAULT_STATUS, INFO_STATUS, SUCCESS_STATUS, WARNING_STATUS,
-      ERROR_STATUS]),
+    status: React.PropTypes.oneOf(STATUS),
     dismissAfter: React.PropTypes.number.isRequired,
     dismissible: React.PropTypes.bool.isRequired,
     removeNotification: React.PropTypes.func.isRequired,
@@ -82,8 +88,7 @@ export class Notification extends Component {
         onClick: React.PropTypes.func
       })
     ),
-    allowHTML: React.PropTypes.bool,
-    className: React.PropTypes.object.isRequired
+    allowHTML: React.PropTypes.bool
   };
   
   /**

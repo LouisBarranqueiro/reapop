@@ -4,13 +4,22 @@ import {Provider} from 'react-redux';
 import {genNotification, mockStore} from '../fixtures';
 import {Timer} from '../../src/helpers';
 import {types, removeNotification} from '../../src/store/notifications';
-import css from '../../src/components/Notification/Notification.scss';
-import ConnectNotification, {Notification} from '../../src/components/Notification/Notification';
+import css from '../../src/components/Notification/styles.scss';
+import ConnectNotification, {Notification} from '../../src/components/Notification';
+import {DEFAULT_STATUS, TOP_RIGHT_POSITION} from '../../src/constants';
 
-describe('Notification', () => {
+describe('<Notification/>', () => {
   let notification = null;
   let store = null;
-  
+
+  // default value for notifications
+  const defaultValues = {
+    status: DEFAULT_STATUS,
+    position: TOP_RIGHT_POSITION,
+    dismissible: true,
+    dismissAfter: 5000,
+    allowHTML: false
+  };
   // default className for Notification component
   const className = {
     main: css['notification'],
@@ -25,7 +34,7 @@ describe('Notification', () => {
     // `fa` corresponds to font-awesome's class name
     actions: (count) => {
       if (count === 0) {
-        return;
+        return '';
       }
       else if (count === 1) {
         return css['notification--actions-1'];
@@ -41,13 +50,19 @@ describe('Notification', () => {
   // Expected Notification component
   // used to compare HTML
   class ExpectedNotification extends Component {
+    // Default properties
     static defaultProps = {
       className: className,
+      status: defaultValues.status,
+      position: defaultValues.position,
+      dismissible: defaultValues.dismissible,
+      dismissAfter: defaultValues.dismissAfter,
       onAdd: () => {
       },
       onRemove: () => {
       },
-      actions: []
+      actions: [],
+      allowHTML: defaultValues.allowHTML
     };
     
     /**
@@ -131,30 +146,40 @@ describe('Notification', () => {
   });
   
   it('should mount with default props', () => {
+    delete notification.status;
+    delete notification.position;
+    delete notification.dismissible;
+    delete notification.dismissAfter;
+    delete notification.allowHTML;
     delete notification.onAdd;
     delete notification.onRemove;
-    const wrapper = mount(
+    delete notification.actions;
+    const props = mount(
       <Notification key={notification.id} {...notification}
         removeNotification={removeNotification}/>
-    );
-    expect(wrapper.props().className.main).toEqual(className.main);
-    expect(wrapper.props().className.meta).toEqual(className.meta);
-    expect(wrapper.props().className.title).toEqual(className.title);
-    expect(wrapper.props().className.message).toEqual(className.message);
-    expect(wrapper.props().className.icon).toEqual(className.icon);
-    expect(wrapper.props().className.status()).toEqual(className.status());
-    expect(wrapper.props().className.dismissible).toEqual(className.dismissible);
-    expect(wrapper.props().className.actions()).toEqual(className.actions());
-    expect(wrapper.props().className.actions(0)).toEqual(className.actions(0));
-    expect(wrapper.props().className.actions(1)).toEqual(className.actions(1));
-    expect(wrapper.props().className.actions(2)).toEqual(className.actions(2));
-    expect(wrapper.props().className.action).toEqual(className.action);
-    expect(wrapper.props().className.actionText).toEqual(className.actionText);
-    expect(wrapper.props().removeNotification).toEqual(removeNotification);
-    expect(wrapper.props().onAdd()).toEqual((() => {
-    })());
-    expect(wrapper.props().onRemove()).toEqual((() => {
-    })());
+    ).props();
+    expect(props.status).toEqual(defaultValues.status);
+    expect(props.position).toEqual(defaultValues.position);
+    expect(props.dismissible).toEqual(defaultValues.dismissible);
+    expect(props.dismissAfter).toEqual(defaultValues.dismissAfter);
+    expect(props.allowHTML).toEqual(defaultValues.allowHTML);
+    expect(props.onAdd()).toEqual((() => {})());
+    expect(props.onRemove()).toEqual((() => {})());
+    expect(props.actions).toEqual([]);
+    expect(props.className.main).toEqual(className.main);
+    expect(props.className.meta).toEqual(className.meta);
+    expect(props.className.title).toEqual(className.title);
+    expect(props.className.message).toEqual(className.message);
+    expect(props.className.icon).toEqual(className.icon);
+    expect(props.className.status()).toEqual(className.status());
+    expect(props.className.dismissible).toEqual(className.dismissible);
+    expect(props.className.actions()).toEqual(className.actions());
+    expect(props.className.actions(0)).toEqual(className.actions(0));
+    expect(props.className.actions(1)).toEqual(className.actions(1));
+    expect(props.className.actions(2)).toEqual(className.actions(2));
+    expect(props.className.action).toEqual(className.action);
+    expect(props.className.actionText).toEqual(className.actionText);
+    expect(props.removeNotification).toEqual(removeNotification);
   });
 
   it('should mount with initial state', () => {
@@ -310,7 +335,7 @@ describe('Notification', () => {
       );
     }
     catch (error) {
-      expect(error.stack).toMatch(/onAdd\ncomponentDidMount/);
+      expect(error.stack).toMatch(/onAdd[\s\S]*?componentDidMount/);
       expect(error.message).toEqual(errorMessage);
     }
     // and we update function to check that
@@ -341,7 +366,7 @@ describe('Notification', () => {
       wrapper.unmount();
     }
     catch (error) {
-      expect(error.stack).toMatch(/onRemove\ncomponentWillUnmount/);
+      expect(error.stack).toMatch(/onRemove[\s\S]*?componentWillUnmount/);
       expect(error.message).toEqual(errorMessage);
     }
     // and we update function without `throw` call to check that

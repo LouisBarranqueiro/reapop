@@ -1,4 +1,5 @@
 describe('Components', () => {
   require('./Notification.test');
-  require('./Notifications.test');
+  require('./NotificationsContainer.test');
+  require('./NotificationsSystem.test');
 });
