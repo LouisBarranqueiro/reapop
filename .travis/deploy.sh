@@ -7,11 +7,7 @@ then
   exit 0
 fi
 # build
-cd demo
-# build app
-webpack --config build/webpack.config.js
-# copy static files
-cp -R src/static dist/
+npm run compile
 
 # deploy
 rev=$(git rev-parse --short HEAD)
