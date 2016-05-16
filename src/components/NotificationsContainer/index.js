@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import _ from 'lodash';
-import css from './styles.scss';
+import css from '../../styles/styles.scss';
 import Notification, {defaultValues, className as notificationClassName} from '../Notification';
 import {STATUS, POSITIONS} from '../../constants';
 

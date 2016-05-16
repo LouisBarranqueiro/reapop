@@ -1,0 +1,51 @@
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    box-shadow:         $shadow;
+}
+
+@mixin notification-variant($background, $border-color, $icon) {
+    background-color: $background;
+    border-left:      2px solid #{$border-color};
+    color:            #524c4c;
+
+    @if $icon != '' {
+        .notification-icon:before {
+            content: $icon;
+            color:   $border-color;
+        }
+    }
+}
+
+@mixin notification-animation($direction) {
+    .notification {
+        position:      relative;
+        #{$direction}: 0;
+        transition:    opacity .4s, #{$direction} .4s;
+        // Animations
+        // enter animation (start)
+        &-enter,
+        &-appear {
+            opacity:       0.01;
+            #{$direction}: -#{$notification-max-width};
+
+            // enter animation (end)
+            &.notification-enter-active,
+            &.notification-appear-active {
+                #{$direction}: 0;
+                opacity:       1;
+            }
+        }
+        // leave animation (start)
+        &-leave {
+            opacity:       1;
+            #{$direction}: 0;
+
+            // leave animation (end)
+            &.notification-leave-active {
+                opacity:       0.01;
+                #{$direction}: -#{$notification-max-width};
+            }
+
+        }
+    }
+}

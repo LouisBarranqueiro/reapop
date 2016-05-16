@@ -1,57 +1,24 @@
-@import '../../styles/variables';
-
-@mixin notification-animation($direction) {
-    .notification {
-        position:      relative;
-        #{$direction}: 0;
-        transition:    opacity .4s, #{$direction} .4s;
-        // Animations
-        // enter animation (start)
-        &-enter,
-        &-appear {
-            opacity:       0.01;
-            #{$direction}: -#{$notification-max-width};
-
-            // enter animation (end)
-            &.notification-enter-active,
-            &.notification-appear-active {
-                #{$direction}: 0;
-                opacity:       1;
-            }
-        }
-        // leave animation (start)
-        &-leave {
-            opacity:       1;
-            #{$direction}: 0;
-
-            // leave animation (end)
-            &.notification-leave-active {
-                opacity:       0.01;
-                #{$direction}: -#{$notification-max-width};
-            }
-
-        }
-    }
-}
-
-// notifications panel
-.notifications-container {
+:local .notifications-container {
     position: fixed;
     z-index:  99999;
 }
 
+// on extra small screens, notifications container is on top and
+// take all width of the screen
+// And notification animation : slide top to bottom
 @media (max-width: #{$screen-xs-max}) {
-    .notifications-container {
+    :local .notifications-container {
         width: 100%;
         top:   0;
         left:  0;
+        @include notification-animation('top');
     }
 }
 
-// Container position and animation depending on
-// notifications container position (small to large screens)
+// on small to large screens, container position and notification animation is
+// different depending on container position (from left to right or from right to left)
 @media (min-width: #{$screen-sm-min}) {
-    .notifications-container {
+    :local .notifications-container {
         max-width: $notification-max-width;
         width:     40%;
 
@@ -78,35 +45,3 @@
     }
 }
 
-// Animation : slide top to bottom for extra small screens
-@media (max-width: #{$screen-xs-max}) {
-    .notification {
-        position:   relative;
-        top:        0;
-        transition: opacity .4s, top .4s;
-        // Animations
-        // enter animation (start)
-        &-enter,
-        &-appear {
-            top: -150px;
-
-            // enter animation (end)
-            &.notification-enter-active,
-            &.notification-appear-active {
-                top:     0;
-                opacity: 1;
-            }
-        }
-        // leave animation (start)
-        &-leave {
-            opacity: 1;
-            top:     0;
-
-            // leave animation (end)
-            &.notification-leave-active {
-                opacity: 0.01;
-                top:     -150px;
-            }
-        }
-    }
-}

@@ -1,43 +1,4 @@
-@import '../../styles/variables';
-
-$notification-success-bg: #ffffff;
-$notification-success-border: #4dc657;
-$notification-success-icon: "\f058";
-
-$notification-default-bg: #ffffff;
-$notification-default-border: #ffffff;
-
-$notification-info-bg: #ffffff;
-$notification-info-border: #349ef3;
-$notification-info-icon: "\f05a";
-
-$notification-warning-bg: #ffffff;
-$notification-warning-border: #f5aa0a;
-$notification-warning-icon: "\f071";
-
-$notification-error-bg: #ffffff;
-$notification-error-border: #f5311d;
-$notification-error-icon: "\f057";
-
-@mixin box-shadow($shadow...) {
-    -webkit-box-shadow: $shadow;
-    box-shadow:         $shadow;
-}
-
-@mixin notification-variant($background, $border-color, $icon) {
-    background-color: $background;
-    border-left:      2px solid #{$border-color};
-    color:            #524c4c;
-
-    @if $icon != '' {
-        .notification-icon:before {
-            content: $icon;
-            color:   $border-color;
-        }
-    }
-}
-
-.notification {
+:local .notification {
     display:    table;
     width:      100%;
     height:     100%;
