@@ -25,9 +25,12 @@ describe('<NotificationsContainer/>', () => {
   };
   // default transition for notifications
   const transition = {
+    appearTimeout: 400,
     enterTimeout: 400,
     leaveTimeout: 400,
     name: {
+      appear: css['notification-appear'],
+      appearActive: css['notification-appear-active'],
       enter: css['notification-enter'],
       enterActive: css['notification-enter-active'],
       leave: css['notification-leave'],
@@ -76,11 +79,12 @@ describe('<NotificationsContainer/>', () => {
     }
 
     render() {
-      const {className, position, transition: {name, enterTimeout, leaveTimeout}} = this.props;
+      const {className, position, transition: {name, appearTimeout, enterTimeout, leaveTimeout}} = this.props;
 
       return (
         <div className={`${className.main} ${className.position(position)}`}>
-          <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
+          <TransitionGroup transitionName={name} transitionAppear={true}
+            transitionAppearTimeout={appearTimeout} transitionEnterTimeout={enterTimeout}
             transitionLeaveTimeout={leaveTimeout}>
             {this._renderNotifications()}
           </TransitionGroup>

@@ -3,7 +3,10 @@ import {connect} from 'react-redux';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
 import RandomNotificationCreator from '../RandomNotificationCreator';
-import NotificationsSystem, {addNotification as notify, updateNotification} from '../../../../index';
+import NotificationsSystem, {
+  addNotification as notify,
+  updateNotification
+} from '../../../../index';
 import css from './styles.scss';
 
 class Demo extends Component {
@@ -55,7 +58,7 @@ class Demo extends Component {
       updateNotification(notif);
     }, 4000);
   }
-
+  
   /**
    * Update window height state when component will unmount
    * @returns {void}

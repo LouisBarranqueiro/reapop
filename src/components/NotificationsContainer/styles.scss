@@ -7,12 +7,14 @@
         transition:    opacity .4s, #{$direction} .4s;
         // Animations
         // enter animation (start)
-        &-enter {
+        &-enter,
+        &-appear {
             opacity:       0.01;
             #{$direction}: -#{$notification-max-width};
 
             // enter animation (end)
-            &.notification-enter-active {
+            &.notification-enter-active,
+            &.notification-appear-active {
                 #{$direction}: 0;
                 opacity:       1;
             }
@@ -84,11 +86,13 @@
         transition: opacity .4s, top .4s;
         // Animations
         // enter animation (start)
-        &-enter {
+        &-enter,
+        &-appear {
             top: -150px;
 
             // enter animation (end)
-            &.notification-enter-active {
+            &.notification-enter-active,
+            &.notification-appear-active {
                 top:     0;
                 opacity: 1;
             }

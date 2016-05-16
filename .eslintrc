@@ -9,6 +9,7 @@
     },
     "rules": {
         "semi" : [2, "always"],
+        "react/jsx-boolean-value": [2,"always"],
         "valid-jsdoc": [2, {
             "requireReturnDescription": false,
             "requireParamDescription": false
