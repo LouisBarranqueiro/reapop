@@ -20,7 +20,7 @@ describe('<NotificationsSystem/>', () => {
     smallScreenMin: 768
   };
   // default className for notifications container
-  const className = 'notifications-system';
+  const className = 'reapop-notifications-system';
   // full custom properties object for a Notifications component
   const customProps = {
     notifications: [],

@@ -10,7 +10,7 @@ export const config = {
   smallScreenMin: 768
 };
 
-const className = 'notifications-system';
+const className = 'reapop-notifications-system';
 
 export class NotificationsSystem extends Component {
   // Default properties
