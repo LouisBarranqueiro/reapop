@@ -31,7 +31,7 @@
   "peerDependencies": {
     "redux": "^2.0.0 || ^3.0.0",
     "react-redux": "^2.0.0 || ^3.1.0 || ^4.0.0",
-    "react": "^0.13.3 || ^0.14.0 || ^15.0.0"
+    "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.7.7",
