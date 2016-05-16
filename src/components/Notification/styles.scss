@@ -1,15 +1,5 @@
 @import '../../styles/variables';
 
-$primary-color: #349ef3;
-// notification variables
-$notification-max-width: 360px;
-$notification-button-width: 90px;
-
-@mixin box-shadow($shadow...) {
-    -webkit-box-shadow: $shadow;
-    box-shadow:         $shadow;
-}
-
 $notification-success-bg: #ffffff;
 $notification-success-border: #4dc657;
 $notification-success-icon: "\f058";
@@ -29,6 +19,11 @@ $notification-error-bg: #ffffff;
 $notification-error-border: #f5311d;
 $notification-error-icon: "\f057";
 
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    box-shadow:         $shadow;
+}
+
 @mixin notification-variant($background, $border-color, $icon) {
     background-color: $background;
     border-left:      2px solid #{$border-color};
@@ -43,9 +38,10 @@ $notification-error-icon: "\f057";
 }
 
 .notification {
-    min-height: 40px;
     display:    table;
+    width:      100%;
     height:     100%;
+    min-height: 40px;
     position:   relative;
     border:     none;
     @include box-shadow(0 1px 3px -1px rgba(0, 0, 0, 0.3));
@@ -92,10 +88,10 @@ $notification-error-icon: "\f057";
                 text-align:    center;
             }
             &:hover {
-                color: $primary-color;
+                color: #349ef3;
             }
             &:active {
-                color: darken($primary-color, 10%);
+                color: darken(#349ef3, 10%);
             }
         }
     }
@@ -160,8 +156,6 @@ $notification-error-icon: "\f057";
     // change size of buttons and meta div
     // for extra small screen
     @media (max-width: #{$screen-xs-max}) {
-        width: 100%;
-
         &--buttons-1 {
             .notification-buttons {
                 width: $notification-button-width;
