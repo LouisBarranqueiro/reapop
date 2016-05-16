@@ -10,7 +10,7 @@ import Notification, {
 import NotificationsContainer, {
   className as containerClassName, transition
 } from '../../src/components/NotificationsContainer';
-import css from '../../src/components/NotificationsContainer/styles.scss';
+import css from '../../src/styles/styles.scss';
 import {genNotifications, mockStore} from '../fixtures';
 import {STATUS, POSITIONS} from '../../src/constants';
 

@@ -6,14 +6,7 @@ const CSSModulesLoader = [
   'css?sourceMap&-minimize',
   'modules',
   'importLoaders=1',
-  'localIdentName=[name]__[local]'
-].join('&');
-
-const ReapopCSSModulesLoader = [
-  'css?sourceMap&-minimize',
-  'modules',
-  'importLoaders=1',
-  'localIdentName=Reapop__[local]'
+  'localIdentName=[name]__[local]__[hash:base64:5]'
 ].join('&');
 
 // Webpack config for test
@@ -26,11 +19,6 @@ const webpackConfig = {
       loader: 'babel'
     }, {
       test: /\.scss$/,
-      include: [path.join(__dirname, '../src')],
-      loaders: ['style', ReapopCSSModulesLoader, 'sass']
-    }, {
-      test: /\.scss$/,
-      exclude: [path.join(__dirname, '../src')],
       loaders: ['style', CSSModulesLoader, 'sass']
     }, {
       test: /\.json$/,

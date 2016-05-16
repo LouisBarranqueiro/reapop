@@ -4,7 +4,7 @@ import {mount, shallow} from 'enzyme';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import {mockStore, genNotification, genNotifications} from '../fixtures';
 import NotificationContainer from '../../src/components/NotificationsContainer';
-import css from '../../src/components/NotificationsContainer/styles.scss';
+import css from '../../src/styles/styles.scss';
 import Notification, {
   defaultValues,
   className as notificationClassName,

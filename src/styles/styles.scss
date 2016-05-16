@@ -1,4 +1,4 @@
-@import './variables';
+@import './_variables';
 @import './mixins';
-@import '../components/NotificationsContainer/styles.scss';
-@import '../components/Notification/styles.scss';
+@import '../components/NotificationsContainer/styles';
+@import '../components/Notification/styles';

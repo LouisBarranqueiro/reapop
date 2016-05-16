@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {genNotification, mockStore} from '../fixtures';
 import {Timer} from '../../src/helpers';
 import {types, removeNotification} from '../../src/store/notifications';
-import css from '../../src/components/Notification/styles.scss';
+import css from '../../src/styles/styles.scss';
 import ConnectNotification, {Notification} from '../../src/components/Notification';
 import {STATUS, POSITIONS} from '../../src/constants';
 

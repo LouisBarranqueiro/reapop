@@ -37,9 +37,6 @@ var webpackConfig = {
     }, {
       test: /\.scss$/,
       loaders: ['style', CSSModulesLoader, 'sass']
-    }, {
-      test: /\.(png|jpg|jpeg)$/,
-      loader: 'url?limit=8192'
     }]
   }
 };
