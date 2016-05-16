@@ -5,17 +5,36 @@ A React and Redux notifications system
 
 ## Summary
 
+* [Compatibility](https://github.com/LouisBarranqueiro/reapop#compatiblity)
 * [Demo](https://github.com/LouisBarranqueiro/reapop#demo)
 * [Installation](https://github.com/LouisBarranqueiro/reapop#installation)
 * [Integration](https://github.com/LouisBarranqueiro/reapop#integration)
 * [Usage](https://github.com/LouisBarranqueiro/reapop#usage)
     * [In a React component](https://github.com/LouisBarranqueiro/reapop#in-a-react-component)
-    * [In a Redux module](https://github.com/LouisBarranqueiro/reapop#in-a-redux-module)
+    * [In a Redux async action creator](https://github.com/LouisBarranqueiro/reapop#in-a-redux-async-action-creator)
 * [API documentation](https://github.com/LouisBarranqueiro/reapop#api-documentation)
     * [Customize style and behavior](https://github.com/LouisBarranqueiro/reapop#customize-style-and-behavior)
     * [Add a notification](https://github.com/LouisBarranqueiro/reapop#add-a-notification)
     * [Update a notification](https://github.com/LouisBarranqueiro/reapop#update-a-notification)
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop#remove-a-notification)
+
+## Compatibility
+
+### Library supports
+
+Tested and works with :
+
+- [react](https://github.com/facebook/react) : **^0.14.0** and **^15.0.0**
+- [react-redux](https://github.com/reactjs/react-redux) : **^2.0.0** and **^3.0.0** and **^4.0.0**
+- [redux](https://github.com/reactjs/redux) : **^2.0.0** and **^3.0.0**
+
+### Browsers supports
+
+Tested and works with :
+
+- Chrome : **50**
+- Firefox : **46**
+- Safari : **9**
 
 ## Demo
 
@@ -66,6 +85,8 @@ const store = createStoreWithMiddleware(combineReducers({
 
 ### In a React component
 
+If you are not familiar with react-redux library or the way to connect a React component with a Redux store, I recommend you to read [Redux documentation - Usage with React](http://redux.js.org/docs/advanced/UsageWithReact.html) to understand this example.
+
 ``` js
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -75,12 +96,13 @@ import {addNotification as notify} from 'reapop';
 class AmazingComponent extends Component {
   constructor(props) {
     super(props);
+    // 4. don't forget to bind method
     this._onClick = this._onClick.bind(this);
   }
 
   _onClick() {
     const {notify} = this.props;
-    // 3. we use `notify()` to create a notification 
+    // 3. we use `notify` to create a notification 
     notify({
       title: 'Welcome',
       message: 'you clicked on the button',
@@ -93,18 +115,20 @@ class AmazingComponent extends Component {
   render() {
     return (
       <div>
-        // 4. we notify user when he click on the button
+        // 5. we notify user when he click on the button
         <button onClick={this._onClick}>Add a notification</button>
       </div>
     );
   }
 }
-// 2. we map dispatch to props `notify()` function
+// 2. we map dispatch to props `notify` async action creator
+//    here we use a shortcut instead of passing a `mapDispathToProps` function
 export default connect(null, {notify})(AmazingComponent);
 ```
 
-### In a Redux module
+### In a Redux async action creator
 
+If you are not familiar with async actions creator, I recommend you to read [Redux documentation - Async actions](http://redux.js.org/docs/advanced/AsyncActions.html) to understand this example.
 ``` js
 // 1. we import `addNotification() as notify()` (async action creator) 
 import {addNotification as notify} from 'reapop';
