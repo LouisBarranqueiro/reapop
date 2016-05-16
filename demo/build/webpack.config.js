@@ -2,7 +2,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-const CSSModulesLoader = [
+var CSSModulesLoader = [
   'css?sourceMap&-minimize',
   'modules',
   'importLoaders=1',
