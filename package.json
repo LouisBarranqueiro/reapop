@@ -7,7 +7,7 @@
     "start": "cd demo && node index.js",
     "compile": "cd demo && ../node_modules/.bin/webpack --config=./build/webpack.config.js && cp -R src/static dist/",
     "test": "babel-node ./node_modules/karma/bin/karma start ./build/karma.conf.js",
-    "test:watch": "npm test -- --singleRun=false",
+    "test:watch": "npm test -- --singleRun=false --reporters mocha",
     "lint": "./node_modules/.bin/eslint .",
     "lint:fix": "./node_modules/.bin/eslint . --fix"
   },
