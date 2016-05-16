@@ -2,7 +2,6 @@
 
 .footer {
     display:   block;
-    width:      100%;
     box-sizing: border-box;
     padding:    10px;
     position:  fixed;
@@ -25,11 +24,13 @@
 
 @media (max-width: #{$screen-xs-max}) {
     .footer {
+        width:      100%;
         transform: translateX(-50%);
     }
 }
 @media (min-width: #{$screen-sm-min}) {
     .footer {
+        width:      calc(100% - #{$sidebar-width});
         transform: translateX(calc(-50% + #{$sidebar-width} / 2));
     }
 }
