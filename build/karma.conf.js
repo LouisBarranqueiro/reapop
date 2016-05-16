@@ -9,6 +9,7 @@ const karmaConfig = {
     'karma-mocha',
     'karma-mocha-reporter',
     'karma-coverage',
+    'karma-coveralls',
     'karma-phantomjs-launcher',
     'karma-chrome-launcher',
     'karma-webpack'
@@ -23,8 +24,13 @@ const karmaConfig = {
   },
   reporters: ['mocha', 'coverage'],
   coverageReporter: {
-    type: 'html',
-    dir: 'coverage'
+    reporters: [{
+      type: 'lcov',
+      dir: 'coverage'
+    }, {
+      type: 'html',
+      dir: 'coverage/html/'
+    }]
   },
   port: 9876,
   colors: true,
