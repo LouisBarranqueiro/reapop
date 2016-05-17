@@ -6,17 +6,10 @@ A React and Redux notifications system
 ## Summary
 
 * [Compatibility](https://github.com/LouisBarranqueiro/reapop#compatiblity)
-    * [Libraries supported](https://github.com/LouisBarranqueiro/reapop#libraries-supported)
-    * [Browsers supported](https://github.com/LouisBarranqueiro/reapop#browsers-supported)
 * [Demo](https://github.com/LouisBarranqueiro/reapop#demo)
 * [Installation](https://github.com/LouisBarranqueiro/reapop#installation)
 * [Integration](https://github.com/LouisBarranqueiro/reapop#integration)
-    * [Update Webpack configuration](https://github.com/LouisBarranqueiro/reapop#update-webpack-configuration)
-    * [Integrate NotificationsSystem React component](https://github.com/LouisBarranqueiro/reapop#integrate-notificationssystem-react-component)
-    * [Apply thunk middleware to Redux store](https://github.com/LouisBarranqueiro/reapop#apply-thunk-middleware-to-redux-store)
 * [Usage](https://github.com/LouisBarranqueiro/reapop#usage)
-    * [In a React component](https://github.com/LouisBarranqueiro/reapop#in-a-react-component)
-    * [In a Redux async action creator](https://github.com/LouisBarranqueiro/reapop#in-a-redux-async-action-creator)
 * [API documentation](https://github.com/LouisBarranqueiro/reapop#api-documentation)
 * [Contributing guide](https://github.com/LouisBarranqueiro/reapop#contributing-guide)
 * [License](https://github.com/LouisBarranqueiro/reapop#license)
@@ -51,11 +44,13 @@ npm install --save reapop
 
 ## Integration
 
+Follow this 3 steps to integrate Reapop to your application.
+
 ### Update Webpack configuration
 
 1 . Since Reapop use ES6, it must be compiled with Babel. So you have to edit your webpack config to include Reapop source.  
 
-You also have to define a loader for scss files. If it's not already the case, you need to install :
+2. You also have to define a loader for scss files. If it's not already the case, you need to install :
 
  - **style-loader** with `npm install style-loader --save-dev`
  - **css-loader** with `npm install css-loader --save-dev`
@@ -64,7 +59,7 @@ You also have to define a loader for scss files. If it's not already the case, y
 Look at this example, you can use it in for your project. Check out configuration of [Demo](https://github.com/LouisBarranqueiro/reapop.blob/master/demo/build/webpack.config.js) to see a complete example.
 
 
-```
+``` js
 // CSS loader with some configuration
 // read https://github.com/webpack/css-loader to understand each query parameters
 var CSSLoader = [
@@ -114,23 +109,64 @@ class ATopLevelComponent extends Component {
 }
 ```
 
-### Apply `thunk` middleware to Redux store
+### Apply `thunk` middleware and add notifications reducer to Redux store
 
-Since Reapop use thunk async actions creator, you must apply `thunk` middleware from [redux-thunk](https://github.com/gaearon/redux-thunk) to your Redux store.
+1. Since Reapop use thunk async actions creator, you must apply `thunk` middleware from [redux-thunk](https://github.com/gaearon/redux-thunk) to your Redux store. Install it with `npm install --save redux-thunk`.
+2. Add notifications reducer as `notifications` to your root reducer.
+
 
 ``` js
 import {createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import {reducer as notificationsReducer} from 'reapop';
 
 // store
 const createStoreWithMiddleware = compose(
   applyMiddleware(thunk)
 )(createStore);
 const store = createStoreWithMiddleware(combineReducers({
+    // reducer must be mounted as `notifications` !
+    notifications: notificationsReducer
     // your reducers here
   }), {});
-
 ```
+
+## Import Font Awesome Icons
+
+Reapop use Font Awesome icons. It use only 4 icons, since we made this library to be customized, I decided to not include Font Awesome as a dependencies to let you the choice to use it or not.
+
+
+### With Webpack as a npm dependency
+
+1. Install Font Awesome with `npm install --save font-awesome` 
+2. Install Font Awesome Webpack with `npm install --save font-awesome-webpack`
+2. Install less because Font Awesome Webpack need it with `npm install --save-dev less`
+3. Import it in your root component with `import 'font-awesome-webpack';` . Here is an [example](https://github.com/LouisBarranqueiro/reapop.blob/master/demo/src/index.js)
+4. Update your webpack config with 2 new loaders :
+
+``` js
+module export = {
+  module: {
+    loaders: [{ 
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+      loader: "url-loader?limit=10000&minetype=application/font-woff" 
+    },
+    { 
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+      loaer: "file-loader" 
+    }]
+  }
+};
+```
+
+### As an external file
+
+Add this line in `<head>` of your main `index.html` file :
+``` html 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+```
+
+You can also use bower, or include it manually in your project.
 
 ## Usage
 
@@ -211,6 +247,6 @@ Read [API documentation](https://github.com/LouisBarranqueiro/reapop/blob/master
 
 Read [Contributing guide](https://github.com/LouisBarranqueiro/reapop/blob/master/.github/.CONTRIBUTING.md)
 
-# License 
+## License 
 
 Reapop is under [MIT License](https://github.com/LouisBarranqueiro/reapop/blob/master/LICENSE)
