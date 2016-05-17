@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import faker from 'faker';
 import {STATUS, POSITIONS, addNotification as notify} from '../../../../index';
 import css from './styles.scss';
 
