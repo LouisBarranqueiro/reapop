@@ -22,7 +22,7 @@ const karmaConfig = {
   webpackServer: {
     noInfo: true
   },
-  reporters: ['mocha', 'coverage'],
+  reporters: ['mocha', 'coverage', 'coveralls'],
   coverageReporter: {
     reporters: [{
       type: 'lcov',
