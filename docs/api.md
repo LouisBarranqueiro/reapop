@@ -3,7 +3,7 @@
 * [Customize style and behavior](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#customize-style-and-behavior)
 * [Add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#add-a-notification)
 * [Update a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-a-notification)
-* [Remove a notification](https://github.com/LouisBarranqueiro/reapop#remove-a-notification)
+* [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
 
 ## Customize style and behavior
 
