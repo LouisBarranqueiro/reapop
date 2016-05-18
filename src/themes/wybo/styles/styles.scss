@@ -1,3 +1,62 @@
+@import 'variables';
+@import 'mixins';
+
+// NotificationSystem component
+.notifications-system {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+}
+
+// NotificationContainer component
+:local .notifications-container {
+    position: fixed;
+    z-index:  99999;
+}
+
+// on extra small screens, notifications container is on top and
+// take all width of the screen
+// And notification animation : slide top to bottom
+@media (max-width: #{$screen-xs-max}) {
+    :local .notifications-container {
+        width: 100%;
+        top:   0;
+        left:  0;
+        @include notification-animation('top');
+    }
+}
+
+// on small to large screens, container position and notification animation is
+// different depending on container position (from left to right or from right to left)
+@media (min-width: #{$screen-sm-min}) {
+    :local .notifications-container {
+        max-width: $notification-max-width;
+        width:     40%;
+
+        &--tr {
+            top:   20px;
+            right: 20px;
+            @include notification-animation('right');
+        }
+        &--tl {
+            top:  20px;
+            left: 20px;
+            @include notification-animation('left');
+        }
+        &--br {
+            bottom: 0;
+            right:  20px;
+            @include notification-animation('right');
+        }
+        &--bl {
+            bottom: 0;
+            left:   20px;
+            @include notification-animation('left');
+        }
+    }
+}
+
+// Notification component
 :local .notification {
     display:    table;
     width:      100%;
