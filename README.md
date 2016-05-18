@@ -28,9 +28,7 @@ Tested and works with :
 
 Tested and works with :
 
-- Chrome : **50**
-- Firefox : **46**
-- Safari : **9**
+![Browsers-support](http://louisbarranqueiro.github.io/reapop/static/images/browsers-support.png)
 
 ## Demo
 
