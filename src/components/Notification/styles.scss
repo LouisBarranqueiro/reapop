@@ -36,6 +36,8 @@
             border-left: 1px solid rgba(0, 0, 0, 0.09);
             outline:     none;
             text-align:  center;
+            color:       #524c4c;
+            cursor:      pointer;
 
             &-text {
                 display:       block;
@@ -47,6 +49,8 @@
                 margin:        0 auto;
                 text-overflow: ellipsis;
                 text-align:    center;
+                font-size:     14px;
+                line-height:   25px;
             }
             &:hover {
                 color: #349ef3;
@@ -61,15 +65,16 @@
         top:         10px;
         left:        20px;
         font-family: 'FontAwesome';
-        font-size:   2rem;
+        // override font-size of `fa` class
+        font-size:   20px !important;
     }
     &-title {
-        margin-top:  1px;
-        font-size:   1.5rem;
+        margin:      0 0 10px;
+        font-size:   15px;
         font-weight: 700;
     }
     &-message {
-        margin-bottom: 0;
+        margin: 0;
     }
     &--dismissible {
         cursor: pointer;

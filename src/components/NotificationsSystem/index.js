@@ -4,13 +4,13 @@ import _ from 'lodash';
 import {defaultValues, className as notificationClassName} from '../Notification';
 import NotificationsContainer, {className as containerClassName, transition} from '../NotificationsContainer';
 import {POSITIONS} from '../../constants';
-
+import css from '../../styles/styles.scss';
 // default config
 export const config = {
   smallScreenMin: 768
 };
 
-const className = 'reapop-notifications-system';
+const className = css['notifications-system'];
 
 export class NotificationsSystem extends Component {
   // Default properties
