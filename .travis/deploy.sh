@@ -12,7 +12,7 @@ npm run compile
 # deploy
 rev=$(git rev-parse --short HEAD)
 
-cd dist
+cd demo/dist
 
 git init
 git config user.name "Travis Bot"
