@@ -78,7 +78,7 @@ module.exports = {
       // exclude all folders inside `node_modules` folder unless `reapop`
       exclude: /node_modules\/(?!reapop)/
     },
-    // Reapop have scss files so you have to define loaders handle them
+    // Reapop have scss files so you have to define loaders to handle them
     {
       test: /\.scss$/,
       loaders: ['style', CSSLoader, 'sass']
@@ -133,15 +133,16 @@ const store = createStoreWithMiddleware(combineReducers({
 
 ## Import Font Awesome Icons
 
-Reapop use Font Awesome icons. It use only 4 icons, since we made this library to be customized, I decided to not include Font Awesome as a dependencies to let you the choice to use it or not.
+Reapop use Font Awesome icons. But since this component is built to be customizable we decided to not include Font Awesome as a dependencies to let you the choice to use it or not.
 
+If you want to use it, check the following guides.
 
-### With Webpack as a npm dependency
+### With Webpack
 
-1. Install Font Awesome with `npm install --save font-awesome` 
-2. Install Font Awesome Webpack with `npm install --save font-awesome-webpack`
-2. Install less because Font Awesome Webpack need it with `npm install --save-dev less`
-3. Import it in your root component with `import 'font-awesome-webpack';` . Here is an [example](https://github.com/LouisBarranqueiro/reapop.blob/master/demo/src/index.js)
+1. Install Font Awesome with `npm install font-awesome --save` 
+2. Install Font Awesome Webpack with `npm install font-awesome-webpack --save`
+2. Install less because Font Awesome Webpack need it with `npm install less --save-dev`
+3. Import it in your root component with `import 'font-awesome-webpack';` . Here is an [example](https://github.com/LouisBarranqueiro/reapop/blob/master/demo/src/index.js#L8)
 4. Update your webpack config with 2 new loaders :
 
 ``` js
@@ -159,11 +160,11 @@ module export = {
 };
 ```
 
-### As an external file
+### With BootstrapCDN
 
 Add this line in `<head>` of your main `index.html` file :
 ``` html 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 ```
 
 You can also use bower, or include it manually in your project.
@@ -177,7 +178,7 @@ If you are not familiar with react-redux library or the way to connect a React c
 ``` js
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// 1. we import `addNotification() as notify()` (async action creator)
+// 1. we import `addNotification` (thunk action creator) as `notify`
 import {addNotification as notify} from 'reapop';
 
 class AmazingComponent extends Component {
@@ -218,17 +219,16 @@ export default connect(null, {notify})(AmazingComponent);
 If you are not familiar with async actions creator, I recommend you to read [Redux documentation - Async actions](http://redux.js.org/docs/advanced/AsyncActions.html) to understand this example.
 
 ``` js
-// 1. we import `addNotification() as notify()` (async action creator) 
+// 1. we import `addNotification` (thunk action creator) as `notify`
 import {addNotification as notify} from 'reapop';
 
 // we add a notification to inform user about
 // state of his request (success or failure) 
-const sendResetPasswordLink = (props) => {
-  return (dispatch) => {
-    axios.post('users/ask-reset-password', props)
+const sendResetPasswordLink = (props) => (dispatch) => {
+    axios.post('https://api.example.com/users/ask-reset-password', props)
       .then((res) => {
-        // 2. we use `dispatch()` to notify user
-        // status code will be converted in an understandable status for the Component
+        // 2. we use `dispatch` to notify user.
+        // Status code will be converted in an understandable status for the React component
         dispatch(notify({message:res.data.detail, status:res.statusCode}));
       })
       .catch((res) => {
