@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import Notification from '../Notification';
-import {POSITIONS} from '../../constants';
+import Notification from './Notification';
+import {POSITIONS} from '../constants';
 
 export class NotificationsContainer extends Component {
   // default types
@@ -72,7 +72,6 @@ export class NotificationsContainer extends Component {
    * @returns {XML}
    */
   render() {
-    console.log(this.props);
     const {
       className, transition: {name, appearTimeout, enterTimeout, leaveTimeout}
     } = this.props.theme.notificationsContainer;

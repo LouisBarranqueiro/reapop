@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
-import {Timer} from '../../helpers';
-import {removeNotification} from '../../store/notifications';
-import {POSITIONS} from '../../constants';
+import {Timer} from '../helpers';
+import {removeNotification} from '../store/notifications';
+import {POSITIONS} from '../constants';
 
 /**
  * Create a timer
@@ -146,6 +146,7 @@ export class Notification extends Component {
       className,
       notification: {buttons}
     } = this.props;
+
     return buttons.map((button) => {
       return (
         <button key={button.name} className={className.button} onClick={button.onClick}>
@@ -170,9 +171,11 @@ export class Notification extends Component {
     } = this.props;
     const {timer} = this.state;
     const isDismissible = (dismissible && buttons.length === 0);
+
     if (timer) {
       this._resumeTimer();
     }
+
     return (
       <div className={
            `${className.main} ${className.status(status)}

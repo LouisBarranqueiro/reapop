@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
-import NotificationsContainer from '../NotificationsContainer';
-import {STATUS, POSITIONS} from '../../constants';
+import NotificationsContainer from './NotificationsContainer';
+import {STATUS, POSITIONS} from '../constants';
 
 // default value for notifications
 export const defaultValues = {
