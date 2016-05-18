@@ -57,6 +57,8 @@
     "express": "^4.13.4",
     "faker": "^3.1.0",
     "file-loader": "^0.8.5",
+    "font-awesome": "^4.6.1",
+    "font-awesome-webpack": "0.0.4",
     "import": "0.0.6",
     "isparta-loader": "^2.0.0",
     "json-loader": "^0.5.4",
@@ -81,6 +83,7 @@
     "requirejs": "^2.2.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
