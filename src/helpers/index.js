@@ -53,6 +53,7 @@ export function Timer(callback, delay) {
  * @returns {Object} a notification
  */
 export function treatNotification(notification) {
+  notification.dismissAfter = parseInt(notification.dismissAfter);
   notification.status = convertStatus(notification.status);
   if (!notification.buttons) {
     notification.buttons = [];
