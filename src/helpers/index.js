@@ -46,3 +46,16 @@ export function Timer(callback, delay) {
     return remaining;
   };
 }
+
+/**
+ * Treat data of a notification
+ * @param {Object} notification
+ * @returns {Object} a notification
+ */
+export function treatNotification(notification) {
+  notification.status = convertStatus(notification.status);
+  if (!notification.buttons) {
+    notification.buttons = [];
+  }
+  return notification;
+}
