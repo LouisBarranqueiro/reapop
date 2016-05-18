@@ -69,4 +69,4 @@ export default {
   notification: {
     className: notificationClassName
   }
-}
+};
