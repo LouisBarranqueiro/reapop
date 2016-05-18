@@ -1,47 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import css from '../../styles/styles.scss';
 import _ from 'lodash';
 import {Timer} from '../../helpers';
 import {removeNotification} from '../../store/notifications';
-import {STATUS, POSITIONS} from '../../constants';
-
-// default value for notifications
-export const defaultValues = {
-  status: STATUS.default,
-  position: POSITIONS.topRight,
-  dismissible: true,
-  dismissAfter: 5000,
-  allowHTML: false
-};
-
-// default className for a notification
-export const className = {
-  main: css['notification'],
-  meta: css['notification-meta'],
-  title: css['notification-title'],
-  message: css['notification-message'],
-  icon: `fa ${css['notification-icon']}`,
-  status: (status) => {
-    return css[`notification--${status}`];
-  },
-  dismissible: css['notification--dismissible'],
-  // `fa` corresponds to font-awesome's class name
-  buttons: (count) => {
-    if (count === 0) {
-      return '';
-    }
-    else if (count === 1) {
-      return css['notification--buttons-1'];
-    }
-    else if (count === 2) {
-      return css['notification--buttons-2'];
-    }
-    return css['notification-buttons'];
-  },
-  button: css['notification-button'],
-  buttonText: css['notification-button-text']
-};
+import {POSITIONS} from '../../constants';
 
 /**
  * Create a timer
@@ -58,40 +20,30 @@ function createTimer(dismissAfter, buttons, callback) {
 }
 
 export class Notification extends Component {
-  // Default properties
-  static defaultProps = {
-    className: className,
-    status: defaultValues.status,
-    position: defaultValues.position,
-    dismissible: defaultValues.dismissible,
-    dismissAfter: defaultValues.dismissAfter,
-    allowHTML: defaultValues.allowHTML,
-    onAdd: () => {},
-    onRemove: () => {},
-    buttons: []
-  };
-  
   // Properties types
   static propTypes = {
     className: React.PropTypes.object.isRequired,
-    id: React.PropTypes.number.isRequired,
-    title: React.PropTypes.string,
-    message: React.PropTypes.string,
-    status: React.PropTypes.oneOf(_.values(STATUS)),
-    dismissAfter: React.PropTypes.number.isRequired,
-    dismissible: React.PropTypes.bool.isRequired,
-    removeNotification: React.PropTypes.func.isRequired,
-    onAdd: React.PropTypes.func,
-    onRemove: React.PropTypes.func,
-    buttons: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        name: React.PropTypes.string.isRequired,
-        onClick: React.PropTypes.func
-      })
-    ),
-    allowHTML: React.PropTypes.bool
+    notification: React.PropTypes.shape({
+      id: React.PropTypes.number.isRequired,
+      title: React.PropTypes.string,
+      message: React.PropTypes.string,
+      status: React.PropTypes.string.isRequired,
+      position: React.PropTypes.oneOf(_.values(POSITIONS)),
+      dismissAfter: React.PropTypes.number.isRequired,
+      dismissible: React.PropTypes.bool.isRequired,
+      onAdd: React.PropTypes.func,
+      onRemove: React.PropTypes.func,
+      buttons: React.PropTypes.arrayOf(
+        React.PropTypes.shape({
+          name: React.PropTypes.string.isRequired,
+          onClick: React.PropTypes.func
+        })
+      ),
+      allowHTML: React.PropTypes.bool
+    }),
+    removeNotification: React.PropTypes.func.isRequired
   };
-  
+
   /**
    * Constructor
    * Bind methods
@@ -99,7 +51,7 @@ export class Notification extends Component {
    * @returns {void}
    */
   constructor(props) {
-    const {dismissAfter, buttons} = props;
+    const {dismissAfter, buttons} = props.notification;
     super(props);
     this._remove = this._remove.bind(this);
     this._pauseTimer = this._pauseTimer.bind(this);
@@ -114,8 +66,10 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentDidMount() {
-    const {onAdd} = this.props;
-    onAdd();
+    const {onAdd} = this.props.notification;
+    if (typeof onAdd === 'function') {
+      onAdd();
+    }
   }
   
   /**
@@ -123,8 +77,10 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentWillUnmount() {
-    const {onRemove} = this.props;
-    onRemove();
+    const {onRemove} = this.props.notification;
+    if (typeof onRemove === 'function') {
+      onRemove();
+    }
   }
 
   /**
@@ -133,7 +89,7 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentWillReceiveProps(nextProps) {
-    const {dismissAfter, buttons} = nextProps;
+    const {dismissAfter, buttons} = nextProps.notification;
     this.setState({
       timer: createTimer(dismissAfter, buttons, this._remove)
     });
@@ -145,7 +101,7 @@ export class Notification extends Component {
    * @returns {void}
    */
   _remove() {
-    const {removeNotification, id} = this.props;
+    const {removeNotification, notification: {id}} = this.props;
     removeNotification(id);
   }
 
@@ -175,7 +131,7 @@ export class Notification extends Component {
    * @private
    */
   _messageToHTML() {
-    const {message} = this.props;
+    const {message} = this.props.notification;
     return {
       __html: message
     };
@@ -186,7 +142,10 @@ export class Notification extends Component {
    * @returns {*}
    */
   _renderButtons() {
-    const {buttons, className} = this.props;
+    const {
+      className,
+      notification: {buttons}
+    } = this.props;
     return buttons.map((button) => {
       return (
         <button key={button.name} className={className.button} onClick={button.onClick}>
@@ -205,7 +164,10 @@ export class Notification extends Component {
    * @returns {XML}
    */
   render() {
-    const {title, message, status, dismissible, className, buttons, allowHTML} = this.props;
+    const {
+      className,
+      notification: {title, message, status, dismissible, buttons, allowHTML}
+    } = this.props;
     const {timer} = this.state;
     const isDismissible = (dismissible && buttons.length === 0);
     if (timer) {

@@ -1,63 +1,20 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import _ from 'lodash';
-import css from '../../styles/styles.scss';
-import Notification, {defaultValues, className as notificationClassName} from '../Notification';
-import {STATUS, POSITIONS} from '../../constants';
+import Notification from '../Notification';
+import {POSITIONS} from '../../constants';
 
-// default className for notifications container
-export const className = {
-  main: css['notifications-container'],
-  position: function(position) {
-    return css[`notifications-container--${position}`];
-  }
-};
-// default transition for notifications
-export const transition = {
-  appearTimeout: 400,
-  enterTimeout: 400,
-  leaveTimeout: 400,
-  name: {
-    appear: css['notification-appear'],
-    appearActive: css['notification-appear-active'],
-    enter: css['notification-enter'],
-    enterActive: css['notification-enter-active'],
-    leave: css['notification-leave'],
-    leaveActive: css['notification-leave-active']
-  }
-};
-
-export class Notifications extends Component {
+export class NotificationsContainer extends Component {
   // default types
   static defaultProps = {
-    notifications: [],
-    className,
-    defaultValues,
-    transition,
-    notificationClassName
+    notifications: []
   };
 
   // Properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
     position: React.PropTypes.string.isRequired,
-    defaultValues: React.PropTypes.shape({
-      status: React.PropTypes.oneOf(_.values(STATUS)),
-      position: React.PropTypes.oneOf(_.values(POSITIONS)),
-      dismissible: React.PropTypes.bool.isRequired,
-      dismissAfter: React.PropTypes.number.isRequired,
-      allowHTML: React.PropTypes.bool.isRequired
-    }),
-    notificationClassName: React.PropTypes.object,
-    className: React.PropTypes.shape({
-      main: React.PropTypes.string.isRequired,
-      position: React.PropTypes.func.isRequired
-    }),
-    transition: React.PropTypes.shape({
-      name: React.PropTypes.object.isRequired,
-      enterTimeout: React.PropTypes.number.isRequired,
-      leaveTimeout: React.PropTypes.number.isRequired
-    })
+    defaultValues: React.PropTypes.object.isRequired,
+    theme: React.PropTypes.object.isRequired
   };
   
   /**
@@ -79,7 +36,7 @@ export class Notifications extends Component {
   _renderNotifications() {
     // get all notifications and default values for notifications
     const {
-      position, notificationClassName,
+      position, theme: {notification: {className}},
       defaultValues: {status, dismissible, dismissAfter, allowHTML}
     } = this.props;
     let {notifications} = this.props;
@@ -91,17 +48,21 @@ export class Notifications extends Component {
     }
 
     return notifications.map((notification) => {
-      const hasDismissibleProp = typeof notification.dismissible === 'boolean';
-      const hasDismissAfterProp = notification.dismissAfter >= 0;
-      const hasAllowHTMLProp = typeof notification.allowHTML === 'boolean';
+      // Define default values for notification if it's needed
+      if (!notification.status) {
+        notification.status = status;
+      }
+      if (typeof notification.dismissible !== 'boolean') {
+        notification.dismissible = dismissible;
+      }
+      if (typeof notification.dismissAfter !== 'number') {
+        notification.dismissAfter = dismissAfter;
+      }
+      if (typeof notification.allowHTML !== 'boolean') {
+        notification.allowHTML = allowHTML;
+      }
       return (
-        <Notification key={notification.id} id={notification.id} title={notification.title}
-          message={notification.message} status={notification.status || status}
-          dismissible={hasDismissibleProp ? notification.dismissible : dismissible}
-          dismissAfter={hasDismissAfterProp ? notification.dismissAfter : dismissAfter}
-          allowHTML={hasAllowHTMLProp ? notification.allowHTML : allowHTML}
-          onAdd={notification.onAdd} onRemove={notification.onRemove}
-          buttons={notification.buttons} className={notificationClassName}/>
+        <Notification key={notification.id} notification={notification} className={className}/>
       );
     });
   }
@@ -111,8 +72,11 @@ export class Notifications extends Component {
    * @returns {XML}
    */
   render() {
-    const {className, position, transition: {name, appearTimeout, enterTimeout, leaveTimeout}} = this.props;
-    
+    console.log(this.props);
+    const {
+      className, transition: {name, appearTimeout, enterTimeout, leaveTimeout}
+    } = this.props.theme.notificationsContainer;
+    const {position} = this.props;
     return (
       <div className={`${className.main} ${className.position(position)}`}>
         <TransitionGroup transitionName={name} transitionAppear={true}
@@ -125,4 +89,4 @@ export class Notifications extends Component {
   }
 }
 
-export default Notifications;
+export default NotificationsContainer;

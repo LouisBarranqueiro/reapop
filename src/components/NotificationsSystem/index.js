@@ -1,38 +1,66 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
-import {defaultValues, className as notificationClassName} from '../Notification';
-import NotificationsContainer, {className as containerClassName, transition} from '../NotificationsContainer';
-import {POSITIONS} from '../../constants';
-import css from '../../styles/styles.scss';
-// default config
-export const config = {
-  smallScreenMin: 768
+import NotificationsContainer from '../NotificationsContainer';
+import {STATUS, POSITIONS} from '../../constants';
+
+// default value for notifications
+export const defaultValues = {
+  status: STATUS.default,
+  position: POSITIONS.topRight,
+  dismissible: true,
+  dismissAfter: 5000,
+  allowHTML: false
 };
 
-const className = css['notifications-system'];
-
 export class NotificationsSystem extends Component {
-  // Default properties
+  // default properties
   static defaultProps = {
     notifications: [],
-    className,
-    config,
-    defaultValues,
-    containerClassName,
-    notificationClassName,
-    transition
+    defaultValues
   };
   
-  // Properties types
+  // properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
-    className: React.PropTypes.string,
-    config: React.PropTypes.object.isRequired,
-    defaultValues: React.PropTypes.object.isRequired,
-    notificationClassName: React.PropTypes.object.isRequired,
-    containerClassName: React.PropTypes.object.isRequired,
-    transition: React.PropTypes.object.isRequired
+    defaultValues: React.PropTypes.shape({
+      status: React.PropTypes.string.isRequired,
+      position: React.PropTypes.oneOf(_.values(POSITIONS)),
+      dismissible: React.PropTypes.bool.isRequired,
+      dismissAfter: React.PropTypes.number.isRequired,
+      allowHTML: React.PropTypes.bool.isRequired
+    }),
+    theme: React.PropTypes.shape({
+      smallScreenMin: React.PropTypes.number.isRequired,
+      notificationsSystem: React.PropTypes.shape({
+        className: React.PropTypes.string.isRequired
+      }),
+      notificationsContainer: React.PropTypes.shape({
+        className: React.PropTypes.shape({
+          main: React.PropTypes.string.isRequired,
+          position: React.PropTypes.func.isRequired
+        }),
+        transition: React.PropTypes.shape({
+          name: React.PropTypes.object.isRequired,
+          enterTimeout: React.PropTypes.number.isRequired,
+          leaveTimeout: React.PropTypes.number.isRequired
+        })
+      }),
+      notification: React.PropTypes.shape({
+        className: React.PropTypes.shape({
+          main: React.PropTypes.string.isRequired,
+          meta: React.PropTypes.string.isRequired,
+          title: React.PropTypes.string.isRequired,
+          message: React.PropTypes.string.isRequired,
+          icon: React.PropTypes.string.isRequired,
+          status: React.PropTypes.func.isRequired,
+          dismissible: React.PropTypes.string.isRequired,
+          buttons: React.PropTypes.func.isRequired,
+          button: React.PropTypes.string.isRequired,
+          buttonText: React.PropTypes.string.isRequired
+        })
+      })
+    })
   };
   
   constructor(props) {
@@ -46,13 +74,12 @@ export class NotificationsSystem extends Component {
    * @private
    */
   _renderNotificationsContainers() {
-    const {notifications, defaultValues: {position}, config: {smallScreenMin}} = this.props;
+    const {notifications, defaultValues: {position}, theme} = this.props;
     // render all notifications in the same container at the top for small screens
-    if (window.innerWidth < smallScreenMin) {
+    if (window.innerWidth < theme.smallScreenMin) {
       return (
-        <NotificationsContainer key='top' position='top' transition={transition}
-          className={containerClassName} defaultValues={defaultValues}
-          notificationClassName={notificationClassName} notifications={notifications}/>
+        <NotificationsContainer key='top' position='top' defaultValues={defaultValues}
+          theme={theme} notifications={notifications}/>
       );
     }
     let positions = _.values(POSITIONS);
@@ -63,9 +90,8 @@ export class NotificationsSystem extends Component {
     });
     // init array with all notifications with default position
     let JSX = [
-      <NotificationsContainer key={position} position={position} transition={transition}
-        className={containerClassName} defaultValues={defaultValues}
-        notificationClassName={notificationClassName} notifications={notifs}/>
+      <NotificationsContainer key={position} position={position} defaultValues={defaultValues}
+        theme={theme} notifications={notifs}/>
     ];
     // fill array with others containers
     JSX = JSX.concat(positions.map((position) => {
@@ -73,9 +99,8 @@ export class NotificationsSystem extends Component {
         return position === notif.position;
       });
       return (
-        <NotificationsContainer key={position} position={position} transition={transition}
-          className={containerClassName} defaultValues={defaultValues}
-          notificationClassName={notificationClassName} notifications={notifs}/>
+        <NotificationsContainer key={position} position={position} defaultValues={defaultValues}
+          theme={theme} notifications={notifs}/>
       );
     }));
     return JSX;
@@ -86,8 +111,7 @@ export class NotificationsSystem extends Component {
    * @returns {XML}
    */
   render() {
-    const {className} = this.props;
-    
+    const {className} = this.props.theme.notificationsSystem;
     return (
       <div className={className}>
         {this._renderNotificationsContainers()}
