@@ -1,97 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Provider} from 'react-redux';
 import {mount, shallow} from 'enzyme';
-import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import {mockStore, genNotification, genNotifications} from '../fixtures';
-import NotificationContainer from '../../src/components/NotificationsContainer';
-import css from '../../src/styles/styles.scss';
-import Notification, {
-  defaultValues,
-  className as notificationClassName,
-  transition
-} from '../../src/components/Notification';
+import {ExpectedNotificationsContainer} from '../utils/expectedComponents';
+import {mockStore, genNotification, genNotifications} from '../utils/fixtures';
+import NotificationsContainer from '../../src/components/NotificationsContainer';
+import {defaultValues} from '../../src/components/NotificationsSystem';
+import Notification from '../../src/components/Notification';
 import {POSITIONS} from '../../src/constants';
+import theme from '../../src/themes/wybo';
 
 describe('<NotificationsContainer/>', () => {
   let notifications = [];
   let store = null;
-
-  // Expected className for notifications container
-  const className = {
-    main: css['notifications-container'],
-    position: function(position) {
-      return css[`notifications-container--${position}`];
-    }
+  const otherProps = {
+    theme,
+    defaultValues
   };
-  // default transition for notifications
-  const transition = {
-    appearTimeout: 400,
-    enterTimeout: 400,
-    leaveTimeout: 400,
-    name: {
-      appear: css['notification-appear'],
-      appearActive: css['notification-appear-active'],
-      enter: css['notification-enter'],
-      enterActive: css['notification-enter-active'],
-      leave: css['notification-leave'],
-      leaveActive: css['notification-leave-active']
-    }
-  };
-  // Expected Notification Container
-  class ExpectedNotificationContainer extends Component {
-    static defaultProps = {
-      className
-    };
-
-    constructor(props) {
-      super(props);
-      this._renderNotifications = this._renderNotifications.bind(this);
-    }
-
-    _renderNotifications() {
-      // get all notifications and default values for notifications
-      const {
-        position, notificationClassName,
-        defaultValues: {status, dismissible, dismissAfter, allowHTML}
-      } = this.props;
-      let {notifications} = this.props;
-
-      // when notifications are displayed at the bottom,
-      // we display notifications from bottom to top
-      if ([POSITIONS.bottomLeft, POSITIONS.bottomRight].indexOf(position) >= 0) {
-        notifications = notifications.reverse();
-      }
-
-      return notifications.map((notification) => {
-        const hasDismissibleProp = typeof notification.dismissible === 'boolean';
-        const hasDismissAfterProp = notification.dismissAfter >= 0;
-        const hasAllowHTMLProp = typeof notification.allowHTML === 'boolean';
-        return (
-          <Notification key={notification.id} id={notification.id} title={notification.title}
-            message={notification.message} status={notification.status || status}
-            dismissible={hasDismissibleProp ? notification.dismissible : dismissible}
-            dismissAfter={hasDismissAfterProp ? notification.dismissAfter : dismissAfter}
-            allowHTML={hasAllowHTMLProp ? notification.allowHTML : allowHTML}
-            onAdd={notification.onAdd} onRemove={notification.onRemove}
-            buttons={notification.buttons} className={notificationClassName}/>
-        );
-      });
-    }
-
-    render() {
-      const {className, position, transition: {name, appearTimeout, enterTimeout, leaveTimeout}} = this.props;
-
-      return (
-        <div className={`${className.main} ${className.position(position)}`}>
-          <TransitionGroup transitionName={name} transitionAppear={true}
-            transitionAppearTimeout={appearTimeout} transitionEnterTimeout={enterTimeout}
-            transitionLeaveTimeout={leaveTimeout}>
-            {this._renderNotifications()}
-          </TransitionGroup>
-        </div>
-      );
-    }
-  }
 
   beforeEach('generate a new notification and init store', () => {
     notifications = genNotifications(3);
@@ -100,28 +24,19 @@ describe('<NotificationsContainer/>', () => {
 
   it('should mount with default props', () => {
     const wrapper = mount(
-      <NotificationContainer position={POSITIONS.topLeft} notifications={[]} transition={transition}
-        notificationClassName={notificationClassName} defaultValues={defaultValues}/>
+      <NotificationsContainer position={POSITIONS.topLeft} {...otherProps}/>
     );
     const props = wrapper.props();
-    expect(props.className.main).toEqual(className.main);
-    expect(
-      props.className.position(POSITIONS.topLeft)
-    ).toEqual(className.position(POSITIONS.topLeft));
-    expect(props.defaultValues).toEqual(defaultValues);
-    expect(props.transition).toEqual(transition);
-    expect(props.notificationClassName).toEqual(notificationClassName);
+    expect(props.notifications).toEqual([]);
   });
-  
+
   it('should render no notifications', () => {
     const wrapper = shallow(
-      <NotificationContainer position={POSITIONS.topLeft} notifications={[]} transition={transition}
-        notificationClassName={notificationClassName} defaultValues={defaultValues}/>
+      <NotificationsContainer position={POSITIONS.topLeft} notifications={[]} {...otherProps}/>
     );
     const expectedWrapper = shallow(
-      <ExpectedNotificationContainer position={POSITIONS.topLeft} notifications={[]}
-        transition={transition} notificationClassName={notificationClassName}
-        defaultValues={defaultValues}/>
+      <ExpectedNotificationsContainer position={POSITIONS.topLeft} notifications={[]}
+        {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedWrapper.html());
     // `equals()` doesn't work in this case, I don't know why so
@@ -133,17 +48,14 @@ describe('<NotificationsContainer/>', () => {
   it('should render notifications', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <NotificationContainer position={POSITIONS.topLeft} notifications={notifications}
-          transition={transition}
-          notificationClassName={notificationClassName} defaultValues={defaultValues}/>
+        <NotificationsContainer position={POSITIONS.topLeft} notifications={notifications}
+          {...otherProps}/>
       </Provider>
     );
     const expectedWrapper = mount(
       <Provider store={store}>
-        <ExpectedNotificationContainer store={store} position={POSITIONS.topLeft}
-          notifications={notifications}
-          transition={transition} notificationClassName={notificationClassName}
-          defaultValues={defaultValues}/>
+        <ExpectedNotificationsContainer position={POSITIONS.topLeft} notifications={notifications}
+          {...otherProps}/>
       </Provider>
     );
     expect(wrapper.html()).toEqual(expectedWrapper.html());
@@ -157,23 +69,22 @@ describe('<NotificationsContainer/>', () => {
     delete notification.allowHTML;
     const wrapper = mount(
       <Provider store={store}>
-        <NotificationContainer position={POSITIONS.bottomLeft} notifications={[notification]}
-          transition={transition}
-          notificationClassName={notificationClassName} defaultValues={defaultValues}/>
+        <NotificationsContainer position={POSITIONS.bottomLeft} notifications={[notification]}
+          {...otherProps}/>
       </Provider>
     );
     const expectedWrapper = mount(
       <Provider store={store}>
-        <ExpectedNotificationContainer position={POSITIONS.bottomLeft} notifications={[notification]}
-          transition={transition}
-          notificationClassName={notificationClassName} defaultValues={defaultValues}/>
+        <ExpectedNotificationsContainer position={POSITIONS.bottomLeft}
+          notifications={[notification]}
+          {...otherProps}/>
       </Provider>
     );
     const props = wrapper.find(Notification).props();
-    expect(props.status).toEqual(defaultValues.status);
-    expect(props.dismissible).toEqual(defaultValues.dismissible);
-    expect(props.dismissAfter).toEqual(defaultValues.dismissAfter);
-    expect(props.allowHTML).toEqual(defaultValues.allowHTML);
+    expect(props.notification.status).toEqual(defaultValues.status);
+    expect(props.notification.dismissible).toEqual(defaultValues.dismissible);
+    expect(props.notification.dismissAfter).toEqual(defaultValues.dismissAfter);
+    expect(props.notification.allowHTML).toEqual(defaultValues.allowHTML);
     expect(wrapper.html()).toEqual(expectedWrapper.html());
   });
 
@@ -184,20 +95,18 @@ describe('<NotificationsContainer/>', () => {
     const expectedNotifications = [...notifications].reverse();
     const wrapper = mount(
       <Provider store={store}>
-        <NotificationContainer position={POSITIONS.bottomLeft} notifications={notifications1}
-          transition={transition}
-          notificationClassName={notificationClassName} defaultValues={defaultValues}/>
+        <NotificationsContainer position={POSITIONS.bottomLeft} notifications={notifications1}
+          {...otherProps}/>
       </Provider>
     );
     const expectedWrapper = mount(
       <Provider store={store}>
-        <ExpectedNotificationContainer position={POSITIONS.bottomLeft}
+        <ExpectedNotificationsContainer position={POSITIONS.bottomLeft}
           notifications={notifications2}
-          transition={transition} notificationClassName={notificationClassName}
-          defaultValues={defaultValues}/>
+          {...otherProps}/>
       </Provider>
     );
-    const props = wrapper.find(NotificationContainer).props();
+    const props = wrapper.find(NotificationsContainer).props();
     expect(props.notifications).toEqual(expectedNotifications);
     expect(wrapper.html()).toEqual(expectedWrapper.html());
   });
