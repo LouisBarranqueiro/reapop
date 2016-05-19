@@ -37,7 +37,7 @@ Check out the [demo](http://louisbarranqueiro.github.io/reapop/)
 ## Installation
 
 ```
-npm install --save reapop
+npm install reapop --save
 ```
 
 ## Integration
