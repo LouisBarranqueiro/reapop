@@ -5,7 +5,7 @@ import {Timer} from '../../src/helpers';
 import ConnectNotification, {Notification} from '../../src/components/Notification';
 import {notificationClassName as className} from '../../src/themes/wybo';
 import {types, removeNotification} from '../../src/store/notifications';
-import {genNotification, mockStore} from '../utils/fixtures';
+import {genNotification, mockStore, checkPropTypes} from '../utils/fixtures';
 import {ExpectedNotification} from '../utils/expectedComponents';
 
 describe('<Notification/>', () => {
@@ -21,7 +21,15 @@ describe('<Notification/>', () => {
     notification = genNotification();
     store = mockStore({notifications: []});
   });
-  
+
+  it('should not throw error during propTypes validation', () => {
+    checkPropTypes({
+      className,
+      notification,
+      removeNotification
+    }, Notification.propTypes, true);
+  });
+
   it('should mount with initial state', () => {
     // state component will be init without timer because notification have buttons
     let wrapper = mount(<Notification notification={notification} {...otherProps}/>);
@@ -179,7 +187,7 @@ describe('<Notification/>', () => {
       </Provider>
     );
   });
-  
+
   it('should run onRemove() callback at componentWillUnmount() lifecycle', () => {
     const errorMessage = 'onRemove() callback';
     // we throw an error to capture where
