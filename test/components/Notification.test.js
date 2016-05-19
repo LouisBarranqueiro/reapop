@@ -1,18 +1,18 @@
 import React from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
-import {genNotification, mockStore} from '../utils/fixtures';
 import {Timer} from '../../src/helpers';
-import {types, removeNotification} from '../../src/store/notifications';
 import ConnectNotification, {Notification} from '../../src/components/Notification';
-import {ExpectedNotification} from '../utils/expectedComponents';
 import {notificationClassName as className} from '../../src/themes/wybo';
+import {types, removeNotification} from '../../src/store/notifications';
+import {genNotification, mockStore} from '../utils/fixtures';
+import {ExpectedNotification} from '../utils/expectedComponents';
 
 describe('<Notification/>', () => {
   let notification = null;
   let store = null;
   // these props are the same for all tests
-  let otherProps = {
+  const otherProps = {
     className,
     removeNotification
   };
@@ -179,7 +179,7 @@ describe('<Notification/>', () => {
       </Provider>
     );
   });
-
+  
   it('should run onRemove() callback at componentWillUnmount() lifecycle', () => {
     const errorMessage = 'onRemove() callback';
     // we throw an error to capture where
@@ -205,6 +205,27 @@ describe('<Notification/>', () => {
       return 0;
     };
     wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification notification={notification} {...otherProps}/>
+      </Provider>
+    );
+    wrapper.unmount();
+  });
+
+  it('should not throw an error at componentDidMount() lifecycle ' +
+    '(onAdd() callback undefined)', () => {
+    delete notification.onAdd;
+    mount(
+      <Provider store={store}>
+        <ConnectNotification notification={notification} {...otherProps}/>
+      </Provider>
+    );
+  });
+
+  it('should not throw an error at componentWillUnmount() lifecycle ' +
+    '(onRemove() callback undefined)', () => {
+    delete notification.onRemove;
+    const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
