@@ -7,7 +7,7 @@ import ConnectedNotificationsSystem, {
 } from '../../src/components/NotificationsSystem';
 import Notification from '../../src/components/Notification';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
-import {genNotifications, mockStore} from '../utils/fixtures';
+import {genNotifications, mockStore, checkPropTypes} from '../utils/fixtures';
 import {ExpectedNotificationsSystem} from '../utils/expectedComponents';
 import {STATUS, POSITIONS} from '../../src/constants';
 import theme from '../../src/themes/wybo';
@@ -16,6 +16,14 @@ describe('<NotificationsSystem/>', () => {
   const otherProps = {
     theme
   };
+
+  it('should not throw error during propTypes validation', () => {
+    checkPropTypes({
+      notifications: [],
+      theme,
+      defaultValues
+    }, NotificationsSystem.propTypes, true)
+  });
 
   it('should mount with default props', () => {
     const props = mount(<NotificationsSystem {...otherProps}/>).props();
