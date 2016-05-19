@@ -22,7 +22,7 @@ describe('<NotificationsSystem/>', () => {
       notifications: [],
       theme,
       defaultValues
-    }, NotificationsSystem.propTypes, true)
+    }, NotificationsSystem.propTypes, true);
   });
 
   it('should mount with default props', () => {
