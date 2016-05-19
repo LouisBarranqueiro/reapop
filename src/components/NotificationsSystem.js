@@ -23,42 +23,11 @@ export class NotificationsSystem extends Component {
   // properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
-    defaultValues: React.PropTypes.shape({
-      status: React.PropTypes.string.isRequired,
-      position: React.PropTypes.oneOf(_.values(POSITIONS)),
-      dismissible: React.PropTypes.bool.isRequired,
-      dismissAfter: React.PropTypes.number.isRequired,
-      allowHTML: React.PropTypes.bool.isRequired
-    }),
+    defaultValues: React.PropTypes.object.isRequired,
     theme: React.PropTypes.shape({
       smallScreenMin: React.PropTypes.number.isRequired,
       notificationsSystem: React.PropTypes.shape({
         className: React.PropTypes.string.isRequired
-      }),
-      notificationsContainer: React.PropTypes.shape({
-        className: React.PropTypes.shape({
-          main: React.PropTypes.string.isRequired,
-          position: React.PropTypes.func.isRequired
-        }),
-        transition: React.PropTypes.shape({
-          name: React.PropTypes.object.isRequired,
-          enterTimeout: React.PropTypes.number.isRequired,
-          leaveTimeout: React.PropTypes.number.isRequired
-        })
-      }),
-      notification: React.PropTypes.shape({
-        className: React.PropTypes.shape({
-          main: React.PropTypes.string.isRequired,
-          meta: React.PropTypes.string.isRequired,
-          title: React.PropTypes.string.isRequired,
-          message: React.PropTypes.string.isRequired,
-          icon: React.PropTypes.string.isRequired,
-          status: React.PropTypes.func.isRequired,
-          dismissible: React.PropTypes.string.isRequired,
-          buttons: React.PropTypes.func.isRequired,
-          button: React.PropTypes.string.isRequired,
-          buttonText: React.PropTypes.string.isRequired
-        })
       })
     })
   };

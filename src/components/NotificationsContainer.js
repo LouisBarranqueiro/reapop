@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import _ from 'lodash';
 import Notification from './Notification';
 import {POSITIONS} from '../constants';
 
@@ -13,8 +14,29 @@ export class NotificationsContainer extends Component {
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
     position: React.PropTypes.string.isRequired,
-    defaultValues: React.PropTypes.object.isRequired,
-    theme: React.PropTypes.object.isRequired
+    defaultValues: React.PropTypes.shape({
+      status: React.PropTypes.string.isRequired,
+      position: React.PropTypes.oneOf(_.values(POSITIONS)),
+      dismissible: React.PropTypes.bool.isRequired,
+      dismissAfter: React.PropTypes.number.isRequired,
+      allowHTML: React.PropTypes.bool.isRequired
+    }),
+    theme: React.PropTypes.shape({
+      notificationsContainer: React.PropTypes.shape({
+        className: React.PropTypes.shape({
+          main: React.PropTypes.string.isRequired,
+          position: React.PropTypes.func.isRequired
+        }),
+        transition: React.PropTypes.shape({
+          name: React.PropTypes.object.isRequired,
+          enterTimeout: React.PropTypes.number.isRequired,
+          leaveTimeout: React.PropTypes.number.isRequired
+        })
+      }),
+      notification: React.PropTypes.shape({
+        className: React.PropTypes.object.isRequired
+      })
+    })
   };
   
   /**

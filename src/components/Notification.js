@@ -22,7 +22,18 @@ function createTimer(dismissAfter, buttons, callback) {
 export class Notification extends Component {
   // Properties types
   static propTypes = {
-    className: React.PropTypes.object.isRequired,
+    className: React.PropTypes.shape({
+      main: React.PropTypes.string.isRequired,
+      meta: React.PropTypes.string.isRequired,
+      title: React.PropTypes.string.isRequired,
+      message: React.PropTypes.string.isRequired,
+      icon: React.PropTypes.string.isRequired,
+      status: React.PropTypes.func.isRequired,
+      dismissible: React.PropTypes.string.isRequired,
+      buttons: React.PropTypes.func.isRequired,
+      button: React.PropTypes.string.isRequired,
+      buttonText: React.PropTypes.string.isRequired
+    }),
     notification: React.PropTypes.shape({
       id: React.PropTypes.number.isRequired,
       title: React.PropTypes.string,
