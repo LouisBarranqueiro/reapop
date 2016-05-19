@@ -1,5 +1,5 @@
 import {treatNotification} from '../../src/helpers';
-import {genNotification} from '../fixtures';
+import {genNotification} from '../utils/fixtures';
 import {STATUS} from '../../src/constants';
 
 describe('treatNotification()', () => {

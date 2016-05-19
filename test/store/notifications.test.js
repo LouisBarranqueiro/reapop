@@ -1,5 +1,5 @@
 import faker from 'faker';
-import {mockStore, genNotification} from '../fixtures';
+import {mockStore, genNotification} from '../utils/fixtures';
 import reducer, {
   types,
   addNotification,
