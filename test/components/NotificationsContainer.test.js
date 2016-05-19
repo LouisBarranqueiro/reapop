@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {mount, shallow} from 'enzyme';
 import {ExpectedNotificationsContainer} from '../utils/expectedComponents';
-import {mockStore, genNotification, genNotifications} from '../utils/fixtures';
+import {mockStore, genNotification, genNotifications, checkPropTypes} from '../utils/fixtures';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
 import {defaultValues} from '../../src/components/NotificationsSystem';
 import Notification from '../../src/components/Notification';
@@ -20,6 +20,15 @@ describe('<NotificationsContainer/>', () => {
   beforeEach('generate a new notification and init store', () => {
     notifications = genNotifications(3);
     store = mockStore({notifications: []});
+  });
+
+  it('should not throw error during propTypes validation', () => {
+    checkPropTypes({
+      notifications: [],
+      position: POSITIONS.topLeft,
+      defaultValues,
+      theme
+    }, NotificationsContainer.propTypes, true);
   });
 
   it('should mount with default props', () => {
