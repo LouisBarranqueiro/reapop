@@ -1,20 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
-import {genNotification, mockStore} from '../fixtures';
+import {genNotification, mockStore} from '../utils/fixtures';
 import {Timer} from '../../src/helpers';
 import {types, removeNotification} from '../../src/store/notifications';
-import css from '../../src/themes/wybo/styles/styles.scss';
 import ConnectNotification, {Notification} from '../../src/components/Notification';
-import {STATUS, POSITIONS} from '../../src/constants';
-import {ExpectedNotification} from '../fixtures/components';
+import {ExpectedNotification} from '../utils/expectedComponents';
 import {notificationClassName as className} from '../../src/themes/wybo';
+
 describe('<Notification/>', () => {
   let notification = null;
   let store = null;
-
-  // Other props for Notification component
-  const otherProps = {
+  // these props are the same for all tests
+  let otherProps = {
+    className,
     removeNotification
   };
 
@@ -22,29 +21,20 @@ describe('<Notification/>', () => {
     notification = genNotification();
     store = mockStore({notifications: []});
   });
-
+  
   it('should mount with initial state', () => {
     // state component will be init without timer because notification have buttons
-    let wrapper = mount(
-      <Notification key={notification.id} className={className} notification={notification}
-        {...otherProps}/>
-    );
+    let wrapper = mount(<Notification notification={notification} {...otherProps}/>);
     expect(wrapper.state().timer).toEqual(null);
     // state component will be init with timer because notification doesn't have buttons
     notification.buttons = [];
-    wrapper = mount(
-      <Notification key={notification.id} className={className} notification={notification}
-        {...otherProps}/>
-    );
+    wrapper = mount(<Notification notification={notification} {...otherProps}/>);
     expect(wrapper.state().timer).toBeA(Timer);
   });
 
   it('should update state when receiving new props', () => {
     // state component will be init without timer because notification have buttons
-    let wrapper = mount(
-      <Notification key={notification.id} className={className} notification={notification}
-        {...otherProps}/>
-    );
+    let wrapper = mount(<Notification notification={notification} {...otherProps}/>);
     expect(wrapper.state().timer).toEqual(null);
     // we delete buttons to provoke creation of a Timer
     // at `componentWillReceivedProps()` component lifecycle
@@ -56,13 +46,11 @@ describe('<Notification/>', () => {
   it('should render component (with title)', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} className={className} notification={notification}
-        {...otherProps}/>
+      <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
@@ -71,13 +59,11 @@ describe('<Notification/>', () => {
     notification.title = null;
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} className={className} notification={notification}
-        {...otherProps}/>
+      <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
@@ -85,13 +71,11 @@ describe('<Notification/>', () => {
   it('should render component (with message)', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} className={className}
-        notification={notification} {...otherProps}/>
+      <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
@@ -102,13 +86,11 @@ describe('<Notification/>', () => {
     notification.allowHTML = true;
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} className={className}
-        notification={notification} {...otherProps}/>
+      <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
@@ -117,14 +99,12 @@ describe('<Notification/>', () => {
     notification.message = null;
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
 
     const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} className={className}
-        notification={notification} {...otherProps}/>
+      <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
@@ -132,14 +112,12 @@ describe('<Notification/>', () => {
   it('should render component (with 2 buttons)', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
 
     const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} className={className}
-        notification={notification} {...otherProps}/>
+      <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
@@ -148,14 +126,12 @@ describe('<Notification/>', () => {
     delete notification.buttons[1];
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
 
     const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} className={className}
-        notification={notification} {...otherProps}/>
+      <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
@@ -164,14 +140,12 @@ describe('<Notification/>', () => {
     notification.buttons = [];
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
 
     const expectedComponent = mount(
-      <ExpectedNotification key={notification.id} className={className}
-        notification={notification} {...otherProps}/>
+      <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
@@ -186,8 +160,7 @@ describe('<Notification/>', () => {
     try {
       mount(
         <Provider store={store}>
-          <ConnectNotification key={notification.id} className={className}
-            notification={notification}/>
+          <ConnectNotification notification={notification} {...otherProps}/>
         </Provider>
       );
     }
@@ -202,8 +175,7 @@ describe('<Notification/>', () => {
     };
     mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
   });
@@ -217,8 +189,7 @@ describe('<Notification/>', () => {
     };
     let wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     try {
@@ -235,8 +206,7 @@ describe('<Notification/>', () => {
     };
     wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     wrapper.unmount();
@@ -248,8 +218,7 @@ describe('<Notification/>', () => {
     notification.buttons = [];
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     wrapper.find(ConnectNotification).simulate('click');
@@ -267,11 +236,10 @@ describe('<Notification/>', () => {
     notification.dismissible = false;
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
-    wrapper.find(`.${css['notification-button']}`).first().simulate('click');
+    wrapper.find(`.${className.button}`).first().simulate('click');
     const expectedAction = {
       type: types.REMOVE_NOTIFICATION,
       payload: notification.id
@@ -286,8 +254,7 @@ describe('<Notification/>', () => {
     notification.buttons = [];
     mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     const expectedAction = {
@@ -306,8 +273,7 @@ describe('<Notification/>', () => {
     notification.dismissible = false;
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     wrapper.find(ConnectNotification).simulate('click');
@@ -323,8 +289,7 @@ describe('<Notification/>', () => {
     notification.dismissAfter = 5;
     let wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     wrapper.find(ConnectNotification).simulate('click');
@@ -333,8 +298,7 @@ describe('<Notification/>', () => {
     notification.buttons = notification.buttons.slice(0, 1);
     wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     wrapper.find(ConnectNotification).simulate('click');
@@ -351,8 +315,7 @@ describe('<Notification/>', () => {
     notification.dismissAfter = 0;
     mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     setTimeout(() => {
@@ -367,8 +330,7 @@ describe('<Notification/>', () => {
     notification.buttons = [];
     const wrapper = mount(
       <Provider store={store}>
-        <ConnectNotification key={notification.id} className={className}
-          notification={notification}/>
+        <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     ).find(ConnectNotification);
     const expectedAction = {
