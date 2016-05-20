@@ -8,6 +8,7 @@ import NotificationsSystem, {
   updateNotification
 } from '../../../../index';
 import css from './styles.scss';
+import theme from 'reapop-theme-wybo';
 
 class Demo extends Component {
   static propTypes = {
@@ -87,7 +88,7 @@ class Demo extends Component {
           <div className={css['description']}>A React and Redux notifications system</div>
           <RandomNotificationCreator/>
         </div>
-        <NotificationsSystem defaultValues={defaultValues}/>
+        <NotificationsSystem theme={theme} defaultValues={defaultValues}/>
         {(window.innerWidth > 767 ? <Sidebar/> : '')}
         <Footer/>
       </div>

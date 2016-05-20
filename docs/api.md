@@ -1,291 +1,35 @@
 # API documentation
 
-* [Customize style and behavior](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#customize-style-and-behavior)
-* [Add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#add-a-notification)
-* [Update a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-a-notification)
-* [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
+* [Action creators](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#action-creators)
+    * [Add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#add-a-notification)
+    * [Update a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-a-notification)
+    * [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
+* [Customize default values for notifications](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#customize-default-values-for-notifications)
+* [Theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme)
+    * [Set a theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#set-a-theme)
+    * [Create a theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#create-a-theme)
+        * [Theme structure](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-structure)
+        * [Theme properties](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-properties)
 
-## Customize style and behavior
+## Action creators
 
-Here is the list of the things which are customizable by setting properties of the `NotificationsSystem` component :
+### Add a notification
 
-| Property              | Type   | Description |
-| --------------------- | :----: | ----------- |
-| className             | String | Class names of `NotificationsSystem` component. Check [className](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#classname-property) property |
-| config                | Object | Config of `NotificationsSystem` component. Check [config](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#config-property) property |
-| containerClassName    | Object | Class names of `NotificationsContainer` component. Check [containerClassName](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#containerclassName-property) property |
-| defaultValues         | Object | Default value for a notification. Check [defaultValues](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#defaultvalues-property) property |
-| notificationClassName | Object | Class names of `Notification` component. Check [notificationClassName](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notificationclassname-property) property |
-| transition            | Object | Transition for `Notification` component. Check [transition](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#transition-property) property |
+Adding notification is done with the `addNotification` (thunk action creator) function. It returns the notification object just added.
 
-### `className` properties
-
-It allow you to configure class names of `NotificationsSystem` component.
-By editing this property, you can change style of notifications containers. 
-Of course, you will have to write your own CSS. 
-
-#### JSX structure of `NotificationsSystem` React component
-
-``` html
-<div className={className}>
-    <!-- childrens (NotificationsContainer) -->
-</div>
-``` 
-#### Example
-
-``` js 
-import React, {Component} from 'react';
-import NotificationsSystem from 'react';
-
-class AComponent extends Component {
-  render() {
-    const defaultValues = {
-      status: STATUS.default,
-      position: POSITIONS.topRight,
-      dismissible: true,
-      dismissAfter: 5000,
-      allowHTML: false
-    };
-    return (<NotificationsSystem className="my-custom-classname" />);
-  }
-}
-```
-
-### `config` property
-
-This object allow you to configure behavior of `NotificationsSystem` component
-
-| Property       | Type    | Default | Description |
-| -------------- | ------- | ------- | ----------- |
-| smallScreenMin | Number  | 768     | Minimal width for small screen (min-width). This value is used to determine when all notifications are rendered at the top of the screen what ever the position property of a notification object |
-
-#### Example
-
-``` js 
-import React, {Component} from 'react';
-import NotificationsSystem from 'react';
-
-class AComponent extends Component {
-  render() {
-    const config = {
-      smallScreenMin: 768
-    };
-    return (
-      <NotificationsSystem config={config} />
-    );
-  }
-}
-```
-
-### `containerClassName` properties
-
-This object allow you to configure class names of `NotificationsContainer` component.
-By editing this property, you can change style of notifications containers. 
-Of course, you will have to write your own CSS. 
-
-| Property    | Type     | Description |
-| ----------- | -------- | ----------- |
-| main        | String   | Applied on root of `NotificationContainer` component. |
-| position    | Function | Applied on root of `NotificationContainer` component. Use to stylize component depending on its position. |
-
-#### JSX structure of `NotificationsContainer` component
-
-``` html
-<div className={`${className.main} ${className.position(position)}`}>
-  <!-- childrens (Notification) -->
-</div>
-```
-
-#### Example
-
-``` js
-import React, {Component} from 'react';
-import NotificationsSystem from 'react';
-
-class AComponent extends Component {
-  render() {
-    // here is a complete example
-    const containerClassName = {
-      main: css['notifications-container'],
-      position: function(position) {
-        return css[`notifications-container--${position}`];
-      }
-    };
-    return (<Notifications containerClassName={containerClassName}/>);
-  }
-}
-```
-
-### `defaultValues` property
-
-This object allow you to configure default behavior for your notifications.
-
-| Property     | Type    | Default | Description |
-| ------------ | ------- | ------- | ----------- |
-| status       | String  | null    | Status of the notification : info, success, warning, error |
-| position     | String  | tr      | Position of the  notification : tl, tr, br, bl |
-| dismissible  | Boolean | true    | Define if the notification is dismissible by clicking on it |
-| dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
-| allowHTML    | Boolean | False   | Allow you to insert HTML in the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
-
-#### Example
-
-``` js 
-import React, {Component} from 'react';
-import NotificationsSystem, {STATUS, POSITIONS} from 'reapop';
-
-class AComponent extends Component {
-  render() {
-    const defaultValues = {
-      status: STATUS.default,
-      position: POSITIONS.topRight,
-      dismissible: true,
-      dismissAfter: 5000,
-      allowHTML: false
-    };
-    return (
-      <NotificationsSystem config={config} />
-    );
-  }
-}
-```
-
-### `transition` properties
-
-This object allow you to configure CSS animation of `Notification` component. 
-We use React High-level API : [ReactCSSTransitionGroup](https://facebook.github.io/react/docs/animation.html#high-level-api-reactcsstransitiongroup) to animate notifications.
-By editing this property, you can change the default transition. 
-Of course, you have to write your own animation in CSS. 
-I recommend you to use the [initial code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/components/NotificationsContainer/styles.scss) as a base.
-
-| Property     | Type    | Default | Description |
-| ------------ | ------- | ------- | ----------- |
-| enterTimeout | Number  | 400     | Duration of enter animation (ms) |
-| leaveTimeout | Number  | 400     | Duration of leave animation (ms) |
-| name         | Object  | Object  | Classes to trigger a CSS animation or transition |
-
-#### Example
-
-``` js
-import React, {Component} from 'react';
-import NotificationsSystem from 'react';
-
-class AComponent extends Component {
-  render() {
-    const transition = {
-      enterTimeout: 400,
-      leaveTimeout: 400,
-      name: {
-        enter: 'enter',
-        enterActive: 'enterActive',
-        leave: 'leave',
-        leaveActive: 'leaveActive'
-      }
-    };
-    return (<Notifications transition={transition}/>);
-  }
-}
-```
-
-### `notificationClassName` properties
-
-This object allow you to configure class names of `Notification` component.
-
-| Property    | Type     | Description |
-| ----------- | -------- | ----------- |
-| main        | String   | Applied on root notification container. |
-| meta        | String   | Applied on notification meta container. |
-| title       | String   | Applied on notification title container. |
-| message     | String   | Applied on notification message container. |
-| icon        | String   | Applied on notification icon container. |
-| status      | Function | Applied on root notification container. Use to stylize the notification depending on its status. |
-| dismissible | String   | Applied on notification dismissible container. |
-| buttons     | Function | Applied on root notification container to stylize the notification depending on number of buttons it has; and on notification buttons container. |
-| button      | String   | Applied on notification button container. |
-| buttonText  | String   | Applied on container of text of notification button. |
-
-#### JSX structure of `Notification` component
-
-``` html
-<div class={`${className.main} ${className.status(status)} 
-  ${className.buttons(buttons.length) ${(isDismissible ? className.dismissible : '')}`}>
-  <i class="${className.icon}"></i>
-  <div class="{className.meta}">
-    <h4 class="{className.title}">Est at quibusdam nisi ex.</h4>
-    <p class="{className.message}">Veritatis eum impedit molestiae aut.</p>
-  </div>
-  <div class={className.buttons()}>
-    <button className={className.button}>
-      <span className={className.buttonText}>
-        <b>Yes</b>
-      </span>
-    </button>
-    <button className={className.button}>
-      <span className={className.buttonText}>
-        <b>No</b>
-      </span>
-    </button>
-  </div>
-</div>
-```
-
-#### Example
-
-``` js
-import React, {Component} from 'react';
-import NotificationsSystem from 'react';
-
-class AComponent extends Component {
-  render() {
-    // here is a complete example
-    const className = {
-      main: css['notification'],
-      metameta: css['notification-meta'],
-      title: css['notification-title'],
-      message: css['notification-message'],
-      icon: `fa ${css['notification-icon']}`,
-      status: (status) => {
-        return css[`notification--${status}`];
-      },
-      dismissible: css['notification--dismissible'],
-      // `fa` corresponds to font-awesome's class name
-      buttons: (count) => {
-        if (count === 0) {
-          return '';
-        }
-        else if (count === 1) {
-          return css['notification--buttons-1'];
-        }
-        else if (count === 2) {
-          return css['notification--buttons-2'];
-        }
-        return css['notification-buttons'];
-      },
-      button: css['notification-button'],
-      buttonText: css['notification-button-text']
-    };
-    return (<Notifications notificationClassName={notificationClassName}/>);
-  }
-}
-```
-
-## Add a notification
-
-Adding notification is done with the `addNotification` (async action creator) function. It returns the notification object just added.
-
-### Syntax
+#### Syntax
 
 ``` js
 addNotification(notification);
 ```
 
-### Parameters
+#### Parameters
 
 | Parameter    | Type     | Description |
 | ------------ | -------- | ----------- |
 | notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-object-properties) object |
 
-### Notification object properties
+#### Notification object properties
  
 | Property     | Type             | Default | Description |
 | ------------ | ---------------- | ------- | ----------- |
@@ -300,7 +44,7 @@ addNotification(notification);
 | onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
 | allowHTML    | Boolean          | false   | Allow HTML in message |
 
-#### Button object properties
+##### Button object properties
  
 | Property     | Type     | Default | Description |
 | ------------ | :------: | :-----: | ----------- |
@@ -308,7 +52,7 @@ addNotification(notification);
 | primary      | Boolean  | false   | true: Title in bold, false : title in normal |
 | onClick      | Function |         | Function executed when user click on it |
 
-### Example
+#### Example
 
 ``` js
 const notif = addNotification({
@@ -351,23 +95,23 @@ console.log(JSON.stringify(notif));
 
 ```
 
-## Update a notification
+### Update a notification
 
-Updating a notification is done with the `updateNotification` (action) function.
+Updating a notification is done with the `updateNotification` (action creator) function.
 
-### Syntax
+#### Syntax
 
 ``` js
 updateNotification(notification);
 ```
 
-### Parameters
+#### Parameters
 
 | Parameter    | Type     | Description |
 | ------------ | -------- | ----------- |
 | notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-object-properties-1) object |
 
-### Notification object properties
+#### Notification object properties
  
 | Property     | Type             | Default | Description |
 | ------------ | ---------------- | ------- | ----------- |
@@ -382,7 +126,7 @@ updateNotification(notification);
 | onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
 | allowHTML    | Boolean          | false   | Allow HTML in message |
 
-#### Button object properties
+##### Button object properties
  
 | Property     | Type     | Default | Description |
 | ------------ | -------- | ------- | ----------- |
@@ -391,7 +135,7 @@ updateNotification(notification);
 | onClick      | Function |         | Function executed when user click on it |
 
 
-### Example
+#### Example
 
 ``` js
 let notif = addNotification({
@@ -412,19 +156,253 @@ setTimeout(function() {
 ```
 
 
-## Remove a notification
+### Remove a notification
 
-Removing a notification is done with `removeNotification` (action) function.
+Removing a notification is done with `removeNotification` (action creator) function.
 
-### Syntax
+#### Syntax
 
 ``` js
 removeNotification(id);
 ```
 
-### Parameters
+#### Parameters
 
 | Parameter   | Type   | Description |
 | ----------- | ------ | ----------- |
 | id          | Number | id of the notification |
 
+## Theme
+
+### Set a theme
+
+Reapop works with theme. There is no default theme to avoid useless dependencies if you don't use it. So you have to choose one in the list, and follow guidelines of theme to install it.
+
+- [**WYBO**](https://github.com/LouisBarranqueiro/reapop-theme-wybo) : Official theme, flat style.
+
+After this, pass the theme in `NotificationsSystem` component props
+
+``` js
+import React, {Component} from 'react';
+import NotificationsSystem from 'reapop';
+// 1. import theme
+import theme from 'reapop-theme-wybo';
+// 
+class ATopLevelComponent extends Component {
+  render() { 
+   // 2. set `theme` prop
+    return (
+      <div>
+        <NotificationsSystem theme={theme}/>
+      </div>
+    );
+  }
+}
+```
+
+### Customize or create a theme
+
+##### If you wanna create a new theme :
+
+I recommend you to use the official theme for Reapop [reapop-theme-wybo](https://github.com/LouisBarranqueiro/reapop-theme-wybo/blob/master/index.js) as a base. It is easily understandable and customizable.
+
+##### If you wanna customize a theme :
+
+1. Fork the theme
+2. Edit the theme
+3. Publish your theme and use it as a npm dependencies or integrate it directly in your project
+
+#### Theme structure
+
+```
+reapop-theme
+├── src
+│   └── styles
+│       ├── _mixins.scss
+│       ├── _variables.scss
+│       └── styles.scss
+└── index.js
+```
+##### styles folder
+
+It contains all style files :
+
+ - `_mixins.scss` : contains all mixins used by the theme
+ - `_variables.scss` : contains all variables used by the theme
+ - `styles.scss` : it import previous files and contains style for all components
+
+##### index.js file
+
+It is the core of the theme. This file contains all CSS class names which will be used by Reapop. It's the link between your style and Reapop.
+
+Important rules when you customize or create your own theme :
+- DON'T edit property name of any object because each property name is used by React components of Reapop. If you change one of these, it will not work.
+- If you use [local scope](https://github.com/webpack/css-loader#local-scope) in your style, don't forget to import style to use local indent name of your class. **We greatly recommend you to use local scope.** Example in [reapop-theme-wybo - index.js](https://github.com/LouisBarranqueiro/reapop-theme-wybo/blob/master/index.js#L4)
+- If you theme as dependencies, import these dependencies in this file. Example in [reapop-theme-wybo - index.js](https://github.com/LouisBarranqueiro/reapop-theme-wybo/blob/master/index.js#L3) to import Font Awesome CSS.
+
+**index.js of reapop-theme-wybo** :
+
+``` js
+'use strict';
+
+require('!style-loader!css-loader!font-awesome/css/font-awesome.min.css');
+var css = require('./src/styles/styles.scss');
+
+// media breakpoint - small screen min width
+var smallScreenMin = 768;
+
+// default className for NotificationsSystem component
+var notificationsSystemClassName = css['notifications-system'];
+
+// default className for NotificationsContainer component
+var notificationsContainerClassName = {
+  main: css['notifications-container'],
+  position: function position(_position) {
+    return css['notifications-container--' + _position];
+  }
+};
+
+// default transition for Notification component
+var notificationsContainerTransition = {
+  appearTimeout: 400,
+  enterTimeout: 400,
+  leaveTimeout: 400,
+  name: {
+    appear: css['notification-appear'],
+    appearActive: css['notification-appear-active'],
+    enter: css['notification-enter'],
+    enterActive: css['notification-enter-active'],
+    leave: css['notification-leave'],
+    leaveActive: css['notification-leave-active']
+  }
+};
+
+// default className for Notification component
+var notificationClassName = {
+  main: css['notification'],
+  meta: css['notification-meta'],
+  title: css['notification-title'],
+  message: css['notification-message'],
+  // `fa` corresponds to font-awesome's class name
+  icon: 'fa ' + css['notification-icon'],
+  status: function status(_status) {
+    return css['notification--' + _status];
+  },
+  dismissible: css['notification--dismissible'],
+  buttons: function buttons(count) {
+    if (count === 0) {
+      return '';
+    } else if (count === 1) {
+      return css['notification--buttons-1'];
+    } else if (count === 2) {
+      return css['notification--buttons-2'];
+    }
+    return css['notification-buttons'];
+  },
+  button: css['notification-button'],
+  buttonText: css['notification-button-text']
+};
+
+module.exports = {
+  smallScreenMin: smallScreenMin,
+  notificationsSystem: {
+    className: notificationsSystemClassName
+  },
+  notificationsContainer: {
+    className: notificationsContainerClassName,
+    transition: notificationsContainerTransition
+  },
+  notification: {
+    className: notificationClassName
+  }
+};
+```
+
+#### Theme Properties
+
+##### `smallScreenMin` property
+
+Minimal width for small screen (min-width). This value is used to determine when all notifications are rendered at the top of the screen what ever the position property of a notification object |
+
+##### `notificationsSystemClassName` properties
+
+It allow you to configure style of `NotificationsSystem` component.
+
+Check [NotificationsSystem.js](https://github.com/LouisBarranqueiro/reapop/tree/master/src/components/NotificationsContainer.js) file to see the JSX structure of `NotificationsSystem` component.
+
+##### `notificationsContainerClassName` properties
+
+This object allow you to configure class names of `NotificationsContainer` component.
+
+| Property    | Type     | Description |
+| ----------- | -------- | ----------- |
+| main        | String   | Applied on root of `NotificationsContainer` component. |
+| position    | Function | Applied on root of `NotificationsContainer` component. Use to stylize component depending on its position. |
+
+Check [NotificationsContainer.js](https://github.com/LouisBarranqueiro/reapop/tree/master/src/components/NotificationsContainer.js) file to see the JSX structure of `NotificationsContainer` component.
+
+##### `notificationsContainerTransition` properties
+
+This object allow you to configure CSS animation of `Notification` component. 
+We use React High-level API : [ReactCSSTransitionGroup](https://facebook.github.io/react/docs/animation.html#high-level-api-reactcsstransitiongroup) to animate notifications.
+
+| Property     | Type    | Description |
+| ------------ | ------- | ----------- |
+| enterTimeout | Number  | Duration of enter animation (ms) |
+| leaveTimeout | Number  | Duration of leave animation (ms) |
+| name         | Object  | Classes to trigger a CSS animation or transition. Read [ReactCSSTransitionGroup](https://facebook.github.io/react/docs/animation.html#high-level-api-reactcsstransitiongroup) for more information. |
+
+##### `notificationClassName` properties
+
+This object allow you to configure style of `Notification` component.
+
+| Property    | Type     | Description |
+| ----------- | -------- | ----------- |
+| main        | String   | Applied on root notification container. |
+| meta        | String   | Applied on notification meta container. |
+| title       | String   | Applied on notification title container. |
+| message     | String   | Applied on notification message container. |
+| icon        | String   | Applied on notification icon container. |
+| status      | Function | Applied on root notification container. Use to stylize the notification depending on its status. |
+| dismissible | String   | Applied on notification dismissible container. |
+| buttons     | Function | Applied on root notification container to stylize the notification depending on number of buttons it has; and on notification buttons container. |
+| button      | String   | Applied on notification button container. |
+| buttonText  | String   | Applied on container of text of notification button. |
+
+Check [Notification.js](https://github.com/LouisBarranqueiro/reapop/tree/master/src/components/Notification.js) file to see the JSX structure of `Notification` component.
+
+## Customize default values for notifications
+
+You can customizable default values for notifications, by passing an object to `defaultValues` props of `NotificationsSystem` component.
+
+| Property     | Type    | Default | Description |
+| ------------ | ------- | ------- | ----------- |
+| status       | String  | null    | Status of the notification : default, info, success, warning, error. These values are available in `STATUS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
+| position     | String  | tr      | Position of the  notification : tl, tr, br, bl.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js|)
+| dismissible  | Boolean | true    | Define if the notification is dismissible by clicking on it |
+| dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
+| allowHTML    | Boolean | False   | Allow you to insert HTML in the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
+
+#### Example
+
+``` js 
+import React, {Component} from 'react';
+// STATUS contains all available status
+// POSITIONS contains all available positions
+import NotificationsSystem, {STATUS, POSITIONS} from 'reapop';
+
+class AComponent extends Component {
+  render() {
+    const defaultValues = {
+      status: STATUS.default,
+      position: POSITIONS.topRight,
+      dismissible: true,
+      dismissAfter: 5000,
+      allowHTML: false
+    };
+    return (
+      <NotificationsSystem defaultValues={defaultValues} />
+    );
+  }
+}
+```

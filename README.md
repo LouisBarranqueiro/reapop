@@ -1,5 +1,5 @@
 # Reapop
-[![npm version](https://img.shields.io/npm/v/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm dependencies](https://img.shields.io/david/LouisBarranqueiro/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm dependencies](https://img.shields.io/david/dev/LouisBarranqueiro/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![travis build status](https://img.shields.io/travis/LouisBarranqueiro/reapop/master.svg?style=flat-square)](https://travis-ci.org/LouisBarranqueiro/reapop) [![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/reapop.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/reapop) [![npm download/month](https://img.shields.io/npm/dm/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/reapop.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/reapop)
+[![npm version](https://img.shields.io/npm/v/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm dependencies](https://img.shields.io/david/LouisBarranqueiro/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm dev dependencies](https://img.shields.io/david/dev/LouisBarranqueiro/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm download/month](https://img.shields.io/npm/dm/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![travis build status](https://img.shields.io/travis/LouisBarranqueiro/reapop/master.svg?style=flat-square)](https://travis-ci.org/LouisBarranqueiro/reapop) [![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/reapop.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/reapop) [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/reapop.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/reapop)
   
 A React and Redux notifications system
 
@@ -37,56 +37,12 @@ Check out the [demo](http://louisbarranqueiro.github.io/reapop/)
 ## Installation
 
 ```
-npm install --save reapop
+npm install reapop --save
 ```
 
 ## Integration
 
 Follow this 3 steps to integrate Reapop to your application.
-
-### Update Webpack configuration
-
-1 . Since Reapop use ES6, it must be compiled with Babel. So you have to edit your webpack config to include Reapop source.  
-
-2. You also have to define a loader for scss files. If it's not already the case, you need to install :
-
- - **style-loader** with `npm install style-loader --save-dev`
- - **css-loader** with `npm install css-loader --save-dev`
- - **sass-loader** with `npm install sass-loader --save-dev`
- 
-Look at this example, you can use it in for your project. Check out configuration of [Demo](https://github.com/LouisBarranqueiro/reapop.blob/master/demo/build/webpack.config.js) to see a complete example.
-
-
-``` js
-// CSS loader with some configuration
-// read https://github.com/webpack/css-loader to understand each query parameters
-var CSSLoader = [
-  'css?sourceMap&-minimize',
-  'modules',
-  'importLoaders=1',
-  'localIndentName=[name]__[local]__[hash:base64:5]'
-].join('&');
-
-module.exports = {
-  // ...
-  module: {
-    loaders:[{
-      test: /\.js$/,
-      loaders: ['babel'],
-      // exclude all folders inside `node_modules` folder unless `reapop`
-      exclude: /node_modules\/(?!reapop)/
-    },
-    // Reapop have scss files so you have to define loaders to handle them
-    {
-      test: /\.scss$/,
-      loaders: ['style', CSSLoader, 'sass']
-    },
-    // ... your other loaders
-    ]
-  }
-  // ...
-};
-```
 
 ### Integrate `NotificationsSystem` React component
 
@@ -101,6 +57,32 @@ class ATopLevelComponent extends Component {
     return (
       <div>
         <NotificationsSystem/>
+      </div>
+    );
+  }
+}
+```
+
+### Install and set a theme
+
+**Reapop works with theme. There is no default theme to avoid useless dependencies if you don't use it. So you have to choose one in the list, and follow guidelines of theme to install it**.
+
+- [**WYBO**](https://github.com/LouisBarranqueiro/reapop-theme-wybo) : Official theme, flat style.
+
+After this, pass the theme in `NotificationsSystem` component props
+
+``` js
+import React, {Component} from 'react';
+import NotificationsSystem from 'reapop';
+// 1. import theme
+import theme from 'reapop-theme-wybo';
+// 
+class ATopLevelComponent extends Component {
+  render() { 
+   // 2. set `theme` prop
+    return (
+      <div>
+        <NotificationsSystem theme={theme}/>
       </div>
     );
   }
@@ -128,44 +110,6 @@ const store = createStoreWithMiddleware(combineReducers({
     // your reducers here
   }), {});
 ```
-
-## Import Font Awesome Icons
-
-Reapop use Font Awesome icons. But since this component is built to be customizable we decided to not include Font Awesome as a dependencies to let you the choice to use it or not.
-
-If you want to use it, check the following guides.
-
-### With Webpack
-
-1. Install Font Awesome with `npm install font-awesome --save` 
-2. Install Font Awesome Webpack with `npm install font-awesome-webpack --save`
-2. Install less because Font Awesome Webpack need it with `npm install less --save-dev`
-3. Import it in your root component with `import 'font-awesome-webpack';` . Here is an [example](https://github.com/LouisBarranqueiro/reapop/blob/master/demo/src/index.js#L8)
-4. Update your webpack config with 2 new loaders :
-
-``` js
-module export = {
-  module: {
-    loaders: [{ 
-      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
-      loader: "url-loader?limit=10000&minetype=application/font-woff" 
-    },
-    { 
-      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
-      loaer: "file-loader" 
-    }]
-  }
-};
-```
-
-### With BootstrapCDN
-
-Add this line in `<head>` of your main `index.html` file :
-``` html 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-```
-
-You can also use bower, or include it manually in your project.
 
 ## Usage
 

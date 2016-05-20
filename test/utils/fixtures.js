@@ -65,3 +65,34 @@ export function genNotification(notification = {}) {
     }
   }, notification);
 }
+
+/**
+ * Check propTypes of a React component
+ * @param {Object} object object to be validated
+ * @param {Object} propTypes object with defined prop types
+ * @returns {void}
+ */
+export function checkPropTypes(object, propTypes) {
+  let propName;
+  // Check if object have the same property that propTypes (depth: 1 is enough)
+  // if you remove a propType validation inadvertently, it will throw an error
+  for (propName in object) {
+    if (!propTypes.hasOwnProperty(propName)) {
+      throw new Error(`${propName} prop is not validated by propTypes`);
+    }
+  }
+
+  // Check if object have the same property that propTypes object
+  // and if it have the correct type
+  for (propName in propTypes) {
+    if (propTypes.hasOwnProperty(propName) && (object.hasOwnProperty(propName))) {
+      let error = propTypes[propName](object, propName, JSON.stringify(object), 'prop');
+      if (error) {
+        throw error;
+      }
+    }
+    else {
+      throw new Error(`${propName} prop is required`);
+    }
+  }
+}

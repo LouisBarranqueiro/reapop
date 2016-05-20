@@ -27,7 +27,7 @@ var webpackConfig = {
     modulesDirectories: ['../node_modules', './node_modules']
   },
   module: {
-      loaders: [{
+    loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
       exclude: /node_modules/
@@ -37,9 +37,13 @@ var webpackConfig = {
     }, {
       test: /\.scss$/,
       loaders: ['style', CSSModulesLoader, 'sass']
-    },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }]
+    }, {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'url-loader?limit=10000&minetype=application/font-woff'
+    }, {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'file-loader'
+    }]
   }
 };
 
