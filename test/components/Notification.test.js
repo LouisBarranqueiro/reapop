@@ -3,7 +3,7 @@ import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {Timer} from '../../src/helpers';
 import ConnectNotification, {Notification} from '../../src/components/Notification';
-import {notificationClassName as className} from '../../src/themes/wybo';
+import theme from 'reapop-theme-wybo';
 import {types, removeNotification} from '../../src/store/notifications';
 import {genNotification, mockStore, checkPropTypes} from '../utils/fixtures';
 import {ExpectedNotification} from '../utils/expectedComponents';
@@ -11,6 +11,7 @@ import {ExpectedNotification} from '../utils/expectedComponents';
 describe('<Notification/>', () => {
   let notification = null;
   let store = null;
+  const className = theme.notification.className;
   // these props are the same for all tests
   const otherProps = {
     className,

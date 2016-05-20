@@ -7,7 +7,7 @@ import NotificationsContainer from '../../src/components/NotificationsContainer'
 import {defaultValues} from '../../src/components/NotificationsSystem';
 import Notification from '../../src/components/Notification';
 import {POSITIONS} from '../../src/constants';
-import theme from '../../src/themes/wybo';
+import theme from 'reapop-theme-wybo';
 
 describe('<NotificationsContainer/>', () => {
   let notifications = [];

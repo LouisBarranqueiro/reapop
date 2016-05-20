@@ -10,7 +10,7 @@ import NotificationsContainer from '../../src/components/NotificationsContainer'
 import {genNotifications, mockStore, checkPropTypes} from '../utils/fixtures';
 import {ExpectedNotificationsSystem} from '../utils/expectedComponents';
 import {STATUS, POSITIONS} from '../../src/constants';
-import theme from '../../src/themes/wybo';
+import theme from 'reapop-theme-wybo';
 
 describe('<NotificationsSystem/>', () => {
   const otherProps = {
