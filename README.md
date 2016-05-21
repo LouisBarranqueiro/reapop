@@ -16,7 +16,7 @@ A React and Redux notifications system
 
 ## Compatibility
 
-### Libraries supported
+### Supported libraries
 
 Tested and works with :
 
@@ -24,11 +24,11 @@ Tested and works with :
 - [react-redux](https://github.com/reactjs/react-redux) : **^2.0.0** and **^3.0.0** and **^4.0.0**
 - [redux](https://github.com/reactjs/redux) : **^2.0.0** and **^3.0.0**
 
-### Browsers supported
+### Supported browsers
 
 Tested and works with :
 
-![Browsers-support](http://louisbarranqueiro.github.io/reapop/static/images/browsers-support.png)
+![Supported browsers](http://louisbarranqueiro.github.io/reapop/static/images/supported-browsers.jpg)
 
 ## Demo
 
