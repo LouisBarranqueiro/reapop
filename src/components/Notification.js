@@ -27,6 +27,8 @@ export class Notification extends Component {
       meta: React.PropTypes.string.isRequired,
       title: React.PropTypes.string.isRequired,
       message: React.PropTypes.string.isRequired,
+      imageContainer: React.PropTypes.string.isRequired,
+      image: React.PropTypes.string.isRequired,
       icon: React.PropTypes.string.isRequired,
       status: React.PropTypes.func.isRequired,
       dismissible: React.PropTypes.string.isRequired,
@@ -38,6 +40,7 @@ export class Notification extends Component {
       id: React.PropTypes.number.isRequired,
       title: React.PropTypes.string,
       message: React.PropTypes.string,
+      image: React.PropTypes.string,
       status: React.PropTypes.string.isRequired,
       position: React.PropTypes.oneOf(_.values(POSITIONS)),
       dismissAfter: React.PropTypes.number.isRequired,
@@ -54,7 +57,7 @@ export class Notification extends Component {
     }),
     removeNotification: React.PropTypes.func.isRequired
   };
-
+  
   /**
    * Constructor
    * Bind methods
@@ -93,7 +96,7 @@ export class Notification extends Component {
       onRemove();
     }
   }
-
+  
   /**
    * Update timer
    * @param {Object} nextProps
@@ -105,7 +108,7 @@ export class Notification extends Component {
       timer: createTimer(dismissAfter, buttons, this._remove)
     });
   }
-
+  
   /**
    * Remove the notification
    * @private
@@ -115,7 +118,7 @@ export class Notification extends Component {
     const {removeNotification, notification: {id}} = this.props;
     removeNotification(id);
   }
-
+  
   /**
    * Pauses the timer
    * @returns {void}
@@ -125,7 +128,7 @@ export class Notification extends Component {
     const {timer} = this.state;
     timer.pause();
   }
-
+  
   /**
    * Resumes the timer
    * @returns {void}
@@ -135,16 +138,16 @@ export class Notification extends Component {
     const {timer} = this.state;
     timer.resume();
   }
-
+  
   /**
-   * Return HTML message
+   * Wrap content in an object ready for HTML
+   * @param {String} content a text
    * @returns {Object}
    * @private
    */
-  _messageToHTML() {
-    const {message} = this.props.notification;
+  _setHTML(content) {
     return {
-      __html: message
+      __html: content
     };
   }
   
@@ -157,7 +160,7 @@ export class Notification extends Component {
       className,
       notification: {buttons}
     } = this.props;
-
+    
     return buttons.map((button) => {
       return (
         <button key={button.name} className={className.button} onClick={button.onClick}>
@@ -182,16 +185,16 @@ export class Notification extends Component {
     } = this.props;
     const {timer} = this.state;
     const isDismissible = (dismissible && buttons.length === 0);
-
+    
     if (timer) {
       this._resumeTimer();
     }
-
+    
     return (
       <div className={
-           `${className.main} ${className.status(status)}
-            ${(isDismissible ? className.dismissible : '')}
-            ${className.buttons(buttons.length)}`}
+        `${className.main} ${className.status(status)}
+        ${(isDismissible ? className.dismissible : '')}
+        ${className.buttons(buttons.length)}`}
         onClick={isDismissible ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
         onMouseLeave={timer ? this._resumeTimer : ''}>
         {image
@@ -201,17 +204,19 @@ export class Notification extends Component {
           : <span className={className.icon}></span>}
         <div className={className.meta}>
           {title
-            ? <h4 className={className.title}>{title}</h4>
+            ? allowHTML
+            ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}></h4>
+            : <h4 className={className.title}>{title}</h4>
             : ''}
           {message
             ? allowHTML
-              ? <p className={className.message} dangerouslySetInnerHTML={this._messageToHTML()}/>
-              : <p className={className.message}>{message}</p>
+            ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
+            : <p className={className.message}>{message}</p>
             : ''}
         </div>
         {buttons.length
           ? <div className={className.buttons()} onClick={this._remove}>
-          {this._renderButtons()}
+            {this._renderButtons()}
           </div>
           : ''}
       </div>

@@ -6,23 +6,17 @@ import Notification from '../../src/components/Notification';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
 import {defaultValues} from '../../src/components/NotificationsSystem';
 
+// We use these "expected" component to test HTML structure of each components.
+// It's easier and faster than testing manually each nodes.
+// With this technique, we are 100% sure of the HTML structure of each component.
+
 export class ExpectedNotification extends Component {
-  /**
-   * Return HTML message
-   * @returns {Object}
-   * @private
-   */
-  _messageToHTML() {
-    const {message} = this.props.notification;
+  _setHTML(content) {
     return {
-      __html: message
+      __html: content
     };
   }
   
-  /**
-   * Render button(s)
-   * @returns {*}
-   */
   _renderButtons() {
     const {
       className,
@@ -42,10 +36,6 @@ export class ExpectedNotification extends Component {
     });
   }
   
-  /**
-   * Render
-   * @returns {XML}
-   */
   render() {
     const {
       className,
@@ -55,9 +45,9 @@ export class ExpectedNotification extends Component {
 
     return (
       <div className={
-           `${className.main} ${className.status(status)}
-            ${(isDismissible ? className.dismissible : '')}
-            ${className.buttons(buttons.length)}`}>
+        `${className.main} ${className.status(status)}
+        ${(isDismissible ? className.dismissible : '')}
+        ${className.buttons(buttons.length)}`}>
         {image
           ? <div className={className.imageContainer}>
             <span className={className.image} style={{backgroundImage: `url(${image})`}}></span>
@@ -65,16 +55,18 @@ export class ExpectedNotification extends Component {
           : <span className={className.icon}></span>}
         <div className={className.meta}>
           {title
-            ? <h4 className={className.title}>{title}</h4>
+            ? allowHTML
+              ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}></h4>
+              : <h4 className={className.title}>{title}</h4>
             : ''}
           {message
             ? allowHTML
-            ? <p className={className.message} dangerouslySetInnerHTML={this._messageToHTML()}/>
-            : <p className={className.message}>{message}</p>
+              ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
+              : <p className={className.message}>{message}</p>
             : ''}
         </div>
         {buttons.length
-          ? <div className={className.buttons()} onClick={this._remove}>
+          ? <div className={className.buttons()}>
           {this._renderButtons()}
           </div>
           : ''}
@@ -84,23 +76,6 @@ export class ExpectedNotification extends Component {
 }
 
 export class ExpectedNotificationsContainer extends Component {
-
-  /**
-   * Constructor
-   * Bind methods
-   * @param {Object} props
-   * @returns {void}
-   */
-  constructor(props) {
-    super(props);
-    this._renderNotifications = this._renderNotifications.bind(this);
-  }
-
-  /**
-   * Render notifications
-   * @private
-   * @returns {XML}
-   */
   _renderNotifications() {
     // get all notifications and default values for notifications
     const {
@@ -134,11 +109,7 @@ export class ExpectedNotificationsContainer extends Component {
       );
     });
   }
-
-  /**
-   * Render
-   * @returns {XML}
-   */
+  
   render() {
     const {
       className, transition: {name, appearTimeout, enterTimeout, leaveTimeout}
@@ -157,22 +128,11 @@ export class ExpectedNotificationsContainer extends Component {
 }
 
 export class ExpectedNotificationsSystem extends Component {
-  // default properties
   static defaultProps = {
     notifications: [],
     defaultValues
   };
-
-  constructor(props) {
-    super(props);
-    this._renderNotificationsContainers = this._renderNotificationsContainers.bind(this);
-  }
-
-  /**
-   * Render notifications containers
-   * @returns {XML}
-   * @private
-   */
+  
   _renderNotificationsContainers() {
     const {notifications, defaultValues: {position}, theme} = this.props;
     // render all notifications in the same container at the top for small screens
@@ -206,10 +166,6 @@ export class ExpectedNotificationsSystem extends Component {
     return JSX;
   }
 
-  /**
-   * Render
-   * @returns {XML}
-   */
   render() {
     const {className} = this.props.theme.notificationsSystem;
     return (
