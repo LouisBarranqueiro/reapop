@@ -33,9 +33,9 @@ export class ExpectedNotification extends Component {
       return (
         <button key={button.name} className={className.button} onClick={button.onClick}>
           <span className={className.buttonText}>
-            {(button.primary
+            {button.primary
               ? <b>{button.name}</b>
-              : button.name)}
+              : button.name}
           </span>
         </button>
       );
@@ -49,30 +49,35 @@ export class ExpectedNotification extends Component {
   render() {
     const {
       className,
-      notification: {title, message, status, dismissible, buttons, allowHTML}
+      notification: {title, message, status, dismissible, buttons, image, allowHTML}
     } = this.props;
     const isDismissible = (dismissible && buttons.length === 0);
+
     return (
       <div className={
            `${className.main} ${className.status(status)}
             ${(isDismissible ? className.dismissible : '')}
             ${className.buttons(buttons.length)}`}>
-        <i className={className.icon}></i>
+        {image
+          ? <div className={className.imageContainer}>
+            <span className={className.image} style={{backgroundImage: `url(${image})`}}></span>
+          </div>
+          : <span className={className.icon}></span>}
         <div className={className.meta}>
-          {(title
+          {title
             ? <h4 className={className.title}>{title}</h4>
-            : '')}
-          {(message
-            ? (allowHTML
+            : ''}
+          {message
+            ? allowHTML
             ? <p className={className.message} dangerouslySetInnerHTML={this._messageToHTML()}/>
-            : <p className={className.message}>{message}</p>)
-            : '')}
+            : <p className={className.message}>{message}</p>
+            : ''}
         </div>
-        {(buttons.length
+        {buttons.length
           ? <div className={className.buttons()} onClick={this._remove}>
           {this._renderButtons()}
           </div>
-          : '')}
+          : ''}
       </div>
     );
   }

@@ -162,9 +162,9 @@ export class Notification extends Component {
       return (
         <button key={button.name} className={className.button} onClick={button.onClick}>
           <span className={className.buttonText}>
-            {(button.primary
+            {button.primary
               ? <b>{button.name}</b>
-              : button.name)}
+              : button.name}
           </span>
         </button>
       );
@@ -178,7 +178,7 @@ export class Notification extends Component {
   render() {
     const {
       className,
-      notification: {title, message, status, dismissible, buttons, allowHTML}
+      notification: {title, message, status, dismissible, buttons, image, allowHTML}
     } = this.props;
     const {timer} = this.state;
     const isDismissible = (dismissible && buttons.length === 0);
@@ -194,22 +194,26 @@ export class Notification extends Component {
             ${className.buttons(buttons.length)}`}
         onClick={isDismissible ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
         onMouseLeave={timer ? this._resumeTimer : ''}>
-        <i className={className.icon}></i>
+        {image
+          ? <div className={className.imageContainer}>
+            <span className={className.image} style={{backgroundImage: `url(${image})`}}></span>
+          </div>
+          : <span className={className.icon}></span>}
         <div className={className.meta}>
-          {(title
+          {title
             ? <h4 className={className.title}>{title}</h4>
-            : '')}
-          {(message
-            ? (allowHTML
-            ? <p className={className.message} dangerouslySetInnerHTML={this._messageToHTML()}/>
-            : <p className={className.message}>{message}</p>)
-            : '')}
+            : ''}
+          {message
+            ? allowHTML
+              ? <p className={className.message} dangerouslySetInnerHTML={this._messageToHTML()}/>
+              : <p className={className.message}>{message}</p>
+            : ''}
         </div>
-        {(buttons.length
+        {buttons.length
           ? <div className={className.buttons()} onClick={this._remove}>
           {this._renderButtons()}
           </div>
-          : '')}
+          : ''}
       </div>
     );
   }

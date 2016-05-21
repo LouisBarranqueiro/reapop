@@ -19,6 +19,7 @@ class NotificationExamples extends Component {
   constructor(props) {
     super(props);
     this._notificationUpdatedExample = this._notificationUpdatedExample.bind(this);
+    this._notificationWithImage = this._notificationWithImage.bind(this);
   }
 
   /**
@@ -66,6 +67,29 @@ class NotificationExamples extends Component {
   }
 
   /**
+   * Example of a notification with an image
+   * @returns {void}
+   * @private
+   */
+  _notificationWithImage() {
+    const {notify} = this.props;
+    notify({
+      title: 'Steve Frizeli added you',
+      message: 'Do you want to accept him as friend?',
+      image: '/static/images/image-2.png',
+      dismissible: false,
+      dismissAfter: 0,
+      buttons: [{
+        name: 'Yes',
+        primary: true
+      }, {
+        name: 'No'
+      }],
+      allowHTML: true
+    });
+  }
+
+  /**
    * Render form
    * @returns {XML}
    */
@@ -74,6 +98,9 @@ class NotificationExamples extends Component {
       <div>
         <button className='btn btn-primary btn-block' onClick={this._notificationUpdatedExample}>
           Notification updated example
+        </button>
+        <button className='btn btn-primary btn-block' onClick={this._notificationWithImage}>
+          Notification with image
         </button>
       </div>
     );

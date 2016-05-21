@@ -118,6 +118,34 @@ describe('<Notification/>', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
 
+  it('should render component (with image)', () => {
+    notification.image = 'an_url';
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification notification={notification} {...otherProps}/>
+      </Provider>
+    );
+
+    const expectedComponent = mount(
+      <ExpectedNotification notification={notification} {...otherProps}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
+  it('should render component (without image)', () => {
+    notification.image = '';
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification notification={notification} {...otherProps}/>
+      </Provider>
+    );
+
+    const expectedComponent = mount(
+      <ExpectedNotification notification={notification} {...otherProps}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
   it('should render component (with 2 buttons)', () => {
     const wrapper = mount(
       <Provider store={store}>

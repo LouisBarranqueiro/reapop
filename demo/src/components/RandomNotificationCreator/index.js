@@ -27,6 +27,7 @@ class RandomNotificationCreator extends Component {
   _randomNotification() {
     const {notify} = this.props;
     const buttons = [];
+    let image = null;
     if (faker.random.boolean()) {
       for (let i = 0; i < 2; i++) {
         if (faker.random.boolean()) {
@@ -37,13 +38,20 @@ class RandomNotificationCreator extends Component {
         }
       }
     }
+    if (faker.random.boolean()) {
+      image = `/static/images/image-${faker.random.number({
+        min: 1,
+        max: 3
+      })}.png`;
+    }
     notify({
       title: (faker.random.boolean() ? faker.lorem.sentence(5) : ''),
       message: faker.lorem.sentence(5),
+      image: image,
       position: faker.random.objectElement(POSITIONS),
       status: faker.random.objectElement(STATUS),
       dismissible: faker.random.boolean(),
-      dismissAfter: 3000,
+      dismissAfter: 0,
       allowHTML: faker.random.boolean(),
       buttons: buttons
     });

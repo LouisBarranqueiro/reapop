@@ -35,10 +35,12 @@ export function genNotifications(numb, notification = {}) {
  */
 export function genNotification(notification = {}) {
   const numb = faker.random.number();
+
   return Object.assign({}, {
     id: faker.random.number(),
     title: faker.lorem.sentence(),
     message: faker.lorem.sentence(),
+    image: faker.lorem.words(),
     position: faker.random.objectElement(POSITIONS),
     status: faker.random.objectElement(STATUS),
     dismissible: faker.random.boolean(),

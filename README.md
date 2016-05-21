@@ -16,7 +16,7 @@ A React and Redux notifications system
 
 ## Compatibility
 
-### Libraries supported
+### Supported libraries
 
 Tested and works with :
 
@@ -24,11 +24,11 @@ Tested and works with :
 - [react-redux](https://github.com/reactjs/react-redux) : **^2.0.0** and **^3.0.0** and **^4.0.0**
 - [redux](https://github.com/reactjs/redux) : **^2.0.0** and **^3.0.0**
 
-### Browsers supported
+### Supported browsers
 
 Tested and works with :
 
-![Browsers-support](http://louisbarranqueiro.github.io/reapop/static/images/browsers-support.png)
+![Supported browsers](http://louisbarranqueiro.github.io/reapop/static/images/supported-browsers.jpg)
 
 ## Demo
 
@@ -42,7 +42,7 @@ npm install reapop --save
 
 ## Integration
 
-Follow this 3 steps to integrate Reapop to your application.
+Follow this 4 steps to integrate Reapop to your application.
 
 ### Integrate `NotificationsSystem` React component
 
@@ -110,6 +110,14 @@ const store = createStoreWithMiddleware(combineReducers({
     // your reducers here
   }), {});
 ```
+
+### Install and import `babel-polyfill` package
+
+This package use some ES6 features, to make it compatible in all browsers, you must :
+
+1. Install `babel-polyfill` package with `npm install --save-dev
+2. Import `babel-polyfill` package at the root of your app with `import 'babel-polyfill';`
+
 
 ## Usage
 
