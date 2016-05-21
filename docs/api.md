@@ -35,7 +35,8 @@ addNotification(notification);
 | ------------ | ---------------- | ------- | ----------- |
 | title        | String           |         | Title of the notification |
 | message      | String           |         | Message of the notification |
-| status       | String or Number | default | Status of the notification : default, info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the `Notification` component |
+| image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
+| status       | String or Number | default | Status of the notification : default, info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the `Notification` component. Of course, you can also use custom status depending on the theme that you use. |
 | position     | String           | tr      | Position of the notification on the screen |
 | dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number           | 5000    | Time before the notification disappear (ms). Paused when mouse is hovering the notification. 0: infinite. |
@@ -117,7 +118,8 @@ updateNotification(notification);
 | ------------ | ---------------- | ------- | ----------- |
 | title        | String           |         | Title of the notification |
 | message      | String           |         | Message of the notification |
-| status       | String or Number | default | Status of the notification : default, info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the `Notification` component |
+| image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
+| status       | String or Number | default | Status of the notification : default, info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the `Notification` component. Of course, you can also use custom status depending on the theme that you use. |
 | position     | String           | tr      | Position of the notification on the screen |
 | dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number           | 5000    | Time before the notification disappear (ms). Paused when mouse is hovering the notification. 0: infinite. |
@@ -283,12 +285,14 @@ var notificationClassName = {
   meta: css['notification-meta'],
   title: css['notification-title'],
   message: css['notification-message'],
-  // `fa` corresponds to font-awesome's class name
   icon: 'fa ' + css['notification-icon'],
+  imageContainer: css['notification-image-container'],
+  image: css['notification-image'],
   status: function status(_status) {
     return css['notification--' + _status];
   },
   dismissible: css['notification--dismissible'],
+  // `fa` corresponds to font-awesome's class name
   buttons: function buttons(count) {
     if (count === 0) {
       return '';
@@ -356,18 +360,20 @@ We use React High-level API : [ReactCSSTransitionGroup](https://facebook.github.
 
 This object allow you to configure style of `Notification` component.
 
-| Property    | Type     | Description |
-| ----------- | -------- | ----------- |
-| main        | String   | Applied on root notification container. |
-| meta        | String   | Applied on notification meta container. |
-| title       | String   | Applied on notification title container. |
-| message     | String   | Applied on notification message container. |
-| icon        | String   | Applied on notification icon container. |
-| status      | Function | Applied on root notification container. Use to stylize the notification depending on its status. |
-| dismissible | String   | Applied on notification dismissible container. |
-| buttons     | Function | Applied on root notification container to stylize the notification depending on number of buttons it has; and on notification buttons container. |
-| button      | String   | Applied on notification button container. |
-| buttonText  | String   | Applied on container of text of notification button. |
+| Property       | Type     | Description |
+| -------------- | -------- | ----------- |
+| main           | String   | Applied on root notification container. |
+| meta           | String   | Applied on notification meta container. |
+| title          | String   | Applied on notification title container. |
+| message        | String   | Applied on notification message container. |
+| icon           | String   | Applied on notification icon container. |
+| imageContainer | String   | Applied on notification image container. |
+| image          | String   | Applied on notification image. image is set as a background |
+| status         | Function | Applied on root notification container. Use to stylize the notification depending on its status. |
+| dismissible    | String   | Applied on notification dismissible container. |
+| buttons        | Function | Applied on root notification container to stylize the notification depending on number of buttons it has; and on notification buttons container. |
+| button         | String   | Applied on notification button container. |
+| buttonText     | String   | Applied on container of text of notification button. |
 
 Check [Notification.js](https://github.com/LouisBarranqueiro/reapop/tree/master/src/components/Notification.js) file to see the JSX structure of `Notification` component.
 
