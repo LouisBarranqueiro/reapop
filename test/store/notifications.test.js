@@ -26,6 +26,9 @@ describe('notifications', () => {
       it('should create an action to add a notification ' +
         '(add `id` property and convert status)', () => {
         notification.id = null;
+        // we remove the image, otherwise `treatNotification()` helper will update
+        // status of notification
+        notification.image = '';
         // here we simulate an HTTP success status code (200 = OK)
         notification.status = 200;
         const notificationAdded = store.dispatch(addNotification(notification));
