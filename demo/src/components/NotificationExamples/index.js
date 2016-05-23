@@ -73,10 +73,13 @@ class NotificationExamples extends Component {
    */
   _notificationWithImage() {
     const {notify} = this.props;
+    let path = window.location.href;
+    path = path.replace(/index\.html/, '');
+
     notify({
       title: 'Steve Frizeli added you',
       message: 'Do you want to accept him as friend?',
-      image: '/static/images/image-2.png',
+      image: `${path}static/images/image-2.png`,
       dismissible: false,
       dismissAfter: 0,
       buttons: [{
