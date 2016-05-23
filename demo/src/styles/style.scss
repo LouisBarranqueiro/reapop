@@ -4,7 +4,10 @@
     font-family: 'ArtelyInks';
     font-style:  normal;
     font-weight: 400;
-    src:         url('http://louisbarranqueiro.github.io/reapop/static/fonts/ArtelyInks.ttf') format('truetype');
+    src:         url('http://localhost:3000/static/fonts/ArtelyInks.eot');
+    src:         url('http://localhost:3000/static/fonts/ArtelyInks.eot?#iefix') format('embedded-opentype'),
+                 url('http://localhost:3000/static/fonts/ArtelyInks.woff') format('woff'),
+                 url('http://localhost:3000/static/fonts/ArtelyInks.ttf') format('truetype');
 }
 
 // override style of primary button of Bootstrap
