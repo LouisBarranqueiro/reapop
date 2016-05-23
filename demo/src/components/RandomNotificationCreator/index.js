@@ -29,7 +29,7 @@ class RandomNotificationCreator extends Component {
     const buttons = [];
     let image = null;
     let path = window.location.href;
-    path = path.replace(/index\.html/,'');
+    path = path.replace(/index\.html/, '');
     if (faker.random.boolean()) {
       for (let i = 0; i < 2; i++) {
         if (faker.random.boolean()) {
