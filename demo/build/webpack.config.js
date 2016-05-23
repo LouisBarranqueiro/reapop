@@ -15,13 +15,13 @@ var webpackConfig = {
     root: '../'
   },
   entry: [
-    './src/index',
-    './src/index.html'
+    './src/index'
   ],
+
   output: {
-    path: path.join(__dirname, '../dist'),
+    path: path.join(__dirname, '../dist/static/'),
     filename: 'demo.js',
-    publicPath: '/'
+    publicPath: '/reapop/static/'
   },
   resolveLoader: {
     modulesDirectories: ['../node_modules', './node_modules']
@@ -47,8 +47,10 @@ var webpackConfig = {
   }
 };
 
+// specific conf for local dev environment
 if (process.env.NODE_ENV == 'development' || !process.env.TRAVIS) {
   webpackConfig.entry.push('webpack-hot-middleware/client');
+  webpackConfig.output.publicPath = '/static/';
   webpackConfig.plugins = [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()

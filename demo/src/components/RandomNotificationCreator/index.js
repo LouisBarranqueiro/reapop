@@ -28,6 +28,8 @@ class RandomNotificationCreator extends Component {
     const {notify} = this.props;
     const buttons = [];
     let image = null;
+    let path = window.location.href;
+    path = path.replace(/index\.html/,'');
     if (faker.random.boolean()) {
       for (let i = 0; i < 2; i++) {
         if (faker.random.boolean()) {
@@ -39,7 +41,7 @@ class RandomNotificationCreator extends Component {
       }
     }
     if (faker.random.boolean()) {
-      image = `/static/images/image-${faker.random.number({
+      image = `${path}static/images/image-${faker.random.number({
         min: 1,
         max: 3
       })}.png`;
@@ -51,7 +53,7 @@ class RandomNotificationCreator extends Component {
       position: faker.random.objectElement(POSITIONS),
       status: faker.random.objectElement(STATUS),
       dismissible: faker.random.boolean(),
-      dismissAfter: 0,
+      dismissAfter: 5000,
       allowHTML: faker.random.boolean(),
       buttons: buttons
     });
