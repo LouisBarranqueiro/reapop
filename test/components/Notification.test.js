@@ -62,7 +62,7 @@ describe('<Notification/>', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
   
-  it('should render component (with HTML title)', () => {
+  it('should render component (with HTML in the title)', () => {
     notification.title = 'A title with <i>html</i>';
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
@@ -94,7 +94,7 @@ describe('<Notification/>', () => {
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
   
-  it('should render component (with HTML message)', () => {
+  it('should render component (with HTML in the message)', () => {
     // add HTML in message and allow HTML
     notification.message = `${notification.message} <b>HEY</b>`;
     notification.allowHTML = true;
