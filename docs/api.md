@@ -43,7 +43,7 @@ addNotification(notification);
 | buttons      | Array            |         | Array of [button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#button-object-properties) objects. A notification can have 2 buttons maximum. |
 | onAdd        | Function         |         | Function executed at component lifecycle : `componentDidMount` |
 | onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
-| allowHTML    | Boolean          | false   | Allow HTML in message |
+| allowHTML    | Boolean          | false   | Allow HTML in title and message of the notification |
 
 ##### Button object properties
  
@@ -126,7 +126,7 @@ updateNotification(notification);
 | buttons      | Array            |         | Array of [button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#button-object-properties-1) object. A notification can have 2 buttons maximum. |
 | onAdd        | Function         |         | Function executed at component lifecycle : `componentDidMount` |
 | onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
-| allowHTML    | Boolean          | false   | Allow HTML in message |
+| allowHTML    | Boolean          | false   | Allow HTML in title and message of the notification |
 
 ##### Button object properties
  
@@ -387,7 +387,7 @@ You can customizable default values for notifications, by passing an object to `
 | position     | String  | tr      | Position of the  notification : tl, tr, br, bl.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js|)
 | dismissible  | Boolean | true    | Define if the notification is dismissible by clicking on it |
 | dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
-| allowHTML    | Boolean | False   | Allow you to insert HTML in the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
+| allowHTML    | Boolean | False   | Allow HTML in title and message of the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
 
 #### Example
 

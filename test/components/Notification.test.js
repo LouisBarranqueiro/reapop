@@ -1,5 +1,5 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, shallow} from 'enzyme';
 import {Provider} from 'react-redux';
 import {Timer} from '../../src/helpers';
 import ConnectNotification, {Notification} from '../../src/components/Notification';
@@ -17,12 +17,12 @@ describe('<Notification/>', () => {
     className,
     removeNotification
   };
-
+  
   beforeEach('generate a new notification and init store', () => {
     notification = genNotification();
     store = mockStore({notifications: []});
   });
-
+  
   it('should not throw error during propTypes validation', () => {
     checkPropTypes({
       className,
@@ -30,7 +30,7 @@ describe('<Notification/>', () => {
       removeNotification
     }, Notification.propTypes, true);
   });
-
+  
   it('should mount with initial state', () => {
     // state component will be init without timer because notification have buttons
     let wrapper = mount(<Notification notification={notification} {...otherProps}/>);
@@ -40,7 +40,7 @@ describe('<Notification/>', () => {
     wrapper = mount(<Notification notification={notification} {...otherProps}/>);
     expect(wrapper.state().timer).toBeA(Timer);
   });
-
+  
   it('should update state when receiving new props', () => {
     // state component will be init without timer because notification have buttons
     let wrapper = mount(<Notification notification={notification} {...otherProps}/>);
@@ -51,142 +51,132 @@ describe('<Notification/>', () => {
     wrapper.setProps(notification);
     expect(wrapper.state().timer).toBeA(Timer);
   });
-
+  
   it('should render component (with title)', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = mount(
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
+  it('should render component (with HTML in the title)', () => {
+    notification.title = 'A title with <i>html</i>';
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
+    );
+    const expectedComponent = shallow(
+      <ExpectedNotification notification={notification} {...otherProps}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+  
   it('should render component (without title)', () => {
     notification.title = null;
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = mount(
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
   it('should render component (with message)', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = mount(
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
-  it('should render component (with HTML message)', () => {
+  
+  it('should render component (with HTML in the message)', () => {
     // add HTML in message and allow HTML
     notification.message = `${notification.message} <b>HEY</b>`;
     notification.allowHTML = true;
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = mount(
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
   it('should render component (without message)', () => {
     notification.message = null;
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-
-    const expectedComponent = mount(
+    
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
   it('should render component (with image)', () => {
     notification.image = 'an_url';
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-
-    const expectedComponent = mount(
+    
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
   it('should render component (without image)', () => {
     notification.image = '';
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-
-    const expectedComponent = mount(
+    
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
   it('should render component (with 2 buttons)', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-
-    const expectedComponent = mount(
+    
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
   it('should render component (with 1 button)', () => {
     delete notification.buttons[1];
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-
-    const expectedComponent = mount(
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
   it('should render component (without buttons)', () => {
     notification.buttons = [];
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
     );
-
-    const expectedComponent = mount(
+    
+    const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-
+  
   it('should run onAdd() callback at componentDidMount() lifecycle', () => {
     const errorMessage = 'onAdd() callback';
     // we throw an error to capture where
@@ -216,7 +206,7 @@ describe('<Notification/>', () => {
       </Provider>
     );
   });
-
+  
   it('should run onRemove() callback at componentWillUnmount() lifecycle', () => {
     const errorMessage = 'onRemove() callback';
     // we throw an error to capture where
@@ -248,7 +238,7 @@ describe('<Notification/>', () => {
     );
     wrapper.unmount();
   });
-
+  
   it('should not throw an error at componentDidMount() lifecycle ' +
     '(onAdd() callback undefined)', () => {
     delete notification.onAdd;
@@ -258,7 +248,7 @@ describe('<Notification/>', () => {
       </Provider>
     );
   });
-
+  
   it('should not throw an error at componentWillUnmount() lifecycle ' +
     '(onRemove() callback undefined)', () => {
     delete notification.onRemove;
@@ -269,7 +259,7 @@ describe('<Notification/>', () => {
     );
     wrapper.unmount();
   });
-
+  
   it('should create an action to remove the notification ' +
     'when it is clicked', () => {
     notification.dismissible = true;
@@ -286,7 +276,7 @@ describe('<Notification/>', () => {
     };
     expect(store.getActions()).toEqual([expectedAction]);
   });
-
+  
   it('should create an action to remove the notification ' +
     'when a action button is clicked (dismissible : false)', () => {
     // we set `dismissible` to `false` to be sure
@@ -304,7 +294,7 @@ describe('<Notification/>', () => {
     };
     expect(store.getActions()).toEqual([expectedAction]);
   });
-
+  
   it('should create an action to remove the notification after ' +
     '`dismissAfter` duration', (done) => {
     notification.dismissAfter = 10;
@@ -325,7 +315,7 @@ describe('<Notification/>', () => {
       done();
     }, 15);
   });
-
+  
   it('should not create an action to remove the notification ' +
     'when it is clicked (dismissible : false)', () => {
     notification.dismissible = false;
@@ -337,7 +327,7 @@ describe('<Notification/>', () => {
     wrapper.find(ConnectNotification).simulate('click');
     expect(store.getActions()).toEqual([]);
   });
-
+  
   it('should not create an action to remove the notification ' +
     'when it is clicked (no buttons)', (done) => {
     // we set `dismissible` to `true` to be sure that
@@ -367,7 +357,7 @@ describe('<Notification/>', () => {
       done();
     }, 10);
   });
-
+  
   it('should not create an action to remove the notification after ' +
     '`dismissAfter` duration (dismissAfter = 0)', (done) => {
     notification.dismissAfter = 0;
@@ -381,7 +371,7 @@ describe('<Notification/>', () => {
       done();
     }, 10);
   });
-
+  
   it('should not create an action to remove the notification ' +
     'while mouse is hovering it', (done) => {
     notification.dismissAfter = 10;
