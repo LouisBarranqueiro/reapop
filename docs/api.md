@@ -6,6 +6,7 @@
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
 * [Customize default values for notifications](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#customize-default-values-for-notifications)
 * [Theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme)
+    * [Theme list](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-list)
     * [Set a theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#set-a-theme)
     * [Create a theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#create-a-theme)
         * [Theme structure](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-structure)
@@ -176,11 +177,17 @@ removeNotification(id);
 
 ## Theme
 
+### Theme list
+
+| Name      | Style                      | Chrome | Safari | Firefox | IE  | Edge | Opera |
+| --------- | -------------------------- | ------ | ------ | ------- | --- | ---- | ----- |
+| [WYBO][1] | Official theme, flat style | Yes    | Yes    | Yes     | 11+ | Yes  | Yes   |
+
+[1]: https://github.com/LouisBarranqueiro/reapop-theme-wybo
+
 ### Set a theme
 
-Reapop works with theme. There is no default theme to avoid useless dependencies if you don't use it. So you have to choose one in the list, and follow guidelines of theme to install it.
-
-- [**WYBO**](https://github.com/LouisBarranqueiro/reapop-theme-wybo) : Official theme, flat style.
+Reapop works with theme. There is no default theme to avoid useless dependencies if you don't use it. So you have to choose one in the [list](#theme-list), and follow guidelines of the theme to install it.
 
 After this, pass the theme in `NotificationsSystem` component props
 

@@ -65,9 +65,7 @@ class ATopLevelComponent extends Component {
 
 ### Install and set a theme
 
-**Reapop works with theme. There is no default theme to avoid useless dependencies if you don't use it. So you have to choose one in the list, and follow guidelines of theme to install it**.
-
-- [**WYBO**](https://github.com/LouisBarranqueiro/reapop-theme-wybo) : Official theme, flat style.
+**Reapop works with theme. There is no default theme to avoid useless dependencies if you don't use it. So you have to choose one in the [list](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-list), and follow guidelines of theme to install it**.
 
 After this, pass the theme in `NotificationsSystem` component props
 
