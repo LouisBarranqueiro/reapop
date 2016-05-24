@@ -10,6 +10,6 @@ install:
   - npm install -g webpack
 script:
   - npm run lint
-  - npm test
+  - npm run test:all
 after_success:
   - bash .travis/deploy.sh
