@@ -6,11 +6,22 @@
   "scripts": {
     "start": "cd demo && node index.js",
     "compile": "cd demo && ../node_modules/.bin/webpack --config=./build/webpack.config.js && cp src/index.html dist/ && cp -R src/static dist/",
-    "test": "babel-node ./node_modules/karma/bin/karma start ./build/karma.conf.js --reporters mocha,coverage",
-    "test:watch": "npm test -- --singleRun=false --reporters mocha",
-    "test:coveralls": "npm test -- --reporters mocha,coverage,coveralls",
     "lint": "./node_modules/.bin/eslint .",
-    "lint:fix": "./node_modules/.bin/eslint . --fix"
+    "lint:fix": "./node_modules/.bin/eslint . --fix",
+    "react:clean": "rm -rf node_modules/react node_modules/react-dom node_modules/react-addons-test-utils",
+    "react-redux:clean": "rm -rf node_modules/react-redux",
+    "react:14": "npm run react:clean && npm i react@0.14 react-dom@0.14 react-addons-test-utils@0.14",
+    "react:15": "npm run react:clean && npm i react@15 react-dom@15 react-addons-test-utils@15",
+    "react-redux:2": "npm run react-redux:clean && npm i react-redux@2",
+    "react-redux:3.1": "npm run react-redux:clean && npm i react-redux@3.1",
+    "react-redux:4": "npm run react-redux:clean && npm i react-redux@4",
+    "test": "babel-node ./node_modules/karma/bin/karma start ./build/karma.conf.js --reporters mocha",
+    "test:coverage": "babel-node ./node_modules/karma/bin/karma start ./build/karma.conf.js --reporters mocha,coverage",
+    "test:all-react": "npm run react:14 && npm test && npm run react:15 && npm test",
+    "test:all-react-redux": "npm run react-redux:2 && npm test && npm run react-redux:3.1 && npm test && npm run react-redux:4 && npm test",
+    "test:all": "npm run test:all-react && npm run test:all-react-redux",
+    "test:watch": "npm test -- --singleRun=false --reporters mocha",
+    "test:coveralls": "npm test -- --reporters mocha,coverage,coveralls"
   },
   "repository": {
     "type": "git",
