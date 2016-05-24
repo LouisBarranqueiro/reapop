@@ -31,6 +31,8 @@
 @media (min-width: #{$screen-sm-min}) {
     .footer {
         width:      calc(100% - #{$sidebar-width});
-        transform: translateX(calc(-50% + #{$sidebar-width} / 2));
+        // workaround for IE 9, 10, 11, Edge
+        // equals to `transform: translateX(calc(-50% + $sidebar-width / 2));`
+        transform: translateX(-50%) translateX($sidebar-width / 2);
     }
 }
