@@ -242,7 +242,13 @@ It contains all style files :
 
 ##### index.js file
 
-It is the core of the theme. This file contains all CSS class names which will be used by Reapop. It's the link between your style and Reapop.
+It is the core of the theme. This file contains all CSS class names which will be used by Reapop. It's the link between your style and Reapop. 
+
+**Why use this file instead of declare all class names directly in the Reapop module and import only a CSS file?** :
+
+- to limit the coupling between the theme and Reapop module 
+- to ease the update to a newer version of Reapop
+- to be able to use local class name (webpack option) or customize class names
 
 Important rules when you customize or create your own theme :
 - DON'T edit property name of any object because each property name is used by React components of Reapop. If you change one of these, it will not work.
@@ -254,7 +260,6 @@ Important rules when you customize or create your own theme :
 ``` js
 'use strict';
 
-require('!style-loader!css-loader!font-awesome/css/font-awesome.min.css');
 var css = require('./src/styles/styles.scss');
 
 // media breakpoint - small screen min width
