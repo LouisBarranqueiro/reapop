@@ -6,11 +6,12 @@
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
 * [Customize default values for notifications](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#customize-default-values-for-notifications)
 * [Theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme)
-    * [Theme list](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-list)
+    * [Themes list](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#themes-list)
     * [Set a theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#set-a-theme)
-    * [Create a theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#create-a-theme)
+    * [Customize or create a theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#customize-or-create-a-theme)
         * [Theme structure](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-structure)
         * [Theme properties](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-properties)
+        * [Integrate and customize a theme in your project](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#integrate-and-customize-a-theme-in-your-project)
 
 ## Action creators
 
@@ -179,7 +180,7 @@ removeNotification(id);
 
 ## Theme
 
-### Theme list
+### Themes list
 
 | Name      | Style                      | Chrome | Safari | Firefox | IE  | Edge | Opera |
 | --------- | -------------------------- | ------ | ------ | ------- | --- | ---- | ----- |
@@ -222,6 +223,8 @@ I recommend you to use the official theme for Reapop [reapop-theme-wybo](https:/
 1. Fork the theme
 2. Edit the theme
 3. Publish your theme and use it as a npm dependencies or integrate it directly in your project
+
+**If you wanna use it directly in your project, follow this [short guide](#integrate-and-customize-a-theme-in-your-project)
 
 #### Theme structure
 
@@ -429,6 +432,47 @@ class AComponent extends Component {
     return (
       <NotificationsSystem defaultValues={defaultValues} />
     );
+  }
+}
+```
+
+#### Integrate and customize a theme in your project
+
+Here is the recommended structure:
+
+``` 
+your_project
+├── src
+│   └── components
+│       ├── MyNotifications
+|           ├── index.js
+|           ├── theme # contains the source file of a theme or your own theme
+|                 ├── index.js
+|                 └── styles
+|                     ├── _mixins.scss
+|                     ├── _variables.scss
+|                     └── styles.scss
+```
+
+1. Create a `MyNotificationSystem` folder to wrap your component and its theme
+2. Add an `index.js` which contains your Component. 
+3. Put your own theme in `theme` folder as shown above
+4. If you wanna start from a theme. Copy its `index.js` file and ` styles` folder in `theme folder
+5. Check that path used in `theme/index.js` are correct with the new structure.
+6. Now you can edit style file and create you own theme. Read Documentation to understand how does it's organized.
+7. Import and render this React component at the root of your App. 
+
+Example of `MyNotificationSystem` component:
+```
+import React, {Component} from 'react';
+import NotificationSystem from 'reapop';
+import myTheme from './theme';
+
+export default class MyNotificationSystem extends Component {
+  render() {
+    return (
+      <NotificationSystem theme={myTheme}/>
+    )
   }
 }
 ```
