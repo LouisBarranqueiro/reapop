@@ -299,16 +299,17 @@ describe('<Notification/>', () => {
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
-    wrapper.find(ConnectNotification).simulate('click');
     const expectedAction = {
       type: types.REMOVE_NOTIFICATION,
       payload: notification.id
     };
+
+    wrapper.find(ConnectNotification).simulate('click');
     expect(store.getActions()).toEqual([expectedAction]);
   });
 
   it('should create an action to remove the notification ' +
-    'when closeButton is clicked', () => {
+    'when close button is clicked', () => {
     notification.dismissible = true;
     notification.buttons = [];
     notification.closeButton = true;
@@ -317,13 +318,11 @@ describe('<Notification/>', () => {
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
-    // check that notification with a close button is not removed when it has a close button
-    wrapper.find(ConnectNotification).simulate('click');
-    wrapper.find(`.${className.closeButton}`).simulate('click');
     const expectedAction = {
       type: types.REMOVE_NOTIFICATION,
       payload: notification.id
     };
+    wrapper.find(`.${className.closeButtonContainer} > span`).simulate('click');
     expect(store.getActions()).toEqual([expectedAction]);
   });
   
@@ -337,16 +336,21 @@ describe('<Notification/>', () => {
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
-    wrapper.find(`.${className.button}`).first().simulate('click');
     const expectedAction = {
       type: types.REMOVE_NOTIFICATION,
       payload: notification.id
     };
+
+    wrapper.find(`.${className.button}`).first().simulate('click');
     expect(store.getActions()).toEqual([expectedAction]);
   });
   
   it('should create an action to remove the notification after ' +
     '`dismissAfter` duration', (done) => {
+    const expectedAction = {
+      type: types.REMOVE_NOTIFICATION,
+      payload: notification.id
+    };
     notification.dismissAfter = 10;
     // remove buttons otherwise `remove()` is not called after `dismissAfter` duration
     notification.buttons = [];
@@ -355,10 +359,6 @@ describe('<Notification/>', () => {
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
-    const expectedAction = {
-      type: types.REMOVE_NOTIFICATION,
-      payload: notification.id
-    };
     expect(store.getActions()).toEqual([]);
     setTimeout(() => {
       expect(store.getActions()).toEqual([expectedAction]);

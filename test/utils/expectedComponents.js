@@ -47,7 +47,7 @@ export class ExpectedNotification extends Component {
     return (
       <div className={
         `${className.main} ${className.status(status)}
-        ${(isDismissible ? className.dismissible : '')}
+        ${(isDismissible && !closeButton ? className.dismissible : '')}
         ${className.buttons(buttons.length)}`}>
         {image ?
           <div className={className.imageContainer}>

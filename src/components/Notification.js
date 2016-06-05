@@ -197,7 +197,7 @@ export class Notification extends Component {
     return (
       <div className={
         `${className.main} ${className.status(status)}
-        ${(isDismissible ? className.dismissible : '')}
+        ${(isDismissible && !closeButton ? className.dismissible : '')}
         ${className.buttons(buttons.length)}`}
         onClick={isDismissible && !closeButton ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
         onMouseLeave={timer ? this._resumeTimer : ''}>
