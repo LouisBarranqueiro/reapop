@@ -8,7 +8,6 @@ import NotificationsSystem, {
   updateNotification
 } from '../../../../index';
 import css from './styles.scss';
-import '!style-loader!css-loader!font-awesome/css/font-awesome.min.css';
 import theme from 'reapop-theme-wybo';
 
 class Demo extends Component {
