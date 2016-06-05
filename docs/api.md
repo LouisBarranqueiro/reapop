@@ -41,6 +41,7 @@ addNotification(notification);
 | position     | String           | tr      | Position of the notification on the screen |
 | dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number           | 5000    | Time before the notification disappear (ms). Paused when mouse is hovering the notification. 0: infinite. |
+| closeButton  | Boolean          | false   | Display a close button if it is dismissible |
 | buttons      | Array            |         | Array of [button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#button-object-properties) objects. A notification can have 2 buttons maximum. |
 | onAdd        | Function         |         | Function executed at component lifecycle : `componentDidMount` |
 | onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
@@ -124,6 +125,7 @@ updateNotification(notification);
 | position     | String           | tr      | Position of the notification on the screen |
 | dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number           | 5000    | Time before the notification disappear (ms). Paused when mouse is hovering the notification. 0: infinite. |
+| closeButton  | Boolean          | false   | Display a close button if it is dismissible |
 | buttons      | Array            |         | Array of [button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#button-object-properties-1) object. A notification can have 2 buttons maximum. |
 | onAdd        | Function         |         | Function executed at component lifecycle : `componentDidMount` |
 | onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
@@ -315,6 +317,8 @@ var notificationClassName = {
     }
     return css['notification-buttons'];
   },
+  closeButtonContainer: css['notification-close-button-container'],
+  closeButton: css['notification-close-button'],
   button: css['notification-button'],
   buttonText: css['notification-button-text']
 };
@@ -372,20 +376,22 @@ We use React High-level API : [ReactCSSTransitionGroup](https://facebook.github.
 
 This object allow you to configure style of `Notification` component.
 
-| Property       | Type     | Description |
-| -------------- | -------- | ----------- |
-| main           | String   | Applied on root notification container. |
-| meta           | String   | Applied on notification meta container. |
-| title          | String   | Applied on notification title container. |
-| message        | String   | Applied on notification message container. |
-| icon           | String   | Applied on notification icon container. |
-| imageContainer | String   | Applied on notification image container. |
-| image          | String   | Applied on notification image. image is set as a background |
-| status         | Function | Applied on root notification container. Use to stylize the notification depending on its status. |
-| dismissible    | String   | Applied on notification dismissible container. |
-| buttons        | Function | Applied on root notification container to stylize the notification depending on number of buttons it has; and on notification buttons container. |
-| button         | String   | Applied on notification button container. |
-| buttonText     | String   | Applied on container of text of notification button. |
+| Property             | Type     | Description |
+| --------------       | -------- | ----------- |
+| main                 | String   | Applied on root notification container. |
+| meta                 | String   | Applied on notification meta container. |
+| title                | String   | Applied on notification title container. |
+| message              | String   | Applied on notification message container. |
+| icon                 | String   | Applied on notification icon container. |
+| imageContainer       | String   | Applied on notification image container. |
+| image                | String   | Applied on notification image. image is set as a background |
+| status               | Function | Applied on root notification container. Use to stylize the notification depending on its status. |
+| dismissible          | String   | Applied on notification dismissible container. |
+| closeButtonContainer | Function | Applied on notification close button container |
+| closeButton          | Function | Applied on notification close button |
+| buttons              | Function | Applied on root notification container to stylize the notification depending on number of buttons it has; and on notification buttons container. |
+| button               | String   | Applied on notification button container. |
+| buttonText           | String   | Applied on container of text of notification button. |
 
 Check [Notification.js](https://github.com/LouisBarranqueiro/reapop/tree/master/src/components/Notification.js) file to see the JSX structure of `Notification` component.
 
@@ -399,6 +405,7 @@ You can customizable default values for notifications, by passing an object to `
 | position     | String  | tr      | Position of the  notification : tl, tr, br, bl.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js|)
 | dismissible  | Boolean | true    | Define if the notification is dismissible by clicking on it |
 | dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
+| closeButton  | Boolean | False   | Display a close button if notification is dismissible |
 | allowHTML    | Boolean | False   | Allow HTML in title and message of the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
 
 #### Example
@@ -416,6 +423,7 @@ class AComponent extends Component {
       position: POSITIONS.topRight,
       dismissible: true,
       dismissAfter: 5000,
+      closeButton: true,
       allowHTML: false
     };
     return (
