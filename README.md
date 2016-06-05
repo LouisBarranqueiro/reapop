@@ -5,14 +5,14 @@ A React and Redux notifications system
 
 ## Summary
 
-* [Compatibility](https://github.com/LouisBarranqueiro/reapop#compatiblity)
-* [Demo](https://github.com/LouisBarranqueiro/reapop#demo)
-* [Installation](https://github.com/LouisBarranqueiro/reapop#installation)
-* [Integration](https://github.com/LouisBarranqueiro/reapop#integration)
-* [Usage](https://github.com/LouisBarranqueiro/reapop#usage)
-* [API documentation](https://github.com/LouisBarranqueiro/reapop#api-documentation)
-* [Contributing guide](https://github.com/LouisBarranqueiro/reapop#contributing-guide)
-* [License](https://github.com/LouisBarranqueiro/reapop#license)
+* [Compatibility](#compatibility)
+* [Demo](#demo)
+* [Installation](#installation)
+* [Integration](#integration)
+* [Usage](#usage)
+* [API documentation](#api-documentation)
+* [Contributing guide](#contributing-guide)
+* [License](#license)
 
 ## Compatibility
 
@@ -187,7 +187,7 @@ const sendResetPasswordLink = (props) => (dispatch) => {
 };
 ```
 
-## Documentation
+## API Documentation
 
 Read [API documentation](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md) to discover all possibilities.
 

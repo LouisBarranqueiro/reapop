@@ -430,7 +430,7 @@ class AComponent extends Component {
       allowHTML: false
     };
     return (
-      <NotificationsSystem defaultValues={defaultValues} />
+      <NotificationsSystem defaultValues={defaultValues}/>
     );
   }
 }
@@ -438,15 +438,15 @@ class AComponent extends Component {
 
 #### Integrate and customize a theme in your project
 
-Here is the recommended structure:
+##### Recommended structure
 
 ``` 
 your_project
 ├── src
 │   └── components
-│       ├── MyNotifications
-|           ├── index.js
-|           ├── theme # contains the source file of a theme or your own theme
+│       └── MyNotificationsSystem
+|           ├── index.js # contains your React Component
+|           └── theme # contains the source file of a theme or your own theme
 |                 ├── index.js
 |                 └── styles
 |                     ├── _mixins.scss
@@ -454,24 +454,27 @@ your_project
 |                     └── styles.scss
 ```
 
-1. Create a `MyNotificationSystem` folder to wrap your component and its theme
-2. Add an `index.js` which contains your Component. 
+Follow these steps :
+
+1. Create a `MyNotificationsSystem` folder to wrap your component and its theme
+2. Add an `index.js` which contains your React Component. 
 3. Put your own theme in `theme` folder as shown above
-4. If you wanna start from a theme. Copy its `index.js` file and ` styles` folder in `theme folder
+4. If you wanna start from a theme. Copy its `index.js` file and `styles` folder in `theme` folder
 5. Check that path used in `theme/index.js` are correct with the new structure.
 6. Now you can edit style file and create you own theme. Read Documentation to understand how does it's organized.
 7. Import and render this React component at the root of your App. 
 
-Example of `MyNotificationSystem` component:
-```
+##### Example of `MyNotificationsSystem` component:
+
+``` js
 import React, {Component} from 'react';
-import NotificationSystem from 'reapop';
+import NotificationsSystem from 'reapop';
 import myTheme from './theme';
 
-export default class MyNotificationSystem extends Component {
+export default class MyNotificationsSystem extends Component {
   render() {
     return (
-      <NotificationSystem theme={myTheme}/>
+      <NotificationsSystem theme={myTheme}/>
     )
   }
 }
