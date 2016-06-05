@@ -142,6 +142,34 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
+
+  it('should render component (with close button)', () => {
+    notification.buttons = [];
+    notification.dismissible = true;
+    notification.closeButton = true;
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
+    );
+
+    const expectedComponent = shallow(
+      <ExpectedNotification notification={notification} {...otherProps}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
+
+  it('should render component (without close button)', () => {
+    notification.buttons = [];
+    notification.dismissible = true;
+    notification.closeButton = false;
+    const wrapper = shallow(
+      <Notification notification={notification} {...otherProps}/>
+    );
+
+    const expectedComponent = shallow(
+      <ExpectedNotification notification={notification} {...otherProps}/>
+    );
+    expect(wrapper.html()).toEqual(expectedComponent.html());
+  });
   
   it('should render component (with 2 buttons)', () => {
     const wrapper = shallow(
@@ -264,12 +292,34 @@ describe('<Notification/>', () => {
     'when it is clicked', () => {
     notification.dismissible = true;
     notification.buttons = [];
+    notification.closeButton = false;
+
     const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
     wrapper.find(ConnectNotification).simulate('click');
+    const expectedAction = {
+      type: types.REMOVE_NOTIFICATION,
+      payload: notification.id
+    };
+    expect(store.getActions()).toEqual([expectedAction]);
+  });
+
+  it('should create an action to remove the notification ' +
+    'when closeButton is clicked', () => {
+    notification.dismissible = true;
+    notification.buttons = [];
+    notification.closeButton = true;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification notification={notification} {...otherProps}/>
+      </Provider>
+    );
+    // check that notification with a close button is not removed when it has a close button
+    wrapper.find(ConnectNotification).simulate('click');
+    wrapper.find(`.${className.closeButton}`).simulate('click');
     const expectedAction = {
       type: types.REMOVE_NOTIFICATION,
       payload: notification.id
@@ -327,7 +377,21 @@ describe('<Notification/>', () => {
     wrapper.find(ConnectNotification).simulate('click');
     expect(store.getActions()).toEqual([]);
   });
-  
+
+  it('should not create an action to remove the notification ' +
+    'when a notification with a close button is clicked', () => {
+    notification.dismissible = true;
+    notification.buttons = [];
+    notification.closeButton = true;
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification notification={notification} {...otherProps}/>
+      </Provider>
+    );
+    wrapper.find(ConnectNotification).simulate('click');
+    expect(store.getActions()).toEqual([]);
+  });
+
   it('should not create an action to remove the notification ' +
     'when it is clicked (no buttons)', (done) => {
     // we set `dismissible` to `true` to be sure that

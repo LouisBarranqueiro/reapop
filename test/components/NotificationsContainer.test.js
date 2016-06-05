@@ -75,6 +75,7 @@ describe('<NotificationsContainer/>', () => {
     delete notification.status;
     delete notification.dismissAfter;
     delete notification.dismissible;
+    delete notification.closeButton;
     delete notification.allowHTML;
     const wrapper = mount(
       <Provider store={store}>
