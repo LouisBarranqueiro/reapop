@@ -8,6 +8,8 @@ import NotificationsSystem, {
   updateNotification
 } from '../../../../index';
 import css from './styles.scss';
+import '!style-loader!css-loader!bootstrap/dist/css/bootstrap.min.css';
+import '!style-loader!css-loader!font-awesome/css/font-awesome.min.css';
 import theme from 'reapop-theme-wybo';
 
 class Demo extends Component {
@@ -78,7 +80,8 @@ class Demo extends Component {
       position: 'tr',
       dismissible: true,
       dismissAfter: 5000,
-      allowHTML: true
+      allowHTML: true,
+      closeButton: false
     };
 
     return (
