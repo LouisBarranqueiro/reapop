@@ -19,6 +19,7 @@
         "react/jsx-space-before-closing":[2, "never"],
         "brace-style": [2, "stroustrup"],
         "space-before-function-paren":[2, "never"],
-        "no-trailing-spaces": [2, {"skipBlankLines": true}]
+        "no-trailing-spaces": [2, {"skipBlankLines": true}],
+        "operator-linebreak": [2, "after"]
     }
 }
