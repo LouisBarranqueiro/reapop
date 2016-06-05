@@ -27,9 +27,10 @@ export class ExpectedNotification extends Component {
       return (
         <button key={button.name} className={className.button} onClick={button.onClick}>
           <span className={className.buttonText}>
-            {button.primary
-              ? <b>{button.name}</b>
-              : button.name}
+            {button.primary ?
+              <b>{button.name}</b> :
+              button.name
+            }
           </span>
         </button>
       );
@@ -39,7 +40,7 @@ export class ExpectedNotification extends Component {
   render() {
     const {
       className,
-      notification: {title, message, status, dismissible, buttons, image, allowHTML}
+      notification: {title, message, status, dismissible, closeButton, buttons, image, allowHTML}
     } = this.props;
     const isDismissible = (dismissible && buttons.length === 0);
 
@@ -48,28 +49,34 @@ export class ExpectedNotification extends Component {
         `${className.main} ${className.status(status)}
         ${(isDismissible ? className.dismissible : '')}
         ${className.buttons(buttons.length)}`}>
-        {image
-          ? <div className={className.imageContainer}>
+        {image ?
+          <div className={className.imageContainer}>
             <span className={className.image} style={{backgroundImage: `url(${image})`}}></span>
-          </div>
-          : <span className={className.icon}></span>}
+          </div> :
+          <span className={className.icon}></span>
+        }
         <div className={className.meta}>
-          {title
-            ? allowHTML
-              ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}></h4>
-              : <h4 className={className.title}>{title}</h4>
-            : ''}
-          {message
-            ? allowHTML
-              ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
-              : <p className={className.message}>{message}</p>
-            : ''}
+          {title ?
+            allowHTML ?
+              <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}></h4> :
+              <h4 className={className.title}>{title}</h4> :
+            ''}
+          {message ?
+            allowHTML ?
+              <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/> :
+              <p className={className.message}>{message}</p> :
+            ''}
         </div>
-        {buttons.length
-          ? <div className={className.buttons()}>
-          {this._renderButtons()}
-          </div>
-          : ''}
+        {isDismissible && closeButton ?
+          <div className={className.closeButtonContainer}>
+            <span className={className.closeButton}></span>
+          </div> :
+          ''}
+        {buttons.length ?
+          <div className={className.buttons()}>
+            {this._renderButtons()}
+          </div> :
+          ''}
       </div>
     );
   }
@@ -80,7 +87,7 @@ export class ExpectedNotificationsContainer extends Component {
     // get all notifications and default values for notifications
     const {
       position, theme: {notification: {className}},
-      defaultValues: {status, dismissible, dismissAfter, allowHTML}
+      defaultValues: {status, dismissible, dismissAfter, closeButton, allowHTML}
     } = this.props;
     let {notifications} = this.props;
 
@@ -100,6 +107,9 @@ export class ExpectedNotificationsContainer extends Component {
       }
       if (typeof notification.dismissAfter !== 'number') {
         notification.dismissAfter = dismissAfter;
+      }
+      if (typeof notification.closeButton !== 'boolean') {
+        notification.closeButton = closeButton;
       }
       if (typeof notification.allowHTML !== 'boolean') {
         notification.allowHTML = allowHTML;

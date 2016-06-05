@@ -54,6 +54,7 @@ class RandomNotificationCreator extends Component {
       status: faker.random.objectElement(STATUS),
       dismissible: faker.random.boolean(),
       dismissAfter: 5000,
+      closeButton: faker.random.boolean(),
       allowHTML: faker.random.boolean(),
       buttons: buttons
     });

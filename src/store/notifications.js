@@ -10,7 +10,7 @@ const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
 /**
  * Add a notification (thunk action creator)
  *
- * We use a thunk here to call ADD_NOTIFICATION action
+ * We use a thunk here to create an ADD_NOTIFICATION action
  * and only return the notification object.
  * @param {Object} notification
  * @returns {Object} notification

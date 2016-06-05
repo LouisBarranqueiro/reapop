@@ -28,6 +28,7 @@ class NotificationCreator extends Component {
     this._onButton2NameChange = this._onButton2NameChange.bind(this);
     this._onButton2PrimaryChange = this._onButton2PrimaryChange.bind(this);
     this._onAllowHTMLChange = this._onAllowHTMLChange.bind(this);
+    this._onCloseButtonChange = this._onCloseButtonChange.bind(this);
     this.state = {
       notification: {
         title: 'Welcome on demo!',
@@ -36,6 +37,7 @@ class NotificationCreator extends Component {
         status: 'default',
         dismissAfter: 5000,
         dismissible: true,
+        closeButton: false,
         buttons: [{
           name: '',
           primary: true
@@ -72,6 +74,7 @@ class NotificationCreator extends Component {
       status: notification.status,
       dismissible: notification.dismissible,
       dismissAfter: notification.dismissAfter,
+      closeButton: notification.closeButton,
       buttons: _buttons,
       allowHTML: notification.allowHTML
     });
@@ -244,7 +247,7 @@ class NotificationCreator extends Component {
   }
   
   /**
-   * Update `dismissisble` variable state
+   * Update `allowHTML` variable state
    * @param {Object} event
    * @returns {void}
    * @private
@@ -257,13 +260,28 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
+
+  /**
+   * Update `closeButton` variable state
+   * @param {Object} event
+   * @returns {void}
+   * @private
+   */
+  _onCloseButtonChange(event) {
+    const newState = update(this.state, {
+      notification: {
+        closeButton: {$set: event.target.checked}
+      }
+    });
+    this.setState(newState);
+  }
   
   /**
    * Render form
    * @returns {XML}
    */
   render() {
-    const {title, message, dismissAfter, dismissible, allowHTML, buttons} = this.state.notification;
+    const {title, message, dismissAfter, dismissible, closeButton, allowHTML, buttons} = this.state.notification;
     return (
       <div>
         <h4 className='text-center'>Notification Creator</h4>
@@ -344,10 +362,16 @@ class NotificationCreator extends Component {
               </div>
             </div>
           </div>
-          <div className='form-group'>
-            <label htmlFor='allowHTML'>Allow HTML in message</label>
-            <Switch name='allowHTML' checked={allowHTML}
-              onChange={this._onAllowHTMLChange}/>
+          <div className='row'>
+            <div className='col-xs-6'>
+              <label htmlFor='allowHTML'>Allow HTML in message</label>
+              <Switch name='allowHTML' checked={allowHTML} onChange={this._onAllowHTMLChange}/>
+            </div>
+            <div className='col-xs-6'>
+              <label htmlFor='closeButton'>Show close button</label>
+              <Switch name='closeButton' checked={closeButton}
+                onChange={this._onCloseButtonChange}/>
+            </div>
           </div>
           <button type='submit' className='btn btn-primary btn-block'>
             Notify
