@@ -19,6 +19,7 @@ export class NotificationsContainer extends Component {
       position: React.PropTypes.oneOf(_.values(POSITIONS)),
       dismissible: React.PropTypes.bool.isRequired,
       dismissAfter: React.PropTypes.number.isRequired,
+      closeButton: React.PropTypes.bool.isRequired,
       allowHTML: React.PropTypes.bool.isRequired
     }),
     theme: React.PropTypes.shape({
@@ -59,7 +60,7 @@ export class NotificationsContainer extends Component {
     // get all notifications and default values for notifications
     const {
       position, theme: {notification: {className}},
-      defaultValues: {status, dismissible, dismissAfter, allowHTML}
+      defaultValues: {status, dismissible, dismissAfter, closeButton, allowHTML}
     } = this.props;
     let {notifications} = this.props;
 
@@ -79,6 +80,9 @@ export class NotificationsContainer extends Component {
       }
       if (typeof notification.dismissAfter !== 'number') {
         notification.dismissAfter = dismissAfter;
+      }
+      if (typeof notification.closeButton !== 'boolean') {
+        notification.closeButton = closeButton;
       }
       if (typeof notification.allowHTML !== 'boolean') {
         notification.allowHTML = allowHTML;

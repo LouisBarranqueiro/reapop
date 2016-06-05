@@ -10,7 +10,8 @@ export const defaultValues = {
   position: POSITIONS.topRight,
   dismissible: true,
   dismissAfter: 5000,
-  allowHTML: false
+  allowHTML: false,
+  closeButton: false
 };
 
 export class NotificationsSystem extends Component {

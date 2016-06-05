@@ -32,6 +32,8 @@ export class Notification extends Component {
       icon: React.PropTypes.string.isRequired,
       status: React.PropTypes.func.isRequired,
       dismissible: React.PropTypes.string.isRequired,
+      closeButtonContainer: React.PropTypes.string.isRequired,
+      closeButton: React.PropTypes.string.isRequired,
       buttons: React.PropTypes.func.isRequired,
       button: React.PropTypes.string.isRequired,
       buttonText: React.PropTypes.string.isRequired
@@ -47,6 +49,7 @@ export class Notification extends Component {
       dismissible: React.PropTypes.bool.isRequired,
       onAdd: React.PropTypes.func,
       onRemove: React.PropTypes.func,
+      closeButton: React.PropTypes.bool.isRequired,
       buttons: React.PropTypes.arrayOf(
         React.PropTypes.shape({
           name: React.PropTypes.string.isRequired,
@@ -165,9 +168,10 @@ export class Notification extends Component {
       return (
         <button key={button.name} className={className.button} onClick={button.onClick}>
           <span className={className.buttonText}>
-            {button.primary
-              ? <b>{button.name}</b>
-              : button.name}
+            {button.primary ?
+              <b>{button.name}</b> :
+              button.name
+            }
           </span>
         </button>
       );
@@ -181,7 +185,7 @@ export class Notification extends Component {
   render() {
     const {
       className,
-      notification: {title, message, status, dismissible, buttons, image, allowHTML}
+      notification: {title, message, status, dismissible, closeButton, buttons, image, allowHTML}
     } = this.props;
     const {timer} = this.state;
     const isDismissible = (dismissible && buttons.length === 0);
@@ -195,30 +199,36 @@ export class Notification extends Component {
         `${className.main} ${className.status(status)}
         ${(isDismissible ? className.dismissible : '')}
         ${className.buttons(buttons.length)}`}
-        onClick={isDismissible ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
+        onClick={isDismissible && !closeButton ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
         onMouseLeave={timer ? this._resumeTimer : ''}>
-        {image
-          ? <div className={className.imageContainer}>
+        {image ?
+          <div className={className.imageContainer}>
             <span className={className.image} style={{backgroundImage: `url(${image})`}}></span>
-          </div>
-          : <span className={className.icon}></span>}
+          </div> :
+          <span className={className.icon}></span>
+        }
         <div className={className.meta}>
-          {title
-            ? allowHTML
-            ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}></h4>
-            : <h4 className={className.title}>{title}</h4>
-            : ''}
-          {message
-            ? allowHTML
-            ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
-            : <p className={className.message}>{message}</p>
-            : ''}
+          {title ?
+            allowHTML ?
+              <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}></h4> :
+              <h4 className={className.title}>{title}</h4> :
+            ''}
+          {message ?
+            allowHTML ?
+              <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/> :
+              <p className={className.message}>{message}</p> :
+            ''}
         </div>
-        {buttons.length
-          ? <div className={className.buttons()} onClick={this._remove}>
+        {isDismissible && closeButton ?
+          <div className={className.closeButtonContainer}>
+            <span className={className.closeButton} onClick={this._remove}/>
+          </div> :
+          ''}
+        {buttons.length ?
+          <div className={className.buttons()} onClick={this._remove}>
             {this._renderButtons()}
-          </div>
-          : ''}
+          </div> :
+          ''}
       </div>
     );
   }
