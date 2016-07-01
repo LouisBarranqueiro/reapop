@@ -1,12 +1,12 @@
-import NotificationsSystem from './src/components/NotificationsSystem';
-import {STATUS, POSITIONS} from './src/constants';
+import NotificationsSystem from './components/NotificationsSystem';
+import {STATUS, POSITIONS} from './constants';
 import reducer, {
   actions,
   types,
   addNotification,
   updateNotification,
   removeNotification
-} from './src/store/notifications';
+} from './store/notifications';
 
 export {
   // constants

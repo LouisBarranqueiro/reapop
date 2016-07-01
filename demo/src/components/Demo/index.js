@@ -6,7 +6,7 @@ import RandomNotificationCreator from '../RandomNotificationCreator';
 import NotificationsSystem, {
   addNotification as notify,
   updateNotification
-} from '../../../../index';
+} from '../../../../src';
 import css from './styles.scss';
 import theme from 'reapop-theme-wybo';
 

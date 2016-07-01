@@ -2,7 +2,7 @@
   "name": "reapop",
   "version": "0.2.0",
   "description": "A React and Redux notifications system",
-  "main": "demo/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "cd demo && node index.js",
     "compile": "cd demo && ../node_modules/.bin/webpack --config=./build/webpack.config.js && cp src/index.html dist/ && cp -R src/static dist/",
@@ -19,7 +19,8 @@
     "test:all": "npm run react:14 && npm run react-redux:2 && npm test && npm run react:14 && npm run react-redux:3.1 && npm test && npm run react:15 && npm run react-redux:4 && npm test",
     "test:coverage": "babel-node ./node_modules/karma/bin/karma start ./build/karma.conf.js --reporters mocha,coverage",
     "test:coveralls": "npm test -- --reporters mocha,coverage,coveralls",
-    "test:watch": "npm test -- --singleRun=false --reporters mocha"
+    "test:watch": "npm test -- --singleRun=false --reporters mocha",
+    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
   },
   "repository": {
     "type": "git",
