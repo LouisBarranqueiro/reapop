@@ -1,5 +1,10 @@
 .DS_Store
 node_modules
 .idea
+.travis
+build
 coverage
-demo/dist
+demo
+test
+docs
+src
