@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+.github
 .idea
 .travis
 build
@@ -8,3 +9,8 @@ demo
 test
 docs
 src
+.babelrc
+.eslintignore
+.eslintrc
+.gitignore
+.travis.yml
