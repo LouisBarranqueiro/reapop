@@ -11,5 +11,6 @@ install:
 script:
   - npm run lint
   - npm run test:all
+  - npm run test:coveralls
 after_success:
   - bash .travis/deploy.sh
