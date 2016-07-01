@@ -54,10 +54,10 @@ class Demo extends Component {
       dismissAfter: 0
     });
     setTimeout(function() {
-      notif.message = 'If you got any questions, create an issue on Github repository.';
+      notif.message = 'Resize the window, theme is responsive!';
       notif.dismissAfter = 5000;
       updateNotification(notif);
-    }, 4000);
+    }, 3000);
   }
   
   /**
