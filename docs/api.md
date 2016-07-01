@@ -39,7 +39,7 @@ addNotification(notification);
 | message      | String           |         | Message of the notification |
 | image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
 | status       | String or Number | default | Status of the notification : default, info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the `Notification` component. Of course, you can also use custom status depending on the theme that you use. |
-| position     | String           | tr      | Position of the notification on the screen |
+| position     | String           | tr      | Position of the notification : `t`, `tc`, `tl`, `tr`, `b`, `bc`, `br`, `bl`.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
 | dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number           | 5000    | Time before the notification disappear (ms). Paused when mouse is hovering the notification. 0: infinite. |
 | closeButton  | Boolean          | false   | Display a close button if it is dismissible |
@@ -123,7 +123,7 @@ updateNotification(notification);
 | message      | String           |         | Message of the notification |
 | image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
 | status       | String or Number | default | Status of the notification : default, info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the `Notification` component. Of course, you can also use custom status depending on the theme that you use. |
-| position     | String           | tr      | Position of the notification on the screen |
+| position     | String           | tr      | Position of the notification : `t`, `tc`, `tl`, `tr`, `b`, `bc`, `br`, `bl`.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
 | dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number           | 5000    | Time before the notification disappear (ms). Paused when mouse is hovering the notification. 0: infinite. |
 | closeButton  | Boolean          | false   | Display a close button if it is dismissible |
@@ -405,7 +405,7 @@ You can customizable default values for notifications, by passing an object to `
 | Property     | Type    | Default | Description |
 | ------------ | ------- | ------- | ----------- |
 | status       | String  | null    | Status of the notification : default, info, success, warning, error. These values are available in `STATUS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
-| position     | String  | tr      | Position of the  notification : tl, tr, br, bl.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js|)
+| position     | String  | tr      | Position of the notification : `t`, `tc`, `tl`, `tr`, `b`, `bc`, `br`, `bl`.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
 | dismissible  | Boolean | true    | Define if the notification is dismissible by clicking on it |
 | dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
 | closeButton  | Boolean | False   | Display a close button if notification is dismissible |
