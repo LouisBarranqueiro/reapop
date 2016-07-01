@@ -142,13 +142,13 @@ export class ExpectedNotificationsSystem extends Component {
     notifications: [],
     defaultValues
   };
-  
+
   _renderNotificationsContainers() {
     const {notifications, defaultValues: {position}, theme} = this.props;
     // render all notifications in the same container at the top for small screens
     if (window.innerWidth < theme.smallScreenMin) {
       return (
-        <NotificationsContainer key='top' position='top' defaultValues={defaultValues}
+        <NotificationsContainer key='t' position='t' defaultValues={defaultValues}
           theme={theme} notifications={notifications}/>
       );
     }

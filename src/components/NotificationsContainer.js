@@ -66,7 +66,8 @@ export class NotificationsContainer extends Component {
 
     // when notifications are displayed at the bottom,
     // we display notifications from bottom to top
-    if ([POSITIONS.bottomLeft, POSITIONS.bottomRight].indexOf(position) >= 0) {
+    if ([POSITIONS.bottomLeft, POSITIONS.bottomRight, POSITIONS.bottomCenter, POSITIONS.bottom]
+        .indexOf(position) >= 0) {
       notifications = notifications.reverse();
     }
 

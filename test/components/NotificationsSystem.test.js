@@ -53,13 +53,13 @@ describe('<NotificationsSystem/>', () => {
     expect(wrapper.html()).toEqual(expectedWrapper.html());
   });
 
-  it('should render 4 empty notifications containers (desktop)', () => {
+  it('should render 8 empty notifications containers (desktop)', () => {
     // define the small screen breakpoint under default window width of PhantomJS (400px)
     // to simulate a desktop screen and test a portion of code
     const customTheme = Object.assign({}, theme, {smallScreenMin: 380});
     const wrapper = mount(<NotificationsSystem theme={customTheme}/>);
     const expectedWrapper = mount(<ExpectedNotificationsSystem theme={customTheme}/>);
-    expect(wrapper.find(NotificationsContainer).length).toEqual(4);
+    expect(wrapper.find(NotificationsContainer).length).toEqual(8);
     expect(wrapper.find(Notification).length).toEqual(0);
     expect(wrapper.html()).toEqual(expectedWrapper.html());
   });
@@ -82,7 +82,7 @@ describe('<NotificationsSystem/>', () => {
     expect(wrapper.html()).toEqual(expectedWrapper.html());
   });
 
-  it('should render notifications in 4 notifications containers (desktop)', () => {
+  it('should render notifications in 8 notifications containers (desktop)', () => {
     const notifications = genNotifications(3);
     const store = mockStore({notifications});
     // define the small screen breakpoint under default window width of PhantomJS (400px)
@@ -98,7 +98,7 @@ describe('<NotificationsSystem/>', () => {
         <ExpectedNotificationsSystem notifications={notifications} theme={customTheme}/>
       </Provider>
     );
-    expect(wrapper.find(NotificationsContainer).length).toEqual(4);
+    expect(wrapper.find(NotificationsContainer).length).toEqual(8);
     expect(wrapper.find(Notification).length).toEqual(3);
     expect(wrapper.html()).toEqual(expectedWrapper.html());
   });

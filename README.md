@@ -28,7 +28,7 @@ Tested and works with :
 
 Tested and works with :
 
-![Supported browsers](http://louisbarranqueiro.github.io/reapop/static/images/supported-browsers.jpg)
+![Supported browsers](https://reapop.s3.eu-central-1.amazonaws.com/v0.2.0-supported-browsers.jpg)
 
 ## Demo
 
