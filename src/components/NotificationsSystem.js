@@ -48,7 +48,7 @@ export class NotificationsSystem extends Component {
     // render all notifications in the same container at the top for small screens
     if (window.innerWidth < theme.smallScreenMin) {
       return (
-        <NotificationsContainer key='top' position='top' defaultValues={defaultValues}
+        <NotificationsContainer key='t' position='t' defaultValues={defaultValues}
           theme={theme} notifications={notifications}/>
       );
     }

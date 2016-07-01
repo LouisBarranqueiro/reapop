@@ -281,7 +281,7 @@ class NotificationCreator extends Component {
    * @returns {XML}
    */
   render() {
-    const {title, message, dismissAfter, dismissible, closeButton, allowHTML, buttons} = this.state.notification;
+    const {title, message, position, dismissAfter, dismissible, closeButton, allowHTML, buttons} = this.state.notification;
     return (
       <div>
         <h4 className='text-center'>Notification Creator</h4>
@@ -301,10 +301,14 @@ class NotificationCreator extends Component {
             <div className='row'>
               <div className='col-xs-6'>
                 <label htmlFor='status'>Position</label>
-                <select className='form-control' id='position' name='position'
+                <select className='form-control' id='position' name='position' defaultValue={position}
                   onChange={this._onPositionChange}>
+                  <option value='t'>Top</option>
+                  <option value='tc'>Top center</option>
                   <option value='tr'>Top right</option>
                   <option value='tl'>Top left</option>
+                  <option value='b'>Bottom</option>
+                  <option value='bc'>Bottom center</option>
                   <option value='br'>Bottom right</option>
                   <option value='bl'>Bottom left</option>
                 </select>
