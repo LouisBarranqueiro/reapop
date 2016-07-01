@@ -182,11 +182,13 @@ removeNotification(id);
 
 ### Themes list
 
-| Name      | Style                      | Chrome | Safari | Firefox | IE  | Edge | Opera |
-| --------- | -------------------------- | ------ | ------ | ------- | --- | ---- | ----- |
-| [WYBO][1] | Official theme, flat style | Yes    | Yes    | Yes     | 11+ | Yes  | Yes   |
+| Name           | Style                      | Chrome | Safari | Firefox | IE  | Edge | Opera |
+| -------------- | -------------------------- | ------ | ------ | ------- | --- | ---- | ----- |
+| [WYBO][1]      | Official theme, flat style | Yes    | Yes    | Yes     | 11+ | Yes  | Yes   |
+| [Bootstrap][2] | Bootstrap style            | Yes    | Yes    | Yes     | 11+ | Yes  | Yes   |
 
 [1]: https://github.com/LouisBarranqueiro/reapop-theme-wybo
+[2]: https://github.com/LouisBarranqueiro/reapop-theme-bootstrap
 
 ### Set a theme
 
