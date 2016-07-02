@@ -35,9 +35,38 @@ export class NotificationsSystem extends Component {
   
   constructor(props) {
     super(props);
+    this._updateWindowWidth = this._updateWindowWidth.bind(this);
     this._renderNotificationsContainers = this._renderNotificationsContainers.bind(this);
+    this.state = {
+      windowWidth: window.innerWidth
+    };
   }
-  
+
+  /**
+   * Update window width
+   * @returns {void}
+   * @private
+   */
+  _updateWindowWidth() {
+    this.setState({windowWidth: window.innerWidth});
+  }
+
+  /**
+   * Add resize listener to update window width when the window is resized
+   * @returns {void}
+   */
+  componentDidMount() {
+    window.addEventListener('resize', this._updateWindowWidth);
+  }
+
+  /**
+   * Remove resize listener
+   * @returns {void}
+   */
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._updateWindowWidth);
+  }
+
   /**
    * Render notifications containers
    * @returns {XML}
@@ -45,8 +74,9 @@ export class NotificationsSystem extends Component {
    */
   _renderNotificationsContainers() {
     const {notifications, defaultValues: {position}, theme} = this.props;
+    const {windowWidth} = this.state;
     // render all notifications in the same container at the top for small screens
-    if (window.innerWidth < theme.smallScreenMin) {
+    if (windowWidth < theme.smallScreenMin) {
       return (
         <NotificationsContainer key='t' position='t' defaultValues={defaultValues}
           theme={theme} notifications={notifications}/>
