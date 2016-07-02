@@ -53,7 +53,9 @@ export function Timer(callback, delay) {
  * @returns {Object} a notification
  */
 export function treatNotification(notification) {
-  notification.dismissAfter = parseInt(notification.dismissAfter);
+  if (notification.dismissAfter) {
+    notification.dismissAfter = parseInt(notification.dismissAfter);
+  }
   if (notification.image) {
     notification.status = STATUS.default;
   }
