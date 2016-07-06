@@ -251,7 +251,13 @@ It contains all style files :
 
 It is the core of the theme. This file contains all CSS class names which will be used by Reapop. It's the link between your style and Reapop. 
 
-**Why use this file instead of declare all class names directly in the Reapop module and import only a CSS file?** :
+**Why no inline styles?**
+
+- Inline styles is useful to fix some css rules quickly, but when there are a lot of css rules, it's preferable to use css files to separate style and view. It facilitates the understanding of React component logic.
+- to customize quickly and easily notifications by editing some css :)
+- and for some other points undermentioned
+
+**Why use this file instead of declare all class names directly in the Reapop module and import only a CSS file?**
 
 - to limit the coupling between the theme and Reapop module 
 - to ease the update to a newer version of Reapop
@@ -259,8 +265,7 @@ It is the core of the theme. This file contains all CSS class names which will b
 
 Important rules when you customize or create your own theme :
 - DON'T edit property name of any object because each property name is used by React components of Reapop. If you change one of these, it will not work.
-- If you use [local scope](https://github.com/webpack/css-loader#local-scope) in your style, don't forget to import style to use local indent name of your class. **We greatly recommend you to use local scope.** Example in [reapop-theme-wybo - index.js](https://github.com/LouisBarranqueiro/reapop-theme-wybo/blob/master/index.js#L4)
-- If you theme as dependencies, import these dependencies in this file. Example in [reapop-theme-wybo - index.js](https://github.com/LouisBarranqueiro/reapop-theme-wybo/blob/master/index.js#L3) to import Font Awesome CSS.
+- If you use [local scope](https://github.com/webpack/css-loader#local-scope) in your style, don't forget to import style to use local indent name of your class. Example in [reapop-theme-wybo - index.js](https://github.com/LouisBarranqueiro/reapop-theme-wybo/blob/master/index.js#L4)
 
 **index.js of reapop-theme-wybo** :
 
