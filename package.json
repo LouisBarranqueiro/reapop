@@ -101,6 +101,6 @@
   },
   "dependencies": {
     "lodash": "^4.13.1",
-    "redux-actions": "^0.10.1"
+    "redux-actions": "^0.10.0"
   }
 }
