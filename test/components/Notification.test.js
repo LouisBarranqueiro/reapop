@@ -365,6 +365,37 @@ describe('<Notification/>', () => {
       done();
     }, 15);
   });
+
+  it('should not create an action to remove the notification ' +
+    'while mouse is hovering it', (done) => {
+    notification.dismissAfter = 10;
+    notification.buttons = [];
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectNotification notification={notification} {...otherProps}/>
+      </Provider>
+    ).find(ConnectNotification);
+    const expectedAction = {
+      type: types.REMOVE_NOTIFICATION,
+      payload: notification.id
+    };
+    // hover notification after 5s
+    setTimeout(() => {
+      wrapper.simulate('mouseEnter');
+    }, 5);
+    // check 5ms after `dismissAfter` duration that the store
+    // is empty because mouse is hovering the notification
+    setTimeout(() => {
+      expect(store.getActions()).toEqual([]);
+      // we leave notification
+      wrapper.simulate('mouseLeave');
+    }, 15);
+    // and we check that the store contains an action
+    setTimeout(() => {
+      expect(store.getActions()).toEqual([expectedAction]);
+      done();
+    }, 21);
+  });
   
   it('should not create an action to remove the notification ' +
     'when it is clicked (dismissible : false)', () => {
@@ -421,7 +452,7 @@ describe('<Notification/>', () => {
       done();
     }, 10);
   });
-  
+
   it('should not create an action to remove the notification after ' +
     '`dismissAfter` duration (dismissAfter = 0)', (done) => {
     notification.dismissAfter = 0;
@@ -434,36 +465,5 @@ describe('<Notification/>', () => {
       expect(store.getActions()).toEqual([]);
       done();
     }, 10);
-  });
-  
-  it('should not create an action to remove the notification ' +
-    'while mouse is hovering it', (done) => {
-    notification.dismissAfter = 10;
-    notification.buttons = [];
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
-    ).find(ConnectNotification);
-    const expectedAction = {
-      type: types.REMOVE_NOTIFICATION,
-      payload: notification.id
-    };
-    // hover notification after 5s
-    setTimeout(() => {
-      wrapper.simulate('mouseEnter');
-    }, 5);
-    // check 5s after `dismissAfter` duration that the store
-    // is empty because mouse is hovering the notification
-    setTimeout(() => {
-      expect(store.getActions()).toEqual([]);
-      // we leave notification
-      wrapper.simulate('mouseLeave');
-    }, 15);
-    // and we check that the store contains an action
-    setTimeout(() => {
-      expect(store.getActions()).toEqual([expectedAction]);
-      done();
-    }, 21);
   });
 });
