@@ -23,7 +23,7 @@ export const addNotification = (notification) => (dispatch) => {
 };
 
 // Add a notification (action creator)
-const _addNotification = createAction(ADD_NOTIFICATION, (notification) => notification);
+const _addNotification = createAction(ADD_NOTIFICATION);
 
 // Update a notification (action creator)
 export const updateNotification = createAction(UPDATE_NOTIFICATION, (notification) => {
@@ -34,7 +34,7 @@ export const updateNotification = createAction(UPDATE_NOTIFICATION, (notificatio
 });
 
 // Remove a notification (action creator)
-export const removeNotification = createAction(REMOVE_NOTIFICATION, (id) => id);
+export const removeNotification = createAction(REMOVE_NOTIFICATION);
 
 // Action creators
 export const actions = {
