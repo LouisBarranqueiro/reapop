@@ -32,17 +32,9 @@ class NotificationExamples extends Component {
     let notif = notify({
       title: 'Upload status',
       message: 'Your file is uploading...',
-      status: 'info',
+      status: 'loading',
       dismissible: false,
-      dismissAfter: 0,
-      buttons: [{
-        name: 'OK',
-        primary: true,
-        onClick: function() {
-          alert('You clicked on OK button.');
-        }
-      }]
-
+      dismissAfter: 0
     });
     setTimeout(function() {
       notif.status = 'success';
