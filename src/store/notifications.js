@@ -54,7 +54,8 @@ export const updateNotification = (notification) => (dispatch, getState) => {
 
   // if image is different, then we preload it
   // and update notification when image is loaded
-  if (notification.image && notification.image !== currNotification.image) {
+  if (notification.image && (!currNotification.image || (currNotification.image &&
+    notification.image !== currNotification.image))) {
     preloadImage(notification.image, dispatch.bind(this, _updateNotification(notification)));
   }
   else {
@@ -64,7 +65,7 @@ export const updateNotification = (notification) => (dispatch, getState) => {
 };
 
 // Update a notification (action creator)
-export const _updateNotification = createAction(UPDATE_NOTIFICATION);
+const _updateNotification = createAction(UPDATE_NOTIFICATION);
 
 // Remove a notification (action creator)
 export const removeNotification = createAction(REMOVE_NOTIFICATION);

@@ -42,6 +42,23 @@ describe('notifications', () => {
         expect(store.getActions()).toEqual(expectedAction);
       });
 
+      it('should load image then create an action to add a notification (new image)', (done) => {
+        const notificationAdded = store.dispatch(addNotification(notification));
+        const expectedAction = [{
+          type: types.ADD_NOTIFICATION,
+          payload: notificationAdded
+        }];
+
+        // image not loaded yet, so store should be empty
+        expect(store.getActions()).toEqual([]);
+
+        setTimeout(() => {
+          // image should be loaded now, so store should contains the notification updated
+          expect(store.getActions()).toEqual(expectedAction);
+          done();
+        }, 500);
+      });
+
       it('should create an action to add a notification ' +
         '(add `id` property and don\'t convert status)', () => {
         notification.id = null;
@@ -62,12 +79,10 @@ describe('notifications', () => {
       let store = null;
 
       beforeEach('init store', () => {
-        store = mockStore({notifications: []});
+        store = mockStore({notifications: [notification]});
       });
 
-      it('should create an action to update a notification', () => {
-        // we remove image to not wait loading of image (preload feature)
-        notification.image = null;
+      it('shouldn\'t wait to load image and create an action to update a notification (same image)', () => {
         const expectedAction = [{
           type: types.UPDATE_NOTIFICATION,
           payload: notification
@@ -86,12 +101,56 @@ describe('notifications', () => {
           type: types.UPDATE_NOTIFICATION,
           payload: notification
         };
-        
+
         expect(store.dispatch.bind(store, updateNotification(notification)))
           .toThrow('A notification must have an `id` property to be updated')
           .toNotEqual(expectedAction);
       });
+
+      it('should load image then create an action to update a notification (new image)', (done) => {
+        // add a notification without image in the store
+        notification = genNotification({image: null});
+        store = mockStore({notifications: [notification]});
+        // update notification with an image
+        const notificationUpdated = Object.assign({}, notification, {image: 'http://placehold.it/45x45'});
+        const expectedAction = [{
+          type: types.UPDATE_NOTIFICATION,
+          payload: notificationUpdated
+        }];
+
+        expect(store.getActions()).toEqual([]);
+        store.dispatch(updateNotification(notificationUpdated));
+        // image not loaded yet, so store should be empty
+        expect(store.getActions()).toEqual([]);
+
+        setTimeout(() => {
+          // image should be loaded now, so store should contains the notification updated
+          expect(store.getActions()).toEqual(expectedAction);
+          done();
+        }, 500);
+      });
+
+      it('should load image then create an action to update a notification (image is different)', (done) => {
+        // update notification image url
+        const notificationUpdated = Object.assign({}, notification, {image: 'http://placehold.it/45x45'});
+        const expectedAction = [{
+          type: types.UPDATE_NOTIFICATION,
+          payload: notificationUpdated
+        }];
+
+        expect(store.getActions()).toEqual([]);
+        store.dispatch(updateNotification(notificationUpdated));
+        // image not loaded yet, so store should be empty
+        expect(store.getActions()).toEqual([]);
+
+        setTimeout(() => {
+          // image should be loaded now, so store should contains the notification updated
+          expect(store.getActions()).toEqual(expectedAction);
+          done();
+        }, 500);
+      });
     });
+
 
     describe('removeNotification()', () => {
       it('should create an action to remove a notification', () => {

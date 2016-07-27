@@ -40,7 +40,7 @@ export function genNotification(notification = {}) {
     id: faker.random.number(),
     title: faker.lorem.sentence(),
     message: faker.lorem.sentence(),
-    image: faker.lorem.words(),
+    image: 'http://placehold.it/40x40',
     position: faker.random.objectElement(POSITIONS),
     status: faker.random.objectElement(STATUS),
     dismissible: faker.random.boolean(),
