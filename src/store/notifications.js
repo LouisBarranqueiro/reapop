@@ -1,5 +1,6 @@
 import {handleActions, createAction} from 'redux-actions';
-import {treatNotification} from '../helpers';
+import {treatNotification, preloadImage} from '../helpers';
+
 // An array to store notifications object
 const INITIAL_DATA = [];
 // Action types
@@ -18,20 +19,52 @@ const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
 export const addNotification = (notification) => (dispatch) => {
   notification.id = new Date().getTime();
   notification = treatNotification(notification);
-  dispatch(_addNotification(notification));
+  // if there is an image, we preload it
+  // and add notification when image is loaded
+  if (notification.image) {
+    preloadImage(notification.image, dispatch.bind(this, _addNotification(notification)));
+  }
+  else {
+    dispatch(_addNotification(notification));
+  }
   return notification;
 };
 
 // Add a notification (action creator)
 const _addNotification = createAction(ADD_NOTIFICATION);
 
-// Update a notification (action creator)
-export const updateNotification = createAction(UPDATE_NOTIFICATION, (notification) => {
+/**
+ * Update a notification (thunk action creator)
+ *
+ * We use a thunk here to create an UPDATE_NOTIFICATION action
+ * and only return the notification object.
+ * @param {Object} notification
+ * @returns {Object} notification
+ */
+export const updateNotification = (notification) => (dispatch, getState) => {
   if (!notification.id) {
     throw new Error('A notification must have an `id` property to be updated');
   }
-  return treatNotification(notification);
-});
+
+  const notifications = getState().notifications;
+  const index = notifications.findIndex((oldNotification) => oldNotification.id === notification.id);
+  const currNotification = notifications[index];
+
+  notification = treatNotification(notification);
+
+  // if image is different, then we preload it
+  // and update notification when image is loaded
+  if (notification.image && notification.image !== currNotification.image) {
+    preloadImage(notification.image, dispatch.bind(this, _updateNotification(notification)));
+  }
+  else {
+    dispatch(_updateNotification(notification));
+  }
+  return notification;
+};
+
+// Update a notification (action creator)
+export const _updateNotification = createAction(UPDATE_NOTIFICATION);
 
 // Remove a notification (action creator)
 export const removeNotification = createAction(REMOVE_NOTIFICATION);
@@ -57,9 +90,7 @@ export default handleActions({
   },
   [UPDATE_NOTIFICATION]: (state, {payload}) => {
     // get index of the notification
-    const index = state.findIndex((notification) => {
-      return notification.id === payload.id;
-    });
+    const index = state.findIndex((notification) => notification.id === payload.id);
     // replace the old notification by the new one
     state[index] = Object.assign({}, payload);
     return [...state];
