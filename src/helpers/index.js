@@ -78,5 +78,6 @@ export function preloadImage(url, onload) {
   var image = new Image();
   image.src = url;
   image.onload = onload;
+  return image;
 }
 
