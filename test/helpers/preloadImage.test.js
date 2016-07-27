@@ -1,4 +1,5 @@
 import {preloadImage} from '../../src/helpers';
+
 describe('preloadImage', () => {
   it('should preload image', () => {
     const url = 'http://placehold.it/40x40';
@@ -9,6 +10,7 @@ describe('preloadImage', () => {
     expect(image.src).toEqual(url);
     expect(image.onload()).toEqual(1);
   });
+
   it('should preload image (call `onload` event)', (done) => {
     const spy = expect.createSpy();
     preloadImage('http://placehold.it/40x40', spy);
@@ -17,5 +19,4 @@ describe('preloadImage', () => {
       done();
     }, 500);
   });
-
 });

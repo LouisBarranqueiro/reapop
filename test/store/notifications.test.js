@@ -151,7 +151,6 @@ describe('notifications', () => {
       });
     });
 
-
     describe('removeNotification()', () => {
       it('should create an action to remove a notification', () => {
         const id = faker.random.number();
