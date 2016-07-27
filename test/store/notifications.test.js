@@ -28,7 +28,7 @@ describe('notifications', () => {
         notification.id = null;
         // we remove the image, otherwise `treatNotification()` helper will update
         // status of notification
-        notification.image = '';
+        notification.image = null;
         // here we simulate an HTTP success status code (200 = OK)
         notification.status = 200;
         const notificationAdded = store.dispatch(addNotification(notification));
@@ -45,6 +45,8 @@ describe('notifications', () => {
       it('should create an action to add a notification ' +
         '(add `id` property and don\'t convert status)', () => {
         notification.id = null;
+        // we remove image to not wait loading of image (preload feature)
+        notification.image = null;
         const notificationAdded = store.dispatch(addNotification(notification));
         const expectedAction = [{
           type: types.ADD_NOTIFICATION,
@@ -57,22 +59,35 @@ describe('notifications', () => {
     });
 
     describe('updateNotification()', () => {
+      let store = null;
+
+      beforeEach('init store', () => {
+        store = mockStore({notifications: []});
+      });
+
       it('should create an action to update a notification', () => {
-        const expectedAction = {
+        // we remove image to not wait loading of image (preload feature)
+        notification.image = null;
+        const expectedAction = [{
           type: types.UPDATE_NOTIFICATION,
           payload: notification
-        };
-        expect(updateNotification(notification)).toEqual(expectedAction);
+        }];
+
+        store.dispatch(updateNotification(notification));
+        expect(store.getActions()).toEqual(expectedAction);
       });
 
       it('shouldn\'t create an action to update a notification ' +
         '(notification without `id` property)', () => {
         notification.id = null;
+        // we remove image to not wait loading of image (preload feature)
+        notification.image = null;
         const expectedAction = {
           type: types.UPDATE_NOTIFICATION,
           payload: notification
         };
-        expect(updateNotification.bind(updateNotification, notification))
+        
+        expect(store.dispatch.bind(store, updateNotification(notification)))
           .toThrow('A notification must have an `id` property to be updated')
           .toNotEqual(expectedAction);
       });
