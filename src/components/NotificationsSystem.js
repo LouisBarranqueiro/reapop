@@ -30,7 +30,7 @@ export class NotificationsSystem extends Component {
       notificationsSystem: React.PropTypes.shape({
         className: React.PropTypes.string.isRequired
       })
-    })
+    }).isRequired
   };
   
   constructor(props) {
