@@ -34,6 +34,13 @@ describe('<Notification/>', () => {
     expect(errors.notification).toNotExist();
     expect(errors.removeNotification).toNotExist();
   });
+
+  it('should not validate props', () => {
+    const errors = checkPropTypes({}, Notification.propTypes);
+    expect(errors.className).toExist();
+    expect(errors.notification).toExist();
+    expect(errors.removeNotification).toExist();
+  });
   
   it('should mount with initial state', () => {
     // state component will be init without timer because notification have buttons

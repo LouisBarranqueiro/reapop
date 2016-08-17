@@ -36,6 +36,14 @@ describe('<NotificationsContainer/>', () => {
     expect(errors.theme).toNotExist();
   });
 
+  it('should not validate props', () => {
+    const errors = checkPropTypes({}, NotificationsContainer.propTypes);
+    expect(errors.notifications).toExist();
+    expect(errors.position).toExist();
+    expect(errors.defaultValues).toExist();
+    expect(errors.theme).toExist();
+  });
+
   it('should mount with default props', () => {
     const wrapper = mount(
       <NotificationsContainer position={POSITIONS.topLeft} {...otherProps}/>

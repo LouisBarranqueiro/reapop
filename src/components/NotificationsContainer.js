@@ -21,23 +21,23 @@ export class NotificationsContainer extends Component {
       dismissAfter: React.PropTypes.number.isRequired,
       closeButton: React.PropTypes.bool.isRequired,
       allowHTML: React.PropTypes.bool.isRequired
-    }),
+    }).isRequired,
     theme: React.PropTypes.shape({
       notificationsContainer: React.PropTypes.shape({
         className: React.PropTypes.shape({
           main: React.PropTypes.string.isRequired,
           position: React.PropTypes.func.isRequired
-        }),
+        }).isRequired,
         transition: React.PropTypes.shape({
           name: React.PropTypes.object.isRequired,
           enterTimeout: React.PropTypes.number.isRequired,
           leaveTimeout: React.PropTypes.number.isRequired
-        })
-      }),
+        }).isRequired
+      }).isRequired,
       notification: React.PropTypes.shape({
         className: React.PropTypes.object.isRequired
-      })
-    })
+      }).isRequired
+    }).isRequired
   };
   
   /**

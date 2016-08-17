@@ -37,7 +37,7 @@ export class Notification extends Component {
       buttons: React.PropTypes.func.isRequired,
       button: React.PropTypes.string.isRequired,
       buttonText: React.PropTypes.string.isRequired
-    }),
+    }).isRequired,
     notification: React.PropTypes.shape({
       id: React.PropTypes.number.isRequired,
       title: React.PropTypes.string,
@@ -55,9 +55,9 @@ export class Notification extends Component {
           name: React.PropTypes.string.isRequired,
           onClick: React.PropTypes.func
         })
-      ),
-      allowHTML: React.PropTypes.bool
-    }),
+      ).isRequired,
+      allowHTML: React.PropTypes.bool.isRequired
+    }).isRequired,
     removeNotification: React.PropTypes.func.isRequired
   };
   
