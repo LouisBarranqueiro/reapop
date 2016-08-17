@@ -23,12 +23,16 @@ describe('<Notification/>', () => {
     store = mockStore({notifications: []});
   });
   
-  it('should not throw error during propTypes validation', () => {
-    checkPropTypes({
+  it('should validate props', () => {
+    const errors = checkPropTypes({
       className,
       notification,
       removeNotification
-    }, Notification.propTypes, true);
+    }, Notification.propTypes);
+
+    expect(errors.className).toNotExist();
+    expect(errors.notification).toNotExist();
+    expect(errors.removeNotification).toNotExist();
   });
   
   it('should mount with initial state', () => {
