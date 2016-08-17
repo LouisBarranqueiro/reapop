@@ -76,26 +76,26 @@ export function genNotification(notification = {}) {
  * @returns {void}
  */
 export function checkPropTypes(object, propTypes) {
+  let errors = {};
   let propName;
   // Check if object have the same property that propTypes (depth: 1 is enough)
   // if you remove a propType validation inadvertently, it will throw an error
   for (propName in object) {
     if (!propTypes.hasOwnProperty(propName)) {
-      throw new Error(`${propName} prop is not validated by propTypes`);
+      errors[propName] = 'prop is not validated by propTypes';
     }
   }
 
   // Check if object have the same property that propTypes object
   // and if it have the correct type
   for (propName in propTypes) {
-    if (propTypes.hasOwnProperty(propName) && (object.hasOwnProperty(propName))) {
+    if (propTypes.hasOwnProperty(propName)) {
       let error = propTypes[propName](object, propName, JSON.stringify(object), 'prop');
       if (error) {
-        throw error;
+        errors[propName] = error.message;
       }
     }
-    else {
-      throw new Error(`${propName} prop is required`);
-    }
   }
+
+  return errors;
 }

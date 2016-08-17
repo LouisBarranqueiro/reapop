@@ -16,13 +16,24 @@ describe('<NotificationsSystem/>', () => {
   const otherProps = {
     theme
   };
-
-  it('should not throw error during propTypes validation', () => {
-    checkPropTypes({
+  
+  it('should validate props', () => {
+    const errors = checkPropTypes({
       notifications: [],
       theme,
       defaultValues
-    }, NotificationsSystem.propTypes, true);
+    }, NotificationsSystem.propTypes);
+
+    expect(errors.notifications).toNotExist();
+    expect(errors.theme).toNotExist();
+    expect(errors.defaultValues).toNotExist();
+  });
+
+  it('should not validate props', () => {
+    const errors = checkPropTypes({}, NotificationsSystem.propTypes);
+    expect(errors.notifications).toExist();
+    expect(errors.theme).toExist();
+    expect(errors.defaultValues).toExist();
   });
 
   it('should mount with default props', () => {
