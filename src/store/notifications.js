@@ -17,7 +17,9 @@ const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
  * @returns {Object} notification
  */
 export const addNotification = (notification) => (dispatch) => {
-  notification.id = new Date().getTime();
+  if (notification.id === undefined) {
+    notification.id = new Date().getTime();
+  }
   notification = treatNotification(notification);
   // if there is an image, we preload it
   // and add notification when image is loaded
