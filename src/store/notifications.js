@@ -17,7 +17,7 @@ const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
  * @returns {Object} notification
  */
 export const addNotification = (notification) => (dispatch) => {
-  if (notification.id === undefined) {
+  if (!notification.id) {
     notification.id = new Date().getTime();
   }
   notification = treatNotification(notification);
