@@ -35,6 +35,7 @@ addNotification(notification);
  
 | Property     | Type             | Default | Description |
 | ------------ | ---------------- | ------- | ----------- |
+| id           | String or Number |         | ID of the notification. If not provided during creation, will be generated automatically using the current timestamp. |
 | title        | String           |         | Title of the notification |
 | message      | String           |         | Message of the notification |
 | image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
@@ -119,6 +120,7 @@ updateNotification(notification);
  
 | Property     | Type             | Default | Description |
 | ------------ | ---------------- | ------- | ----------- |
+| id           | String or Number |         | ID of the notification.  |
 | title        | String           |         | Title of the notification |
 | message      | String           |         | Message of the notification |
 | image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
@@ -176,7 +178,7 @@ removeNotification(id);
 
 | Parameter   | Type   | Description |
 | ----------- | ------ | ----------- |
-| id          | Number | id of the notification |
+| id          | String or Number | ID of the notification |
 
 ## Theme
 

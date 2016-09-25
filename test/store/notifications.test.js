@@ -24,7 +24,28 @@ describe('notifications', () => {
       });
 
       it('should create an action to add a notification ' +
-        '(add `id` property and convert status)', () => {
+        '(add `id` property if not given and convert status)', () => {
+        const customId = 'ACTION_ID';
+        notification.id = customId;
+        // we remove the image, otherwise `treatNotification()` helper will update
+        // status of notification
+        notification.image = null;
+        // here we simulate an HTTP success status code (200 = OK)
+        notification.status = 200;
+        const notificationAdded = store.dispatch(addNotification(notification));
+        const expectedAction = [{
+          type: types.ADD_NOTIFICATION,
+          payload: Object.assign({}, notification, {
+            id: notificationAdded.id,
+            status: SUCCESS_STATUS
+          })
+        }];
+        expect(notificationAdded.id).toEqual(customId);
+        expect(store.getActions()).toEqual(expectedAction);
+      });
+
+      it('should create an action to add a notification ' +
+        '(and convert status)', () => {
         notification.id = null;
         // we remove the image, otherwise `treatNotification()` helper will update
         // status of notification
