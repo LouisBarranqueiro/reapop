@@ -35,7 +35,7 @@ addNotification(notification);
  
 | Property     | Type             | Default | Description |
 | ------------ | ---------------- | ------- | ----------- |
-| id           | Object           |         | ID of the notification. If not provided during creation, will be generated automatically using the current timestamp. |
+| id           | String or Number |         | ID of the notification. If not provided during creation, will be generated automatically using the current timestamp. |
 | title        | String           |         | Title of the notification |
 | message      | String           |         | Message of the notification |
 | image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
@@ -114,13 +114,13 @@ updateNotification(notification);
 
 | Parameter    | Type     | Description |
 | ------------ | -------- | ----------- |
-| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-object-properties-1) object or ID of the notification |
+| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-object-properties-1) object |
 
 #### Notification object properties
  
 | Property     | Type             | Default | Description |
 | ------------ | ---------------- | ------- | ----------- |
-| id           | Object           |         | ID of the notification.  |
+| id           | String or Number |         | ID of the notification.  |
 | title        | String           |         | Title of the notification |
 | message      | String           |         | Message of the notification |
 | image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
@@ -178,7 +178,7 @@ removeNotification(id);
 
 | Parameter   | Type   | Description |
 | ----------- | ------ | ----------- |
-| id          | Object | ID of the notification |
+| id          | String or Number | ID of the notification |
 
 ## Theme
 
