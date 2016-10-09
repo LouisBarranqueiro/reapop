@@ -45,20 +45,20 @@ export class ExpectedNotification extends Component {
     const isDismissible = (dismissible && buttons.length === 0);
 
     return (
-      <div className={
-        `${className.main} ${className.status(status)}
-        ${(isDismissible && !closeButton ? className.dismissible : '')}
-        ${className.buttons(buttons.length)}`}>
+      <div className={className.wrapper}>
+        <div className={`${className.main} ${className.status(status)} ` +
+          `${(isDismissible && !closeButton ? className.dismissible : '')} ` +
+          `${className.buttons(buttons.length)}`}>
         {image ?
           <div className={className.imageContainer}>
-            <span className={className.image} style={{backgroundImage: `url(${image})`}}></span>
+            <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
           </div> :
           <span className={className.icon}></span>
         }
         <div className={className.meta}>
           {title ?
             allowHTML ?
-              <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}></h4> :
+              <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/> :
               <h4 className={className.title}>{title}</h4> :
             ''}
           {message ?
@@ -69,7 +69,7 @@ export class ExpectedNotification extends Component {
         </div>
         {isDismissible && closeButton ?
           <div className={className.closeButtonContainer}>
-            <span className={className.closeButton}></span>
+            <span className={className.closeButton}/>
           </div> :
           ''}
         {buttons.length ?
@@ -77,6 +77,7 @@ export class ExpectedNotification extends Component {
             {this._renderButtons()}
           </div> :
           ''}
+      </div>
       </div>
     );
   }
@@ -122,13 +123,13 @@ export class ExpectedNotificationsContainer extends Component {
   
   render() {
     const {
-      className, transition: {name, appearTimeout, enterTimeout, leaveTimeout}
+      className, transition: {name, enterTimeout, leaveTimeout}
     } = this.props.theme.notificationsContainer;
     const {position} = this.props;
+    
     return (
       <div className={`${className.main} ${className.position(position)}`}>
-        <TransitionGroup transitionName={name} transitionAppear={true}
-          transitionAppearTimeout={appearTimeout} transitionEnterTimeout={enterTimeout}
+        <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
           transitionLeaveTimeout={leaveTimeout}>
           {this._renderNotifications()}
         </TransitionGroup>
