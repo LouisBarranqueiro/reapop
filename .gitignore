@@ -4,3 +4,4 @@ node_modules
 coverage
 demo/dist
 lib
+*.log
