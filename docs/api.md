@@ -274,7 +274,7 @@ Important rules when you customize or create your own theme :
 ``` js
 'use strict';
 
-var css = require('./src/styles/styles.scss');
+var css = require('./src/styles/styles.css');
 
 // media breakpoint - small screen min width
 var smallScreenMin = 768;
@@ -292,21 +292,17 @@ var notificationsContainerClassName = {
 
 // default transition for Notification component
 var notificationsContainerTransition = {
-  appearTimeout: 400,
-  enterTimeout: 400,
-  leaveTimeout: 400,
+  enterTimeout: 500,
+  leaveTimeout: 900,
   name: {
-    appear: css['notification-appear'],
-    appearActive: css['notification-appear-active'],
     enter: css['notification-enter'],
-    enterActive: css['notification-enter-active'],
-    leave: css['notification-leave'],
-    leaveActive: css['notification-leave-active']
+    leave: css['notification-leave']
   }
 };
 
 // default className for Notification component
 var notificationClassName = {
+  wrapper: css['notification-wrapper'],
   main: css['notification'],
   meta: css['notification-meta'],
   title: css['notification-title'],
@@ -390,18 +386,19 @@ This object allow you to configure style of `Notification` component.
 
 | Property             | Type     | Description |
 | --------------       | -------- | ----------- |
-| main                 | String   | Applied on root notification container. |
+| wrapper              | String   | Wrap notification container. It give more possibilities to animate notifications because the notification container have properties like `display:table;` that does not allow height resize as an example.  |
+| main                 | String   | Applied on notification container. |
 | meta                 | String   | Applied on notification meta container. |
 | title                | String   | Applied on notification title container. |
 | message              | String   | Applied on notification message container. |
 | icon                 | String   | Applied on notification icon container. |
 | imageContainer       | String   | Applied on notification image container. |
 | image                | String   | Applied on notification image. image is set as a background |
-| status               | Function | Applied on root notification container. Use to stylize the notification depending on its status. |
+| status               | Function | Applied on notification container. Use to stylize the notification depending on its status. |
 | dismissible          | String   | Applied on notification dismissible container. |
 | closeButtonContainer | Function | Applied on notification close button container |
 | closeButton          | Function | Applied on notification close button |
-| buttons              | Function | Applied on root notification container to stylize the notification depending on number of buttons it has; and on notification buttons container. |
+| buttons              | Function | Applied on notification container to stylize the notification depending on number of buttons it has; and on notification buttons container. |
 | button               | String   | Applied on notification button container. |
 | buttonText           | String   | Applied on container of text of notification button. |
 
