@@ -21,6 +21,9 @@ const webpackConfig = {
       test: /\.json$/,
       loader: 'json'
     }, {
+      test: /\.css$/,
+      loaders: ['style', CSSModulesLoader]
+    }, {
       test: /\.scss$/,
       loaders: ['style', CSSModulesLoader, 'sass']
     }, {

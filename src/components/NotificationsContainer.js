@@ -100,13 +100,13 @@ export class NotificationsContainer extends Component {
    */
   render() {
     const {
-      className, transition: {name, appearTimeout, enterTimeout, leaveTimeout}
+      className, transition: {name, enterTimeout, leaveTimeout}
     } = this.props.theme.notificationsContainer;
     const {position} = this.props;
+
     return (
       <div className={`${className.main} ${className.position(position)}`}>
-        <TransitionGroup transitionName={name} transitionAppear={true}
-          transitionAppearTimeout={appearTimeout} transitionEnterTimeout={enterTimeout}
+        <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
           transitionLeaveTimeout={leaveTimeout}>
           {this._renderNotifications()}
         </TransitionGroup>

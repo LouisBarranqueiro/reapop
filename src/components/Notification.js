@@ -24,6 +24,7 @@ export class Notification extends Component {
   static propTypes = {
     className: React.PropTypes.shape({
       main: React.PropTypes.string.isRequired,
+      wrapper: React.PropTypes.string.isRequired,
       meta: React.PropTypes.string.isRequired,
       title: React.PropTypes.string.isRequired,
       message: React.PropTypes.string.isRequired,
@@ -195,40 +196,41 @@ export class Notification extends Component {
     }
     
     return (
-      <div className={
-        `${className.main} ${className.status(status)}
-        ${(isDismissible && !closeButton ? className.dismissible : '')}
-        ${className.buttons(buttons.length)}`}
+      <div className={className.wrapper}
         onClick={isDismissible && !closeButton ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
         onMouseLeave={timer ? this._resumeTimer : ''}>
-        {image ?
-          <div className={className.imageContainer}>
-            <span className={className.image} style={{backgroundImage: `url(${image})`}}></span>
-          </div> :
-          <span className={className.icon}></span>
-        }
-        <div className={className.meta}>
-          {title ?
-            allowHTML ?
-              <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}></h4> :
-              <h4 className={className.title}>{title}</h4> :
+        <div className={`${className.main} ${className.status(status)} ` +
+          `${(isDismissible && !closeButton ? className.dismissible : '')} ` +
+          `${className.buttons(buttons.length)}`}>
+          {image ?
+            <div className={className.imageContainer}>
+              <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
+            </div> :
+            <span className={className.icon}/>
+          }
+          <div className={className.meta}>
+            {title ?
+              allowHTML ?
+                <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/> :
+                <h4 className={className.title}>{title}</h4> :
+              ''}
+            {message ?
+              allowHTML ?
+                <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/> :
+                <p className={className.message}>{message}</p> :
+              ''}
+          </div>
+          {isDismissible && closeButton ?
+            <div className={className.closeButtonContainer}>
+              <span className={className.closeButton} onClick={this._remove}/>
+            </div> :
             ''}
-          {message ?
-            allowHTML ?
-              <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/> :
-              <p className={className.message}>{message}</p> :
+          {buttons.length ?
+            <div className={className.buttons()} onClick={this._remove}>
+              {this._renderButtons()}
+            </div> :
             ''}
         </div>
-        {isDismissible && closeButton ?
-          <div className={className.closeButtonContainer}>
-            <span className={className.closeButton} onClick={this._remove}/>
-          </div> :
-          ''}
-        {buttons.length ?
-          <div className={className.buttons()} onClick={this._remove}>
-            {this._renderButtons()}
-          </div> :
-          ''}
       </div>
     );
   }
