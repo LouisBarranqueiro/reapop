@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import _ from 'lodash';
+import {mapObjectValues} from '../helpers';
 import Notification from './Notification';
 import {POSITIONS} from '../constants';
 
@@ -16,7 +16,7 @@ export class NotificationsContainer extends Component {
     position: React.PropTypes.string.isRequired,
     defaultValues: React.PropTypes.shape({
       status: React.PropTypes.string.isRequired,
-      position: React.PropTypes.oneOf(_.values(POSITIONS)),
+      position: React.PropTypes.oneOf(mapObjectValues(POSITIONS)),
       dismissible: React.PropTypes.bool.isRequired,
       dismissAfter: React.PropTypes.number.isRequired,
       closeButton: React.PropTypes.bool.isRequired,
