@@ -133,4 +133,4 @@ export default (state = INITIAL_STATE, {type, payload}) => {
     default:
       return state;
   }
-}
+};
