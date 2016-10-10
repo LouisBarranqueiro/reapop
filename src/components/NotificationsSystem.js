@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import _ from 'lodash';
+import {mapObjectValues} from '../helpers';
 import NotificationsContainer from './NotificationsContainer';
 import {STATUS, POSITIONS} from '../constants';
 
@@ -82,7 +82,7 @@ export class NotificationsSystem extends Component {
           theme={theme} notifications={notifications}/>
       );
     }
-    let positions = _.values(POSITIONS);
+    let positions = mapObjectValues(POSITIONS);
     // extract the default position of all positions
     positions.splice(positions.indexOf(position), 1);
     let notifs = notifications.filter((notif) => {

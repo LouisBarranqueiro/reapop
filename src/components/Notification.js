@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import _ from 'lodash';
-import {Timer} from '../helpers';
+import {Timer, mapObjectValues} from '../helpers';
 import {removeNotification} from '../store/notifications';
 import {POSITIONS} from '../constants';
 
@@ -45,7 +44,7 @@ export class Notification extends Component {
       message: React.PropTypes.string,
       image: React.PropTypes.string,
       status: React.PropTypes.string.isRequired,
-      position: React.PropTypes.oneOf(_.values(POSITIONS)),
+      position: React.PropTypes.oneOf(mapObjectValues(POSITIONS)),
       dismissAfter: React.PropTypes.number.isRequired,
       dismissible: React.PropTypes.bool.isRequired,
       onAdd: React.PropTypes.func,

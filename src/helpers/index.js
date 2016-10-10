@@ -81,3 +81,18 @@ export function preloadImage(url, onload) {
   return image;
 }
 
+/**
+ * Return values of an Object in an Array
+ * @param {Object} obj
+ * @returns {Array}
+ */
+export function mapObjectValues(obj) {
+  var array = [];
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      array.push(obj[key]);
+    }
+  }
+  return array;
+}
