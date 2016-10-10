@@ -196,7 +196,8 @@ export class Notification extends Component {
     
     return (
       <div className={className.wrapper}
-        onClick={isDismissible && !closeButton ? this._remove : ''} onMouseEnter={timer ? this._pauseTimer : ''}
+        onClick={isDismissible && !closeButton ? this._remove : ''}
+        onMouseEnter={timer ? this._pauseTimer : ''}
         onMouseLeave={timer ? this._resumeTimer : ''}>
         <div className={`${className.main} ${className.status(status)} ` +
           `${(isDismissible && !closeButton ? className.dismissible : '')} ` +
@@ -205,18 +206,18 @@ export class Notification extends Component {
             <div className={className.imageContainer}>
               <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
             </div> :
-            <span className={className.icon}/>
+              <span className={className.icon}/>
           }
           <div className={className.meta}>
             {title ?
               allowHTML ?
                 <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/> :
-                <h4 className={className.title}>{title}</h4> :
+                  <h4 className={className.title}>{title}</h4> :
               ''}
             {message ?
               allowHTML ?
                 <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/> :
-                <p className={className.message}>{message}</p> :
+                  <p className={className.message}>{message}</p> :
               ''}
           </div>
           {isDismissible && closeButton ?

@@ -23,8 +23,8 @@ class Input extends Component {
         <input type='checkbox' className={css['onoffswitch-checkbox']} id={name} name={name}
           onChange={onChange} checked={checked} {...variable}/>
         <label className={css['onoffswitch-label']} htmlFor={name}>
-          <span className={css['onoffswitch-inner']}></span>
-          <span className={css['onoffswitch-switch']}></span>
+          <span className={css['onoffswitch-inner']}/>
+          <span className={css['onoffswitch-switch']}/>
         </label>
       </div>
     );
