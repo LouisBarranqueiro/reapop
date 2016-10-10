@@ -294,8 +294,7 @@ class NotificationCreator extends Component {
           <div className='form-group'>
             <label htmlFor='message'>Message</label>
             <textarea className='form-control' id='message' value={message}
-              onChange={this._onMessageChange}>
-            </textarea>
+              onChange={this._onMessageChange}/>
           </div>
           <div className='form-group'>
             <div className='row'>
