@@ -28,7 +28,7 @@ export class NotificationsSystem extends Component {
     theme: React.PropTypes.shape({
       smallScreenMin: React.PropTypes.number.isRequired,
       notificationsSystem: React.PropTypes.shape({
-        className: React.PropTypes.string.isRequired
+        className: React.PropTypes.string
       })
     }).isRequired
   };
