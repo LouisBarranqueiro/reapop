@@ -60,7 +60,7 @@ export class Notification extends Component {
     }).isRequired,
     removeNotification: React.PropTypes.func.isRequired
   };
-  
+
   /**
    * Constructor
    * Bind methods
@@ -77,7 +77,7 @@ export class Notification extends Component {
       timer: createTimer(dismissAfter, buttons, this._remove)
     };
   }
-  
+
   /**
    * Run `onAdd` callback function when component is mounted
    * @returns {void}
@@ -88,7 +88,7 @@ export class Notification extends Component {
       onAdd();
     }
   }
-  
+
   /**
    * Run `onRemove` callback function when component will unmount
    * @returns {void}
@@ -99,7 +99,7 @@ export class Notification extends Component {
       onRemove();
     }
   }
-  
+
   /**
    * Update timer
    * @param {Object} nextProps
@@ -111,7 +111,7 @@ export class Notification extends Component {
       timer: createTimer(dismissAfter, buttons, this._remove)
     });
   }
-  
+
   /**
    * Remove the notification
    * @private
@@ -121,7 +121,7 @@ export class Notification extends Component {
     const {removeNotification, notification: {id}} = this.props;
     removeNotification(id);
   }
-  
+
   /**
    * Pauses the timer
    * @returns {void}
@@ -131,7 +131,7 @@ export class Notification extends Component {
     const {timer} = this.state;
     timer.pause();
   }
-  
+
   /**
    * Resumes the timer
    * @returns {void}
@@ -141,7 +141,7 @@ export class Notification extends Component {
     const {timer} = this.state;
     timer.resume();
   }
-  
+
   /**
    * Wrap content in an object ready for HTML
    * @param {String} content a text
@@ -153,7 +153,7 @@ export class Notification extends Component {
       __html: content
     };
   }
-  
+
   /**
    * Render button(s)
    * @returns {*}
@@ -163,7 +163,7 @@ export class Notification extends Component {
       className,
       notification: {buttons}
     } = this.props;
-    
+
     return buttons.map((button) => {
       return (
         <button key={button.name} className={className.button} onClick={button.onClick}>
@@ -177,7 +177,7 @@ export class Notification extends Component {
       );
     });
   }
-  
+
   /**
    * Render
    * @returns {XML}
@@ -189,11 +189,11 @@ export class Notification extends Component {
     } = this.props;
     const {timer} = this.state;
     const isDismissible = (dismissible && buttons.length === 0);
-    
+
     if (timer) {
       this._resumeTimer();
     }
-    
+
     return (
       <div className={className.wrapper}
         onClick={isDismissible && !closeButton ? this._remove : ''}
@@ -206,18 +206,18 @@ export class Notification extends Component {
             <div className={className.imageContainer}>
               <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
             </div> :
-              <span className={className.icon}/>
+            <span className={className.icon}/>
           }
           <div className={className.meta}>
             {title ?
               allowHTML ?
                 <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/> :
-                  <h4 className={className.title}>{title}</h4> :
+                <h4 className={className.title}>{title}</h4> :
               ''}
             {message ?
               allowHTML ?
                 <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/> :
-                  <p className={className.message}>{message}</p> :
+                <p className={className.message}>{message}</p> :
               ''}
           </div>
           {isDismissible && closeButton ?
