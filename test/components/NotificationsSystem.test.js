@@ -50,10 +50,13 @@ describe('<NotificationsSystem/>', () => {
       dismissAfter: 99999,
       allowHTML: true
     };
-    const props = mount(<NotificationsSystem
-      defaultValues={customDefaultValue} {...otherProps}/>).props();
+    const wrapper = mount(<NotificationsSystem
+      defaultValues={customDefaultValue} {...otherProps}/>);
+    const props = wrapper.props();
     expect(props.defaultValues).toEqual(customDefaultValue);
     expect(props.defaultValues).toNotEqual(defaultValues);
+    expect(wrapper.find(NotificationsContainer).props().defaultValues).toEqual(customDefaultValue);
+    expect(wrapper.find(NotificationsContainer).props().defaultValues).toNotEqual(defaultValues);
   });
 
   it('should render 1 empty notifications container (mobile)', () => {

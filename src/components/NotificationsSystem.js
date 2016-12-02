@@ -73,7 +73,8 @@ export class NotificationsSystem extends Component {
    * @private
    */
   _renderNotificationsContainers() {
-    const {notifications, defaultValues: {position}, theme} = this.props;
+    const {notifications, defaultValues, theme} = this.props;
+    const {position} = defaultValues;
     const {windowWidth} = this.state;
     // render all notifications in the same container at the top for small screens
     if (windowWidth < theme.smallScreenMin) {
