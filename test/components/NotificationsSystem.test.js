@@ -16,7 +16,7 @@ describe('<NotificationsSystem/>', () => {
   const otherProps = {
     theme
   };
-  
+
   it('should validate props', () => {
     const errors = checkPropTypes({
       notifications: [],
@@ -55,8 +55,9 @@ describe('<NotificationsSystem/>', () => {
     const props = wrapper.props();
     expect(props.defaultValues).toEqual(customDefaultValue);
     expect(props.defaultValues).toNotEqual(defaultValues);
-    expect(wrapper.find(NotificationsContainer).props().defaultValues).toEqual(customDefaultValue);
-    expect(wrapper.find(NotificationsContainer).props().defaultValues).toNotEqual(defaultValues);
+    const containerProps = wrapper.find(NotificationsContainer).props();
+    expect(containerProps.defaultValues).toEqual(customDefaultValue);
+    expect(containerProps.defaultValues).toNotEqual(defaultValues);
   });
 
   it('should render 1 empty notifications container (mobile)', () => {
