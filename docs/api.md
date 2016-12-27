@@ -4,6 +4,7 @@
     * [Add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#add-a-notification)
     * [Update a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-a-notification)
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
+    * [Remove all notifications](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-all-notifications)
 * [Customize default values for notifications](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#customize-default-values-for-notifications)
 * [Theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme)
     * [Themes list](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#themes-list)
@@ -191,6 +192,17 @@ removeNotification(id);
 
 [1]: https://github.com/LouisBarranqueiro/reapop-theme-wybo
 [2]: https://github.com/LouisBarranqueiro/reapop-theme-bootstrap
+
+### Remove all notifications
+
+Removing all notifications is done with `removeNotifications` (action creator) function.
+
+#### Syntax
+
+``` js
+removeNotifications();
+```
+
 
 ### Set a theme
 
