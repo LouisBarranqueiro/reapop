@@ -236,7 +236,7 @@ describe('notifications', () => {
     it('should handle REMOVE_NOTIFICATIONS', () => {
       expect(
         reducer([notification], {
-          type: types.REMOVE_NOTIFICATIONS,
+          type: types.REMOVE_NOTIFICATIONS
         })
       ).toEqual([]);
     });

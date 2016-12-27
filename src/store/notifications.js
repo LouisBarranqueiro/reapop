@@ -110,9 +110,9 @@ export function removeNotification(notification) {
  * @returns {{type: string}}
  */
 export function removeNotifications() {
-    return {
-        type: REMOVE_NOTIFICATIONS
-    };
+  return {
+    type: REMOVE_NOTIFICATIONS
+  };
 }
 
 // Action creators
@@ -145,7 +145,7 @@ export default (state = INITIAL_STATE, {type, payload}) => {
     case REMOVE_NOTIFICATION:
       return state.filter((notification) => notification.id !== payload);
     case REMOVE_NOTIFICATIONS:
-        return [];
+      return [];
     default:
       return state;
   }
