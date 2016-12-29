@@ -64,7 +64,7 @@ export class NotificationsSystem extends Component {
     const {notifications, theme} = this.props;
     const {windowWidth} = this.state;
     const positions = mapObjectValues(POSITIONS);
-    const containers = []
+    const containers = [];
 
     // render all notifications in the same container at the top for small screens
     if (windowWidth < theme.smallScreenMin) {
