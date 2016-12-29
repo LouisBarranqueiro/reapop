@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import {mapObjectValues} from '../helpers';
 import Notification from './Notification';
 import {POSITIONS} from '../constants';
 
@@ -14,14 +13,6 @@ export class NotificationsContainer extends Component {
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
     position: React.PropTypes.string.isRequired,
-    defaultValues: React.PropTypes.shape({
-      status: React.PropTypes.string.isRequired,
-      position: React.PropTypes.oneOf(mapObjectValues(POSITIONS)),
-      dismissible: React.PropTypes.bool.isRequired,
-      dismissAfter: React.PropTypes.number.isRequired,
-      closeButton: React.PropTypes.bool.isRequired,
-      allowHTML: React.PropTypes.bool.isRequired
-    }).isRequired,
     theme: React.PropTypes.shape({
       notificationsContainer: React.PropTypes.shape({
         className: React.PropTypes.shape({
@@ -39,7 +30,7 @@ export class NotificationsContainer extends Component {
       }).isRequired
     }).isRequired
   };
-  
+
   /**
    * Constructor
    * Bind methods
@@ -50,7 +41,7 @@ export class NotificationsContainer extends Component {
     super(props);
     this._renderNotifications = this._renderNotifications.bind(this);
   }
-  
+
   /**
    * Render notifications
    * @private
@@ -59,8 +50,10 @@ export class NotificationsContainer extends Component {
   _renderNotifications() {
     // get all notifications and default values for notifications
     const {
-      position, theme: {notification: {className}},
-      defaultValues: {status, dismissible, dismissAfter, closeButton, allowHTML}
+      position,
+      theme: {
+        notification: {className}
+      }
     } = this.props;
     let {notifications} = this.props;
 
@@ -71,29 +64,11 @@ export class NotificationsContainer extends Component {
       notifications = notifications.reverse();
     }
 
-    return notifications.map((notification) => {
-      // Define default values for notification if it's needed
-      if (!notification.status) {
-        notification.status = status;
-      }
-      if (typeof notification.dismissible !== 'boolean') {
-        notification.dismissible = dismissible;
-      }
-      if (typeof notification.dismissAfter !== 'number') {
-        notification.dismissAfter = dismissAfter;
-      }
-      if (typeof notification.closeButton !== 'boolean') {
-        notification.closeButton = closeButton;
-      }
-      if (typeof notification.allowHTML !== 'boolean') {
-        notification.allowHTML = allowHTML;
-      }
-      return (
-        <Notification key={notification.id} notification={notification} className={className}/>
-      );
-    });
+    return notifications.map((notification) => (
+      <Notification key={notification.id} notification={notification} className={className}/>
+    ));
   }
-  
+
   /**
    * Render
    * @returns {XML}
@@ -106,7 +81,9 @@ export class NotificationsContainer extends Component {
 
     return (
       <div className={`${className.main} ${className.position(position)}`}>
-        <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
+        <TransitionGroup
+          transitionName={name}
+          transitionEnterTimeout={enterTimeout}
           transitionLeaveTimeout={leaveTimeout}>
           {this._renderNotifications()}
         </TransitionGroup>

@@ -31,3 +31,13 @@ export const POSITIONS = {
   bottomLeft: BOTTOM_LEFT_POSITION,
   bottomRight: BOTTOM_RIGHT_POSITION
 };
+
+// default value for notifications
+export const DEFAULT_NOTIFICATION = {
+  status: DEFAULT_STATUS,
+  position: TOP_RIGHT_POSITION,
+  dismissible: true,
+  dismissAfter: 5000,
+  allowHTML: false,
+  closeButton: false
+};

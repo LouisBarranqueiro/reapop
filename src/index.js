@@ -1,5 +1,5 @@
 import NotificationsSystem from './components/NotificationsSystem';
-import {STATUS, POSITIONS} from './constants';
+import {STATUS, POSITIONS, DEFAULT_NOTIFICATION} from './constants';
 import reducer, {
   actions,
   types,
@@ -11,6 +11,8 @@ import reducer, {
 
 export {
   // constants
+  // default value for notifications
+  DEFAULT_NOTIFICATION,
   // all available status
   STATUS,
   // all available positions
