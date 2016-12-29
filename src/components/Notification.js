@@ -7,13 +7,12 @@ import {POSITIONS} from '../constants';
 /**
  * Create a timer
  * @param {Number} dismissAfter
- * @param {Array} buttons
  * @param {Function} callback
  * @returns {Function|null} a Timer
  */
-function createTimer(dismissAfter, buttons, callback) {
-  if (dismissAfter > 0 && (!buttons || (buttons && buttons.length === 0))) {
-    return new Timer(callback, dismissAfter);
+function createTimer(dismissAfter, callback) {
+  if (dismissAfter > 0) {
+    return new Timer(dismissAfter, callback);
   }
   return null;
 }
@@ -68,13 +67,13 @@ export class Notification extends Component {
    * @returns {void}
    */
   constructor(props) {
-    const {dismissAfter, buttons} = props.notification;
+    const {dismissAfter} = props.notification;
     super(props);
     this._remove = this._remove.bind(this);
     this._pauseTimer = this._pauseTimer.bind(this);
     this._resumeTimer = this._resumeTimer.bind(this);
     this.state = {
-      timer: createTimer(dismissAfter, buttons, this._remove)
+      timer: createTimer(dismissAfter, this._remove)
     };
   }
 
@@ -106,9 +105,9 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentWillReceiveProps(nextProps) {
-    const {dismissAfter, buttons} = nextProps.notification;
+    const {dismissAfter} = nextProps.notification;
     this.setState({
-      timer: createTimer(dismissAfter, buttons, this._remove)
+      timer: createTimer(dismissAfter, this._remove)
     });
   }
 
