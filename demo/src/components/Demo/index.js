@@ -46,7 +46,7 @@ class Demo extends Component {
     const {notify, updateNotification} = this.props;
 
     window.addEventListener('resize', this._updateWindowWidth);
-    let notif = notify({
+    const notif = notify({
       title: 'Welcome on demo!',
       message: 'Hey buddy, here you can see what you can do with it.',
       status: 'info',
