@@ -58,7 +58,7 @@ and all others related information that are susceptible to help us.
 
 ### Pull requests  ##
 
-All pull requests must be done on the **dev** branch.
+All pull requests must be done on the **master** branch.
 
 Before a pull request :
 
