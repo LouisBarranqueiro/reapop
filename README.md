@@ -104,7 +104,7 @@ const createStoreWithMiddleware = compose(
 )(createStore);
 const store = createStoreWithMiddleware(combineReducers({
     // reducer must be mounted as `notifications` !
-    notifications: notificationsReducer
+    notifications: notificationsReducer()
     // your reducers here
   }), {});
 ```
