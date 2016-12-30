@@ -143,7 +143,7 @@ export default (defaultNotification = DEFAULT_NOTIFICATION) => {
         // get index of the notification
         const index = state.findIndex((notification) => notification.id === payload.id);
         // replace the old notification by the new one
-        state[index] = Object.assign({}, payload);
+        state[index] = Object.assign({}, defaultNotification, payload);
         return [...state];
       case REMOVE_NOTIFICATION:
         return state.filter((notification) => notification.id !== payload);

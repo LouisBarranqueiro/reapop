@@ -269,6 +269,50 @@ describe('notifications', () => {
       ).toEqual([notification]);
     });
 
+    it('should handle UPDATE_NOTIFICATION (default notification values)', () => {
+      delete notification.status;
+      delete notification.dismissAfter;
+      delete notification.dismissible;
+      delete notification.closeButton;
+      delete notification.allowHTML;
+      const notif = reducer()([notification], {
+        type: types.UPDATE_NOTIFICATION,
+        payload: notification
+      })[0];
+
+      expect(notif.status).toEqual(DEFAULT_NOTIFICATION.status);
+      expect(notif.dismissAfter).toEqual(DEFAULT_NOTIFICATION.dismissAfter);
+      expect(notif.dismissible).toEqual(DEFAULT_NOTIFICATION.dismissible);
+      expect(notif.closeButton).toEqual(DEFAULT_NOTIFICATION.closeButton);
+      expect(notif.allowHTML).toEqual(DEFAULT_NOTIFICATION.allowHTML);
+    });
+
+    it('should handle UPDATE_NOTIFICATION (custom notification values)', () => {
+      const customValue = {
+        status: SUCCESS_STATUS,
+        position: BOTTOM_CENTER,
+        dismissible: false,
+        dismissAfter: 2333,
+        allowHTML: true,
+        closeButton: true
+      };
+      delete notification.status;
+      delete notification.dismissAfter;
+      delete notification.dismissible;
+      delete notification.closeButton;
+      delete notification.allowHTML;
+      const notif = reducer(customValue)([notification], {
+        type: types.UPDATE_NOTIFICATION,
+        payload: notification
+      })[0];
+
+      expect(notif.status).toEqual(customValue.status);
+      expect(notif.dismissAfter).toEqual(customValue.dismissAfter);
+      expect(notif.dismissible).toEqual(customValue.dismissible);
+      expect(notif.closeButton).toEqual(customValue.closeButton);
+      expect(notif.allowHTML).toEqual(customValue.allowHTML);
+    });
+
     it('should handle REMOVE_NOTIFICATION', () => {
       expect(
         reducer()([notification], {
