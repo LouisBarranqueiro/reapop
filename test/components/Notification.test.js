@@ -43,22 +43,24 @@ describe('<Notification/>', () => {
   });
   
   it('should mount with initial state', () => {
-    // state component will be init without timer because notification have buttons
+    // state component will be init without timer because `dismissAfter` is set to `0`
+    notification.dismissAfter = 0;
     let wrapper = mount(<Notification notification={notification} {...otherProps}/>);
     expect(wrapper.state().timer).toEqual(null);
-    // state component will be init with timer because notification doesn't have buttons
-    notification.buttons = [];
+    // state component will be init with timer because `dismissAfter` > 0
+    notification.dismissAfter = 1;
     wrapper = mount(<Notification notification={notification} {...otherProps}/>);
     expect(wrapper.state().timer).toBeA(Timer);
   });
-  
+
   it('should update state when receiving new props', () => {
     // state component will be init without timer because notification have buttons
+    notification.dismissAfter = 0;
     let wrapper = mount(<Notification notification={notification} {...otherProps}/>);
     expect(wrapper.state().timer).toEqual(null);
     // we delete buttons to provoke creation of a Timer
     // at `componentWillReceivedProps()` component lifecycle
-    notification.buttons = [];
+    notification.dismissAfter = 1;
     wrapper.setProps(notification);
     expect(wrapper.state().timer).toBeA(Timer);
   });
@@ -440,7 +442,7 @@ describe('<Notification/>', () => {
     // `buttons.length` must equals `0` to allow removing
     // same thing for `dismissAfter`
     notification.dismissible = true;
-    notification.dismissAfter = 5;
+    notification.dismissAfter = 0;
     let wrapper = mount(
       <Provider store={store}>
         <ConnectNotification notification={notification} {...otherProps}/>

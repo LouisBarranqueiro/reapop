@@ -3,8 +3,8 @@ import {Timer} from '../../src/helpers';
 describe('Timer()', () => {
   it('should start and pause timer', (done) => {
     let time = 0;
-    const timer = new Timer(() => {
-    }, 20);
+    const timer = new Timer(20, () => {
+    });
     // start timer
     timer.resume();
     // stop timer after 5s
@@ -33,9 +33,9 @@ describe('Timer()', () => {
   });
 
   it('should call callback at the end', (done) => {
-    const timer = new Timer(() => {
+    const timer = new Timer(10, () => {
       done();
-    }, 10);
+    });
     timer.resume();
   });
 });

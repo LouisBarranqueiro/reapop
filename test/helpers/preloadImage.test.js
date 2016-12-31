@@ -17,6 +17,6 @@ describe('preloadImage', () => {
     setTimeout(() => {
       expect(spy).toHaveBeenCalled();
       done();
-    }, 500);
+    }, 1000);
   });
 });
