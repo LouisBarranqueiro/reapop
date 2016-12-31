@@ -27,7 +27,7 @@ export function convertStatus(status) {
  * @param {Number} delay
  * @constructor
  */
-export function Timer(callback, delay) {
+export function Timer(delay, callback) {
   let timerId;
   let start;
   let remaining = delay;
