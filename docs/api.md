@@ -181,6 +181,29 @@ removeNotification(id);
 | ----------- | ------ | ----------- |
 | id          | String or Number | ID of the notification |
 
+### Remove all notifications
+
+Removing all notifications is done with `removeNotifications` (action creator) function.
+
+#### Syntax
+
+``` js
+removeNotifications();
+```
+
+## Customize default values for notifications
+
+You can customizable default values for notifications, by passing an object to the notification reducer.
+
+| Property     | Type    | Default | Description |
+| ------------ | ------- | ------- | ----------- |
+| status       | String  | null    | Status of the notification : default, info, success, warning, error. These values are available in `STATUS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
+| position     | String  | tr      | Position of the notification : `t`, `tc`, `tl`, `tr`, `b`, `bc`, `br`, `bl`.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
+| dismissible  | Boolean | true    | Define if the notification is dismissible by clicking on it |
+| dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
+| closeButton  | Boolean | False   | Display a close button if notification is dismissible |
+| allowHTML    | Boolean | False   | Allow HTML in title and message of the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
+
 ## Theme
 
 ### Themes list
@@ -416,42 +439,32 @@ This object allow you to configure style of `Notification` component.
 
 Check [Notification.js](https://github.com/LouisBarranqueiro/reapop/tree/master/src/components/Notification.js) file to see the JSX structure of `Notification` component.
 
-## Customize default values for notifications
-
-You can customizable default values for notifications, by passing an object to `defaultValues` props of `NotificationsSystem` component.
-
-| Property     | Type    | Default | Description |
-| ------------ | ------- | ------- | ----------- |
-| status       | String  | null    | Status of the notification : default, info, success, warning, error. These values are available in `STATUS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
-| position     | String  | tr      | Position of the notification : `t`, `tc`, `tl`, `tr`, `b`, `bc`, `br`, `bl`.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
-| dismissible  | Boolean | true    | Define if the notification is dismissible by clicking on it |
-| dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
-| closeButton  | Boolean | False   | Display a close button if notification is dismissible |
-| allowHTML    | Boolean | False   | Allow HTML in title and message of the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
-
 #### Example
 
 ``` js 
-import React, {Component} from 'react';
-// STATUS contains all available status
-// POSITIONS contains all available positions
-import NotificationsSystem, {STATUS, POSITIONS} from 'reapop';
+import {createStore, compose, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import {reducer as notificationsReducer} from 'reapop';
 
-class AComponent extends Component {
-  render() {
-    const defaultValues = {
-      status: STATUS.default,
-      position: POSITIONS.topRight,
-      dismissible: true,
-      dismissAfter: 5000,
-      closeButton: true,
-      allowHTML: false
-    };
-    return (
-      <NotificationsSystem defaultValues={defaultValues}/>
-    );
-  }
-}
+// default value for notifications
+const defaultNotification = {
+        status: 'info',
+        position: 'tr',
+        dismissible: true,
+        dismissAfter: 2000,
+        allowHTML: true,
+        closeButton: true
+      };
+
+// store
+const createStoreWithMiddleware = compose(
+  applyMiddleware(thunk)
+)(createStore);
+const store = createStoreWithMiddleware(combineReducers({
+    // reducer must be mounted as `notifications` !
+    notifications: notificationsReducer(defaultNotification) // pass config here
+    // your reducers here
+  }), {});
 ```
 
 #### Integrate and customize a theme in your project

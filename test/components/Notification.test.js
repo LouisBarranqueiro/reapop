@@ -381,7 +381,7 @@ describe('<Notification/>', () => {
 
   it('should not create an action to remove the notification ' +
     'while mouse is hovering it', (done) => {
-    notification.dismissAfter = 10;
+    notification.dismissAfter = 100;
     notification.buttons = [];
     const wrapper = mount(
       <Provider store={store}>
@@ -395,19 +395,19 @@ describe('<Notification/>', () => {
     // hover notification after 5s
     setTimeout(() => {
       wrapper.simulate('mouseEnter');
-    }, 5);
+    }, 50);
     // check 5ms after `dismissAfter` duration that the store
     // is empty because mouse is hovering the notification
     setTimeout(() => {
       expect(store.getActions()).toEqual([]);
       // we leave notification
       wrapper.simulate('mouseLeave');
-    }, 15);
+    }, 150);
     // and we check that the store contains an action
     setTimeout(() => {
       expect(store.getActions()).toEqual([expectedAction]);
       done();
-    }, 21);
+    }, 210);
   });
   
   it('should not create an action to remove the notification ' +

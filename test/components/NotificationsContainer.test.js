@@ -2,10 +2,8 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {mount, shallow} from 'enzyme';
 import {ExpectedNotificationsContainer} from '../utils/expectedComponents';
-import {mockStore, genNotification, genNotifications, checkPropTypes} from '../utils/fixtures';
+import {mockStore, genNotifications, checkPropTypes} from '../utils/fixtures';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
-import {defaultValues} from '../../src/components/NotificationsSystem';
-import Notification from '../../src/components/Notification';
 import {POSITIONS} from '../../src/constants';
 import theme from 'reapop-theme-wybo';
 
@@ -13,8 +11,7 @@ describe('<NotificationsContainer/>', () => {
   let notifications = [];
   let store = null;
   const otherProps = {
-    theme,
-    defaultValues
+    theme
   };
 
   beforeEach('generate a new notification and init store', () => {
@@ -26,13 +23,11 @@ describe('<NotificationsContainer/>', () => {
     const errors = checkPropTypes({
       notifications: [],
       position: POSITIONS.topLeft,
-      defaultValues,
       theme
     }, NotificationsContainer.propTypes);
 
     expect(errors.notifications).toNotExist();
     expect(errors.position).toNotExist();
-    expect(errors.defaultValues).toNotExist();
     expect(errors.theme).toNotExist();
   });
 
@@ -40,7 +35,6 @@ describe('<NotificationsContainer/>', () => {
     const errors = checkPropTypes({}, NotificationsContainer.propTypes);
     expect(errors.notifications).toExist();
     expect(errors.position).toExist();
-    expect(errors.defaultValues).toExist();
     expect(errors.theme).toExist();
   });
 
@@ -80,34 +74,6 @@ describe('<NotificationsContainer/>', () => {
           {...otherProps}/>
       </Provider>
     );
-    expect(wrapper.html()).toEqual(expectedWrapper.html());
-  });
-
-  it('should render notification with default values for notifications', () => {
-    const notification = genNotification();
-    delete notification.status;
-    delete notification.dismissAfter;
-    delete notification.dismissible;
-    delete notification.closeButton;
-    delete notification.allowHTML;
-    const wrapper = mount(
-      <Provider store={store}>
-        <NotificationsContainer position={POSITIONS.bottomLeft} notifications={[notification]}
-          {...otherProps}/>
-      </Provider>
-    );
-    const expectedWrapper = mount(
-      <Provider store={store}>
-        <ExpectedNotificationsContainer position={POSITIONS.bottomLeft}
-          notifications={[notification]}
-          {...otherProps}/>
-      </Provider>
-    );
-    const props = wrapper.find(Notification).props();
-    expect(props.notification.status).toEqual(defaultValues.status);
-    expect(props.notification.dismissible).toEqual(defaultValues.dismissible);
-    expect(props.notification.dismissAfter).toEqual(defaultValues.dismissAfter);
-    expect(props.notification.allowHTML).toEqual(defaultValues.allowHTML);
     expect(wrapper.html()).toEqual(expectedWrapper.html());
   });
 

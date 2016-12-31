@@ -23,8 +23,8 @@ export function convertStatus(status) {
 
 /**
  * Create a Timer
- * @param {Function} callback
  * @param {Number} delay
+ * @param {Function} callback
  * @constructor
  */
 export function Timer(delay, callback) {

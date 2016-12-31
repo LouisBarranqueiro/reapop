@@ -1,4 +1,5 @@
 import {treatNotification, preloadImage} from '../helpers';
+import {DEFAULT_NOTIFICATION} from '../constants';
 
 // An array to store notifications object
 const INITIAL_STATE = [];
@@ -132,21 +133,24 @@ export const types = {
 };
 
 // Reducers
-export default (state = INITIAL_STATE, {type, payload}) => {
-  switch (type) {
-    case ADD_NOTIFICATION:
-      return [...state, payload];
-    case UPDATE_NOTIFICATION:
-      // get index of the notification
-      const index = state.findIndex((notification) => notification.id === payload.id);
-      // replace the old notification by the new one
-      state[index] = Object.assign({}, payload);
-      return [...state];
-    case REMOVE_NOTIFICATION:
-      return state.filter((notification) => notification.id !== payload);
-    case REMOVE_NOTIFICATIONS:
-      return [];
-    default:
-      return state;
-  }
+export default (defaultNotification = DEFAULT_NOTIFICATION) => {
+  return (state = INITIAL_STATE, {type, payload}) => {
+    switch (type) {
+      case ADD_NOTIFICATION:
+        const notification = Object.assign({}, defaultNotification, payload);
+        return [...state, notification];
+      case UPDATE_NOTIFICATION:
+        // get index of the notification
+        const index = state.findIndex((notification) => notification.id === payload.id);
+        // replace the old notification by the new one
+        state[index] = Object.assign({}, defaultNotification, payload);
+        return [...state];
+      case REMOVE_NOTIFICATION:
+        return state.filter((notification) => notification.id !== payload);
+      case REMOVE_NOTIFICATIONS:
+        return [];
+      default:
+        return state;
+    }
+  };
 };

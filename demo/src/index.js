@@ -11,7 +11,7 @@ import './styles/style.scss';
 // store
 const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);
 const store = createStoreWithMiddleware(combineReducers({
-  notifications: notificationsReducer
+  notifications: notificationsReducer()
 }), {});
 
 // render

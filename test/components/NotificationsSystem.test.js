@@ -2,14 +2,12 @@ import React from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import ConnectedNotificationsSystem, {
-  NotificationsSystem,
-  defaultValues
+  NotificationsSystem
 } from '../../src/components/NotificationsSystem';
 import Notification from '../../src/components/Notification';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
 import {genNotifications, mockStore, checkPropTypes} from '../utils/fixtures';
 import {ExpectedNotificationsSystem} from '../utils/expectedComponents';
-import {STATUS, POSITIONS} from '../../src/constants';
 import theme from 'reapop-theme-wybo';
 
 describe('<NotificationsSystem/>', () => {
@@ -20,44 +18,22 @@ describe('<NotificationsSystem/>', () => {
   it('should validate props', () => {
     const errors = checkPropTypes({
       notifications: [],
-      theme,
-      defaultValues
+      theme
     }, NotificationsSystem.propTypes);
 
     expect(errors.notifications).toNotExist();
     expect(errors.theme).toNotExist();
-    expect(errors.defaultValues).toNotExist();
   });
 
   it('should not validate props', () => {
     const errors = checkPropTypes({}, NotificationsSystem.propTypes);
     expect(errors.notifications).toExist();
     expect(errors.theme).toExist();
-    expect(errors.defaultValues).toExist();
   });
 
   it('should mount with default props', () => {
     const props = mount(<NotificationsSystem {...otherProps}/>).props();
     expect(props.notifications).toEqual([]);
-    expect(props.defaultValues).toEqual(defaultValues);
-  });
-
-  it('should mount with custom props', () => {
-    const customDefaultValue = {
-      status: STATUS.success,
-      position: POSITIONS.bottomRight,
-      dismissible: false,
-      dismissAfter: 99999,
-      allowHTML: true
-    };
-    const wrapper = mount(<NotificationsSystem
-      defaultValues={customDefaultValue} {...otherProps}/>);
-    const props = wrapper.props();
-    expect(props.defaultValues).toEqual(customDefaultValue);
-    expect(props.defaultValues).toNotEqual(defaultValues);
-    const containerProps = wrapper.find(NotificationsContainer).props();
-    expect(containerProps.defaultValues).toEqual(customDefaultValue);
-    expect(containerProps.defaultValues).toNotEqual(defaultValues);
   });
 
   it('should render 1 empty notifications container (mobile)', () => {

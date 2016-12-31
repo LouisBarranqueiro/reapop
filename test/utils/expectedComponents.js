@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import _ from 'lodash';
+import {mapObjectValues} from '../../src/helpers';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import {POSITIONS} from '../../src/constants';
 import Notification from '../../src/components/Notification';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
-import {defaultValues} from '../../src/components/NotificationsSystem';
 
 // We use these "expected" component to test HTML structure of each components.
 // It's easier and faster than testing manually each nodes.
@@ -16,7 +15,7 @@ export class ExpectedNotification extends Component {
       __html: content
     };
   }
-  
+
   _renderButtons() {
     const {
       className,
@@ -36,7 +35,7 @@ export class ExpectedNotification extends Component {
       );
     });
   }
-  
+
   render() {
     const {
       className,
@@ -47,8 +46,8 @@ export class ExpectedNotification extends Component {
     return (
       <div className={className.wrapper}>
         <div className={`${className.main} ${className.status(status)} ` +
-          `${(isDismissible && !closeButton ? className.dismissible : '')} ` +
-          `${className.buttons(buttons.length)}`}>
+        `${(isDismissible && !closeButton ? className.dismissible : '')} ` +
+        `${className.buttons(buttons.length)}`}>
           {image ?
             <div className={className.imageContainer}>
               <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
@@ -77,7 +76,7 @@ export class ExpectedNotification extends Component {
             <div className={className.buttons()}>
               {this._renderButtons()}
             </div> :
-          ''}
+            ''}
         </div>
       </div>
     );
@@ -88,8 +87,7 @@ export class ExpectedNotificationsContainer extends Component {
   _renderNotifications() {
     // get all notifications and default values for notifications
     const {
-      position, theme: {notification: {className}},
-      defaultValues: {status, dismissible, dismissAfter, closeButton, allowHTML}
+      position, theme: {notification: {className}}
     } = this.props;
     let {notifications} = this.props;
 
@@ -100,37 +98,24 @@ export class ExpectedNotificationsContainer extends Component {
     }
 
     return notifications.map((notification) => {
-      // Define default values for notification if it's needed
-      if (!notification.status) {
-        notification.status = status;
-      }
-      if (typeof notification.dismissible !== 'boolean') {
-        notification.dismissible = dismissible;
-      }
-      if (typeof notification.dismissAfter !== 'number') {
-        notification.dismissAfter = dismissAfter;
-      }
-      if (typeof notification.closeButton !== 'boolean') {
-        notification.closeButton = closeButton;
-      }
-      if (typeof notification.allowHTML !== 'boolean') {
-        notification.allowHTML = allowHTML;
-      }
       return (
         <Notification key={notification.id} notification={notification} className={className}/>
       );
     });
   }
-  
+
   render() {
     const {
-      className, transition: {name, enterTimeout, leaveTimeout}
+      className,
+      transition: {name, enterTimeout, leaveTimeout}
     } = this.props.theme.notificationsContainer;
     const {position} = this.props;
 
     return (
       <div className={`${className.main} ${className.position(position)}`}>
-        <TransitionGroup transitionName={name} transitionEnterTimeout={enterTimeout}
+        <TransitionGroup
+          transitionName={name}
+          transitionEnterTimeout={enterTimeout}
           transitionLeaveTimeout={leaveTimeout}>
           {this._renderNotifications()}
         </TransitionGroup>
@@ -141,41 +126,29 @@ export class ExpectedNotificationsContainer extends Component {
 
 export class ExpectedNotificationsSystem extends Component {
   static defaultProps = {
-    notifications: [],
-    defaultValues
+    notifications: []
   };
-
   _renderNotificationsContainers() {
-    const {notifications, defaultValues: {position}, theme} = this.props;
+    const {notifications, theme} = this.props;
+    const positions = mapObjectValues(POSITIONS);
+    const containers = [];
+
     // render all notifications in the same container at the top for small screens
     if (window.innerWidth < theme.smallScreenMin) {
       return (
-        <NotificationsContainer key='t' position='t' defaultValues={defaultValues}
-          theme={theme} notifications={notifications}/>
+        <NotificationsContainer key='t' position='t' theme={theme} notifications={notifications}/>
       );
     }
-    let positions = _.values(POSITIONS);
-    // extract the default position of all positions
-    positions.splice(positions.indexOf(position), 1);
-    let notifs = notifications.filter((notif) => {
-      return (!notif.position || notif.position === position);
-    });
-    // init array with all notifications with default position
-    let JSX = [
-      <NotificationsContainer key={position} position={position} defaultValues={defaultValues}
-        theme={theme} notifications={notifs}/>
-    ];
-    // fill array with others containers
-    JSX = JSX.concat(positions.map((position) => {
-      let notifs = notifications.filter((notif) => {
+
+    containers.push(positions.map((position) => {
+      const notifs = notifications.filter((notif) => {
         return position === notif.position;
       });
       return (
-        <NotificationsContainer key={position} position={position} defaultValues={defaultValues}
-          theme={theme} notifications={notifs}/>
+        <NotificationsContainer key={position} position={position} theme={theme} notifications={notifs}/>
       );
     }));
-    return JSX;
+    return containers;
   }
 
   render() {
