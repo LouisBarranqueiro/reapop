@@ -2,15 +2,17 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {
   addNotification as notify,
-  updateNotification
+  updateNotification,
+  removeNotifications
 } from '../../../../src';
 
 class NotificationExamples extends Component {
   static propTypes = {
     notify: React.PropTypes.func.isRequired,
-    updateNotification: React.PropTypes.func.isRequired
+    updateNotification: React.PropTypes.func.isRequired,
+    removeNotifications: React.PropTypes.func.isRequired
   };
-  
+
   /**
    * Bind methods
    * @param {Object} props
@@ -85,6 +87,15 @@ class NotificationExamples extends Component {
   }
 
   /**
+   * Example to remove all notifications
+   * @returns {void}
+   * @private
+   */
+  _removeNotifications = () => {
+    this.props.removeNotifications();
+  }
+
+  /**
    * Render form
    * @returns {XML}
    */
@@ -97,9 +108,16 @@ class NotificationExamples extends Component {
         <button className='btn btn-primary btn-block' onClick={this._notificationWithImage}>
           Notification with image
         </button>
+        <button className='btn btn-primary btn-block' onClick={this._removeNotifications}>
+          Remove all notifications
+        </button>
       </div>
     );
   }
 }
 
-export default connect(null, {notify, updateNotification})(NotificationExamples);
+export default connect(null, {
+  notify,
+  updateNotification,
+  removeNotifications
+})(NotificationExamples);

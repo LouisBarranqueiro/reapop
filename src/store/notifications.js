@@ -6,6 +6,7 @@ const INITIAL_STATE = [];
 const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
 const UPDATE_NOTIFICATION = 'UPDATE_NOTIFICATION';
 const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
+const REMOVE_NOTIFICATIONS = 'REMOVE_NOTIFICATIONS';
 
 /**
  * Add a notification (thunk action creator)
@@ -103,18 +104,31 @@ export function removeNotification(notification) {
   };
 }
 
+/**
+ * Remove all notifications (action creator)
+ *
+ * @returns {{type: string}}
+ */
+export function removeNotifications() {
+  return {
+    type: REMOVE_NOTIFICATIONS
+  };
+}
+
 // Action creators
 export const actions = {
   addNotification: addNotification,
   updateNotification: updateNotification,
-  removeNotification: removeNotification
+  removeNotification: removeNotification,
+  removeNotifications: removeNotifications
 };
 
 // Actions types
 export const types = {
   ADD_NOTIFICATION: ADD_NOTIFICATION,
   UPDATE_NOTIFICATION: UPDATE_NOTIFICATION,
-  REMOVE_NOTIFICATION: REMOVE_NOTIFICATION
+  REMOVE_NOTIFICATION: REMOVE_NOTIFICATION,
+  REMOVE_NOTIFICATIONS: REMOVE_NOTIFICATIONS
 };
 
 // Reducers
@@ -130,6 +144,8 @@ export default (state = INITIAL_STATE, {type, payload}) => {
       return [...state];
     case REMOVE_NOTIFICATION:
       return state.filter((notification) => notification.id !== payload);
+    case REMOVE_NOTIFICATIONS:
+      return [];
     default:
       return state;
   }

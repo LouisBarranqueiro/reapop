@@ -65,7 +65,7 @@ export class ExpectedNotification extends Component {
               allowHTML ?
                 <p className={className.message}
                   dangerouslySetInnerHTML={this._setHTML(message)}/> :
-                  <p className={className.message}>{message}</p> :
+                <p className={className.message}>{message}</p> :
               ''}
           </div>
           {isDismissible && closeButton ?

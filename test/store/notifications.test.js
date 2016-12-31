@@ -4,7 +4,8 @@ import reducer, {
   types,
   addNotification,
   updateNotification,
-  removeNotification
+  removeNotification,
+  removeNotifications
 } from '../../src/store/notifications';
 import {SUCCESS_STATUS} from '../../src/constants';
 
@@ -181,6 +182,15 @@ describe('notifications', () => {
         };
         expect(removeNotification(id)).toEqual(expectedAction);
       });
+
+      describe('removeNotifications()', () => {
+        it('should create an action to remove all notifications', () => {
+          const expectedAction = {
+            type: types.REMOVE_NOTIFICATIONS
+          };
+          expect(removeNotifications()).toEqual(expectedAction);
+        });
+      });
     });
   });
 
@@ -219,6 +229,14 @@ describe('notifications', () => {
         reducer([notification], {
           type: types.REMOVE_NOTIFICATION,
           payload: notification.id
+        })
+      ).toEqual([]);
+    });
+
+    it('should handle REMOVE_NOTIFICATIONS', () => {
+      expect(
+        reducer([notification], {
+          type: types.REMOVE_NOTIFICATIONS
         })
       ).toEqual([]);
     });

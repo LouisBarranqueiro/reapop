@@ -5,7 +5,8 @@ import reducer, {
   types,
   addNotification,
   updateNotification,
-  removeNotification
+  removeNotification,
+  removeNotifications
 } from './store/notifications';
 
 export {
@@ -23,7 +24,8 @@ export {
   // action creators separately
   addNotification,
   updateNotification,
-  removeNotification
+  removeNotification,
+  removeNotifications
 };
 // NotificationsSystem React component
 export default NotificationsSystem;
