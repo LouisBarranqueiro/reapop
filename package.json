@@ -98,5 +98,8 @@
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
+  },
+  "dependencies": {
+    "react-addons-css-transition-group": "^15.4.1"
   }
 }
