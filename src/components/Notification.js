@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {Timer, mapObjectValues} from '../helpers';
 import {removeNotification} from '../store/notifications';
@@ -20,44 +20,44 @@ function createTimer(dismissAfter, callback) {
 export class Notification extends Component {
   // Properties types
   static propTypes = {
-    className: React.PropTypes.shape({
-      main: React.PropTypes.string.isRequired,
-      wrapper: React.PropTypes.string.isRequired,
-      meta: React.PropTypes.string.isRequired,
-      title: React.PropTypes.string.isRequired,
-      message: React.PropTypes.string.isRequired,
-      imageContainer: React.PropTypes.string.isRequired,
-      image: React.PropTypes.string.isRequired,
-      icon: React.PropTypes.string.isRequired,
-      status: React.PropTypes.func.isRequired,
-      dismissible: React.PropTypes.string.isRequired,
-      closeButtonContainer: React.PropTypes.string.isRequired,
-      closeButton: React.PropTypes.string.isRequired,
-      buttons: React.PropTypes.func.isRequired,
-      button: React.PropTypes.string.isRequired,
-      buttonText: React.PropTypes.string.isRequired
+    className: PropTypes.shape({
+      main: PropTypes.string.isRequired,
+      wrapper: PropTypes.string.isRequired,
+      meta: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      message: PropTypes.string.isRequired,
+      imageContainer: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+      status: PropTypes.func.isRequired,
+      dismissible: PropTypes.string.isRequired,
+      closeButtonContainer: PropTypes.string.isRequired,
+      closeButton: PropTypes.string.isRequired,
+      buttons: PropTypes.func.isRequired,
+      button: PropTypes.string.isRequired,
+      buttonText: PropTypes.string.isRequired
     }).isRequired,
-    notification: React.PropTypes.shape({
-      id: React.PropTypes.number.isRequired,
-      title: React.PropTypes.string,
-      message: React.PropTypes.string,
-      image: React.PropTypes.string,
-      status: React.PropTypes.string.isRequired,
-      position: React.PropTypes.oneOf(mapObjectValues(POSITIONS)),
-      dismissAfter: React.PropTypes.number.isRequired,
-      dismissible: React.PropTypes.bool.isRequired,
-      onAdd: React.PropTypes.func,
-      onRemove: React.PropTypes.func,
-      closeButton: React.PropTypes.bool.isRequired,
-      buttons: React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-          name: React.PropTypes.string.isRequired,
-          onClick: React.PropTypes.func
+    notification: PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+      title: PropTypes.string,
+      message: PropTypes.string,
+      image: PropTypes.string,
+      status: PropTypes.string.isRequired,
+      position: PropTypes.oneOf(mapObjectValues(POSITIONS)),
+      dismissAfter: PropTypes.number.isRequired,
+      dismissible: PropTypes.bool.isRequired,
+      onAdd: PropTypes.func,
+      onRemove: PropTypes.func,
+      closeButton: PropTypes.bool.isRequired,
+      buttons: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          onClick: PropTypes.func
         })
       ).isRequired,
-      allowHTML: React.PropTypes.bool.isRequired
+      allowHTML: PropTypes.bool.isRequired
     }).isRequired,
-    removeNotification: React.PropTypes.func.isRequired
+    removeNotification: PropTypes.func.isRequired
   };
 
   /**
