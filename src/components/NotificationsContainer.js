@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import TransitionGroup from 'react-addons-css-transition-group';
 import Notification from './Notification';
 import {POSITIONS} from '../constants';
 
