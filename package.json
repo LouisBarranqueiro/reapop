@@ -1,6 +1,6 @@
 {
   "name": "reapop",
-  "version": "0.6.1",
+  "version": "1.0.0",
   "description": "A React and Redux notifications system",
   "main": "lib/index.js",
   "scripts": {
