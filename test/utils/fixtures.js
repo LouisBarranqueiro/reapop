@@ -3,6 +3,8 @@ import faker from 'faker';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 
+export const imageUrl = 'https://avatars3.githubusercontent.com/u/4705626?v=3&s=10';
+
 /**
  * Generate a redux store
  * @param {Object} reducers
@@ -40,7 +42,7 @@ export function genNotification(notification = {}) {
     id: faker.random.number(),
     title: faker.lorem.sentence(),
     message: faker.lorem.sentence(),
-    image: 'http://placehold.it/40x40',
+    image: imageUrl,
     position: faker.random.objectElement(POSITIONS),
     status: faker.random.objectElement(STATUS),
     dismissible: faker.random.boolean(),
