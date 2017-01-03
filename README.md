@@ -21,7 +21,7 @@ A React and Redux notifications system
 Tested and works with :
 
 - [react](https://github.com/facebook/react) : **^0.14.0** and **^15.0.0**
-- [react-redux](https://github.com/reactjs/react-redux) : **^2.0.0** and **^3.0.0** and **^4.0.0**
+- [react-redux](https://github.com/reactjs/react-redux) : **^2.0.0**, **^3.0.0**, **^4.0.0** and **^5.0.0**
 - [redux](https://github.com/reactjs/redux) : **^2.0.0** and **^3.0.0**
 
 ### Supported browsers
