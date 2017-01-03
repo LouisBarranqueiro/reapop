@@ -75,7 +75,7 @@ export function treatNotification(notification) {
  * @returns {void}
  */
 export function preloadImage(url, onload) {
-  var image = new Image();
+  const image = new Image();
   image.src = url;
   image.onload = onload;
   return image;
@@ -87,7 +87,7 @@ export function preloadImage(url, onload) {
  * @returns {Array}
  */
 export function mapObjectValues(obj) {
-  var array = [];
+  const array = [];
 
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {

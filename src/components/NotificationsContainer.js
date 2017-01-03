@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
 import TransitionGroup from 'react-addons-css-transition-group';
 import Notification from './Notification';
-import {POSITIONS} from '../constants';
 
 export class NotificationsContainer extends Component {
-  // default types
-  static defaultProps = {
-    notifications: []
-  };
-
-  // Properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
     position: React.PropTypes.string.isRequired,
@@ -31,24 +24,16 @@ export class NotificationsContainer extends Component {
     }).isRequired
   };
 
-  /**
-   * Constructor
-   * Bind methods
-   * @param {Object} props
-   * @returns {void}
-   */
-  constructor(props) {
-    super(props);
-    this._renderNotifications = this._renderNotifications.bind(this);
-  }
+  static defaultProps = {
+    notifications: []
+  };
 
   /**
    * Render notifications
    * @private
    * @returns {XML}
    */
-  _renderNotifications() {
-    // get all notifications and default values for notifications
+  _renderNotifications = () => {
     const {
       position,
       theme: {
@@ -59,15 +44,18 @@ export class NotificationsContainer extends Component {
 
     // when notifications are displayed at the bottom,
     // we display notifications from bottom to top
-    if ([POSITIONS.bottomLeft, POSITIONS.bottomRight, POSITIONS.bottomCenter, POSITIONS.bottom]
-        .indexOf(position) >= 0) {
+    if (position.startsWith('b')) {
       notifications = notifications.reverse();
     }
 
     return notifications.map((notification) => (
-      <Notification key={notification.id} notification={notification} className={className}/>
+      <Notification
+        key={notification.id}
+        notification={notification}
+        className={className}
+      />
     ));
-  }
+  };
 
   /**
    * Render
@@ -75,7 +63,12 @@ export class NotificationsContainer extends Component {
    */
   render() {
     const {
-      className, transition: {name, enterTimeout, leaveTimeout}
+      className,
+      transition: {
+        name,
+        enterTimeout,
+        leaveTimeout
+      }
     } = this.props.theme.notificationsContainer;
     const {position} = this.props;
 
@@ -84,7 +77,8 @@ export class NotificationsContainer extends Component {
         <TransitionGroup
           transitionName={name}
           transitionEnterTimeout={enterTimeout}
-          transitionLeaveTimeout={leaveTimeout}>
+          transitionLeaveTimeout={leaveTimeout}
+        >
           {this._renderNotifications()}
         </TransitionGroup>
       </div>
