@@ -10,73 +10,97 @@ import NotificationsContainer from '../../src/components/NotificationsContainer'
 // With this technique, we are 100% sure of the HTML structure of each component.
 
 export class ExpectedNotification extends Component {
-  _setHTML(content) {
+  _setHTML = (content) => {
     return {
       __html: content
     };
-  }
+  };
 
-  _renderButtons() {
+  _renderButtons = () => {
     const {
       className,
       notification: {buttons}
     } = this.props;
 
-    return buttons.map((button) => {
-      return (
-        <button key={button.name} className={className.button} onClick={button.onClick}>
-          <span className={className.buttonText}>
-            {button.primary ?
-              <b>{button.name}</b> :
-              button.name
-            }
-          </span>
-        </button>
-      );
-    });
-  }
+    return buttons.map(({name, onClick, primary}) => (
+      <button key={name} className={className.button} onClick={onClick}>
+        <span className={className.buttonText}>
+          {primary ? <b>{name}</b> : name}
+        </span>
+      </button>
+    ));
+  };
 
   render() {
     const {
       className,
-      notification: {title, message, status, dismissible, closeButton, buttons, image, allowHTML}
+      notification: {
+        title,
+        message,
+        status,
+        dismissible,
+        closeButton,
+        buttons,
+        image,
+        allowHTML
+      }
     } = this.props;
     const isDismissible = (dismissible && buttons.length === 0);
+    const notificationClass = [
+      className.main,
+      className.status(status),
+      className.buttons(buttons.length),
+      isDismissible && !closeButton ? className.dismissible : null
+    ].join(' ');
 
     return (
-      <div className={className.wrapper}>
-        <div className={`${className.main} ${className.status(status)} ` +
-        `${(isDismissible && !closeButton ? className.dismissible : '')} ` +
-        `${className.buttons(buttons.length)}`}>
-          {image ?
-            <div className={className.imageContainer}>
-              <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
-            </div> :
-            <span className={className.icon}/>
+      <div
+        className={className.wrapper}
+        onClick={isDismissible && !closeButton ? this._remove : ''}
+      >
+        <div className={notificationClass}>
+          {image
+            ?
+              <div className={className.imageContainer}>
+                <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
+              </div>
+            :
+              <span className={className.icon}/>
           }
           <div className={className.meta}>
-            {title ?
-              allowHTML ?
-                <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/> :
-                <h4 className={className.title}>{title}</h4> :
-              ''}
-            {message ?
-              allowHTML ?
-                <p className={className.message}
-                  dangerouslySetInnerHTML={this._setHTML(message)}/> :
-                <p className={className.message}>{message}</p> :
-              ''}
+            {title
+              ?
+                allowHTML
+                  ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/>
+                  : <h4 className={className.title}>{title}</h4>
+              :
+                null
+            }
+            {message
+              ?
+                allowHTML
+                  ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
+                  : <p className={className.message}>{message}</p>
+              :
+                null
+            }
           </div>
-          {isDismissible && closeButton ?
-            <div className={className.closeButtonContainer}>
-              <span className={className.closeButton}/>
-            </div> :
-            ''}
-          {buttons.length ?
-            <div className={className.buttons()}>
-              {this._renderButtons()}
-            </div> :
-            ''}
+          {isDismissible && closeButton
+            ?
+              <div className={className.closeButtonContainer}>
+                <span className={className.closeButton} onClick={this._remove}/>
+              </div>
+            :
+              null
+          }
+          {buttons.length
+            ?
+              <div className={className.buttons()} onClick={this._remove}>
+                {this._renderButtons()}
+              </div>
+            :
+              null
+          }
         </div>
       </div>
     );
@@ -84,30 +108,38 @@ export class ExpectedNotification extends Component {
 }
 
 export class ExpectedNotificationsContainer extends Component {
-  _renderNotifications() {
-    // get all notifications and default values for notifications
+  _renderNotifications = () => {
     const {
-      position, theme: {notification: {className}}
+      position,
+      theme: {
+        notification: {className}
+      }
     } = this.props;
     let {notifications} = this.props;
 
     // when notifications are displayed at the bottom,
     // we display notifications from bottom to top
-    if ([POSITIONS.bottomLeft, POSITIONS.bottomRight].indexOf(position) >= 0) {
+    if (position.startsWith('b')) {
       notifications = notifications.reverse();
     }
 
-    return notifications.map((notification) => {
-      return (
-        <Notification key={notification.id} notification={notification} className={className}/>
-      );
-    });
-  }
+    return notifications.map((notification) => (
+      <Notification
+        key={notification.id}
+        notification={notification}
+        className={className}
+      />
+    ));
+  };
 
   render() {
     const {
       className,
-      transition: {name, enterTimeout, leaveTimeout}
+      transition: {
+        name,
+        enterTimeout,
+        leaveTimeout
+      }
     } = this.props.theme.notificationsContainer;
     const {position} = this.props;
 
@@ -116,7 +148,8 @@ export class ExpectedNotificationsContainer extends Component {
         <TransitionGroup
           transitionName={name}
           transitionEnterTimeout={enterTimeout}
-          transitionLeaveTimeout={leaveTimeout}>
+          transitionLeaveTimeout={leaveTimeout}
+        >
           {this._renderNotifications()}
         </TransitionGroup>
       </div>
@@ -128,7 +161,8 @@ export class ExpectedNotificationsSystem extends Component {
   static defaultProps = {
     notifications: []
   };
-  _renderNotificationsContainers() {
+
+  _renderNotificationsContainers = () => {
     const {notifications, theme} = this.props;
     const positions = mapObjectValues(POSITIONS);
     const containers = [];
@@ -136,7 +170,12 @@ export class ExpectedNotificationsSystem extends Component {
     // render all notifications in the same container at the top for small screens
     if (window.innerWidth < theme.smallScreenMin) {
       return (
-        <NotificationsContainer key='t' position='t' theme={theme} notifications={notifications}/>
+        <NotificationsContainer
+          key='t'
+          position='t'
+          theme={theme}
+          notifications={notifications}
+        />
       );
     }
 
@@ -145,11 +184,16 @@ export class ExpectedNotificationsSystem extends Component {
         return position === notif.position;
       });
       return (
-        <NotificationsContainer key={position} position={position} theme={theme} notifications={notifs}/>
+        <NotificationsContainer
+          key={position}
+          position={position}
+          theme={theme}
+          notifications={notifs}
+        />
       );
     }));
     return containers;
-  }
+  };
 
   render() {
     const {className} = this.props.theme.notificationsSystem;
