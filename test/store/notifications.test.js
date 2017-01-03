@@ -1,5 +1,5 @@
 import faker from 'faker';
-import {mockStore, genNotification} from '../utils/fixtures';
+import {mockStore, genNotification, imageUrl} from '../utils/fixtures';
 import reducer, {
   types,
   addNotification,
@@ -134,7 +134,7 @@ describe('notifications', () => {
         notification = genNotification({image: null});
         store = mockStore({notifications: [notification]});
         // update notification with an image
-        const notificationUpdated = Object.assign({}, notification, {image: 'http://placehold.it/45x45'});
+        const notificationUpdated = Object.assign({}, notification, {image: imageUrl});
         const expectedAction = [{
           type: types.UPDATE_NOTIFICATION,
           payload: notificationUpdated
@@ -154,7 +154,9 @@ describe('notifications', () => {
 
       it('should load image then create an action to update a notification (image is different)', (done) => {
         // update notification image url
-        const notificationUpdated = Object.assign({}, notification, {image: 'http://placehold.it/45x45'});
+        const notificationUpdated = Object.assign({}, notification, {
+          image: 'https://avatars3.githubusercontent.com/u/4705626?v=3&s=2'
+        });
         const expectedAction = [{
           type: types.UPDATE_NOTIFICATION,
           payload: notificationUpdated
