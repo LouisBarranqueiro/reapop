@@ -90,7 +90,7 @@ export function checkPropTypes(object, propTypes) {
   // and if it have the correct type
   for (propName in propTypes) {
     if (propTypes.hasOwnProperty(propName)) {
-      let error = propTypes[propName](object, propName, JSON.stringify(object), 'prop');
+      let error = propTypes[propName](object, propName, JSON.stringify(object), 'prop', null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
       if (error) {
         errors[propName] = error.message;
       }
