@@ -5,12 +5,6 @@ import NotificationsContainer from './NotificationsContainer';
 import {POSITIONS} from '../constants';
 
 export class NotificationsSystem extends Component {
-  // default properties
-  static defaultProps = {
-    notifications: []
-  };
-  
-  // properties types
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
     theme: React.PropTypes.shape({
@@ -20,24 +14,14 @@ export class NotificationsSystem extends Component {
       })
     }).isRequired
   };
-  
-  constructor(props) {
-    super(props);
-    this._updateWindowWidth = this._updateWindowWidth.bind(this);
-    this._renderNotificationsContainers = this._renderNotificationsContainers.bind(this);
-    this.state = {
-      windowWidth: window.innerWidth
-    };
-  }
 
-  /**
-   * Update window width
-   * @returns {void}
-   * @private
-   */
-  _updateWindowWidth() {
-    this.setState({windowWidth: window.innerWidth});
-  }
+  static defaultProps = {
+    notifications: []
+  };
+
+  state = {
+    windowWidth: window.innerWidth
+  };
 
   /**
    * Add resize listener to update window width when the window is resized
@@ -56,11 +40,20 @@ export class NotificationsSystem extends Component {
   }
 
   /**
+   * Update window width
+   * @returns {void}
+   * @private
+   */
+  _updateWindowWidth = () => {
+    this.setState({windowWidth: window.innerWidth});
+  };
+
+  /**
    * Render notifications containers
    * @returns {XML}
    * @private
    */
-  _renderNotificationsContainers() {
+  _renderNotificationsContainers = () => {
     const {notifications, theme} = this.props;
     const {windowWidth} = this.state;
     const positions = mapObjectValues(POSITIONS);
@@ -69,20 +62,30 @@ export class NotificationsSystem extends Component {
     // render all notifications in the same container at the top for small screens
     if (windowWidth < theme.smallScreenMin) {
       return (
-        <NotificationsContainer key='t' position='t' theme={theme} notifications={notifications}/>
+        <NotificationsContainer
+          key='t'
+          position='t'
+          theme={theme}
+          notifications={notifications}
+        />
       );
     }
 
     containers.push(positions.map((position) => {
-      let notifs = notifications.filter((notif) => {
+      const notifs = notifications.filter((notif) => {
         return position === notif.position;
       });
       return (
-        <NotificationsContainer key={position} position={position} theme={theme} notifications={notifs}/>
+        <NotificationsContainer
+          key={position}
+          position={position}
+          theme={theme}
+          notifications={notifs}
+        />
       );
     }));
     return containers;
-  }
+  };
   
   /**
    * Render

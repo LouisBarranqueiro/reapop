@@ -18,7 +18,6 @@ function createTimer(dismissAfter, callback) {
 }
 
 export class Notification extends Component {
-  // Properties types
   static propTypes = {
     className: PropTypes.shape({
       main: PropTypes.string.isRequired,
@@ -61,17 +60,13 @@ export class Notification extends Component {
   };
 
   /**
-   * Constructor
-   * Bind methods
+   * Init timer
    * @param {Object} props
    * @returns {void}
    */
   constructor(props) {
     const {dismissAfter} = props.notification;
     super(props);
-    this._remove = this._remove.bind(this);
-    this._pauseTimer = this._pauseTimer.bind(this);
-    this._resumeTimer = this._resumeTimer.bind(this);
     this.state = {
       timer: createTimer(dismissAfter, this._remove)
     };
@@ -116,30 +111,30 @@ export class Notification extends Component {
    * @private
    * @returns {void}
    */
-  _remove() {
+  _remove = () => {
     const {removeNotification, notification: {id}} = this.props;
     removeNotification(id);
-  }
+  };
 
   /**
    * Pauses the timer
    * @returns {void}
    * @private
    */
-  _pauseTimer() {
+  _pauseTimer = () => {
     const {timer} = this.state;
     timer.pause();
-  }
+  };
 
   /**
    * Resumes the timer
    * @returns {void}
    * @private
    */
-  _resumeTimer() {
+  _resumeTimer = () => {
     const {timer} = this.state;
     timer.resume();
-  }
+  };
 
   /**
    * Wrap content in an object ready for HTML
@@ -147,35 +142,30 @@ export class Notification extends Component {
    * @returns {Object}
    * @private
    */
-  _setHTML(content) {
+  _setHTML = (content) => {
     return {
       __html: content
     };
-  }
+  };
 
   /**
    * Render button(s)
    * @returns {*}
    */
-  _renderButtons() {
+  _renderButtons = () => {
     const {
       className,
       notification: {buttons}
     } = this.props;
 
-    return buttons.map((button) => {
-      return (
-        <button key={button.name} className={className.button} onClick={button.onClick}>
-          <span className={className.buttonText}>
-            {button.primary ?
-              <b>{button.name}</b> :
-              button.name
-            }
-          </span>
-        </button>
-      );
-    });
-  }
+    return buttons.map(({name, onClick, primary}) => (
+      <button key={name} className={className.button} onClick={onClick}>
+        <span className={className.buttonText}>
+          {primary ? <b>{name}</b> : name}
+        </span>
+      </button>
+    ));
+  };
 
   /**
    * Render
@@ -184,51 +174,80 @@ export class Notification extends Component {
   render() {
     const {
       className,
-      notification: {title, message, status, dismissible, closeButton, buttons, image, allowHTML}
+      notification: {
+        title,
+        message,
+        status,
+        dismissible,
+        closeButton,
+        buttons,
+        image,
+        allowHTML
+      }
     } = this.props;
     const {timer} = this.state;
     const isDismissible = (dismissible && buttons.length === 0);
+    const notificationClass = [
+      className.main,
+      className.status(status),
+      className.buttons(buttons.length),
+      isDismissible && !closeButton ? className.dismissible : null
+    ].join(' ');
 
     if (timer) {
       this._resumeTimer();
     }
 
     return (
-      <div className={className.wrapper}
+      <div
+        className={className.wrapper}
         onClick={isDismissible && !closeButton ? this._remove : ''}
         onMouseEnter={timer ? this._pauseTimer : ''}
-        onMouseLeave={timer ? this._resumeTimer : ''}>
-        <div className={`${className.main} ${className.status(status)} ` +
-          `${(isDismissible && !closeButton ? className.dismissible : '')} ` +
-          `${className.buttons(buttons.length)}`}>
-          {image ?
-            <div className={className.imageContainer}>
-              <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
-            </div> :
-            <span className={className.icon}/>
+        onMouseLeave={timer ? this._resumeTimer : ''}
+      >
+        <div className={notificationClass}>
+          {image
+            ?
+              <div className={className.imageContainer}>
+                <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
+              </div>
+            :
+              <span className={className.icon}/>
           }
           <div className={className.meta}>
-            {title ?
-              allowHTML ?
-                <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/> :
-                <h4 className={className.title}>{title}</h4> :
-              ''}
-            {message ?
-              allowHTML ?
-                <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/> :
-                <p className={className.message}>{message}</p> :
-              ''}
+            {title
+              ?
+                allowHTML
+                  ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/>
+                  : <h4 className={className.title}>{title}</h4>
+              :
+                null
+            }
+            {message
+              ?
+                allowHTML
+                  ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
+                  : <p className={className.message}>{message}</p>
+              :
+                null
+            }
           </div>
-          {isDismissible && closeButton ?
-            <div className={className.closeButtonContainer}>
-              <span className={className.closeButton} onClick={this._remove}/>
-            </div> :
-            ''}
-          {buttons.length ?
-            <div className={className.buttons()} onClick={this._remove}>
-              {this._renderButtons()}
-            </div> :
-            ''}
+          {isDismissible && closeButton
+            ?
+              <div className={className.closeButtonContainer}>
+                <span className={className.closeButton} onClick={this._remove}/>
+              </div>
+            :
+              null
+          }
+          {buttons.length
+            ?
+              <div className={className.buttons()} onClick={this._remove}>
+                {this._renderButtons()}
+              </div>
+            :
+              null
+          }
         </div>
       </div>
     );
