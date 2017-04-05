@@ -9,6 +9,10 @@ export class NotificationsSystem extends Component {
     notifications: React.PropTypes.array.isRequired,
     theme: React.PropTypes.shape({
       smallScreenMin: React.PropTypes.number.isRequired,
+      smallScreenPosition: React.PropTypes.oneOf([
+        POSITIONS.top,
+        POSITIONS.bottom
+      ]),
       notificationsSystem: React.PropTypes.shape({
         className: React.PropTypes.string
       })
@@ -63,8 +67,8 @@ export class NotificationsSystem extends Component {
     if (windowWidth < theme.smallScreenMin) {
       return (
         <NotificationsContainer
-          key='t'
-          position='t'
+          key={theme.smallScreenPosition || POSITIONS.top}
+          position={theme.smallScreenPosition || POSITIONS.top}
           theme={theme}
           notifications={notifications}
         />
