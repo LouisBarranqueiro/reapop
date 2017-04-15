@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {Timer, mapObjectValues} from '../helpers';
-import {removeNotification} from '../store/notifications';
+import {Timer, mapObjectValues, preloadImage} from '../helpers';
+import {removeNotification, imageLoaded} from '../store/notifications';
 import {POSITIONS} from '../constants';
 
 /**
@@ -45,6 +45,7 @@ export class Notification extends Component {
       position: PropTypes.oneOf(mapObjectValues(POSITIONS)),
       dismissAfter: PropTypes.number.isRequired,
       dismissible: PropTypes.bool.isRequired,
+      fetchImage: PropTypes.bool,
       onAdd: PropTypes.func,
       onRemove: PropTypes.func,
       closeButton: PropTypes.bool.isRequired,
@@ -56,7 +57,8 @@ export class Notification extends Component {
       ).isRequired,
       allowHTML: PropTypes.bool.isRequired
     }).isRequired,
-    removeNotification: PropTypes.func.isRequired
+    removeNotification: PropTypes.func.isRequired,
+    imageLoaded: PropTypes.func.isRequired
   };
 
   /**
@@ -77,6 +79,7 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentDidMount() {
+    this._preloadImage();
     const {onAdd} = this.props.notification;
     if (typeof onAdd === 'function') {
       onAdd();
@@ -100,10 +103,19 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentWillReceiveProps(nextProps) {
+    this._preloadImage();
     const {dismissAfter} = nextProps.notification;
     this.setState({
       timer: createTimer(dismissAfter, this._remove)
     });
+  }
+
+  _preloadImage = () => {
+    const {notification, imageLoaded} = this.props;
+    const {fetchImage, image} = notification;
+    if (fetchImage && image) {
+      preloadImage(image, imageLoaded(notification));
+    }
   }
 
   /**
@@ -179,6 +191,7 @@ export class Notification extends Component {
         message,
         status,
         dismissible,
+        fetchImage,
         closeButton,
         buttons,
         image,
@@ -186,6 +199,9 @@ export class Notification extends Component {
       }
     } = this.props;
     const {timer} = this.state;
+    if (fetchImage) {
+      return <div/>;
+    }
     const isDismissible = (dismissible && buttons.length === 0);
     const notificationClass = [
       className.main,
@@ -197,7 +213,6 @@ export class Notification extends Component {
     if (timer) {
       this._resumeTimer();
     }
-
     return (
       <div
         className={className.wrapper}
@@ -254,4 +269,4 @@ export class Notification extends Component {
   }
 }
 
-export default connect(null, {removeNotification})(Notification);
+export default connect(null, {removeNotification, imageLoaded})(Notification);
