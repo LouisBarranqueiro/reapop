@@ -1,4 +1,4 @@
-import {treatNotification, preloadImage} from '../helpers';
+import {treatNotification} from '../helpers';
 import {DEFAULT_NOTIFICATION} from '../constants';
 
 // An array to store notifications object
@@ -8,6 +8,7 @@ const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
 const UPDATE_NOTIFICATION = 'UPDATE_NOTIFICATION';
 const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
 const REMOVE_NOTIFICATIONS = 'REMOVE_NOTIFICATIONS';
+const IMAGE_LOADED = 'IMAGE_LOADED';
 
 /**
  * Add a notification (thunk action creator)
@@ -17,20 +18,13 @@ const REMOVE_NOTIFICATIONS = 'REMOVE_NOTIFICATIONS';
  * @param {Object} notification
  * @returns {Object} notification
  */
-export const addNotification = (notification) => (dispatch) => {
+export const addNotification = (notification) => {
   if (!notification.id) {
     notification.id = new Date().getTime();
   }
   notification = treatNotification(notification);
-  // if there is an image, we preload it
-  // and add notification when image is loaded
-  if (notification.image) {
-    preloadImage(notification.image, dispatch.bind(this, _addNotification(notification)));
-  }
-  else {
-    dispatch(_addNotification(notification));
-  }
-  return notification;
+
+  return _addNotification(notification);
 };
 
 /**
@@ -55,27 +49,13 @@ function _addNotification(notification) {
  * @param {Object} notification
  * @returns {Object} notification
  */
-export const updateNotification = (notification) => (dispatch, getState) => {
+export const updateNotification = (notification) => {
   if (!notification.id) {
     throw new Error('A notification must have an `id` property to be updated');
   }
-
-  const notifications = getState().notifications;
-  const index = notifications.findIndex((oldNotification) => oldNotification.id === notification.id);
-  const currNotification = notifications[index];
-
   notification = treatNotification(notification);
 
-  // if image is different, then we preload it
-  // and update notification when image is loaded
-  if (notification.image && (!currNotification.image || (currNotification.image &&
-    notification.image !== currNotification.image))) {
-    preloadImage(notification.image, dispatch.bind(this, _updateNotification(notification)));
-  }
-  else {
-    dispatch(_updateNotification(notification));
-  }
-  return notification;
+  return _updateNotification(notification);
 };
 
 /**
@@ -88,6 +68,20 @@ export const updateNotification = (notification) => (dispatch, getState) => {
 function _updateNotification(notification) {
   return {
     type: UPDATE_NOTIFICATION,
+    payload: notification
+  };
+}
+
+export const imageLoaded = (notification) => {
+  if (!notification.id) {
+    throw new Error('A notification must have an `id` property to be updated');
+  }
+  return _imageLoaded(notification);
+};
+
+export function _imageLoaded(notification) {
+  return {
+    type: IMAGE_LOADED,
     payload: notification
   };
 }
@@ -140,11 +134,24 @@ export default (defaultNotification = DEFAULT_NOTIFICATION) => {
         const notification = Object.assign({}, defaultNotification, payload);
         return [...state, notification];
       case UPDATE_NOTIFICATION:
+        {
         // get index of the notification
-        const index = state.findIndex((notification) => notification.id === payload.id);
+          const index = state.findIndex((notification) => notification.id === payload.id);
         // replace the old notification by the new one
-        state[index] = Object.assign({}, defaultNotification, payload);
-        return [...state];
+          state[index] = Object.assign({}, defaultNotification, payload);
+          return [...state];
+        }
+      case IMAGE_LOADED:
+        {
+          const modifiedPayload = Object.assign({}, payload, {
+            fetchImage: false
+          });
+          // get index of the notification
+          const index = state.findIndex((notification) => notification.id === modifiedPayload.id);
+          // replace the old notification by the new one
+          state[index] = Object.assign({}, defaultNotification, modifiedPayload);
+          return [...state];
+        }
       case REMOVE_NOTIFICATION:
         return state.filter((notification) => notification.id !== payload);
       case REMOVE_NOTIFICATIONS:
