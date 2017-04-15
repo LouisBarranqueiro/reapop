@@ -9,7 +9,10 @@ import 'babel-polyfill';
 import './styles/style.scss';
 
 // store
-const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);
+const createStoreWithMiddleware = compose(
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f // add support for Redux dev tools
+)(createStore);
 const store = createStoreWithMiddleware(combineReducers({
   notifications: notificationsReducer()
 }), {});
