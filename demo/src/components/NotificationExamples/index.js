@@ -37,7 +37,7 @@ class NotificationExamples extends Component {
       status: 'loading',
       dismissible: false,
       dismissAfter: 0
-    });
+    }).payload;
     setTimeout(function() {
       notif.status = 'success';
       notif.message = 'Your file has been successfully uploaded';

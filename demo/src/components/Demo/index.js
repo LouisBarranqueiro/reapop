@@ -52,14 +52,15 @@ class Demo extends Component {
       status: 'info',
       dismissible: false,
       dismissAfter: 0
-    });
+    }).payload;
     setTimeout(function() {
-      notif.message = 'Resize the window, theme is responsive!';
-      notif.dismissAfter = 5000;
-      updateNotification(notif);
+      const updatedNotification = Object.assign({}, notif, {
+        message: 'Resize the window, theme is responsive!'
+      });
+      updateNotification(updatedNotification);
     }, 3000);
   }
-  
+
   /**
    * Update window height state when component will unmount
    * @returns {void}
@@ -96,5 +97,7 @@ class Demo extends Component {
     );
   }
 }
-
-export default connect(null, {notify, updateNotification})(Demo);
+export default connect(null, {
+  notify,
+  updateNotification
+})(Demo);
