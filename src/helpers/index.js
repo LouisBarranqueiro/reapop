@@ -58,6 +58,7 @@ export function treatNotification(notification) {
   }
   if (notification.image) {
     notification.status = STATUS.default;
+    notification.fetchImage = true; // directs the component to wait for image to be fetched
   }
   else {
     notification.status = convertStatus(notification.status);
