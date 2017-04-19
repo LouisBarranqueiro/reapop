@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {mapObjectValues} from '../helpers';
 import NotificationsContainer from './NotificationsContainer';
@@ -6,11 +7,11 @@ import {POSITIONS} from '../constants';
 
 export class NotificationsSystem extends Component {
   static propTypes = {
-    notifications: React.PropTypes.array.isRequired,
-    theme: React.PropTypes.shape({
-      smallScreenMin: React.PropTypes.number.isRequired,
-      notificationsSystem: React.PropTypes.shape({
-        className: React.PropTypes.string
+    notifications: PropTypes.array.isRequired,
+    theme: PropTypes.shape({
+      smallScreenMin: PropTypes.number.isRequired,
+      notificationsSystem: PropTypes.shape({
+        className: PropTypes.string
       })
     }).isRequired
   };
@@ -86,7 +87,7 @@ export class NotificationsSystem extends Component {
     }));
     return containers;
   };
-  
+
   /**
    * Render
    * @returns {XML}
