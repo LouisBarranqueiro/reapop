@@ -140,11 +140,12 @@ export default (defaultNotification = DEFAULT_NOTIFICATION) => {
         const notification = Object.assign({}, defaultNotification, payload);
         return [...state, notification];
       case UPDATE_NOTIFICATION:
-        // get index of the notification
-        const index = state.findIndex((notification) => notification.id === payload.id);
-        // replace the old notification by the new one
-        state[index] = Object.assign({}, defaultNotification, payload);
-        return [...state];
+        return state.map((notification) => {
+          if (notification.id === payload.id) {
+            return Object.assign({}, defaultNotification, payload);
+          }
+          return notification;
+        });
       case REMOVE_NOTIFICATION:
         return state.filter((notification) => notification.id !== payload);
       case REMOVE_NOTIFICATIONS:
