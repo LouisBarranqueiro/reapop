@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {mapObjectValues} from '../../src/helpers';
-import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import TransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import {POSITIONS} from '../../src/constants';
 import Notification from '../../src/components/Notification';
 import NotificationsContainer from '../../src/components/NotificationsContainer';

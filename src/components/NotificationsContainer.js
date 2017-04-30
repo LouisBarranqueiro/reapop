@@ -1,25 +1,26 @@
 import React, {Component} from 'react';
-import TransitionGroup from 'react-addons-css-transition-group';
+import PropTypes from 'prop-types';
+import TransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Notification from './Notification';
 
 export class NotificationsContainer extends Component {
   static propTypes = {
-    notifications: React.PropTypes.array.isRequired,
-    position: React.PropTypes.string.isRequired,
-    theme: React.PropTypes.shape({
-      notificationsContainer: React.PropTypes.shape({
-        className: React.PropTypes.shape({
-          main: React.PropTypes.string.isRequired,
-          position: React.PropTypes.func.isRequired
+    notifications: PropTypes.array.isRequired,
+    position: PropTypes.string.isRequired,
+    theme: PropTypes.shape({
+      notificationsContainer: PropTypes.shape({
+        className: PropTypes.shape({
+          main: PropTypes.string.isRequired,
+          position: PropTypes.func.isRequired
         }).isRequired,
-        transition: React.PropTypes.shape({
-          name: React.PropTypes.object.isRequired,
-          enterTimeout: React.PropTypes.number.isRequired,
-          leaveTimeout: React.PropTypes.number.isRequired
+        transition: PropTypes.shape({
+          name: PropTypes.object.isRequired,
+          enterTimeout: PropTypes.number.isRequired,
+          leaveTimeout: PropTypes.number.isRequired
         }).isRequired
       }).isRequired,
-      notification: React.PropTypes.shape({
-        className: React.PropTypes.object.isRequired
+      notification: PropTypes.shape({
+        className: PropTypes.object.isRequired
       }).isRequired
     }).isRequired
   };
