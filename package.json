@@ -1,6 +1,6 @@
 {
   "name": "reapop",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A React and Redux notifications system",
   "main": "lib/index.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "component"
   ],
   "author": "Louis Barranqueiro",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/LouisBarranqueiro/reapop/issues"
   },
