@@ -6,7 +6,7 @@ import ConnectedNotificationsSystem, {
 } from '../../src/components/NotificationsSystem';
 import Notification from '../../src/components/Notification';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
-import {genNotifications, mockStore, checkPropTypes} from '../utils/fixtures';
+import {genNotification, genNotifications, mockStore, checkPropTypes} from '../utils/fixtures';
 import {ExpectedNotificationsSystem} from '../utils/expectedComponents';
 import theme from 'reapop-theme-wybo';
 
@@ -92,5 +92,21 @@ describe('<NotificationsSystem/>', () => {
     expect(wrapper.find(NotificationsContainer).length).toEqual(8);
     expect(wrapper.find(Notification).length).toEqual(3);
     expect(wrapper.html()).toEqual(expectedWrapper.html());
+  });
+
+  it('should use filter and render 1 notification', () => {
+    const notifications = genNotifications(3);
+    notifications.push(genNotification({style: 'alert'}));
+    const store = mockStore({notifications});
+    const customTheme = Object.assign({}, theme, {smallScreenMin: 380});
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectedNotificationsSystem
+          theme={customTheme}
+          filter={notif => notif.style === 'alert'}
+        />
+      </Provider>
+    );
+    expect(wrapper.find(Notification).length).toEqual(1);
   });
 });
