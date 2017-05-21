@@ -7,6 +7,7 @@ import {POSITIONS} from '../constants';
 
 export class NotificationsSystem extends Component {
   static propTypes = {
+    filter: PropTypes.func,
     notifications: PropTypes.array.isRequired,
     theme: PropTypes.shape({
       smallScreenMin: PropTypes.number.isRequired,
@@ -55,10 +56,15 @@ export class NotificationsSystem extends Component {
    * @private
    */
   _renderNotificationsContainers = () => {
-    const {notifications, theme} = this.props;
+    const {theme, filter} = this.props;
     const {windowWidth} = this.state;
     const positions = mapObjectValues(POSITIONS);
     const containers = [];
+    let notifications = this.props.notifications;
+
+    if (typeof filter === 'function') {
+      notifications = notifications.filter(filter);
+    }
 
     // render all notifications in the same container at the top for small screens
     if (windowWidth < theme.smallScreenMin) {
@@ -76,6 +82,7 @@ export class NotificationsSystem extends Component {
       const notifs = notifications.filter((notif) => {
         return position === notif.position;
       });
+
       return (
         <NotificationsContainer
           key={position}
