@@ -94,7 +94,7 @@ class ATopLevelComponent extends Component {
 
 
 ``` js
-import {createStore, compose, applyMiddleware} from 'redux';
+import {createStore, compose, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import {reducer as notificationsReducer} from 'reapop';
 
@@ -139,7 +139,7 @@ class AmazingComponent extends Component {
   _onClick() {
     const {notify} = this.props;
     // 3. we use `notify` to create a notification 
-    notify({
+    this.props.notify({
       title: 'Welcome',
       message: 'you clicked on the button',
       status: 'success',
