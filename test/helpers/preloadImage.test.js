@@ -19,4 +19,13 @@ describe('preloadImage', () => {
       done();
     }, 1500);
   });
+
+  it('should try to preload image: 404 (call `onerror` event)', (done) => {
+    const spy = expect.createSpy();
+    preloadImage('https://httpbin.org/status/404', spy);
+    setTimeout(() => {
+      expect(spy).toHaveBeenCalled();
+      done();
+    }, 1500);
+  });
 });
