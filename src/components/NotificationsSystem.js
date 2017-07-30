@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {mapObjectValues} from '../helpers';
 import NotificationsContainer from './NotificationsContainer';
@@ -7,6 +8,7 @@ import {POSITIONS} from '../constants';
 export class NotificationsSystem extends Component {
   static propTypes = {
     notifications: React.PropTypes.array.isRequired,
+    filter: PropTypes.func,
     theme: React.PropTypes.shape({
       smallScreenMin: React.PropTypes.number.isRequired,
       smallScreenPosition: React.PropTypes.oneOf([
@@ -58,10 +60,15 @@ export class NotificationsSystem extends Component {
    * @private
    */
   _renderNotificationsContainers = () => {
-    const {notifications, theme} = this.props;
+    const {theme, filter} = this.props;
     const {windowWidth} = this.state;
     const positions = mapObjectValues(POSITIONS);
     const containers = [];
+    let notifications = this.props.notifications;
+
+    if (typeof filter === 'function') {
+      notifications = notifications.filter(filter);
+    }
 
     // render all notifications in the same container at the top for small screens
     if (windowWidth < theme.smallScreenMin) {
@@ -79,6 +86,7 @@ export class NotificationsSystem extends Component {
       const notifs = notifications.filter((notif) => {
         return position === notif.position;
       });
+
       return (
         <NotificationsContainer
           key={position}
@@ -90,7 +98,7 @@ export class NotificationsSystem extends Component {
     }));
     return containers;
   };
-  
+
   /**
    * Render
    * @returns {XML}

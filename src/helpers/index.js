@@ -71,13 +71,14 @@ export function treatNotification(notification) {
 /**
  * Preload an image
  * @param {String} url url of image to load
- * @param {Function} onload Function called when image is loaded
+ * @param {Function} cb Function called when image is loaded or not
  * @returns {void}
  */
-export function preloadImage(url, onload) {
+export function preloadImage(url, cb) {
   const image = new Image();
   image.src = url;
-  image.onload = onload;
+  image.onload = cb;
+  image.onerror = cb;
   return image;
 }
 

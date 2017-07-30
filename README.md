@@ -197,4 +197,4 @@ Read [Contributing guide](https://github.com/LouisBarranqueiro/reapop/blob/maste
 
 ## License 
 
-Reapop is under [GPL-3.0 License](https://github.com/LouisBarranqueiro/reapop/blob/master/LICENSE)
+Reapop is under [MIT License](https://github.com/LouisBarranqueiro/reapop/blob/master/LICENSE)

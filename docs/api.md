@@ -6,6 +6,7 @@
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
     * [Remove all notifications](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-all-notifications)
 * [Customize default values for notifications](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#customize-default-values-for-notifications)
+* [Notifications system component](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notifications-system-component)
 * [Theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme)
     * [Themes list](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#themes-list)
     * [Set a theme](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#set-a-theme)
@@ -204,6 +205,23 @@ You can customizable default values for notifications, by passing an object to t
 | closeButton  | Boolean | False   | Display a close button if notification is dismissible |
 | allowHTML    | Boolean | False   | Allow HTML in title and message of the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
 
+## Notifications system component
+
+| Property | Type     | Default | Description |
+| -------- | -------- | ------- | ----------- |
+| theme    | Object   | null    | The theme to use to stylize notifications. |
+| filter   | Function | null    | Filter notifications to display. Can be useful to display some notifications with another component, like modal notifications or banner notifications. |
+
+### Example
+
+``` html
+<NotificationsSystem 
+  theme={theme}
+  filter={notif => notif.style !== 'banner'} 
+/>
+```
+
+
 ## Theme
 
 ### Themes list
@@ -215,17 +233,6 @@ You can customizable default values for notifications, by passing an object to t
 
 [1]: https://github.com/LouisBarranqueiro/reapop-theme-wybo
 [2]: https://github.com/LouisBarranqueiro/reapop-theme-bootstrap
-
-### Remove all notifications
-
-Removing all notifications is done with `removeNotifications` (action creator) function.
-
-#### Syntax
-
-``` js
-removeNotifications();
-```
-
 
 ### Set a theme
 
