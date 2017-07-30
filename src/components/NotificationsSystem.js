@@ -7,12 +7,16 @@ import {POSITIONS} from '../constants';
 
 export class NotificationsSystem extends Component {
   static propTypes = {
+    notifications: React.PropTypes.array.isRequired,
     filter: PropTypes.func,
-    notifications: PropTypes.array.isRequired,
-    theme: PropTypes.shape({
-      smallScreenMin: PropTypes.number.isRequired,
-      notificationsSystem: PropTypes.shape({
-        className: PropTypes.string
+    theme: React.PropTypes.shape({
+      smallScreenMin: React.PropTypes.number.isRequired,
+      smallScreenPosition: React.PropTypes.oneOf([
+        POSITIONS.top,
+        POSITIONS.bottom
+      ]),
+      notificationsSystem: React.PropTypes.shape({
+        className: React.PropTypes.string
       })
     }).isRequired
   };
@@ -70,8 +74,8 @@ export class NotificationsSystem extends Component {
     if (windowWidth < theme.smallScreenMin) {
       return (
         <NotificationsContainer
-          key='t'
-          position='t'
+          key={theme.smallScreenPosition || POSITIONS.top}
+          position={theme.smallScreenPosition || POSITIONS.top}
           theme={theme}
           notifications={notifications}
         />
