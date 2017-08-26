@@ -7,16 +7,16 @@ import {POSITIONS} from '../constants';
 
 export class NotificationsSystem extends Component {
   static propTypes = {
-    notifications: React.PropTypes.array.isRequired,
+    notifications: PropTypes.array.isRequired,
     filter: PropTypes.func,
-    theme: React.PropTypes.shape({
-      smallScreenMin: React.PropTypes.number.isRequired,
-      smallScreenPosition: React.PropTypes.oneOf([
+    theme: PropTypes.shape({
+      smallScreenMin: PropTypes.number.isRequired,
+      smallScreenPosition: PropTypes.oneOf([
         POSITIONS.top,
         POSITIONS.bottom
       ]),
-      notificationsSystem: React.PropTypes.shape({
-        className: React.PropTypes.string
+      notificationsSystem: PropTypes.shape({
+        className: PropTypes.string
       })
     }).isRequired
   };
