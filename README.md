@@ -193,7 +193,7 @@ Read [API documentation](https://github.com/LouisBarranqueiro/reapop/blob/master
 
 ## Contributing guide
 
-Read [Contributing guide](https://github.com/LouisBarranqueiro/reapop/blob/master/.github/.CONTRIBUTING.md)
+Read [Contributing guide](https://github.com/LouisBarranqueiro/reapop/blob/master/.github/CONTRIBUTING.md)
 
 ## License 
 
