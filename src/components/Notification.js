@@ -202,9 +202,9 @@ export class Notification extends Component {
     return (
       <div
         className={className.wrapper}
-        onClick={isDismissible && !closeButton ? this._remove : ''}
-        onMouseEnter={timer ? this._pauseTimer : ''}
-        onMouseLeave={timer ? this._resumeTimer : ''}
+        onClick={isDismissible && !closeButton ? this._remove : function() {}}
+        onMouseEnter={timer ? this._pauseTimer : function() {}}
+        onMouseLeave={timer ? this._resumeTimer : function() {}}
       >
         <div className={notificationClass}>
           {image
