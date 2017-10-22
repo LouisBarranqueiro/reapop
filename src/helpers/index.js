@@ -22,6 +22,14 @@ export function convertStatus(status) {
 }
 
 /**
+ * Generate a unique id
+ * @returns {number}
+ */
+export function genId() {
+  return new Date().getTime();
+}
+
+/**
  * Create a Timer
  * @param {Number} delay
  * @param {Function} callback

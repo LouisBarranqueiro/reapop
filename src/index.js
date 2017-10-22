@@ -1,5 +1,6 @@
 import NotificationsSystem from './components/NotificationsSystem';
 import {STATUS, POSITIONS, DEFAULT_NOTIFICATION} from './constants';
+import helpers from './helpers';
 import reducer, {
   actions,
   types,
@@ -23,6 +24,8 @@ export {
   types,
   // reducer
   reducer,
+  // utils
+  helpers,
   // action creators separately
   addNotification,
   updateNotification,

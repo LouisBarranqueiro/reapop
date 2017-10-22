@@ -1,4 +1,4 @@
-import {treatNotification, preloadImage} from '../helpers';
+import {treatNotification, preloadImage, genId} from '../helpers';
 import {DEFAULT_NOTIFICATION} from '../constants';
 
 // An array to store notifications object
@@ -19,7 +19,7 @@ const REMOVE_NOTIFICATIONS = 'REMOVE_NOTIFICATIONS';
  */
 export const addNotification = (notification) => (dispatch) => {
   if (!notification.id) {
-    notification.id = new Date().getTime();
+    notification.id = genId();
   }
   notification = treatNotification(notification);
   // if there is an image, we preload it
