@@ -8,7 +8,8 @@ import NotificationsSystem, {
   updateNotification
 } from '../../../../src';
 import css from './styles.scss';
-import theme from 'reapop-theme-wybo';
+import themeWybo from 'reapop-theme-wybo';
+import themeBs from 'reapop-theme-bootstrap';
 
 class Demo extends Component {
   static propTypes = {
@@ -24,9 +25,11 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      theme: 'wybo'
     };
     this._updateWindowWidth = this._updateWindowWidth.bind(this);
+    this.handleChangeTheme = this.handleChangeTheme.bind(this);
   }
 
   /**
@@ -59,13 +62,27 @@ class Demo extends Component {
       updateNotification(notif);
     }, 3000);
   }
-  
+
   /**
    * Update window height state when component will unmount
    * @returns {void}
    */
   componentWillUnmount() {
     window.removeEventListener('resize', this._updateWindowWidth);
+  }
+
+  handleChangeTheme(e) {
+    this.setState({
+      theme: e.target.value
+    });
+  }
+
+  getTheme() {
+    if (this.state.theme === 'wybo') {
+      return themeWybo;
+    }
+
+    return themeBs;
   }
 
   /**
@@ -82,6 +99,8 @@ class Demo extends Component {
       closeButton: false
     };
 
+    const theme = this.getTheme();
+
     return (
       <div className={css['background']}>
         <div className={`${css['logo-container']} text-center`}>
@@ -90,7 +109,7 @@ class Demo extends Component {
           <RandomNotificationCreator/>
         </div>
         <NotificationsSystem theme={theme} defaultValues={defaultValues}/>
-        {(window.innerWidth > 767 ? <Sidebar/> : '')}
+        {(window.innerWidth > 767 ? <Sidebar currentTheme={this.state.theme} onChangeTheme={this.handleChangeTheme}/> : '')}
         <Footer/>
       </div>
     );
