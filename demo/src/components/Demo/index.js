@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
@@ -12,8 +13,8 @@ import theme from 'reapop-theme-wybo';
 
 class Demo extends Component {
   static propTypes = {
-    notify: React.PropTypes.func.isRequired,
-    updateNotification: React.PropTypes.func.isRequired
+    notify: PropTypes.func.isRequired,
+    updateNotification: PropTypes.func.isRequired
   };
 
   /**

@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import css from './styles.scss';
-
 class Input extends Component {
   /**
    * propTypes
    */
   static propTypes = {
-    name: React.PropTypes.string.isRequired,
-    onChange: React.PropTypes.func.isRequired,
-    checked: React.PropTypes.bool.isRequired,
-    variable: React.PropTypes.object
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    checked: PropTypes.bool.isRequired,
+    variable: PropTypes.object
   };
 
   /**
