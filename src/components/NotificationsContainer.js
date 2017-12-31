@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import TransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 import Notification from './Notification';
 
 export class NotificationsContainer extends Component {
@@ -76,9 +76,11 @@ export class NotificationsContainer extends Component {
     return (
       <div className={`${className.main} ${className.position(position)}`}>
         <TransitionGroup
-          transitionName={name}
-          transitionEnterTimeout={enterTimeout}
-          transitionLeaveTimeout={leaveTimeout}
+          classNames={name}
+          timeout={{
+            enter: enterTimeout,
+            exit: leaveTimeout
+          }}
         >
           {this._renderNotifications()}
         </TransitionGroup>

@@ -105,7 +105,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
-    "prop-types": "^15.5.8",
-    "react-transition-group": "^1.1.2"
+    "prop-types": "^15.6.0",
+    "react-transition-group": "^2.2.1"
   }
 }
