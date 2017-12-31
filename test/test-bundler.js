@@ -13,9 +13,12 @@ testsContext.keys().forEach(testsContext);
 const componentsContext = require.context('../src', true, /\.js$/);
 componentsContext.keys().forEach(componentsContext);
 
-let Adapter = null
+let Adapter = null;
 
-if (reactVersion.startsWith('15')) {
+if (reactVersion.startsWith('16')) {
+  Adapter = require('enzyme-adapter-react-16');
+}
+else if (reactVersion.startsWith('15')) {
   Adapter = require('enzyme-adapter-react-15.4');
 }
 else if (reactVersion.startsWith('0.14')) {
