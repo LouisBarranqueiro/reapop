@@ -60,12 +60,13 @@ export class ExpectedNotification extends Component {
       >
         <div className={notificationClass}>
           {image
-            ?
-            <div className={className.imageContainer}>
-              <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
-            </div>
-            :
-            <span className={className.icon}/>
+            ? (
+              <div className={className.imageContainer}>
+                <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
+              </div>
+            ) : (
+              <span className={className.icon}/>
+            )
           }
           <div className={className.meta}>
             {title
@@ -86,18 +87,20 @@ export class ExpectedNotification extends Component {
             }
           </div>
           {isDismissible && closeButton
-            ?
-            <div className={className.closeButtonContainer}>
-              <span className={className.closeButton} onClick={this._remove}/>
-            </div>
+            ? (
+              <div className={className.closeButtonContainer}>
+                <span className={className.closeButton} onClick={this._remove}/>
+              </div>
+            )
             :
             null
           }
           {buttons.length
-            ?
-            <div className={className.buttons()} onClick={this._remove}>
-              {this._renderButtons()}
-            </div>
+            ? (
+              <div className={className.buttons()} onClick={this._remove}>
+                {this._renderButtons()}
+              </div>
+            )
             :
             null
           }

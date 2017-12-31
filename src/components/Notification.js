@@ -208,46 +208,48 @@ export class Notification extends Component {
       >
         <div className={notificationClass}>
           {image
-            ?
+            ? (
               <div className={className.imageContainer}>
                 <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
               </div>
-            :
+            ) : (
               <span className={className.icon}/>
+            )
           }
           <div className={className.meta}>
             {title
               ?
-                allowHTML
-                  ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/>
-                  : <h4 className={className.title}>{title}</h4>
+              allowHTML
+                ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/>
+                : <h4 className={className.title}>{title}</h4>
               :
-                null
+              null
             }
             {message
               ?
-                allowHTML
-                  ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
-                  : <p className={className.message}>{message}</p>
+              allowHTML
+                ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
+                : <p className={className.message}>{message}</p>
               :
-                null
+              null
             }
           </div>
           {isDismissible && closeButton
-            ?
+            ? (
               <div className={className.closeButtonContainer}>
                 <span className={className.closeButton} onClick={this._remove}/>
               </div>
-            :
-              null
+            ) :
+            null
           }
           {buttons.length
-            ?
+            ? (
               <div className={className.buttons()} onClick={this._remove}>
                 {this._renderButtons()}
               </div>
+            )
             :
-              null
+            null
           }
         </div>
       </div>

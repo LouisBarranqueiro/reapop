@@ -1,22 +1,26 @@
 {
-    "parser"  : "babel-eslint",
-    "extends" : [
+    "parser": "babel-eslint",
+    "extends": [
         "standard",
         "standard-react"
     ],
-    "env"     : {
-        "browser" : true
+    "env": {
+        "browser": true
     },
     "rules": {
-        "semi" : [2, "always"],
-        "react/jsx-boolean-value": [2,"always"],
+        "semi": [2, "always"],
+        "react/jsx-boolean-value": [2, "always"],
         "valid-jsdoc": [2, {
             "requireReturnDescription": false,
             "requireParamDescription": false
         }],
+        "react/jsx-tag-spacing": {
+            "closingSlash": "never",
+            "beforeSelfClosing": "never",
+            "afterOpening": "never"
+        },
         "react/jsx-indent-props": 0,
         "jsx-quotes": ["error", "prefer-single"],
-        "react/jsx-space-before-closing":[2, "never"],
         "brace-style": [2, "stroustrup"],
         "space-before-function-paren":[2, "never"],
         "no-trailing-spaces": [2, {"skipBlankLines": true}],
