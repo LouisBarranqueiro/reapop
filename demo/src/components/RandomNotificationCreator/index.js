@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import faker from 'faker';
 import {STATUS, POSITIONS, addNotification as notify} from '../../../../src';
@@ -6,7 +7,7 @@ import css from './styles.scss';
 
 class RandomNotificationCreator extends Component {
   static propTypes = {
-    notify: React.PropTypes.func.isRequired
+    notify: PropTypes.func.isRequired
   };
 
   /**

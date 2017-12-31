@@ -17,12 +17,12 @@ describe('<Notification/>', () => {
     className,
     removeNotification
   };
-  
+
   beforeEach('generate a new notification and init store', () => {
     notification = genNotification();
     store = mockStore({notifications: []});
   });
-  
+
   it('should validate props', () => {
     const errors = checkPropTypes({
       className,
@@ -41,7 +41,7 @@ describe('<Notification/>', () => {
     expect(errors.notification).toExist();
     expect(errors.removeNotification).toExist();
   });
-  
+
   it('should mount with initial state', () => {
     // state component will be init without timer because `dismissAfter` is set to `0`
     notification.dismissAfter = 0;
@@ -64,7 +64,7 @@ describe('<Notification/>', () => {
     wrapper.setProps(notification);
     expect(wrapper.state().timer).toBeA(Timer);
   });
-  
+
   it('should render component (with title)', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
@@ -74,7 +74,7 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (with HTML in the title)', () => {
     notification.title = 'A title with <i>html</i>';
     const wrapper = shallow(
@@ -85,7 +85,7 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (without title)', () => {
     notification.title = null;
     const wrapper = shallow(
@@ -96,7 +96,7 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (with message)', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
@@ -106,7 +106,7 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (with HTML in the message)', () => {
     // add HTML in message and allow HTML
     notification.message = `${notification.message} <b>HEY</b>`;
@@ -119,37 +119,37 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (without message)', () => {
     notification.message = null;
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    
+
     const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (with image)', () => {
     notification.image = 'an_url';
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    
+
     const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (without image)', () => {
     notification.image = '';
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    
+
     const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
@@ -183,18 +183,18 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (with 2 buttons)', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    
+
     const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (with 1 button)', () => {
     delete notification.buttons[1];
     const wrapper = shallow(
@@ -205,81 +205,52 @@ describe('<Notification/>', () => {
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should render component (without buttons)', () => {
     notification.buttons = [];
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    
+
     const expectedComponent = shallow(
       <ExpectedNotification notification={notification} {...otherProps}/>
     );
     expect(wrapper.html()).toEqual(expectedComponent.html());
   });
-  
+
   it('should run onAdd() callback at componentDidMount() lifecycle', () => {
-    const errorMessage = 'onAdd() callback';
+    let count = 0;
     // we throw an error to capture where
     // the code has been executed before error was thrown
     notification.onAdd = () => {
-      throw new Error(errorMessage);
+      count++;
     };
-    try {
-      mount(
-        <Provider store={store}>
-          <ConnectNotification notification={notification} {...otherProps}/>
-        </Provider>
-      );
-    }
-    catch (error) {
-      expect(error.stack).toMatch(/onAdd[\s\S]*?componentDidMount/);
-      expect(error.message).toEqual(errorMessage);
-    }
-    // and we update function to check that
-    // component mount without any error
-    notification.onAdd = () => {
-      return 0;
-    };
+
     mount(
       <Provider store={store}>
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
+
+    expect(count).toEqual(1);
   });
-  
+
   it('should run onRemove() callback at componentWillUnmount() lifecycle', () => {
-    const errorMessage = 'onRemove() callback';
-    // we throw an error to capture where
-    // the code has been executed before error was thrown
+    let count = 0;
     notification.onRemove = () => {
-      throw new Error(errorMessage);
+      count++;
     };
+
     let wrapper = mount(
       <Provider store={store}>
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>
     );
-    try {
-      wrapper.unmount();
-    }
-    catch (error) {
-      expect(error.stack).toMatch(/onRemove[\s\S]*?componentWillUnmount/);
-      expect(error.message).toEqual(errorMessage);
-    }
-    // and we update function without `throw` call to check that
-    // component unmount without any error
-    notification.onRemove = () => {
-      return 0;
-    };
-    wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
-    );
+
     wrapper.unmount();
+    expect(count).toEqual(count);
   });
-  
+
   it('should not throw an error at componentDidMount() lifecycle ' +
     '(onAdd() callback undefined)', () => {
     delete notification.onAdd;
@@ -289,7 +260,7 @@ describe('<Notification/>', () => {
       </Provider>
     );
   });
-  
+
   it('should not throw an error at componentWillUnmount() lifecycle ' +
     '(onRemove() callback undefined)', () => {
     delete notification.onRemove;
@@ -300,7 +271,7 @@ describe('<Notification/>', () => {
     );
     wrapper.unmount();
   });
-  
+
   it('should create an action to remove the notification ' +
     'when it is clicked', () => {
     notification.dismissible = true;
@@ -338,7 +309,7 @@ describe('<Notification/>', () => {
     wrapper.find(`.${className.closeButtonContainer} > span`).simulate('click');
     expect(store.getActions()).toEqual([expectedAction]);
   });
-  
+
   it('should create an action to remove the notification ' +
     'when a action button is clicked (dismissible : false)', () => {
     // we set `dismissible` to `false` to be sure
@@ -357,7 +328,7 @@ describe('<Notification/>', () => {
     wrapper.find(`.${className.button}`).first().simulate('click');
     expect(store.getActions()).toEqual([expectedAction]);
   });
-  
+
   it('should create an action to remove the notification after ' +
     '`dismissAfter` duration', (done) => {
     const expectedAction = {
@@ -409,7 +380,7 @@ describe('<Notification/>', () => {
       done();
     }, 210);
   });
-  
+
   it('should not create an action to remove the notification ' +
     'when it is clicked (dismissible : false)', () => {
     notification.dismissible = false;

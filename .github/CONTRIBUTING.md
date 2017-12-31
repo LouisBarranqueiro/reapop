@@ -27,12 +27,14 @@ Here is the list of the available npm scripts :
 | lint:fix             | Lint and fix javascript files of source (`src`) and demo source (`demo`) |
 | react:14             | Switch to React 0.14 and Redux 2 |
 | react:15             | Switch to React 15  and Redux 3 |
+| react:16             | Switch to React 16  and Redux 3 |
 | react-redux:2        | Switch to react-redux 2 |
 | react-redux:3.1      | Switch to react-redux 3.1 |
 | react-redux:4        | Switch to react-redux 4 |
+| react-redux:5.0.6    | Switch to react-redux 5.0.6 |
 | test                 | Run tests with Karma |
 | test:coverage        | Run tests with Karma and generate coverage report (HTML and LCOV) |
-| test:all             | Run tests with Karma on 3 configurations [react@0.14, Redux@2.0, react-redux@2 - react@0.14, redux@2.0, react-redux@3.1 - react@15, redux@3.0, react-redux@4]  |
+| test:all             | Run tests with Karma on all possible configurations with react, redux and react-redux |
 | test:watch           | Run tests with Karma and watch for changes to re-run test. Useful for TDD. |
 | prepublish           | Compile ES6 code (`src`) in ES5 code (`lib`) with babel |
 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import update from 'react/lib/update';
 import {connect} from 'react-redux';
 import Switch from '../Switch';
@@ -6,7 +7,7 @@ import {addNotification as notify} from '../../../../src/index';
 
 class NotificationCreator extends Component {
   static propTypes = {
-    notify: React.PropTypes.func.isRequired
+    notify: PropTypes.func.isRequired
   };
   
   /**
