@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {mapObjectValues} from '../../src/helpers';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import {POSITIONS} from '../../src/constants';
 import Notification from '../../src/components/Notification';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
@@ -112,12 +113,9 @@ export class ExpectedNotification extends Component {
 
 export class ExpectedNotificationsContainer extends Component {
   _renderNotifications = () => {
-    const {
-      position,
-      theme: {
-        notification: {className}
-      }
-    } = this.props;
+    const {position} = this.props;
+    const {className} = this.props.theme.notification;
+    const {name, enterTimeout, leaveTimeout} = this.props.theme.notificationsContainer.transition;
     let {notifications} = this.props;
 
     // when notifications are displayed at the bottom,
@@ -127,34 +125,33 @@ export class ExpectedNotificationsContainer extends Component {
     }
 
     return notifications.map((notification) => (
-      <Notification
+      <CSSTransition
         key={notification.id}
-        notification={notification}
-        className={className}
-      />
+        classNames={{
+          enter: name.enter,
+          exit: name.leave
+        }}
+        timeout={{
+          enter: enterTimeout,
+          exit: leaveTimeout
+        }}
+      >
+        <Notification
+          key={notification.id}
+          notification={notification}
+          className={className}
+        />
+      </CSSTransition>
     ));
   };
 
   render() {
-    const {
-      className,
-      transition: {
-        name,
-        enterTimeout,
-        leaveTimeout
-      }
-    } = this.props.theme.notificationsContainer;
+    const {className} = this.props.theme.notificationsContainer;
     const {position} = this.props;
 
     return (
       <div className={`${className.main} ${className.position(position)}`}>
-        <TransitionGroup
-          classNames={name}
-          timeout={{
-            enter: enterTimeout,
-            exit: leaveTimeout
-          }}
-        >
+        <TransitionGroup>
           {this._renderNotifications()}
         </TransitionGroup>
       </div>
