@@ -25,6 +25,18 @@
     font-family: 'ArtelyInks';
 }
 
+.sidebar {
+    position:   fixed;
+    top:        0;
+    left:       0;
+    width:      $sidebar-width;
+    height:     100%;
+    padding:    15px;
+    background: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 @media (min-width: #{$screen-sm-min}) {
     .logo-container {
         transform: translateY(-50%) translateX(calc(-50% + #{$sidebar-width} / 2));

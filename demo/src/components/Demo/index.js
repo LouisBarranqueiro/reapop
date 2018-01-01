@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import Sidebar from '../Sidebar';
-import Footer from '../Footer';
+
 import RandomNotificationCreator from '../RandomNotificationCreator';
+import Footer from '../Footer';
+import NotificationCreator from '../NotificationCreator';
+import NotificationExamples from '../NotificationExamples';
+
+import {THEMES, DEFAULT_THEME} from '../../../themes';
 import NotificationsSystem, {
   addNotification as notify,
   updateNotification
 } from '../../../../src';
 import css from './styles.scss';
-import theme from 'reapop-theme-wybo';
 
 class Demo extends Component {
   static propTypes = {
@@ -25,7 +28,8 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      themeName: DEFAULT_THEME
     };
     this._updateWindowWidth = this._updateWindowWidth.bind(this);
   }
@@ -60,7 +64,7 @@ class Demo extends Component {
       updateNotification(notif);
     }, 3000);
   }
-  
+
   /**
    * Update window height state when component will unmount
    * @returns {void}
@@ -70,10 +74,20 @@ class Demo extends Component {
   }
 
   /**
+   * Update the theme used to display notifications
+   * @param {String} themeName the name of the theme
+   * @returns {void}
+   */
+  _onThemeChange = (themeName) => {
+    this.setState({themeName: themeName});
+  };
+
+  /**
    * Render component
    * @returns {XML}
    */
   render() {
+    const {themeName} = this.state;
     const defaultValues = {
       status: 'info',
       position: 'tr',
@@ -90,8 +104,16 @@ class Demo extends Component {
           <div className={css['description']}>A React and Redux notifications system</div>
           <RandomNotificationCreator/>
         </div>
-        <NotificationsSystem theme={theme} defaultValues={defaultValues}/>
-        {(window.innerWidth > 767 ? <Sidebar/> : '')}
+        <NotificationsSystem theme={THEMES[themeName].theme} defaultValues={defaultValues}/>
+        {window.innerWidth > 767
+          ? (
+            <div className={css['sidebar']}>
+              <NotificationCreator onThemeChange={this._onThemeChange}/>
+              <hr/>
+              <NotificationExamples/>
+            </div>
+          ) : null
+        }
         <Footer/>
       </div>
     );

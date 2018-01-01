@@ -4,12 +4,14 @@ import update from 'react/lib/update';
 import {connect} from 'react-redux';
 import Switch from '../Switch';
 import {addNotification as notify} from '../../../../src/index';
+import {THEMES} from '../../../themes';
 
 class NotificationCreator extends Component {
   static propTypes = {
-    notify: PropTypes.func.isRequired
+    notify: PropTypes.func.isRequired,
+    onThemeChange: PropTypes.func.isRequired
   };
-  
+
   /**
    * Bind methods and define initial state
    * @param {Object} props
@@ -50,7 +52,7 @@ class NotificationCreator extends Component {
       }
     };
   }
-  
+
   /**
    * Add a notification
    * @param {Object} event
@@ -80,7 +82,7 @@ class NotificationCreator extends Component {
       allowHTML: notification.allowHTML
     });
   }
-  
+
   /**
    * Update title
    * @param {Object} event
@@ -95,7 +97,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update message
    * @param {Object} event
@@ -110,7 +112,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update status
    * @param {Object} event
@@ -140,7 +142,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update dismiss duration
    * @param {Object} event
@@ -155,7 +157,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update `dismissisble` variable state
    * @param {Object} event
@@ -170,7 +172,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update first button name
    * @param {Object} event
@@ -189,7 +191,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update first button status
    * @param {Object} event
@@ -208,7 +210,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update second button name
    * @param {Object} event
@@ -227,7 +229,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update second button status
    * @param {Object} event
@@ -246,7 +248,7 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Update `allowHTML` variable state
    * @param {Object} event
@@ -276,17 +278,41 @@ class NotificationCreator extends Component {
     });
     this.setState(newState);
   }
-  
+
   /**
    * Render form
    * @returns {XML}
    */
   render() {
-    const {title, message, position, dismissAfter, dismissible, closeButton, allowHTML, buttons} = this.state.notification;
+    const {
+      title,
+      message,
+      position,
+      dismissAfter,
+      dismissible,
+      closeButton,
+      allowHTML,
+      buttons
+    } = this.state.notification;
+    const {onThemeChange} = this.props;
+
     return (
       <div>
         <h4 className='text-center'>Notification Creator</h4>
         <form onSubmit={this._addNotification}>
+          <div className='form-group'>
+            <label htmlFor='title'>Theme</label>
+            <select
+              className='form-control'
+              id='theme'
+              name='theme'
+              onChange={(evt) => onThemeChange(evt.target.value)}
+            >
+              {Object.keys(THEMES).map(key => {
+                return <option key={key} value={key}>{THEMES[key].label}</option>;
+              })}
+            </select>
+          </div>
           <div className='form-group'>
             <label htmlFor='title'>Title</label>
             <input className='form-control' type='text' id='title' name='title' value={title}
@@ -366,7 +392,7 @@ class NotificationCreator extends Component {
               </div>
             </div>
           </div>
-          <div className='row'>
+          <div className='form-group row'>
             <div className='col-xs-6'>
               <label htmlFor='allowHTML'>Allow HTML in message</label>
               <Switch name='allowHTML' checked={allowHTML} onChange={this._onAllowHTMLChange}/>
