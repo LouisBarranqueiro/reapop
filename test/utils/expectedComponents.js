@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {mapObjectValues} from '../../src/helpers';
-import TransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import {POSITIONS} from '../../src/constants';
 import Notification from '../../src/components/Notification';
 import NotificationsContainer from '../../src/components/NotificationsContainer';
@@ -60,46 +61,49 @@ export class ExpectedNotification extends Component {
       >
         <div className={notificationClass}>
           {image
-            ?
+            ? (
               <div className={className.imageContainer}>
                 <span className={className.image} style={{backgroundImage: `url(${image})`}}/>
               </div>
-            :
+            ) : (
               <span className={className.icon}/>
+            )
           }
           <div className={className.meta}>
             {title
               ?
-                allowHTML
-                  ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/>
-                  : <h4 className={className.title}>{title}</h4>
+              allowHTML
+                ? <h4 className={className.title} dangerouslySetInnerHTML={this._setHTML(title)}/>
+                : <h4 className={className.title}>{title}</h4>
               :
-                null
+              null
             }
             {message
               ?
-                allowHTML
-                  ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
-                  : <p className={className.message}>{message}</p>
+              allowHTML
+                ? <p className={className.message} dangerouslySetInnerHTML={this._setHTML(message)}/>
+                : <p className={className.message}>{message}</p>
               :
-                null
+              null
             }
           </div>
           {isDismissible && closeButton
-            ?
+            ? (
               <div className={className.closeButtonContainer}>
                 <span className={className.closeButton} onClick={this._remove}/>
               </div>
+            )
             :
-              null
+            null
           }
           {buttons.length
-            ?
+            ? (
               <div className={className.buttons()} onClick={this._remove}>
                 {this._renderButtons()}
               </div>
+            )
             :
-              null
+            null
           }
         </div>
       </div>
@@ -109,12 +113,9 @@ export class ExpectedNotification extends Component {
 
 export class ExpectedNotificationsContainer extends Component {
   _renderNotifications = () => {
-    const {
-      position,
-      theme: {
-        notification: {className}
-      }
-    } = this.props;
+    const {position} = this.props;
+    const {className} = this.props.theme.notification;
+    const {name, enterTimeout, leaveTimeout} = this.props.theme.notificationsContainer.transition;
     let {notifications} = this.props;
 
     // when notifications are displayed at the bottom,
@@ -124,32 +125,33 @@ export class ExpectedNotificationsContainer extends Component {
     }
 
     return notifications.map((notification) => (
-      <Notification
+      <CSSTransition
         key={notification.id}
-        notification={notification}
-        className={className}
-      />
+        classNames={{
+          enter: name.enter,
+          exit: name.leave
+        }}
+        timeout={{
+          enter: enterTimeout,
+          exit: leaveTimeout
+        }}
+      >
+        <Notification
+          key={notification.id}
+          notification={notification}
+          className={className}
+        />
+      </CSSTransition>
     ));
   };
 
   render() {
-    const {
-      className,
-      transition: {
-        name,
-        enterTimeout,
-        leaveTimeout
-      }
-    } = this.props.theme.notificationsContainer;
+    const {className} = this.props.theme.notificationsContainer;
     const {position} = this.props;
 
     return (
       <div className={`${className.main} ${className.position(position)}`}>
-        <TransitionGroup
-          transitionName={name}
-          transitionEnterTimeout={enterTimeout}
-          transitionLeaveTimeout={leaveTimeout}
-        >
+        <TransitionGroup>
           {this._renderNotifications()}
         </TransitionGroup>
       </div>
