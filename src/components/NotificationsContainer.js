@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import Notification from './Notification';
-import {CSSTransition} from 'react-transition-group'
 
 export class NotificationsContainer extends Component {
   static propTypes = {
