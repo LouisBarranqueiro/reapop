@@ -1,6 +1,10 @@
 # API documentation
 
+* [Objects](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#objects)
+    * [Notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification)
+    * [Notification button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-button)
 * [Action creators](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#action-creators)
+    * [Update or add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notify)
     * [Add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#add-a-notification)
     * [Update a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-a-notification)
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
@@ -15,26 +19,10 @@
         * [Theme properties](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#theme-properties)
         * [Integrate and customize a theme in your project](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#integrate-and-customize-a-theme-in-your-project)
 
-## Action creators
+## Objects
 
-### Add a notification
+#### Notification
 
-Adding notification is done with the `addNotification` (thunk action creator) function. It returns the notification object just added.
-
-#### Syntax
-
-``` js
-addNotification(notification);
-```
-
-#### Parameters
-
-| Parameter    | Type     | Description |
-| ------------ | -------- | ----------- |
-| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-object-properties) object |
-
-#### Notification object properties
- 
 | Property     | Type             | Default | Description |
 | ------------ | ---------------- | ------- | ----------- |
 | id           | String or Number |         | ID of the notification. If not provided during creation, will be generated automatically using the current timestamp. |
@@ -46,18 +34,77 @@ addNotification(notification);
 | dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
 | dismissAfter | Number           | 5000    | Time before the notification disappear (ms). Paused when mouse is hovering the notification. 0: infinite. |
 | closeButton  | Boolean          | false   | Display a close button if it is dismissible |
-| buttons      | Array            |         | Array of [button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#button-object-properties) objects. A notification can have 2 buttons maximum. |
+| buttons      | Array            |         | Array of [button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-button) objects. A notification can have 2 buttons maximum. |
 | onAdd        | Function         |         | Function executed at component lifecycle : `componentDidMount` |
 | onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
 | allowHTML    | Boolean          | false   | Allow HTML in title and message of the notification |
 
-##### Button object properties
- 
+#### Notification button
+
 | Property     | Type     | Default | Description |
 | ------------ | :------: | :-----: | ----------- |
 | name         | String   |         | Title of the button |
 | primary      | Boolean  | false   | true: Title in bold, false : title in normal |
 | onClick      | Function |         | Function executed when user click on it |
+
+## Action creators
+
+### Update or create a notification
+
+Updates a notification if it does exist or creates it. It returns the notification just updated or created.
+**You basically want to use this function all the time to update and create notifications.**
+
+#### Syntax
+
+``` js
+notify(notification);
+```
+
+#### Parameters
+
+| Parameter    | Type     | Description |
+| ------------ | -------- | ----------- |
+| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification) object |
+
+
+#### Example
+
+``` js
+// add a notification
+let notif = notify({
+  title: 'Upload status',
+  message: 'Your file is uploading...',
+  status: 'info',
+  dismissible: false,
+  dismissAfter: 0
+});
+
+// simulate file upload
+setTimeout(function() {
+  notif.status = 'success';
+  notif.message = 'Your file has been successfully uploaded';
+  notif.dismissible = true;
+  notif.dismissAfter = 5000;
+  // update the notification
+  notify(notif);
+}, 10000);
+```
+
+### Add a notification
+
+Adds a notification and returns it.
+
+#### Syntax
+
+``` js
+addNotification(notification);
+```
+
+#### Parameters
+
+| Parameter    | Type     | Description |
+| ------------ | -------- | ----------- |
+| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification) object |
 
 #### Example
 
@@ -104,7 +151,7 @@ console.log(JSON.stringify(notif));
 
 ### Update a notification
 
-Updating a notification is done with the `updateNotification` (action creator) function.
+Updates a notification and returns it.
 
 #### Syntax
 
@@ -116,33 +163,7 @@ updateNotification(notification);
 
 | Parameter    | Type     | Description |
 | ------------ | -------- | ----------- |
-| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-object-properties-1) object |
-
-#### Notification object properties
- 
-| Property     | Type             | Default | Description |
-| ------------ | ---------------- | ------- | ----------- |
-| id           | String or Number |         | ID of the notification.  |
-| title        | String           |         | Title of the notification |
-| message      | String           |         | Message of the notification |
-| image        | String           |         | URL of an image. When an image is defined, status of the notification is set to `default`. |
-| status       | String or Number | default | Status of the notification : default, info, success, warning, error. You can also pass an HTTP status code like 200, or 403, it will be converted as an understandable status for the `Notification` component. Of course, you can also use custom status depending on the theme that you use. |
-| position     | String           | tr      | Position of the notification : `t`, `tc`, `tl`, `tr`, `b`, `bc`, `br`, `bl`.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
-| dismissible  | Boolean          | true    | Define if a notification is dismissible by clicking on it |
-| dismissAfter | Number           | 5000    | Time before the notification disappear (ms). Paused when mouse is hovering the notification. 0: infinite. |
-| closeButton  | Boolean          | false   | Display a close button if it is dismissible |
-| buttons      | Array            |         | Array of [button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#button-object-properties-1) object. A notification can have 2 buttons maximum. |
-| onAdd        | Function         |         | Function executed at component lifecycle : `componentDidMount` |
-| onRemove     | Function         |         | Function executed at component lifecycle : `componentWillUnmount` |
-| allowHTML    | Boolean          | false   | Allow HTML in title and message of the notification |
-
-##### Button object properties
- 
-| Property     | Type     | Default | Description |
-| ------------ | -------- | ------- | ----------- |
-| name         | String   |         | Title of the button |
-| primary      | Boolean  | false   | true: Title in bold, false : title in normal |
-| onClick      | Function |         | Function executed when user click on it |
+| notification | Object   | A [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification) object |
 
 
 #### Example
@@ -155,6 +176,7 @@ let notif = addNotification({
   dismissible: false,
   dismissAfter: 0
 });
+
 // simulate file upload
 setTimeout(function() {
   notif.status = 'success';
@@ -166,9 +188,9 @@ setTimeout(function() {
 ```
 
 
-### Remove a notification
+### removeNotification
 
-Removing a notification is done with `removeNotification` (action creator) function.
+Removes a notification.
 
 #### Syntax
 
@@ -184,7 +206,7 @@ removeNotification(id);
 
 ### Remove all notifications
 
-Removing all notifications is done with `removeNotifications` (action creator) function.
+Removes all notifications.
 
 #### Syntax
 
@@ -195,15 +217,13 @@ removeNotifications();
 ## Customize default values for notifications
 
 You can customizable default values for notifications, by passing an object to the notification reducer.
-
-| Property     | Type    | Default | Description |
-| ------------ | ------- | ------- | ----------- |
-| status       | String  | null    | Status of the notification : default, info, success, warning, error. These values are available in `STATUS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
-| position     | String  | tr      | Position of the notification : `t`, `tc`, `tl`, `tr`, `b`, `bc`, `br`, `bl`.  These values are available in `POSITIONS` variable. See [code](https://github.com/LouisBarranqueiro/reapop/blob/master/src/constants/index.js) |
-| dismissible  | Boolean | true    | Define if the notification is dismissible by clicking on it |
-| dismissAfter | Number  | 5000    | Time before the notification disappear (ms). 0: infinite |
-| closeButton  | Boolean | False   | Display a close button if notification is dismissible |
-| allowHTML    | Boolean | False   | Allow HTML in title and message of the notification. Read [this](https://facebook.github.io/react/tips/dangerously-set-inner-html.html) before setting this value to true. |
+Here is the values of a [notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification) object:
+- status
+- position
+- dismissible
+- dismissAfter
+- closeButton
+- allowHTML
 
 ## Notifications system component
 
@@ -260,17 +280,17 @@ class ATopLevelComponent extends Component {
 
 ### Customize or create a theme
 
-##### If you wanna create a new theme :
+##### If you want to create a new theme :
 
 I recommend you to use the official theme for Reapop [reapop-theme-wybo](https://github.com/LouisBarranqueiro/reapop-theme-wybo/blob/master/index.js) as a base. It is easily understandable and customizable.
 
-##### If you wanna customize a theme :
+##### If you want to customize a theme :
 
 1. Fork the theme
 2. Edit the theme
 3. Publish your theme and use it as a npm dependencies or integrate it directly in your project
 
-**If you wanna use it directly in your project, follow this [short guide](#integrate-and-customize-a-theme-in-your-project)
+**If you want to use it directly in your project, follow this [short guide](#integrate-and-customize-a-theme-in-your-project)
 
 #### Theme structure
 
@@ -295,9 +315,9 @@ It contains all style files :
 
 It is the core of the theme. This file contains all CSS class names which will be used by Reapop. It's the link between your style and Reapop. 
 
-**Why no inline styles?**
+**Why no inline style?**
 
-- Inline styles is useful to fix some css rules quickly, but when there are a lot of css rules, it's preferable to use css files to separate style and view. It facilitates the understanding of React component logic.
+- Inline style is useful to fix some css rules quickly, but when there are a lot of css rules, it's preferable to use css files to separate style and view. It facilitates the understanding of React component logic.
 - to customize quickly and easily notifications by editing some css :)
 - and for some other points undermentioned
 
@@ -455,23 +475,23 @@ import {reducer as notificationsReducer} from 'reapop';
 
 // default value for notifications
 const defaultNotification = {
-        status: 'info',
-        position: 'tr',
-        dismissible: true,
-        dismissAfter: 2000,
-        allowHTML: true,
-        closeButton: true
-      };
+  status: 'info',
+  position: 'tr',
+  dismissible: true,
+  dismissAfter: 2000,
+  allowHTML: true,
+  closeButton: true
+};
 
 // store
 const createStoreWithMiddleware = compose(
   applyMiddleware(thunk)
 )(createStore);
 const store = createStoreWithMiddleware(combineReducers({
-    // reducer must be mounted as `notifications` !
-    notifications: notificationsReducer(defaultNotification) // pass config here
-    // your reducers here
-  }), {});
+  // reducer must be mounted as `notifications` !
+  notifications: notificationsReducer(defaultNotification) // pass config here
+  // your reducers here
+}), {});
 ```
 
 #### Integrate and customize a theme in your project
@@ -497,7 +517,7 @@ Follow these steps :
 1. Create a `MyNotificationsSystem` folder to wrap your component and its theme
 2. Add an `index.js` which contains your React Component. 
 3. Put your own theme in `theme` folder as shown above
-4. If you wanna start from a theme. Copy its `index.js` file and `styles` folder in `theme` folder
+4. If you want to start from a theme. Copy its `index.js` file and `styles` folder in `theme` folder
 5. Check that path used in `theme/index.js` are correct with the new structure.
 6. Now you can edit style file and create you own theme. Read Documentation to understand how does it's organized.
 7. Import and render this React component at the root of your App. 

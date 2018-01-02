@@ -103,10 +103,10 @@ const createStoreWithMiddleware = compose(
   applyMiddleware(thunk)
 )(createStore);
 const store = createStoreWithMiddleware(combineReducers({
-    // reducer must be mounted as `notifications` !
-    notifications: notificationsReducer()
-    // your reducers here
-  }), {});
+  // reducer must be mounted as `notifications` !
+  notifications: notificationsReducer()
+  // your reducers here
+}), {});
 ```
 
 ### Install and import `babel-polyfill` package
@@ -126,8 +126,8 @@ If you are not familiar with react-redux library or the way to connect a React c
 ``` js
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// 1. we import `addNotification` (thunk action creator) as `notify`
-import {addNotification as notify} from 'reapop';
+// 1. we import `notify` (thunk action creator)
+import {notify} from 'reapop';
 
 class AmazingComponent extends Component {
   constructor(props) {
@@ -167,8 +167,8 @@ export default connect(null, {notify})(AmazingComponent);
 If you are not familiar with async actions creator, I recommend you to read [Redux documentation - Async actions](http://redux.js.org/docs/advanced/AsyncActions.html) to understand this example.
 
 ``` js
-// 1. we import `addNotification` (thunk action creator) as `notify`
-import {addNotification as notify} from 'reapop';
+// 1. we import `notify` (thunk action creator)
+import {notify} from 'reapop';
 
 // we add a notification to inform user about
 // state of his request (success or failure) 
@@ -177,11 +177,11 @@ const sendResetPasswordLink = (props) => (dispatch) => {
       .then((res) => {
         // 2. we use `dispatch` to notify user.
         // Status code will be converted in an understandable status for the React component
-        dispatch(notify({message:res.data.detail, status:res.statusCode}));
+        dispatch(notify({message: res.data.detail, status: res.statusCode}));
       })
       .catch((res) => {
        // 3. same thing here
-        dispatch(notify({message:res.data.detail, status:res.statusCode}));
+        dispatch(notify({message: res.data.detail, status: res.statusCode}));
       });
     };
 };
