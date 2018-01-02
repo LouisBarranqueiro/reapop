@@ -4,6 +4,7 @@ import reducer, {
   actions,
   types,
   addNotification,
+  notify,
   updateNotification,
   removeNotification,
   removeNotifications
@@ -25,6 +26,7 @@ export {
   reducer,
   // action creators separately
   addNotification,
+  notify,
   updateNotification,
   removeNotification,
   removeNotifications

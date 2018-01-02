@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import faker from 'faker';
-import {STATUS, POSITIONS, addNotification as notify} from '../../../../src';
+import {STATUS, POSITIONS, notify} from '../../../../src';
 import css from './styles.scss';
 
 class RandomNotificationCreator extends Component {

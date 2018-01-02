@@ -2,15 +2,13 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {
-  addNotification as notify,
-  updateNotification,
+  notify,
   removeNotifications
 } from '../../../../src';
 
 class NotificationExamples extends Component {
   static propTypes = {
     notify: PropTypes.func.isRequired,
-    updateNotification: PropTypes.func.isRequired,
     removeNotifications: PropTypes.func.isRequired
   };
 
@@ -31,7 +29,7 @@ class NotificationExamples extends Component {
    * @private
    */
   _notificationUpdatedExample() {
-    const {notify, updateNotification} = this.props;
+    const {notify} = this.props;
     let notif = notify({
       title: 'Upload status',
       message: 'Your file is uploading...',
@@ -57,7 +55,7 @@ class NotificationExamples extends Component {
         }
 
       }];
-      updateNotification(notif);
+      notify(notif);
     }, 3000);
   }
 
@@ -119,6 +117,5 @@ class NotificationExamples extends Component {
 
 export default connect(null, {
   notify,
-  updateNotification,
   removeNotifications
 })(NotificationExamples);

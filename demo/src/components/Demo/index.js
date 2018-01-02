@@ -8,16 +8,12 @@ import NotificationCreator from '../NotificationCreator';
 import NotificationExamples from '../NotificationExamples';
 
 import {THEMES, DEFAULT_THEME} from '../../../themes';
-import NotificationsSystem, {
-  addNotification as notify,
-  updateNotification
-} from '../../../../src';
+import NotificationsSystem, {notify} from '../../../../src';
 import css from './styles.scss';
 
 class Demo extends Component {
   static propTypes = {
-    notify: PropTypes.func.isRequired,
-    updateNotification: PropTypes.func.isRequired
+    notify: PropTypes.func.isRequired
   };
 
   /**
@@ -48,7 +44,7 @@ class Demo extends Component {
    * @returns {void}
    */
   componentDidMount() {
-    const {notify, updateNotification} = this.props;
+    const {notify} = this.props;
 
     window.addEventListener('resize', this._updateWindowWidth);
     const notif = notify({
@@ -61,7 +57,7 @@ class Demo extends Component {
     setTimeout(function() {
       notif.message = 'Resize the window, theme is responsive!';
       notif.dismissAfter = 5000;
-      updateNotification(notif);
+      notify(notif);
     }, 3000);
   }
 
@@ -120,4 +116,4 @@ class Demo extends Component {
   }
 }
 
-export default connect(null, {notify, updateNotification})(Demo);
+export default connect(null, {notify})(Demo);

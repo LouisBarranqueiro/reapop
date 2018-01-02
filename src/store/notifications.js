@@ -48,6 +48,22 @@ function _addNotification(notification) {
 }
 
 /**
+ * Update or create a notification
+ * @param {Object} notification
+ * @returns {{type: string, payload: {Object}}}
+ */
+export const notify = (notification) => (dispatch, getState) => {
+  const notifications = getState().notifications;
+  const doesNotifExist = notifications.find(notif => notif.id === notification.id);
+
+  if (doesNotifExist) {
+    return dispatch(updateNotification(notification));
+  }
+
+  return dispatch(addNotification(notification));
+};
+
+/**
  * Update a notification (thunk action creator)
  *
  * We use a thunk here to create an UPDATE_NOTIFICATION action
