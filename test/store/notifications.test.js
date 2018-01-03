@@ -3,6 +3,7 @@ import {mockStore, genNotification, imageUrl} from '../utils/fixtures';
 import reducer, {
   types,
   addNotification,
+  notify,
   updateNotification,
   removeNotification,
   removeNotifications
@@ -94,6 +95,58 @@ describe('notifications', () => {
           })
         }];
         expect(store.getActions()).toEqual(expectedAction);
+      });
+    });
+
+    describe('notify()', () => {
+      let store = null;
+
+      beforeEach('init store', () => {
+        store = mockStore({notifications: [notification]});
+      });
+
+      it('should create an action to add a notification', () => {
+        store = mockStore({notifications: []});
+        // we remove image to not wait loading of image (preload feature)
+        notification.image = null;
+        const notificationAdded = store.dispatch(notify(notification));
+        const expectedAction = [{
+          type: types.ADD_NOTIFICATION,
+          payload: Object.assign({}, notification, {
+            id: notificationAdded.id
+          })
+        }];
+
+        expect(store.getActions()).toEqual(expectedAction);
+        expect(notificationAdded).toEqual(expectedAction[0].payload);
+      });
+
+      it('should create an action to add a notification (notification without id)', () => {
+        store = mockStore({notifications: []});
+        delete notification.id;
+        // we remove image to not wait loading of image (preload feature)
+        notification.image = null;
+        const notificationAdded = store.dispatch(notify(notification));
+        const expectedAction = [{
+          type: types.ADD_NOTIFICATION,
+          payload: Object.assign({}, notification, {
+            id: notificationAdded.id
+          })
+        }];
+
+        expect(store.getActions()).toEqual(expectedAction);
+        expect(notificationAdded).toEqual(expectedAction[0].payload);
+      });
+
+      it('should create an action to update a notification', () => {
+        const expectedAction = [{
+          type: types.UPDATE_NOTIFICATION,
+          payload: notification
+        }];
+        const notificationUpdated = store.dispatch(notify(notification));
+
+        expect(store.getActions()).toEqual(expectedAction);
+        expect(notificationUpdated).toEqual(notification);
       });
     });
 

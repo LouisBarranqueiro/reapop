@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import update from 'react-addons-update';
 import {connect} from 'react-redux';
 import Switch from '../Switch';
-import {addNotification as notify} from '../../../../src/index';
+import {notify} from '../../../../src/index';
 import {THEMES} from '../../../themes';
 
 class NotificationCreator extends Component {
