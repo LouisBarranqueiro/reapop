@@ -4,7 +4,7 @@
     * [Notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification)
     * [Notification button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-button)
 * [Action creators](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#action-creators)
-    * [Update or add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notify)
+    * [Update or add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-or-add-a-notification)
     * [Add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#add-a-notification)
     * [Update a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-a-notification)
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
@@ -151,7 +151,7 @@ console.log(JSON.stringify(notif));
 
 ### Update a notification
 
-Updates a notification and returns it.
+Updates a notification and returns it. If the notification has been removed, it will not display it again.
 
 #### Syntax
 
@@ -188,7 +188,7 @@ setTimeout(function() {
 ```
 
 
-### removeNotification
+### Remove a notification
 
 Removes a notification.
 
@@ -224,6 +224,34 @@ Here is the values of a [notification](https://github.com/LouisBarranqueiro/reap
 - dismissAfter
 - closeButton
 - allowHTML
+
+#### Example
+
+``` js
+import {createStore, compose, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import {reducer as notificationsReducer} from 'reapop';
+
+// default value for notifications
+const defaultNotification = {
+  status: 'info',
+  position: 'tr',
+  dismissible: true,
+  dismissAfter: 2000,
+  allowHTML: true,
+  closeButton: true
+};
+
+// store
+const createStoreWithMiddleware = compose(
+  applyMiddleware(thunk)
+)(createStore);
+const store = createStoreWithMiddleware(combineReducers({
+  notifications: notificationsReducer(defaultNotification)
+  // your reducers here
+}), {});
+```
+
 
 ## Notifications system component
 
