@@ -4,8 +4,8 @@
     * [Notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification)
     * [Notification button](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#notification-button)
 * [Action creators](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#action-creators)
-    * [Update or add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-or-add-a-notification)
-    * [Add a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#add-a-notification)
+    * [Update or create a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-or-create-a-notification)
+    * [Create a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#create-a-notification)
     * [Update a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#update-a-notification)
     * [Remove a notification](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-a-notification)
     * [Remove all notifications](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#remove-all-notifications)
@@ -90,9 +90,9 @@ setTimeout(function() {
 }, 10000);
 ```
 
-### Add a notification
+### Create a notification
 
-Adds a notification and returns it.
+Creates a notification and returns it.
 
 #### Syntax
 
