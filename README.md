@@ -32,7 +32,7 @@ Tested and works with :
 
 ## Demo
 
-Check out the [demo](http://louisbarranqueiro.github.io/reapop/)
+Check out the [demo](https://louisbarranqueiro.github.io/reapop/)
 
 ## Installation
 
