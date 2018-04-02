@@ -9,7 +9,13 @@ import 'babel-polyfill';
 import './styles/style.scss';
 
 // store
-const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);
+const enhancers = [];
+const devToolsExtension = window.devToolsExtension;
+
+if (typeof devToolsExtension === 'function') {
+  enhancers.push(devToolsExtension());
+}
+const createStoreWithMiddleware = compose(applyMiddleware(thunk), ...enhancers)(createStore);
 const store = createStoreWithMiddleware(combineReducers({
   notifications: notificationsReducer()
 }), {});
