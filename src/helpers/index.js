@@ -91,7 +91,7 @@ export function mapObjectValues(obj) {
   const array = [];
   
   Object.keys(obj)
-    .forEach(key => array.push(obj[key]))
+    .forEach(key => array.push(obj[key]));
   
   return array;
 }
