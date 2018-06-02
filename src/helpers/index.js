@@ -89,11 +89,9 @@ export function preloadImage(url, cb) {
  */
 export function mapObjectValues(obj) {
   const array = [];
-
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      array.push(obj[key]);
-    }
-  }
+  
+  Object.keys(obj)
+    .forEach(key => array.push(obj[key]));
+  
   return array;
 }
