@@ -79,7 +79,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 1000);
+        }, 1900);
       });
 
       it('should create an action to add a notification ' +
@@ -202,13 +202,13 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 500);
+        }, 1900);
       });
 
       it('should load image then create an action to update a notification (image is different)', (done) => {
         // update notification image url
         const notificationUpdated = Object.assign({}, notification, {
-          image: 'https://avatars3.githubusercontent.com/u/4705626?v=3&s=2'
+          image: 'https://httpbin.org/image/png'
         });
         const expectedAction = [{
           type: types.UPDATE_NOTIFICATION,
@@ -224,7 +224,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 500);
+        }, 1900);
       });
     });
 

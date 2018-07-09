@@ -1,6 +1,6 @@
 # Reapop
 [![npm version](https://img.shields.io/npm/v/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm dependencies](https://img.shields.io/david/LouisBarranqueiro/reapop.svg?style=flat-square)](https://david-dm.org/LouisBarranqueiro/reapop) [![npm dev dependencies](https://img.shields.io/david/dev/LouisBarranqueiro/reapop.svg?style=flat-square)](https://david-dm.org/LouisBarranqueiro/reapop?type=dev) [![npm download/month](https://img.shields.io/npm/dm/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![travis build status](https://img.shields.io/travis/LouisBarranqueiro/reapop/master.svg?style=flat-square)](https://travis-ci.org/LouisBarranqueiro/reapop) [![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/reapop.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/reapop) [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/reapop.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/reapop)
-  
+
 A React and Redux notifications system
 
 ## Summary
@@ -22,7 +22,7 @@ Tested and works with :
 
 - [react](https://github.com/facebook/react) : **^0.14.0**,  **^15.0.0** and **^16.0.0**
 - [react-redux](https://github.com/reactjs/react-redux) : **^2.0.0**, **^3.0.0**, **^4.0.0** and **^5.0.6**
-- [redux](https://github.com/reactjs/redux) : **^2.0.0** and **^3.0.0**
+- [redux](https://github.com/reactjs/redux) : **^2.0.0**, **^3.0.0** and **^4.0.0**
 
 ### Supported browsers
 
@@ -53,7 +53,7 @@ import React, {Component} from 'react';
 import NotificationsSystem from 'reapop';
 
 class ATopLevelComponent extends Component {
-  render() { 
+  render() {
     return (
       <div>
         <NotificationsSystem/>
@@ -74,9 +74,9 @@ import React, {Component} from 'react';
 import NotificationsSystem from 'reapop';
 // 1. import theme
 import theme from 'reapop-theme-wybo';
-// 
+//
 class ATopLevelComponent extends Component {
-  render() { 
+  render() {
    // 2. set `theme` prop
     return (
       <div>
@@ -138,7 +138,7 @@ class AmazingComponent extends Component {
 
   _onClick() {
     const {notify} = this.props;
-    // 3. we use `notify` to create a notification 
+    // 3. we use `notify` to create a notification
     notify({
       title: 'Welcome',
       message: 'you clicked on the button',
@@ -171,7 +171,7 @@ If you are not familiar with async actions creator, I recommend you to read [Red
 import {notify} from 'reapop';
 
 // we add a notification to inform user about
-// state of his request (success or failure) 
+// state of his request (success or failure)
 const sendResetPasswordLink = (props) => (dispatch) => {
     axios.post('https://api.example.com/users/ask-reset-password', props)
       .then((res) => {
@@ -195,6 +195,6 @@ Read [API documentation](https://github.com/LouisBarranqueiro/reapop/blob/master
 
 Read [Contributing guide](https://github.com/LouisBarranqueiro/reapop/blob/master/.github/CONTRIBUTING.md)
 
-## License 
+## License
 
 Reapop is under [MIT License](https://github.com/LouisBarranqueiro/reapop/blob/master/LICENSE)

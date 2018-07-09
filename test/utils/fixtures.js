@@ -3,7 +3,7 @@ import faker from 'faker';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 
-export const imageUrl = 'https://avatars3.githubusercontent.com/u/4705626?v=3&s=10';
+export const imageUrl = 'https://httpbin.org/image/jpeg';
 
 /**
  * Generate a redux store

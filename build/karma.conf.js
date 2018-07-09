@@ -20,6 +20,7 @@ const karmaConfig = {
   },
   webpack: webpackConfig,
   webpackServer: {
+    stats: 'warning',
     noInfo: true
   },
   reporters: ['mocha', 'coverage', 'coveralls'],
