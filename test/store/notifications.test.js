@@ -79,7 +79,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 3000);
+        }, 1900);
       });
 
       it('should create an action to add a notification ' +
@@ -202,13 +202,13 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 3000);
+        }, 1900);
       });
 
       it('should load image then create an action to update a notification (image is different)', (done) => {
         // update notification image url
         const notificationUpdated = Object.assign({}, notification, {
-          image: imageUrl
+          image: 'https://httpbin.org/image/png'
         });
         const expectedAction = [{
           type: types.UPDATE_NOTIFICATION,
@@ -224,7 +224,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 3000);
+        }, 1900);
       });
     });
 
