@@ -5,6 +5,7 @@ import {
   notify,
   removeNotifications
 } from '../../../../src';
+import {STATUS} from '../../../../src/constants';
 
 class NotificationExamples extends Component {
   static propTypes = {
@@ -72,6 +73,7 @@ class NotificationExamples extends Component {
       title: 'Steve Frizeli added you',
       message: 'Do you want to accept him as friend?',
       image: `${path}static/images/image-2.png`,
+      status: STATUS.default,
       dismissible: false,
       dismissAfter: 0,
       buttons: [{

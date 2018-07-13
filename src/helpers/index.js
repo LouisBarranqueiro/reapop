@@ -57,12 +57,7 @@ export function treatNotification(notification) {
     notification.dismissAfter = parseInt(notification.dismissAfter);
   }
 
-  if (notification.image) {
-    notification.status = STATUS.default;
-  }
-  else {
-    notification.status = convertStatus(notification.status);
-  }
+  notification.status = convertStatus(notification.status);
 
   if (!notification.buttons) {
     notification.buttons = [];

@@ -36,12 +36,4 @@ describe('treatNotification()', () => {
     notification = treatNotification(notification);
     expect(notification.dismissible).toEqual(false);
   });
-
-  it('should update notification status to `default` (with image)', () => {
-    let notification = genNotification({
-      status: STATUS.info
-    });
-    notification = treatNotification(notification);
-    expect(notification.status).toEqual(STATUS.default);
-  });
 });
