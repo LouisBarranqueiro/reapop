@@ -407,36 +407,6 @@ describe('<Notification/>', () => {
     expect(store.getActions()).toEqual([]);
   });
 
-  it('should not create an action to remove the notification ' +
-    'when it is clicked (no buttons)', (done) => {
-    // we set `dismissible` to `true` to be sure that
-    // `buttons.length` must equals `0` to allow removing
-    // same thing for `dismissAfter`
-    notification.dismissible = true;
-    notification.dismissAfter = 0;
-    let wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
-    );
-    wrapper.find(ConnectNotification).simulate('click');
-    expect(store.getActions()).toEqual([]);
-    // we remove an button and test it again
-    notification.buttons = notification.buttons.slice(0, 1);
-    wrapper = mount(
-      <Provider store={store}>
-        <ConnectNotification notification={notification} {...otherProps}/>
-      </Provider>
-    );
-    wrapper.find(ConnectNotification).simulate('click');
-    expect(store.getActions()).toEqual([]);
-    // check after `dismissAfter` duration
-    setTimeout(() => {
-      expect(store.getActions()).toEqual([]);
-      done();
-    }, 10);
-  });
-
   it('should not create an action to remove the notification after ' +
     '`dismissAfter` duration (dismissAfter = 0)', (done) => {
     notification.dismissAfter = 0;

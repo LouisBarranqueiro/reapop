@@ -40,7 +40,6 @@ class NotificationExamples extends Component {
     setTimeout(function() {
       notif.status = 'success';
       notif.message = 'Your file has been successfully uploaded';
-      notif.dismissible = true;
       notif.dismissAfter = 5000;
       notif.buttons = [{
         name: 'OK',

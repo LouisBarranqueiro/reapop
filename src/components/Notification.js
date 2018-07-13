@@ -187,12 +187,11 @@ export class Notification extends Component {
       }
     } = this.props;
     const {timer} = this.state;
-    const isDismissible = (dismissible && buttons.length === 0);
     const notificationClass = [
       className.main,
       className.status(status),
       className.buttons(buttons.length),
-      isDismissible && !closeButton ? className.dismissible : null
+      dismissible && !closeButton ? className.dismissible : null
     ].join(' ');
 
     if (timer) {
@@ -202,7 +201,7 @@ export class Notification extends Component {
     return (
       <div
         className={className.wrapper}
-        onClick={isDismissible && !closeButton ? this._remove : null}
+        onClick={dismissible && !closeButton ? this._remove : null}
         onMouseEnter={timer ? this._pauseTimer : null}
         onMouseLeave={timer ? this._resumeTimer : null}
       >
@@ -234,7 +233,7 @@ export class Notification extends Component {
               null
             }
           </div>
-          {isDismissible && closeButton
+          {dismissible && closeButton
             ? (
               <div className={className.closeButtonContainer}>
                 <span className={className.closeButton} onClick={this._remove}/>

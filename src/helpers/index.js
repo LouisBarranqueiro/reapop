@@ -56,15 +56,22 @@ export function treatNotification(notification) {
   if (notification.dismissAfter) {
     notification.dismissAfter = parseInt(notification.dismissAfter);
   }
+
   if (notification.image) {
     notification.status = STATUS.default;
   }
   else {
     notification.status = convertStatus(notification.status);
   }
+
   if (!notification.buttons) {
     notification.buttons = [];
   }
+
+  if (!notification.hasOwnProperty('dismissible')) {
+    notification.dismissible = false;
+  }
+
   return notification;
 }
 
@@ -89,9 +96,9 @@ export function preloadImage(url, cb) {
  */
 export function mapObjectValues(obj) {
   const array = [];
-  
+
   Object.keys(obj)
     .forEach(key => array.push(obj[key]));
-  
+
   return array;
 }

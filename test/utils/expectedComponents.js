@@ -46,18 +46,17 @@ export class ExpectedNotification extends Component {
         allowHTML
       }
     } = this.props;
-    const isDismissible = (dismissible && buttons.length === 0);
     const notificationClass = [
       className.main,
       className.status(status),
       className.buttons(buttons.length),
-      isDismissible && !closeButton ? className.dismissible : null
+      dismissible && !closeButton ? className.dismissible : null
     ].join(' ');
 
     return (
       <div
         className={className.wrapper}
-        onClick={isDismissible && !closeButton ? this._remove : ''}
+        onClick={dismissible && !closeButton ? this._remove : ''}
       >
         <div className={notificationClass}>
           {image
@@ -87,7 +86,7 @@ export class ExpectedNotification extends Component {
               null
             }
           </div>
-          {isDismissible && closeButton
+          {dismissible && closeButton
             ? (
               <div className={className.closeButtonContainer}>
                 <span className={className.closeButton} onClick={this._remove}/>
