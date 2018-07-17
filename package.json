@@ -114,6 +114,7 @@
   },
   "dependencies": {
     "prop-types": "^15.6.0",
-    "react-transition-group": "^2.2.1"
+    "react-transition-group": "^2.2.1",
+    "uuid": "^3.3.2"
   }
 }
