@@ -1,3 +1,4 @@
+import uuidv4 from 'uuid/v4';
 import {treatNotification, preloadImage} from '../helpers';
 import {DEFAULT_NOTIFICATION} from '../constants';
 
@@ -19,7 +20,7 @@ const REMOVE_NOTIFICATIONS = 'REMOVE_NOTIFICATIONS';
  */
 export const addNotification = (notification) => (dispatch) => {
   if (!notification.id) {
-    notification.id = new Date().getTime();
+    notification.id = uuidv4();
   }
   notification = treatNotification(notification);
   // if there is an image, we preload it
