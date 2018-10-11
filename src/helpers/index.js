@@ -63,10 +63,6 @@ export function treatNotification(notification) {
     notification.buttons = [];
   }
 
-  if (!notification.hasOwnProperty('dismissible')) {
-    notification.dismissible = false;
-  }
-
   return notification;
 }
 

@@ -20,20 +20,4 @@ describe('treatNotification()', () => {
     expect(notification.status).toBe(STATUS.success);
     expect(notification.buttons).toEqual([]);
   });
-
-  it('should make a notification not dismissible if it has not `dismissible` property', () => {
-    let notification = genNotification();
-
-    delete notification.dismissible;
-    notification = treatNotification(notification);
-    expect(notification.dismissible).toEqual(false);
-
-    notification.dismissible = true;
-    notification = treatNotification(notification);
-    expect(notification.dismissible).toEqual(true);
-
-    notification.dismissible = false;
-    notification = treatNotification(notification);
-    expect(notification.dismissible).toEqual(false);
-  });
 });
