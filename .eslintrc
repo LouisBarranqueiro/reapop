@@ -24,6 +24,7 @@
         "brace-style": [2, "stroustrup"],
         "space-before-function-paren":[2, "never"],
         "no-trailing-spaces": [2, {"skipBlankLines": true}],
-        "operator-linebreak": [2, "after", {"overrides": { "?": "ignore", ":": "ignore"}}]
+        "operator-linebreak": [2, "after", {"overrides": { "?": "ignore", ":": "ignore"}}],
+        "object-curly-spacing": ["error", "never"]
     }
 }
