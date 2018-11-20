@@ -86,10 +86,5 @@ export function preloadImage(url, cb) {
  * @returns {Array}
  */
 export function mapObjectValues(obj) {
-  const array = [];
-
-  Object.keys(obj)
-    .forEach(key => array.push(obj[key]));
-
-  return array;
+  return Object.values(obj);
 }
