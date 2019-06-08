@@ -1,22 +1,24 @@
-### Connects to #
+### Related issues: <!-- If applicable: reference any related issues. E.g: #4515   --> 
+### Changes
+<!-- Describe the changes you made and why. --> 
 
-### Changes proposed (features or fixes)
+<!-- If applicable: add some screenshots --> 
 
 
-
-### How to test
-
+### Testing guide
+<!-- Describe the steps to test the changes proposed --> 
 
 
 ### Checklist
-
- - [ ] Don't forget to update README or API documentation if it's necessary
- - [ ] Check code status with `npm run lint` 
- - [ ] Run tests with `npm run test:all` 
- - [ ] Launch demo with `npm start` to check the result in the browser. Check it on all possible browsers that you have and write them in the PR.
-	 - [ ] Chrome
-	 - [ ] Safari
-	 - [ ] Firefox
-	 - [ ] IE 10+
-	 - [ ] Edge
-	 - [ ] Opera
+- [ ] I checked the code style with `npm run lint` 
+- [ ] I ran the tests with `npm run test:all` 
+- [ ] I added tests for the bug I fixed (if applicable)
+- [ ] I updated the README or API documentation (if applicable)
+- [ ] I updated the demo (if applicable)
+- [ ] I verified my changes on all browsers listed below:
+  - [ ] Chrome
+  - [ ] Safari
+  - [ ] Firefox
+  - [ ] IE 10+
+  - [ ] Edge
+  - [ ] Opera
