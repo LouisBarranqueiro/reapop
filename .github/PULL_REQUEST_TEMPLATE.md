@@ -1,12 +1,10 @@
 ### Related issues: <!-- If applicable: reference any related issues. E.g: #4515   --> 
 ### Changes
-<!-- Describe the changes you made and why. --> 
-
+<!-- Describe and explain the changes you made. --> 
 <!-- If applicable: add some screenshots --> 
 
-
 ### Testing guide
-<!-- Describe the steps to test the changes proposed --> 
+<!-- Describe the steps to test the changes made --> 
 
 
 ### Checklist
