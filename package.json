@@ -62,7 +62,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "css-loader": "0.28.7",
-    "enzyme": "3.7.0",
+    "enzyme": "3.10.0",
     "enzyme-adapter-react-14": "1.0.5",
     "enzyme-adapter-react-15.4": "1.0.5",
     "enzyme-adapter-react-16": "1.14.0",
