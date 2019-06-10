@@ -94,7 +94,7 @@
     "mocha": "4.1.0",
     "node-sass": "4.7.2",
     "phantomjs-prebuilt": "2.1.16",
-    "prop-types": "15.6.0",
+    "prop-types": "15.7.2",
     "react-addons-update": "15.6.2",
     "react-redux": "5.0.7",
     "reapop-theme-bootstrap": "1.0.0",
