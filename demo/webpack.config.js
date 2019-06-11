@@ -2,61 +2,75 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var CSSModulesLoader = [
-  'css?sourceMap&-minimize',
-  'modules',
-  'importLoaders=1',
-  'localIdentName=[name]__[local]__[hash:base64:5]'
-].join('&');
+const cssLoaderOptions = {
+  importLoaders: 1,
+  sourceMap: true,
+  modules: true,
+  localIdentName: '[name]__[local]__[hash:base64:5]'
+}
+const PROD = process.env.NODE_ENV === 'production'
+const TRAVIS = process.env.TRAVIS
+const DEV = !PROD && !TRAVIS
 
 var webpackConfig = {
+  mode: PROD || TRAVIS ? 'production' : 'development',
   devtool: 'cheap-module-eval-source-map',
-  resolve: {
-    root: '../'
-  },
   entry: [
     './src/index'
   ],
-
   output: {
-    path: path.join(__dirname, '../dist/static/'),
+    path: path.join(__dirname, 'dist/static/'),
     filename: 'demo.js',
     publicPath: '/reapop/static/'
   },
-  resolveLoader: {
-    modulesDirectories: ['../node_modules', './node_modules']
+
+  resolve: {
+    modules: ['../node_modules', './node_modules']
   },
+
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
-      loaders: ['babel'],
+      loader: 'babel-loader',
       exclude: /node_modules/
     }, {
       test: /\.html$/,
       loader: 'file?name=[name].[ext]'
     }, {
       test: /\.scss$/,
-      loaders: ['style', CSSModulesLoader, 'sass']
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: cssLoaderOptions
+        },
+        'sass-loader'
+      ]
     }, {
       test: /\.css$/,
-      loaders: ['style', CSSModulesLoader]
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: cssLoaderOptions
+        }]
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'url-loader?limit=10000&minetype=application/font-woff'
     }, {
       test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'file-loader'
-    }]
+    }],
   }
 };
 
 // specific conf for local dev environment
-if (process.env.NODE_ENV == 'development' || !process.env.TRAVIS) {
+if (DEV) {
   webpackConfig.entry.push('webpack-hot-middleware/client');
   webpackConfig.output.publicPath = '/static/';
   webpackConfig.plugins = [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ];
 }
 

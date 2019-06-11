@@ -46,13 +46,16 @@ const karmaConfig = {
   singleRun: true,
   concurrency: Infinity
 };
-// Isparta is a code coverage tool for ES6 using babel.
-karmaConfig.webpack.module.preLoaders = [{
+
+karmaConfig.webpack.module.rules.push({
   test: /\.js$/,
+  use: {
+    loader: 'istanbul-instrumenter-loader',
+  },
+  enforce: 'post',
   include: path.resolve('src'),
   exclude: path.resolve('node_modules'),
-  loader: 'isparta'
-}];
+})
 
 if (process.env.TRAVIS) {
   karmaConfig.browsers = ['ChromeTravisCI'];
