@@ -79,7 +79,6 @@
     "faker": "4.1.0",
     "file-loader": "4.0.0",
     "font-awesome": "4.7.0",
-    "html-webpack-plugin": "2.30.1",
     "import": "0.0.6",
     "isparta-loader": "^2.0.0",
     "istanbul-instrumenter-loader": "3.0.1",
@@ -111,8 +110,6 @@
   },
   "dependencies": {
     "prop-types": "^15.6.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.8.6",
     "react-transition-group": "^2.2.1"
   }
 }
