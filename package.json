@@ -103,7 +103,7 @@
     "redux-thunk": "2.3.0",
     "requirejs": "2.3.5",
     "sass-loader": "6.0.6",
-    "style-loader": "0.19.1",
+    "style-loader": "0.23.1",
     "url-loader": "0.6.2",
     "webpack": "1.13.0",
     "webpack-dev-middleware": "2.0.3",
