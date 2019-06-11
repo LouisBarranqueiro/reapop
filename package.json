@@ -107,7 +107,7 @@
     "url-loader": "0.6.2",
     "webpack": "1.13.0",
     "webpack-dev-middleware": "2.0.3",
-    "webpack-hot-middleware": "2.21.0"
+    "webpack-hot-middleware": "2.25.0"
   },
   "dependencies": {
     "prop-types": "^15.6.0",
