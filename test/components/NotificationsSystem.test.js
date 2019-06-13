@@ -21,14 +21,14 @@ describe('<NotificationsSystem/>', () => {
       theme
     }, NotificationsSystem.propTypes);
 
-    expect(errors.notifications).toNotExist();
-    expect(errors.theme).toNotExist();
+    expect(errors.notifications).toBeUndefined();
+    expect(errors.theme).toBeUndefined();
   });
 
   it('should not validate props', () => {
     const errors = checkPropTypes({}, NotificationsSystem.propTypes);
-    expect(errors.notifications).toExist();
-    expect(errors.theme).toExist();
+    expect(errors.notifications).toBeDefined();
+    expect(errors.theme).toBeDefined();
   });
 
   it('should mount with default props', () => {

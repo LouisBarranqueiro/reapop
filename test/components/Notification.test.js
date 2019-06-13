@@ -29,17 +29,16 @@ describe('<Notification/>', () => {
       notification,
       removeNotification
     }, Notification.propTypes);
-
-    expect(errors.className).toNotExist();
-    expect(errors.notification).toNotExist();
-    expect(errors.removeNotification).toNotExist();
+    expect(errors.className).toBeUndefined();
+    expect(errors.notification).toBeUndefined();
+    expect(errors.removeNotification).toBeUndefined();
   });
 
   it('should not validate props', () => {
     const errors = checkPropTypes({}, Notification.propTypes);
-    expect(errors.className).toExist();
-    expect(errors.notification).toExist();
-    expect(errors.removeNotification).toExist();
+    expect(errors.className).toBeDefined();
+    expect(errors.notification).toBeDefined();
+    expect(errors.removeNotification).toBeDefined();
   });
 
   it('should mount with initial state', () => {
@@ -50,7 +49,7 @@ describe('<Notification/>', () => {
     // state component will be init with timer because `dismissAfter` > 0
     notification.dismissAfter = 1;
     wrapper = mount(<Notification notification={notification} {...otherProps}/>);
-    expect(wrapper.state().timer).toBeA(Timer);
+    expect(wrapper.state().timer).toBeInstanceOf(Timer);
   });
 
   it('should update state when receiving new props', () => {
@@ -62,7 +61,7 @@ describe('<Notification/>', () => {
     // at `componentWillReceivedProps()` component lifecycle
     notification.dismissAfter = 1;
     wrapper.setProps(notification);
-    expect(wrapper.state().timer).toBeA(Timer);
+    expect(wrapper.state().timer).toBeInstanceOf(Timer);
   });
 
   it('should render component (with title)', () => {
