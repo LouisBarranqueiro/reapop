@@ -1,7 +1,8 @@
-import expect from 'expect';
-import {configure} from 'enzyme';
 // This will emulate a full ES2015 (ES6) environment
 import 'babel-polyfill';
+import expect from 'expect';
+import {configure} from 'enzyme';
+
 // expose `expect` for all tests
 global.expect = expect;
 

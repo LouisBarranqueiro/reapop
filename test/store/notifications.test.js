@@ -172,14 +172,8 @@ describe('notifications', () => {
         notification.id = null;
         // we remove image to not wait loading of image (preload feature)
         notification.image = null;
-        const expectedAction = {
-          type: types.UPDATE_NOTIFICATION,
-          payload: notification
-        };
-
-        expect(store.dispatch.bind(store, updateNotification(notification)))
-          .toThrow('A notification must have an `id` property to be updated')
-          .toNotEqual(expectedAction);
+        expect(() => store.dispatch(updateNotification(notification)))
+          .toThrow('A notification must have an `id` property to be updated');
       });
 
       it('should load image then create an action to update a notification (new image)', (done) => {
