@@ -48,7 +48,7 @@
   "homepage": "https://github.com/LouisBarranqueiro/reapop#readme",
   "peerDependencies": {
     "redux": "^2.0.0 || ^3.0.0 || ^4.0.0",
-    "react-redux": "^2.0.0 || ^3.1.0 || ^4.0.0 || ^5.0.6",
+    "react-redux": "^2.0.0 || ^3.1.0 || ^4.0.0 || ^5.0.6 || ^7.0.0",
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "redux-thunk": "^2.1.0"
   },
@@ -95,7 +95,7 @@
     "phantomjs-prebuilt": "2.1.16",
     "prop-types": "15.7.2",
     "react-addons-update": "15.6.2",
-    "react-redux": "5.1.1",
+    "react-redux": "7.1.0",
     "reapop-theme-bootstrap": "1.0.1",
     "reapop-theme-wybo": "1.0.2",
     "redux-mock-store": "1.5.3",
