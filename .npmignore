@@ -15,3 +15,5 @@ src
 .gitignore
 .travis.yml
 *.log
+renovate.json
+scripts/*
