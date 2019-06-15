@@ -4,8 +4,8 @@
   "description": "A React and Redux notifications system",
   "main": "lib/index.js",
   "scripts": {
-    "start": "cd demo && node index.js",
-    "compile": "cd demo && ../node_modules/.bin/webpack --config=./webpack.config.js && cp src/index.html dist/ && cp -R src/static dist/",
+    "start": "node demo/index.js",
+    "compile": "npx webpack --config=./demo/webpack.config.js && cp demo/src/index.html demo/dist/ && cp -R demo/src/static demo/dist/",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix",
     "react:clean": "npm uninstall react react-dom react-addons-test-utils",
