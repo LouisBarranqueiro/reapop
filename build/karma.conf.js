@@ -1,5 +1,5 @@
-import path from 'path';
-import webpackConfig from './webpack.config.js';
+const path = require('path');
+const webpackConfig = require('./webpack.config.js');
 
 const karmaConfig = {
   // project root
@@ -28,9 +28,6 @@ const karmaConfig = {
     reporters: [{
       type: 'lcov',
       dir: 'coverage'
-    }, {
-      type: 'html',
-      dir: 'coverage/html/'
     }]
   },
   port: 9876,
@@ -51,6 +48,9 @@ karmaConfig.webpack.module.rules.push({
   test: /\.js$/,
   use: {
     loader: 'istanbul-instrumenter-loader',
+    options: {
+        esModules: true
+    }
   },
   enforce: 'post',
   include: path.resolve('src'),

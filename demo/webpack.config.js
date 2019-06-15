@@ -15,6 +15,7 @@ const DEV = !PROD && !TRAVIS
 var webpackConfig = {
   mode: PROD || TRAVIS ? 'production' : 'development',
   devtool: 'cheap-module-eval-source-map',
+  context:__dirname,
   entry: [
     './src/index'
   ],
