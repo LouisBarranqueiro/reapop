@@ -6,8 +6,8 @@
   "scripts": {
     "start": "cd demo && node index.js",
     "compile": "cd demo && ../node_modules/.bin/webpack --config=./webpack.config.js && cp src/index.html dist/ && cp -R src/static dist/",
-    "lint": "./node_modules/.bin/eslint .",
-    "lint:fix": "./node_modules/.bin/eslint . --fix",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
     "react:clean": "npm uninstall react react-dom react-addons-test-utils",
     "redux:clean": "npm uninstall redux",
     "react-redux:clean": "rm -rf node_modules/react-redux",
@@ -21,12 +21,12 @@
     "react-redux:3.1": "npm run react-redux:clean && npm i react-redux@3.1",
     "react-redux:4": "npm run react-redux:clean && npm i react-redux@4",
     "react-redux:5": "npm run react-redux:clean && npm i react-redux@5.0.6",
-    "test": "babel-node ./node_modules/karma/bin/karma start ./build/karma.conf.js --reporters mocha",
+    "test": "npx karma start ./build/karma.conf.js --reporters mocha",
     "test:all": "npm run react:14 && npm run redux:2 && npm run react-redux:2 && npm t && npm run react:14 && npm run redux:3 && npm run react-redux:3.1 && npm t && npm run react:15 && npm run redux:3 && npm run react-redux:4 && npm t && npm run react:15 && npm run redux:4 && npm run react-redux:5 && npm t && npm run react:16 && npm run redux:3 && npm run react-redux:5 && npm t && npm run react:16 && npm run redux:4 && npm run react-redux:5 && npm t",
     "test:coverage": "npm test -- --reporters mocha,coverage",
     "test:coveralls": "npm test -- --reporters mocha,coverage,coveralls",
     "test:watch": "npm test -- --singleRun=false --reporters mocha",
-    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
+    "prepublish": "npx babel-cli src --out-dir lib"
   },
   "repository": {
     "type": "git",

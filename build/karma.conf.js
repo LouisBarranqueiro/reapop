@@ -1,5 +1,5 @@
-import path from 'path';
-import webpackConfig from './webpack.config.js';
+const path = require('path');
+const webpackConfig = require('./webpack.config.js');
 
 const karmaConfig = {
   // project root

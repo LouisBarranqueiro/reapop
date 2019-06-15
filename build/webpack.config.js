@@ -1,5 +1,5 @@
 /* eslint-disable */
-import webpack from 'webpack';
+const webpack = require('webpack');
 
 const cssLoaderOptions = {
   importLoaders: 1,
@@ -52,4 +52,4 @@ const webpackConfig = {
   }
 };
 
-export default webpackConfig;
+module.exports = webpackConfig;
