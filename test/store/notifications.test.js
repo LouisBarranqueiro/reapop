@@ -323,12 +323,16 @@ describe('notifications', () => {
     });
 
     it('should handle UPDATE_NOTIFICATION', () => {
-      expect(
-        reducer()([notification], {
-          type: types.UPDATE_NOTIFICATION,
-          payload: notification
-        })
-      ).toEqual([notification]);
+      const notificationA = genRandomNotification();
+      const notificationB = genRandomNotification();
+      const notifications = [notificationA, notificationB];
+
+      const notificationUpdated = Object.assign({}, notificationB, {title: 'new title'});
+      const action = {
+        type: types.UPDATE_NOTIFICATION,
+        payload: notificationUpdated
+      };
+      expect(reducer()(notifications, action)).toEqual([notificationA, notificationUpdated]);
     });
 
     it('should handle UPDATE_NOTIFICATION (default notification values)', () => {
