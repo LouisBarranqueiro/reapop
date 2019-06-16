@@ -16,4 +16,5 @@ src
 .travis.yml
 *.log
 renovate.json
-scripts/*
+scripts
+flow-typed

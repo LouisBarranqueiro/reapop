@@ -1,64 +1,44 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {mapObjectValues} from '../helpers'
 import NotificationsContainer from './NotificationsContainer'
 import {POSITIONS} from '../constants'
 
-export class NotificationsSystem extends Component {
-  static propTypes = {
-    notifications: PropTypes.array.isRequired,
-    filter: PropTypes.func,
-    theme: PropTypes.shape({
-      smallScreenMin: PropTypes.number.isRequired,
-      smallScreenPosition: PropTypes.oneOf([
-        POSITIONS.top,
-        POSITIONS.bottom
-      ]),
-      notificationsSystem: PropTypes.shape({
-        className: PropTypes.string
-      })
-    }).isRequired
-  };
+import type {Node} from 'react'
+import type {Theme} from '../types'
 
+type Props = {
+  notifications: Array<Object>,
+  filter: ?(Object) => boolean,
+  theme: Theme
+}
+
+type State = {
+  windowWidth: number
+}
+
+export class NotificationsSystem extends Component<Props, State> {
   static defaultProps = {
     notifications: []
-  };
+  }
 
   state = {
     windowWidth: window.innerWidth
-  };
+  }
 
-  /**
-   * Add resize listener to update window width when the window is resized
-   * @returns {void}
-   */
   componentDidMount() {
     window.addEventListener('resize', this._updateWindowWidth)
   }
 
-  /**
-   * Remove resize listener
-   * @returns {void}
-   */
   componentWillUnmount() {
     window.removeEventListener('resize', this._updateWindowWidth)
   }
 
-  /**
-   * Update window width
-   * @returns {void}
-   * @private
-   */
   _updateWindowWidth = () => {
     this.setState({windowWidth: window.innerWidth})
-  };
+  }
 
-  /**
-   * Render notifications containers
-   * @returns {XML}
-   * @private
-   */
+  // Render notifications containers
   _renderNotificationsContainers = () => {
     const {theme, filter} = this.props
     const {windowWidth} = this.state
@@ -82,7 +62,7 @@ export class NotificationsSystem extends Component {
       )
     }
 
-    containers.push(positions.map((position) => {
+    containers.push(positions.map<Node>((position: string): Node => {
       const notifs = notifications.filter((notif) => {
         return position === notif.position
       })
@@ -97,12 +77,8 @@ export class NotificationsSystem extends Component {
       )
     }))
     return containers
-  };
+  }
 
-  /**
-   * Render
-   * @returns {XML}
-   */
   render() {
     const {className} = this.props.theme.notificationsSystem
     return (
@@ -113,15 +89,11 @@ export class NotificationsSystem extends Component {
   }
 }
 
-/**
- * Map state to props
- * @param {Object} state
- * @returns {{notifications: {Array}}}
- */
-function mapStateToProps(state) {
+function mapStateToProps(state: Object): Object {
   return {
     notifications: state.notifications
   }
 }
 
-export default connect(mapStateToProps)(NotificationsSystem)
+// $FlowFixMe
+export default connect(mapStateToProps, {})(NotificationsSystem)

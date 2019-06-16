@@ -5,7 +5,7 @@ import {Timer} from '../../src/helpers'
 import ConnectNotification, {Notification} from '../../src/components/Notification'
 import theme from 'reapop-theme-wybo'
 import {types, removeNotification} from '../../src/store/notifications'
-import {mockStore, checkPropTypes, genNotification} from '../utils/fixtures'
+import {mockStore, genNotification} from '../utils/fixtures'
 
 describe('<Notification/>', () => {
   let notification = null
@@ -23,24 +23,6 @@ describe('<Notification/>', () => {
     // for inline style (in our case: `background-image`).
     notification.image = null
     store = mockStore({notifications: []})
-  })
-
-  it('should validate props', () => {
-    const errors = checkPropTypes({
-      className,
-      notification,
-      removeNotification
-    }, Notification.propTypes)
-    expect(errors.className).toBeUndefined()
-    expect(errors.notification).toBeUndefined()
-    expect(errors.removeNotification).toBeUndefined()
-  })
-
-  it('should not validate props', () => {
-    const errors = checkPropTypes({}, Notification.propTypes)
-    expect(errors.className).toBeDefined()
-    expect(errors.notification).toBeDefined()
-    expect(errors.removeNotification).toBeDefined()
   })
 
   it('should mount with initial state', () => {

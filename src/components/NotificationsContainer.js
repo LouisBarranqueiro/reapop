@@ -1,40 +1,21 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import TransitionGroup from 'react-transition-group/TransitionGroup'
-import CSSTransition from 'react-transition-group/CSSTransition'
+import {TransitionGroup, CSSTransition} from 'react-transition-group'
 import Notification from './Notification'
 
-export class NotificationsContainer extends Component {
-  static propTypes = {
-    notifications: PropTypes.array.isRequired,
-    position: PropTypes.string.isRequired,
-    theme: PropTypes.shape({
-      notificationsContainer: PropTypes.shape({
-        className: PropTypes.shape({
-          main: PropTypes.string.isRequired,
-          position: PropTypes.func.isRequired
-        }).isRequired,
-        transition: PropTypes.shape({
-          name: PropTypes.object.isRequired,
-          enterTimeout: PropTypes.number.isRequired,
-          leaveTimeout: PropTypes.number.isRequired
-        }).isRequired
-      }).isRequired,
-      notification: PropTypes.shape({
-        className: PropTypes.object.isRequired
-      }).isRequired
-    }).isRequired
-  };
+import type {Node} from 'react'
+import type {Theme} from '../types'
 
+type Props = {
+  notifications: Array<Object>,
+  position: string,
+  theme: Theme
+}
+
+export class NotificationsContainer extends Component<Props> {
   static defaultProps = {
     notifications: []
-  };
+  }
 
-  /**
-   * Render notifications
-   * @private
-   * @returns {XML}
-   */
   _renderNotifications = () => {
     const {position} = this.props
     const {className} = this.props.theme.notification
@@ -47,7 +28,7 @@ export class NotificationsContainer extends Component {
       notifications = notifications.reverse()
     }
 
-    return notifications.map((notification) => (
+    return notifications.map<Node>((notification: Object): Node => (
       <CSSTransition
         key={notification.id}
         classNames={{
@@ -68,10 +49,6 @@ export class NotificationsContainer extends Component {
     ))
   };
 
-  /**
-   * Render
-   * @returns {XML}
-   */
   render() {
     const {className} = this.props.theme.notificationsContainer
     const {position} = this.props

@@ -5,4 +5,5 @@ build
 coverage
 demo/dist
 docs
+flow-typed
 lib

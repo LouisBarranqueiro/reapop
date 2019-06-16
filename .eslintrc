@@ -2,7 +2,11 @@
     "parser": "babel-eslint",
     "extends": [
         "standard",
-        "standard-react"
+        "standard-react",
+        "plugin:flowtype/recommended"
+    ],
+    "plugins": [
+        "flowtype"
     ],
     "env": {
         "browser": true,
@@ -41,6 +45,6 @@
                 "afterOpening": "never"
             }
         ],
-
+        "flowtype/no-types-missing-file-annotation": 0
     }
 }

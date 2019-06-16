@@ -14,6 +14,7 @@
 <PROJECT_ROOT>/src/.*
 
 [libs]
+<PROJECT_ROOT>/flow-typed
 
 [lints]
 

@@ -1,30 +1,11 @@
 import React from 'react'
 import {mount, shallow} from 'enzyme'
-import {checkPropTypes, genNotifications} from '../utils/fixtures'
+import {genNotifications} from '../utils/fixtures'
 import NotificationsContainer from '../../src/components/NotificationsContainer'
 import {POSITIONS} from '../../src/constants'
 import theme from 'reapop-theme-wybo'
 
 describe('<NotificationsContainer/>', () => {
-  it('should validate props', () => {
-    const errors = checkPropTypes({
-      notifications: [],
-      position: POSITIONS.topLeft,
-      theme
-    }, NotificationsContainer.propTypes)
-
-    expect(errors.notifications).toBeUndefined()
-    expect(errors.position).toBeUndefined()
-    expect(errors.theme).toBeUndefined()
-  })
-
-  it('should not validate props', () => {
-    const errors = checkPropTypes({}, NotificationsContainer.propTypes)
-    expect(errors.notifications).toBeDefined()
-    expect(errors.position).toBeDefined()
-    expect(errors.theme).toBeDefined()
-  })
-
   it('should mount with default props', () => {
     const wrapper = mount(
       <NotificationsContainer position={POSITIONS.topLeft} theme={theme}/>

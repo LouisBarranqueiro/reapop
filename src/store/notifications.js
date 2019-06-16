@@ -1,23 +1,27 @@
 import {treatNotification, preloadImage} from '../helpers'
 import {DEFAULT_NOTIFICATION} from '../constants'
 
+type DispatchType = ({ type: string, [key: any]: any }) => any
+
+type GetStateType = () => any
+
 // An array to store notifications object
-const INITIAL_STATE = []
+const INITIAL_STATE: Array<?Object> = []
 // Action types
-const ADD_NOTIFICATION = 'ADD_NOTIFICATION'
-const UPDATE_NOTIFICATION = 'UPDATE_NOTIFICATION'
-const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION'
-const REMOVE_NOTIFICATIONS = 'REMOVE_NOTIFICATIONS'
+const ADD_NOTIFICATION: string = 'ADD_NOTIFICATION'
+const UPDATE_NOTIFICATION: string = 'UPDATE_NOTIFICATION'
+const REMOVE_NOTIFICATION: string = 'REMOVE_NOTIFICATION'
+const REMOVE_NOTIFICATIONS: string = 'REMOVE_NOTIFICATIONS'
 
 /**
  * Add a notification (thunk action creator)
  *
- * We use a thunk here to create an ADD_NOTIFICATION action
+ * We use a thunk here to create an `ADD_NOTIFICATION` action
  * and only return the notification object.
  * @param {Object} notification
  * @returns {Object} notification
  */
-export const addNotification = (notification) => (dispatch) => {
+export const addNotification = (notification: Object) => (dispatch: DispatchType): Object => {
   if (!notification.id) {
     notification.id = new Date().getTime()
   }
@@ -40,7 +44,7 @@ export const addNotification = (notification) => (dispatch) => {
  * @returns {{type: string, payload: {Object}}}
  * @private
  */
-function _addNotification(notification) {
+function _addNotification(notification: Object): Object {
   return {
     type: ADD_NOTIFICATION,
     payload: notification
@@ -52,7 +56,7 @@ function _addNotification(notification) {
  * @param {Object} notification
  * @returns {{type: string, payload: {Object}}}
  */
-export const notify = (notification) => (dispatch, getState) => {
+export const notify = (notification: Object) => (dispatch: DispatchType, getState: GetStateType): Object => {
   const notifications = getState().notifications
   const doesNotifExist = notifications.find(notif => notif.id === notification.id)
 
@@ -71,28 +75,29 @@ export const notify = (notification) => (dispatch, getState) => {
  * @param {Object} notification
  * @returns {Object} notification
  */
-export const updateNotification = (notification) => (dispatch, getState) => {
-  if (!notification.id) {
-    throw new Error('A notification must have an `id` property to be updated')
-  }
+export const updateNotification = (notification: Object) =>
+  (dispatch: DispatchType, getState: GetStateType): Object => {
+    if (!notification.id) {
+      throw new Error('A notification must have an `id` property to be updated')
+    }
 
-  const notifications = getState().notifications
-  const index = notifications.findIndex((oldNotification) => oldNotification.id === notification.id)
-  const currNotification = notifications[index]
+    const notifications = getState().notifications
+    const index = notifications.findIndex((oldNotification) => oldNotification.id === notification.id)
+    const currNotification = notifications[index]
 
-  notification = treatNotification(notification)
+    notification = treatNotification(notification)
 
-  // if image is different, then we preload it
-  // and update notification when image is loaded
-  if (notification.image && (!currNotification.image || (currNotification.image &&
-    notification.image !== currNotification.image))) {
-    preloadImage(notification.image, dispatch.bind(this, _updateNotification(notification)))
+    // if image is different, then we preload it
+    // and update notification when image is loaded
+    if (notification.image && (!currNotification.image || (currNotification.image &&
+      notification.image !== currNotification.image))) {
+      preloadImage(notification.image, dispatch.bind(this, _updateNotification(notification)))
+    }
+    else {
+      dispatch(_updateNotification(notification))
+    }
+    return notification
   }
-  else {
-    dispatch(_updateNotification(notification))
-  }
-  return notification
-}
 
 /**
  * Update a notification (action creator)
@@ -101,7 +106,7 @@ export const updateNotification = (notification) => (dispatch, getState) => {
  * @returns {{type: string, payload: {Object}}}
  * @private
  */
-function _updateNotification(notification) {
+function _updateNotification(notification: Object): Object {
   return {
     type: UPDATE_NOTIFICATION,
     payload: notification
@@ -114,7 +119,7 @@ function _updateNotification(notification) {
  * @param {Object} notification
  * @returns {{type: string, payload: {Object}}}
  */
-export function removeNotification(notification) {
+export function removeNotification(notification: Object): Object {
   return {
     type: REMOVE_NOTIFICATION,
     payload: notification
@@ -126,7 +131,7 @@ export function removeNotification(notification) {
  *
  * @returns {{type: string}}
  */
-export function removeNotifications() {
+export function removeNotifications(): Object {
   return {
     type: REMOVE_NOTIFICATIONS
   }
@@ -149,8 +154,8 @@ export const types = {
 }
 
 // Reducers
-export default (defaultNotification = DEFAULT_NOTIFICATION) => {
-  return (state = INITIAL_STATE, {type, payload}) => {
+export default (defaultNotification: Object = DEFAULT_NOTIFICATION) => {
+  return (state: Object = INITIAL_STATE, {type, payload}: Object): Array<?Object> => {
     switch (type) {
       case ADD_NOTIFICATION:
         const notification = Object.assign({}, defaultNotification, payload)

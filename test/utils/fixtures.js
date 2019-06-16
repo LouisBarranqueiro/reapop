@@ -115,36 +115,4 @@ export function genNotification(id = 1) {
     onAdd: jest.fn(),
     onRemove: jest.fn()
   }
-};
-
-/**
- * Check propTypes of a React component
- * @param {Object} object object to be validated
- * @param {Object} propTypes object with defined prop types
- * @returns {void}
- */
-export function checkPropTypes(object, propTypes) {
-  let errors = {}
-  let propName
-  // Check if object have the same property that propTypes (depth: 1 is enough)
-  // if you remove a propType validation inadvertently, it will throw an error
-  for (propName in object) {
-    if (!propTypes.hasOwnProperty(propName)) {
-      errors[propName] = 'prop is not validated by propTypes'
-    }
-  }
-
-  // Check if object have the same property that propTypes object
-  // and if it have the correct type
-  for (propName in propTypes) {
-    if (propTypes.hasOwnProperty(propName)) {
-      let error = propTypes[propName](object, propName, JSON.stringify(object),
-        'prop', null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED')
-      if (error) {
-        errors[propName] = error.message
-      }
-    }
-  }
-
-  return errors
 }

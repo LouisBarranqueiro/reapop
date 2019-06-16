@@ -6,29 +6,12 @@ import ConnectedNotificationsSystem, {
 import {
   genRandomNotifications,
   mockStore,
-  checkPropTypes,
   genNotifications
 } from '../utils/fixtures'
 import theme from 'reapop-theme-wybo'
 import {Provider} from 'react-redux'
 
 describe('<NotificationsSystem/>', () => {
-  it('should validate props', () => {
-    const errors = checkPropTypes({
-      notifications: [],
-      theme
-    }, NotificationsSystem.propTypes)
-
-    expect(errors.notifications).toBeUndefined()
-    expect(errors.theme).toBeUndefined()
-  })
-
-  it('should not validate props', () => {
-    const errors = checkPropTypes({}, NotificationsSystem.propTypes)
-    expect(errors.notifications).toBeDefined()
-    expect(errors.theme).toBeDefined()
-  })
-
   describe('componentDidMount()', () => {
     it('should mount with default props and state', () => {
       const wrapper = mount(<NotificationsSystem theme={theme}/>)
