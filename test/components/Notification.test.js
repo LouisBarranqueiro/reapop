@@ -19,6 +19,9 @@ describe('<Notification/>', () => {
 
   beforeEach(() => {
     notification = genNotification(1);
+    // No image by default because newer versions of React do not add a trailing `;`
+    // for inline style (in our case: `background-image`).
+    notification.image = null;
     store = mockStore({notifications: []});
   });
 
@@ -117,12 +120,14 @@ describe('<Notification/>', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-
-    expect(wrapper.html()).toMatchSnapshot();
+    // newer versions of React do not add a trailing `;`
+    // for inline style (in our case: `background-image`), so we update the output
+    // so the snapshots match when we run test with different versions of React.
+    expect(wrapper.html().replace('an_url);', 'an_url)')).toMatchSnapshot();
   });
 
   it('should render component (without image)', () => {
-    notification.image = '';
+    notification.image = null;
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
