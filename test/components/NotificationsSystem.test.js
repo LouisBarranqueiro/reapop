@@ -1,12 +1,16 @@
 import React from 'react';
 import {mount, shallow} from 'enzyme';
-import {Provider} from 'react-redux';
 import ConnectedNotificationsSystem, {
   NotificationsSystem
 } from '../../src/components/NotificationsSystem';
-import Notification from '../../src/components/Notification';
-import {genRandomNotification, genRandomNotifications, mockStore, checkPropTypes} from '../utils/fixtures';
+import {
+  genRandomNotifications,
+  mockStore,
+  checkPropTypes,
+  genNotifications
+} from '../utils/fixtures';
 import theme from 'reapop-theme-wybo';
+import {Provider} from 'react-redux';
 
 describe('<NotificationsSystem/>', () => {
   it('should validate props', () => {
@@ -25,35 +29,90 @@ describe('<NotificationsSystem/>', () => {
     expect(errors.theme).toBeDefined();
   });
 
-  it('should mount with default props', () => {
-    const props = mount(<NotificationsSystem theme={theme}/>).props();
-    expect(props.notifications).toEqual([]);
+  describe('componentDidMount()', () => {
+    it('should mount with default props and state', () => {
+      const wrapper = mount(<NotificationsSystem theme={theme}/>);
+      expect(wrapper.props()).toEqual({notifications: [], theme});
+      expect(wrapper.state()).toEqual({windowWidth: window.innerWidth});
+    });
+
+    it('should add listener on window resize event', () => {
+      const prevAddListenerFn = window.addEventListener;
+      const addEventListenerSpy = jest.fn();
+      Object.defineProperty(window, 'addEventListener', {value: addEventListenerSpy});
+      const wrapper = shallow(<NotificationsSystem theme={theme}/>);
+      expect(addEventListenerSpy).toHaveBeenCalledWith('resize', wrapper.instance()._updateWindowWidth);
+
+      Object.defineProperty(window, 'addEventListener', {value: prevAddListenerFn});
+    });
   });
 
-  it('should render 1 notification containers (mobile)', () => {
-    const wrapper = shallow(<NotificationsSystem theme={theme}/>);
-    wrapper.setState({windowWidth: theme.smallScreenMin - 1});
-    expect(wrapper.debug({verbose: true})).toMatchSnapshot();
+  describe('componentWillUnmount()', () => {
+    it('should remove listener on window resize event', () => {
+      const prevRemoveListenerFn = window.removeEventListener;
+      const removeEventListenerSpy = jest.fn();
+      Object.defineProperty(window, 'removeEventListener', {value: removeEventListenerSpy});
+      const wrapper = shallow(<NotificationsSystem theme={theme}/>);
+      wrapper.instance().componentWillUnmount();
+      expect(removeEventListenerSpy).toHaveBeenCalledWith('resize', wrapper.instance()._updateWindowWidth);
+
+      Object.defineProperty(window, 'removeEventListener', {value: prevRemoveListenerFn});
+    });
   });
 
-  it('should render 8 notification containers (desktop)', () => {
-    const wrapper = shallow(<NotificationsSystem theme={theme}/>);
-    wrapper.setState({windowWidth: theme.smallScreenMin});
-    expect(wrapper.debug({verbose: true})).toMatchSnapshot();
+  describe('_updateWindowWidth()', () => {
+    it('should update the state', () => {
+      const prevWindowWidth = window.innerWidth;
+      const newWidth = 100;
+      const wrapper = shallow(<NotificationsSystem theme={theme}/>);
+      expect(wrapper.state()).toEqual({windowWidth: window.innerWidth});
+      Object.defineProperty(window, 'innerWidth', {value: newWidth});
+      wrapper.instance()._updateWindowWidth();
+      expect(wrapper.state()).toEqual({windowWidth: newWidth});
+
+      Object.defineProperty(window, 'innerWidth', {value: prevWindowWidth});
+    });
   });
 
-  it('should use filter and render 1 notification', () => {
-    const notifications = genRandomNotifications(3);
-    notifications.push(genRandomNotification({style: 'alert'}));
-    const store = mockStore({notifications});
-    const wrapper = mount(
-      <Provider store={store}>
-        <ConnectedNotificationsSystem
+  describe('render()', () => {
+    it('should render 1 notification containers (mobile)', () => {
+      const wrapper = shallow(<NotificationsSystem theme={theme}/>);
+      wrapper.setState({windowWidth: theme.smallScreenMin - 1});
+      expect(wrapper.debug({verbose: true})).toMatchSnapshot();
+    });
+
+    it('should render 8 notification containers (desktop)', () => {
+      const wrapper = shallow(<NotificationsSystem theme={theme}/>);
+      wrapper.setState({windowWidth: theme.smallScreenMin});
+      expect(wrapper.debug({verbose: true})).toMatchSnapshot();
+    });
+
+    it('should only render "alert" notifications', () => {
+      const notifications = genNotifications(3);
+      notifications[0].style = 'alert';
+      const wrapper = shallow(
+        <NotificationsSystem
+          notifications={notifications}
           theme={theme}
           filter={notif => notif.style === 'alert'}
         />
+      );
+      expect(wrapper.debug({verbose: true})).toMatchSnapshot();
+    });
+  });
+});
+
+describe('<NotificationSystemContainer/>', () => {
+  it('should read notifications from the store', () => {
+    const notifications = genRandomNotifications(3);
+    const store = mockStore({notifications});
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectedNotificationsSystem theme={theme}/>
       </Provider>
     );
-    expect(wrapper.find(Notification).length).toEqual(1);
+    const component = wrapper.children().children();
+    expect(component.props().theme).toEqual(theme);
+    expect(component.props().notifications).toEqual(notifications);
   });
 });
