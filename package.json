@@ -65,7 +65,7 @@
     "faker": "4.1.0",
     "file-loader": "4.0.0",
     "font-awesome": "4.7.0",
-    "identity-obj-proxy": "^3.0.0",
+    "identity-obj-proxy": "3.0.0",
     "import": "0.0.6",
     "istanbul-instrumenter-loader": "3.0.1",
     "jest": "24.8.0",
