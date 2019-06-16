@@ -6,8 +6,10 @@
   "scripts": {
     "start": "node demo/index.js",
     "compile": "npx webpack --config=./demo/webpack.config.js && cp demo/src/index.html demo/dist/ && cp -R demo/src/static demo/dist/",
-    "lint": "npx eslint .",
-    "lint:fix": "npx eslint . --fix",
+    "flow": "flow",
+    "eslint": "npx eslint .",
+    "eslint:fix": "npx eslint . --fix",
+    "check": "npm run eslint && npm run flow",
     "test": "npx jest",
     "test:all": "./scripts/test-all.sh",
     "test:coverage": "npm test -- --coverage",
@@ -45,6 +47,7 @@
     "@babel/plugin-proposal-class-properties": "7.4.4",
     "@babel/polyfill": "7.4.4",
     "@babel/preset-env": "7.4.5",
+    "@babel/preset-flow": "7.0.0",
     "@babel/preset-react": "7.0.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.6",
@@ -64,6 +67,7 @@
     "express": "4.17.1",
     "faker": "4.1.0",
     "file-loader": "4.0.0",
+    "flow-bin": "0.101.0",
     "font-awesome": "4.7.0",
     "identity-obj-proxy": "3.0.0",
     "import": "0.0.6",
@@ -80,7 +84,6 @@
     "mocha": "6.1.4",
     "node-sass": "4.12.0",
     "phantomjs-prebuilt": "2.1.16",
-    "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-addons-update": "15.6.2",
     "react-dom": "16.8.6",
@@ -99,7 +102,6 @@
     "webpack-hot-middleware": "2.25.0"
   },
   "dependencies": {
-    "prop-types": "^15.6.0",
     "react-transition-group": "^2.2.1"
   }
 }
