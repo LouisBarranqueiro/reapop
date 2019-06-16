@@ -1,4 +1,4 @@
-import {STATUS} from '../constants';
+import {STATUS} from '../constants'
 
 /**
  * Convert status in a understandable status for the Notification component
@@ -6,19 +6,19 @@ import {STATUS} from '../constants';
  * @returns {String} status an understandable status
  */
 export function convertStatus(status) {
-  const reHttpStatusCode = /^\d{3}$/;
+  const reHttpStatusCode = /^\d{3}$/
   // convert HTTP status code
   if (reHttpStatusCode.test(status)) {
     switch (true) {
       case /^1/.test(status):
-        return STATUS.info;
+        return STATUS.info
       case /^2/.test(status):
-        return STATUS.success;
+        return STATUS.success
       case /^(4|5)/.test(status):
-        return STATUS.error;
+        return STATUS.error
     }
   }
-  return status;
+  return status
 }
 
 /**
@@ -28,23 +28,23 @@ export function convertStatus(status) {
  * @constructor
  */
 export function Timer(delay, callback) {
-  let timerId;
-  let start;
-  let remaining = delay;
+  let timerId
+  let start
+  let remaining = delay
 
   this.pause = () => {
-    clearTimeout(timerId);
-    remaining -= new Date() - start;
-  };
+    clearTimeout(timerId)
+    remaining -= new Date() - start
+  }
   this.resume = () => {
-    start = new Date();
-    clearTimeout(timerId);
-    timerId = setTimeout(callback, remaining);
-  };
+    start = new Date()
+    clearTimeout(timerId)
+    timerId = setTimeout(callback, remaining)
+  }
 
   this.getTimeRemaining = () => {
-    return remaining;
-  };
+    return remaining
+  }
 }
 
 /**
@@ -54,16 +54,16 @@ export function Timer(delay, callback) {
  */
 export function treatNotification(notification) {
   if (notification.dismissAfter) {
-    notification.dismissAfter = parseInt(notification.dismissAfter);
+    notification.dismissAfter = parseInt(notification.dismissAfter)
   }
 
-  notification.status = convertStatus(notification.status);
+  notification.status = convertStatus(notification.status)
 
   if (!notification.buttons) {
-    notification.buttons = [];
+    notification.buttons = []
   }
 
-  return notification;
+  return notification
 }
 
 /**
@@ -73,11 +73,11 @@ export function treatNotification(notification) {
  * @returns {void}
  */
 export function preloadImage(url, cb) {
-  const image = new Image();
-  image.src = url;
-  image.onload = cb;
-  image.onerror = cb;
-  return image;
+  const image = new Image()
+  image.src = url
+  image.onload = cb
+  image.onerror = cb
+  return image
 }
 
 /**
@@ -86,10 +86,10 @@ export function preloadImage(url, cb) {
  * @returns {Array}
  */
 export function mapObjectValues(obj) {
-  const array = [];
+  const array = []
 
   Object.keys(obj)
-    .forEach(key => array.push(obj[key]));
+    .forEach(key => array.push(obj[key]))
 
-  return array;
+  return array
 }

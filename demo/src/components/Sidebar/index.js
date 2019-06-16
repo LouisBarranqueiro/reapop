@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import css from './styles.scss';
-import NotificationCreator from '../NotificationCreator';
-import NotificationExamples from '../NotificationExamples';
+import React, {Component} from 'react'
+import css from './styles.scss'
+import NotificationCreator from '../NotificationCreator'
+import NotificationExamples from '../NotificationExamples'
 
 class Sidebar extends Component {
   /**
@@ -16,8 +16,8 @@ class Sidebar extends Component {
         <hr/>
         <NotificationExamples/>
       </div>
-    );
+    )
   }
 }
 
-export default Sidebar;
+export default Sidebar

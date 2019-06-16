@@ -1,7 +1,7 @@
-import wyboTheme from 'reapop-theme-wybo';
-import bootstrapTheme from 'reapop-theme-bootstrap';
+import wyboTheme from 'reapop-theme-wybo'
+import bootstrapTheme from 'reapop-theme-bootstrap'
 
-export const DEFAULT_THEME = 'wybo';
+export const DEFAULT_THEME = 'wybo'
 
 export const THEMES = {
   wybo: {
@@ -12,4 +12,4 @@ export const THEMES = {
     label: 'Bootstrap',
     theme: bootstrapTheme
   }
-};
+}

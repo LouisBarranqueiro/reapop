@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import update from 'react-addons-update';
-import {connect} from 'react-redux';
-import Switch from '../Switch';
-import {notify} from '../../../../src/index';
-import {THEMES} from '../../../themes';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import update from 'react-addons-update'
+import {connect} from 'react-redux'
+import Switch from '../Switch'
+import {notify} from '../../../../src/index'
+import {THEMES} from '../../../themes'
 
 class NotificationCreator extends Component {
   static propTypes = {
@@ -18,20 +18,20 @@ class NotificationCreator extends Component {
    * @returns {void}
    */
   constructor(props) {
-    super(props);
-    this._addNotification = this._addNotification.bind(this);
-    this._onTitleChange = this._onTitleChange.bind(this);
-    this._onMessageChange = this._onMessageChange.bind(this);
-    this._onPositionChange = this._onPositionChange.bind(this);
-    this._onStatusChange = this._onStatusChange.bind(this);
-    this._onDismissAfterChange = this._onDismissAfterChange.bind(this);
-    this._onDismissibleChange = this._onDismissibleChange.bind(this);
-    this._onButton1NameChange = this._onButton1NameChange.bind(this);
-    this._onButton1PrimaryChange = this._onButton1PrimaryChange.bind(this);
-    this._onButton2NameChange = this._onButton2NameChange.bind(this);
-    this._onButton2PrimaryChange = this._onButton2PrimaryChange.bind(this);
-    this._onAllowHTMLChange = this._onAllowHTMLChange.bind(this);
-    this._onCloseButtonChange = this._onCloseButtonChange.bind(this);
+    super(props)
+    this._addNotification = this._addNotification.bind(this)
+    this._onTitleChange = this._onTitleChange.bind(this)
+    this._onMessageChange = this._onMessageChange.bind(this)
+    this._onPositionChange = this._onPositionChange.bind(this)
+    this._onStatusChange = this._onStatusChange.bind(this)
+    this._onDismissAfterChange = this._onDismissAfterChange.bind(this)
+    this._onDismissibleChange = this._onDismissibleChange.bind(this)
+    this._onButton1NameChange = this._onButton1NameChange.bind(this)
+    this._onButton1PrimaryChange = this._onButton1PrimaryChange.bind(this)
+    this._onButton2NameChange = this._onButton2NameChange.bind(this)
+    this._onButton2PrimaryChange = this._onButton2PrimaryChange.bind(this)
+    this._onAllowHTMLChange = this._onAllowHTMLChange.bind(this)
+    this._onCloseButtonChange = this._onCloseButtonChange.bind(this)
     this.state = {
       notification: {
         title: 'Welcome on demo!',
@@ -50,7 +50,7 @@ class NotificationCreator extends Component {
         }],
         allowHTML: false
       }
-    };
+    }
   }
 
   /**
@@ -60,15 +60,15 @@ class NotificationCreator extends Component {
    * @private
    */
   _addNotification(event) {
-    event.preventDefault();
-    const {notification, notification: {buttons}} = this.state;
-    const {notify} = this.props;
-    let _buttons = [];
+    event.preventDefault()
+    const {notification, notification: {buttons}} = this.state
+    const {notify} = this.props
+    let _buttons = []
     if (buttons[0].name) {
-      _buttons.push(buttons[0]);
+      _buttons.push(buttons[0])
     }
     if (buttons[1].name) {
-      _buttons.push(buttons[1]);
+      _buttons.push(buttons[1])
     }
     notify({
       title: notification.title,
@@ -80,7 +80,7 @@ class NotificationCreator extends Component {
       closeButton: notification.closeButton,
       buttons: _buttons,
       allowHTML: notification.allowHTML
-    });
+    })
   }
 
   /**
@@ -94,8 +94,8 @@ class NotificationCreator extends Component {
       notification: {
         title: {$set: event.target.value}
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -109,8 +109,8 @@ class NotificationCreator extends Component {
       notification: {
         message: {$set: event.target.value}
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -124,8 +124,8 @@ class NotificationCreator extends Component {
       notification: {
         status: {$set: event.target.value}
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -139,8 +139,8 @@ class NotificationCreator extends Component {
       notification: {
         position: {$set: event.target.value}
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -154,8 +154,8 @@ class NotificationCreator extends Component {
       notification: {
         dismissAfter: {$set: event.target.value}
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -169,8 +169,8 @@ class NotificationCreator extends Component {
       notification: {
         dismissible: {$set: event.target.checked}
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -188,8 +188,8 @@ class NotificationCreator extends Component {
           }
         }
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -207,8 +207,8 @@ class NotificationCreator extends Component {
           }
         }
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -226,8 +226,8 @@ class NotificationCreator extends Component {
           }
         }
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -245,8 +245,8 @@ class NotificationCreator extends Component {
           }
         }
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -260,8 +260,8 @@ class NotificationCreator extends Component {
       notification: {
         allowHTML: {$set: event.target.checked}
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -275,8 +275,8 @@ class NotificationCreator extends Component {
       notification: {
         closeButton: {$set: event.target.checked}
       }
-    });
-    this.setState(newState);
+    })
+    this.setState(newState)
   }
 
   /**
@@ -293,8 +293,8 @@ class NotificationCreator extends Component {
       closeButton,
       allowHTML,
       buttons
-    } = this.state.notification;
-    const {onThemeChange} = this.props;
+    } = this.state.notification
+    const {onThemeChange} = this.props
 
     return (
       <div>
@@ -309,26 +309,31 @@ class NotificationCreator extends Component {
               onChange={(evt) => onThemeChange(evt.target.value)}
             >
               {Object.keys(THEMES).map(key => {
-                return <option key={key} value={key}>{THEMES[key].label}</option>;
+                return <option key={key} value={key}>{THEMES[key].label}</option>
               })}
             </select>
           </div>
           <div className='form-group'>
             <label htmlFor='title'>Title</label>
-            <input className='form-control' type='text' id='title' name='title' value={title}
-              onChange={this._onTitleChange}/>
+            <input className='form-control' type='text' id='title'
+              name='title' value={title}
+              onChange={this._onTitleChange}
+            />
           </div>
           <div className='form-group'>
             <label htmlFor='message'>Message</label>
             <textarea className='form-control' id='message' value={message}
-              onChange={this._onMessageChange}/>
+              onChange={this._onMessageChange}
+            />
           </div>
           <div className='form-group'>
             <div className='row'>
               <div className='col-xs-6'>
                 <label htmlFor='status'>Position</label>
-                <select className='form-control' id='position' name='position' defaultValue={position}
-                  onChange={this._onPositionChange}>
+                <select className='form-control' id='position' name='position'
+                  defaultValue={position}
+                  onChange={this._onPositionChange}
+                >
                   <option value='t'>Top</option>
                   <option value='tc'>Top center</option>
                   <option value='tr'>Top right</option>
@@ -342,7 +347,8 @@ class NotificationCreator extends Component {
               <div className='col-xs-6'>
                 <label htmlFor='status'>Status</label>
                 <select className='form-control' id='status' name='status'
-                  onChange={this._onStatusChange}>
+                  onChange={this._onStatusChange}
+                >
                   <option value='default'>Default</option>
                   <option value='info'>Info</option>
                   <option value='success'>Success</option>
@@ -357,12 +363,14 @@ class NotificationCreator extends Component {
               <div className='col-xs-6'>
                 <label htmlFor='dismissAfter'>Dismiss after (ms)</label>
                 <input className='form-control' type='text' name='dismissAfter'
-                  onChange={this._onDismissAfterChange} value={dismissAfter}/>
+                  onChange={this._onDismissAfterChange} value={dismissAfter}
+                />
               </div>
               <div className='col-xs-6'>
                 <label htmlFor='dismissible'>Dismissible (by clicking on it)</label>
                 <Switch name='dismissible' checked={dismissible}
-                  onChange={this._onDismissibleChange}/>
+                  onChange={this._onDismissibleChange}
+                />
               </div>
             </div>
           </div>
@@ -371,24 +379,28 @@ class NotificationCreator extends Component {
               <div className='col-xs-6'>
                 <label htmlFor='button1-name'>First button</label>
                 <input className='form-control' type='text' name='action1-name'
-                  value={buttons[0].name} onChange={this._onButton1NameChange}/>
+                  value={buttons[0].name} onChange={this._onButton1NameChange}
+                />
               </div>
               <div className='col-xs-6'>
                 <label htmlFor='button1-primary'>Primary button</label>
                 <Switch name='button1-primary' checked={buttons[0].primary}
-                  onChange={this._onButton1PrimaryChange}/>
+                  onChange={this._onButton1PrimaryChange}
+                />
               </div>
             </div>
             <div className='row'>
               <div className='col-xs-6'>
                 <label htmlFor='button2-name'>Second button</label>
                 <input className='form-control' type='text' name='button2-name'
-                  onChange={this._onButton2NameChange} value={buttons[1].name}/>
+                  onChange={this._onButton2NameChange} value={buttons[1].name}
+                />
               </div>
               <div className='col-xs-6'>
                 <label htmlFor='button2-primary'>Primary button</label>
                 <Switch name='button2-primary' checked={buttons[1].primary}
-                  onChange={this._onButton2PrimaryChange}/>
+                  onChange={this._onButton2PrimaryChange}
+                />
               </div>
             </div>
           </div>
@@ -400,7 +412,8 @@ class NotificationCreator extends Component {
             <div className='col-xs-6'>
               <label htmlFor='closeButton'>Show close button</label>
               <Switch name='closeButton' checked={closeButton}
-                onChange={this._onCloseButtonChange}/>
+                onChange={this._onCloseButtonChange}
+              />
             </div>
           </div>
           <button type='submit' className='btn btn-primary btn-block'>
@@ -408,8 +421,8 @@ class NotificationCreator extends Component {
           </button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default connect(null, {notify})(NotificationCreator);
+export default connect(null, {notify})(NotificationCreator)

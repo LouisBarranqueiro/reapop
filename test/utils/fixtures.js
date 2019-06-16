@@ -1,9 +1,9 @@
-import {STATUS, POSITIONS, TOP, DEFAULT_STATUS} from '../../src/constants';
-import faker from 'faker';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
+import {STATUS, POSITIONS, TOP, DEFAULT_STATUS} from '../../src/constants'
+import faker from 'faker'
+import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store'
 
-export const imageUrl = 'https://httpbin.org/image/jpeg';
+export const imageUrl = 'https://httpbin.org/image/jpeg'
 
 /**
  * Generate a redux store
@@ -11,9 +11,9 @@ export const imageUrl = 'https://httpbin.org/image/jpeg';
  * @returns {Object} store
  */
 export function mockStore(reducers) {
-  const middleware = [thunk];
-  const mockStore = configureMockStore(middleware);
-  return mockStore(reducers);
+  const middleware = [thunk]
+  const mockStore = configureMockStore(middleware)
+  return mockStore(reducers)
 }
 
 /**
@@ -22,7 +22,7 @@ export function mockStore(reducers) {
  * @returns {Object} notification
  */
 export function genRandomNotification(notification = {}) {
-  const numb = faker.random.number();
+  const numb = faker.random.number()
 
   return Object.assign({}, {
     id: faker.random.number(),
@@ -39,22 +39,22 @@ export function genRandomNotification(notification = {}) {
       name: faker.lorem.words(),
       primary: faker.random.boolean(),
       onClick: () => {
-        return numb * 2;
+        return numb * 2
       }
     }, {
       name: faker.lorem.words(),
       primary: faker.random.boolean(),
       onClick: () => {
-        return numb * 3;
+        return numb * 3
       }
     }],
     onAdd: () => {
-      return numb;
+      return numb
     },
     onRemove: () => {
-      return numb * 2;
+      return numb * 2
     }
-  }, notification);
+  }, notification)
 }
 
 /**
@@ -64,11 +64,11 @@ export function genRandomNotification(notification = {}) {
  * @returns {Array}
  */
 export function genRandomNotifications(numb, notification = {}) {
-  let notifications = [];
+  let notifications = []
   for (let i = 0; i < numb; i++) {
-    notifications.push(genRandomNotification(notification));
+    notifications.push(genRandomNotification(notification))
   }
-  return notifications;
+  return notifications
 };
 
 /**
@@ -78,11 +78,11 @@ export function genRandomNotifications(numb, notification = {}) {
  * @returns {Array}
  */
 export function genNotifications(numb, notification = {}) {
-  let notifications = [];
+  let notifications = []
   for (let i = 0; i < numb; i++) {
-    notifications.push(genNotification(i));
+    notifications.push(genNotification(i))
   }
-  return notifications;
+  return notifications
 };
 
 /**
@@ -114,7 +114,7 @@ export function genNotification(id = 1) {
     }],
     onAdd: jest.fn(),
     onRemove: jest.fn()
-  };
+  }
 };
 
 /**
@@ -124,13 +124,13 @@ export function genNotification(id = 1) {
  * @returns {void}
  */
 export function checkPropTypes(object, propTypes) {
-  let errors = {};
-  let propName;
+  let errors = {}
+  let propName
   // Check if object have the same property that propTypes (depth: 1 is enough)
   // if you remove a propType validation inadvertently, it will throw an error
   for (propName in object) {
     if (!propTypes.hasOwnProperty(propName)) {
-      errors[propName] = 'prop is not validated by propTypes';
+      errors[propName] = 'prop is not validated by propTypes'
     }
   }
 
@@ -138,12 +138,13 @@ export function checkPropTypes(object, propTypes) {
   // and if it have the correct type
   for (propName in propTypes) {
     if (propTypes.hasOwnProperty(propName)) {
-      let error = propTypes[propName](object, propName, JSON.stringify(object), 'prop', null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
+      let error = propTypes[propName](object, propName, JSON.stringify(object),
+        'prop', null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED')
       if (error) {
-        errors[propName] = error.message;
+        errors[propName] = error.message
       }
     }
   }
 
-  return errors;
+  return errors
 }

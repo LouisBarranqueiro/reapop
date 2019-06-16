@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import faker from 'faker';
-import {STATUS, POSITIONS, notify} from '../../../../src';
-import css from './styles.scss';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import faker from 'faker'
+import {STATUS, POSITIONS, notify} from '../../../../src'
+import css from './styles.scss'
 
 class RandomNotificationCreator extends Component {
   static propTypes = {
@@ -16,8 +16,8 @@ class RandomNotificationCreator extends Component {
    * @returns {void}
    */
   constructor(props) {
-    super(props);
-    this._randomNotification = this._randomNotification.bind(this);
+    super(props)
+    this._randomNotification = this._randomNotification.bind(this)
   }
 
   /**
@@ -26,18 +26,18 @@ class RandomNotificationCreator extends Component {
    * @private
    */
   _randomNotification() {
-    const {notify} = this.props;
-    const buttons = [];
-    let image = null;
-    let path = window.location.href;
-    path = path.replace(/index\.html/, '');
+    const {notify} = this.props
+    const buttons = []
+    let image = null
+    let path = window.location.href
+    path = path.replace(/index\.html/, '')
     if (faker.random.boolean()) {
       for (let i = 0; i < 2; i++) {
         if (faker.random.boolean()) {
           buttons.push({
             name: faker.lorem.word(),
             primary: faker.random.boolean()
-          });
+          })
         }
       }
     }
@@ -45,7 +45,7 @@ class RandomNotificationCreator extends Component {
       image = `${path}static/images/image-${faker.random.number({
         min: 1,
         max: 3
-      })}.png`;
+      })}.png`
     }
     notify({
       title: (faker.random.boolean() ? faker.lorem.sentence(5) : ''),
@@ -58,7 +58,7 @@ class RandomNotificationCreator extends Component {
       closeButton: faker.random.boolean(),
       allowHTML: faker.random.boolean(),
       buttons: buttons
-    });
+    })
   }
 
   /**
@@ -70,7 +70,7 @@ class RandomNotificationCreator extends Component {
       <button className={`btn btn-primary ${css['button']}`} onClick={this._randomNotification}>
         <b>Random notification</b>
       </button>
-    );
+    )
   }
 }
-export default connect(null, {notify})(RandomNotificationCreator);
+export default connect(null, {notify})(RandomNotificationCreator)

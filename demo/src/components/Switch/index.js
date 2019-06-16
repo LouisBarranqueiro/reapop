@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import css from './styles.scss';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import css from './styles.scss'
 class Input extends Component {
   /**
    * propTypes
@@ -17,18 +17,20 @@ class Input extends Component {
    * @returns {XML}
    */
   render() {
-    const {variable, name, onChange, checked} = this.props;
+    const {variable, name, onChange, checked} = this.props
     return (
       <div className={css['onoffswitch']}>
-        <input type='checkbox' className={css['onoffswitch-checkbox']} id={name} name={name}
-          onChange={onChange} checked={checked} {...variable}/>
+        <input type='checkbox' className={css['onoffswitch-checkbox']} id={name}
+          name={name}
+          onChange={onChange} checked={checked} {...variable}
+        />
         <label className={css['onoffswitch-label']} htmlFor={name}>
           <span className={css['onoffswitch-inner']}/>
           <span className={css['onoffswitch-switch']}/>
         </label>
       </div>
-    );
+    )
   }
 }
 
-export default Input;
+export default Input

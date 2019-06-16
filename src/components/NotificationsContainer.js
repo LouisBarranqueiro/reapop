@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import TransitionGroup from 'react-transition-group/TransitionGroup';
-import CSSTransition from 'react-transition-group/CSSTransition';
-import Notification from './Notification';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import TransitionGroup from 'react-transition-group/TransitionGroup'
+import CSSTransition from 'react-transition-group/CSSTransition'
+import Notification from './Notification'
 
 export class NotificationsContainer extends Component {
   static propTypes = {
@@ -36,15 +36,15 @@ export class NotificationsContainer extends Component {
    * @returns {XML}
    */
   _renderNotifications = () => {
-    const {position} = this.props;
-    const {className} = this.props.theme.notification;
-    const {name, enterTimeout, leaveTimeout} = this.props.theme.notificationsContainer.transition;
-    let {notifications} = this.props;
+    const {position} = this.props
+    const {className} = this.props.theme.notification
+    const {name, enterTimeout, leaveTimeout} = this.props.theme.notificationsContainer.transition
+    let {notifications} = this.props
 
     // when notifications are displayed at the bottom,
     // we display notifications from bottom to top
     if (position.startsWith('b')) {
-      notifications = notifications.reverse();
+      notifications = notifications.reverse()
     }
 
     return notifications.map((notification) => (
@@ -65,7 +65,7 @@ export class NotificationsContainer extends Component {
           className={className}
         />
       </CSSTransition>
-    ));
+    ))
   };
 
   /**
@@ -73,8 +73,8 @@ export class NotificationsContainer extends Component {
    * @returns {XML}
    */
   render() {
-    const {className} = this.props.theme.notificationsContainer;
-    const {position} = this.props;
+    const {className} = this.props.theme.notificationsContainer
+    const {position} = this.props
 
     return (
       <div className={`${className.main} ${className.position(position)}`}>
@@ -82,8 +82,8 @@ export class NotificationsContainer extends Component {
           {this._renderNotifications()}
         </TransitionGroup>
       </div>
-    );
+    )
   }
 }
 
-export default NotificationsContainer;
+export default NotificationsContainer

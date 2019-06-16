@@ -1,5 +1,5 @@
-import NotificationsSystem from './components/NotificationsSystem';
-import {STATUS, POSITIONS, DEFAULT_NOTIFICATION} from './constants';
+import NotificationsSystem from './components/NotificationsSystem'
+import {STATUS, POSITIONS, DEFAULT_NOTIFICATION} from './constants'
 import reducer, {
   actions,
   types,
@@ -8,7 +8,7 @@ import reducer, {
   updateNotification,
   removeNotification,
   removeNotifications
-} from './store/notifications';
+} from './store/notifications'
 
 export {
   // constants
@@ -30,6 +30,6 @@ export {
   updateNotification,
   removeNotification,
   removeNotifications
-};
+}
 // NotificationsSystem React component
-export default NotificationsSystem;
+export default NotificationsSystem
