@@ -5,8 +5,7 @@ import {Timer} from '../../src/helpers';
 import ConnectNotification, {Notification} from '../../src/components/Notification';
 import theme from 'reapop-theme-wybo';
 import {types, removeNotification} from '../../src/store/notifications';
-import {genNotification, mockStore, checkPropTypes} from '../utils/fixtures';
-import {ExpectedNotification} from '../utils/expectedComponents';
+import {mockStore, checkPropTypes, genNotification} from '../utils/fixtures';
 
 describe('<Notification/>', () => {
   let notification = null;
@@ -18,8 +17,11 @@ describe('<Notification/>', () => {
     removeNotification
   };
 
-  beforeEach('generate a new notification and init store', () => {
-    notification = genNotification();
+  beforeEach(() => {
+    notification = genNotification(1);
+    // No image by default because newer versions of React do not add a trailing `;`
+    // for inline style (in our case: `background-image`).
+    notification.image = null;
     store = mockStore({notifications: []});
   });
 
@@ -68,10 +70,7 @@ describe('<Notification/>', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (with HTML in the title)', () => {
@@ -79,10 +78,7 @@ describe('<Notification/>', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (without title)', () => {
@@ -90,20 +86,14 @@ describe('<Notification/>', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (with message)', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (with HTML in the message)', () => {
@@ -113,10 +103,7 @@ describe('<Notification/>', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (without message)', () => {
@@ -125,10 +112,7 @@ describe('<Notification/>', () => {
       <Notification notification={notification} {...otherProps}/>
     );
 
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (with image)', () => {
@@ -136,23 +120,19 @@ describe('<Notification/>', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    // newer versions of React do not add a trailing `;`
+    // for inline style (in our case: `background-image`), so we update the output
+    // so the snapshots match when we run test with different versions of React.
+    expect(wrapper.html().replace('an_url);', 'an_url)')).toMatchSnapshot();
   });
 
   it('should render component (without image)', () => {
-    notification.image = '';
+    notification.image = null;
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
 
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (with close button)', () => {
@@ -163,10 +143,7 @@ describe('<Notification/>', () => {
       <Notification notification={notification} {...otherProps}/>
     );
 
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (without close button)', () => {
@@ -177,10 +154,7 @@ describe('<Notification/>', () => {
       <Notification notification={notification} {...otherProps}/>
     );
 
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (with 2 buttons)', () => {
@@ -188,10 +162,7 @@ describe('<Notification/>', () => {
       <Notification notification={notification} {...otherProps}/>
     );
 
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (with 1 button)', () => {
@@ -199,10 +170,7 @@ describe('<Notification/>', () => {
     const wrapper = shallow(
       <Notification notification={notification} {...otherProps}/>
     );
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render component (without buttons)', () => {
@@ -211,10 +179,7 @@ describe('<Notification/>', () => {
       <Notification notification={notification} {...otherProps}/>
     );
 
-    const expectedComponent = shallow(
-      <ExpectedNotification notification={notification} {...otherProps}/>
-    );
-    expect(wrapper.html()).toEqual(expectedComponent.html());
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should run onAdd() callback at componentDidMount() lifecycle', () => {

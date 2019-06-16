@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotificationsContainer/> should render no notifications 1`] = `
+"<div className=\\"notifications-container notifications-container--tl\\">
+  <TransitionGroup component=\\"div\\" childFactory={[Function: childFactory]} />
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should render notifications 1`] = `
+"<div className=\\"notifications-container notifications-container--tl\\">
+  <TransitionGroup component=\\"div\\" childFactory={[Function: childFactory]}>
+    <CSSTransition classNames={{ enter: 'notification-wrapper-enter', exit: 'notification-wrapper-leave' }} timeout={{ enter: 500, exit: 900 }}>
+      <Connect(Notification) notification={{ id: 0, title: 'a title', message: 'a message', image: 'https://httpbin.org/image/jpeg', position: 't', status: 'default', dismissible: true, dismissAfter: 0, allowHTML: true, closeButton: true, buttons: [ { name: 'Yes', primary: true, onClick: [Function: mockConstructor] }, { name: 'No', primary: false, onClick: [Function: mockConstructor] } ], onAdd: [Function: mockConstructor], onRemove: [Function: mockConstructor] }} className={{ main: 'notification', wrapper: 'notification-wrapper', meta: 'notification-meta', title: 'notification-title', message: 'notification-message', icon: 'fa notification-icon', imageContainer: 'notification-image-container', image: 'notification-image', status: [Function: status], dismissible: 'notification--dismissible', buttons: [Function: buttons], closeButtonContainer: 'notification-close-button-container', closeButton: 'fa notification-close-button', button: 'notification-button', buttonText: 'notification-button-text' }} />
+    </CSSTransition>
+    <CSSTransition classNames={{ enter: 'notification-wrapper-enter', exit: 'notification-wrapper-leave' }} timeout={{ enter: 500, exit: 900 }}>
+      <Connect(Notification) notification={{ id: 1, title: 'a title', message: 'a message', image: 'https://httpbin.org/image/jpeg', position: 't', status: 'default', dismissible: true, dismissAfter: 0, allowHTML: true, closeButton: true, buttons: [ { name: 'Yes', primary: true, onClick: [Function: mockConstructor] }, { name: 'No', primary: false, onClick: [Function: mockConstructor] } ], onAdd: [Function: mockConstructor], onRemove: [Function: mockConstructor] }} className={{ main: 'notification', wrapper: 'notification-wrapper', meta: 'notification-meta', title: 'notification-title', message: 'notification-message', icon: 'fa notification-icon', imageContainer: 'notification-image-container', image: 'notification-image', status: [Function: status], dismissible: 'notification--dismissible', buttons: [Function: buttons], closeButtonContainer: 'notification-close-button-container', closeButton: 'fa notification-close-button', button: 'notification-button', buttonText: 'notification-button-text' }} />
+    </CSSTransition>
+    <CSSTransition classNames={{ enter: 'notification-wrapper-enter', exit: 'notification-wrapper-leave' }} timeout={{ enter: 500, exit: 900 }}>
+      <Connect(Notification) notification={{ id: 2, title: 'a title', message: 'a message', image: 'https://httpbin.org/image/jpeg', position: 't', status: 'default', dismissible: true, dismissAfter: 0, allowHTML: true, closeButton: true, buttons: [ { name: 'Yes', primary: true, onClick: [Function: mockConstructor] }, { name: 'No', primary: false, onClick: [Function: mockConstructor] } ], onAdd: [Function: mockConstructor], onRemove: [Function: mockConstructor] }} className={{ main: 'notification', wrapper: 'notification-wrapper', meta: 'notification-meta', title: 'notification-title', message: 'notification-message', icon: 'fa notification-icon', imageContainer: 'notification-image-container', image: 'notification-image', status: [Function: status], dismissible: 'notification--dismissible', buttons: [Function: buttons], closeButtonContainer: 'notification-close-button-container', closeButton: 'fa notification-close-button', button: 'notification-button', buttonText: 'notification-button-text' }} />
+    </CSSTransition>
+  </TransitionGroup>
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should reverse and render notifications (bottom notifications) 1`] = `
+"<div className=\\"notifications-container notifications-container--bl\\">
+  <TransitionGroup component=\\"div\\" childFactory={[Function: childFactory]}>
+    <CSSTransition classNames={{ enter: 'notification-wrapper-enter', exit: 'notification-wrapper-leave' }} timeout={{ enter: 500, exit: 900 }}>
+      <Connect(Notification) notification={{ id: 2, title: 'a title', message: 'a message', image: 'https://httpbin.org/image/jpeg', position: 't', status: 'default', dismissible: true, dismissAfter: 0, allowHTML: true, closeButton: true, buttons: [ { name: 'Yes', primary: true, onClick: [Function: mockConstructor] }, { name: 'No', primary: false, onClick: [Function: mockConstructor] } ], onAdd: [Function: mockConstructor], onRemove: [Function: mockConstructor] }} className={{ main: 'notification', wrapper: 'notification-wrapper', meta: 'notification-meta', title: 'notification-title', message: 'notification-message', icon: 'fa notification-icon', imageContainer: 'notification-image-container', image: 'notification-image', status: [Function: status], dismissible: 'notification--dismissible', buttons: [Function: buttons], closeButtonContainer: 'notification-close-button-container', closeButton: 'fa notification-close-button', button: 'notification-button', buttonText: 'notification-button-text' }} />
+    </CSSTransition>
+    <CSSTransition classNames={{ enter: 'notification-wrapper-enter', exit: 'notification-wrapper-leave' }} timeout={{ enter: 500, exit: 900 }}>
+      <Connect(Notification) notification={{ id: 1, title: 'a title', message: 'a message', image: 'https://httpbin.org/image/jpeg', position: 't', status: 'default', dismissible: true, dismissAfter: 0, allowHTML: true, closeButton: true, buttons: [ { name: 'Yes', primary: true, onClick: [Function: mockConstructor] }, { name: 'No', primary: false, onClick: [Function: mockConstructor] } ], onAdd: [Function: mockConstructor], onRemove: [Function: mockConstructor] }} className={{ main: 'notification', wrapper: 'notification-wrapper', meta: 'notification-meta', title: 'notification-title', message: 'notification-message', icon: 'fa notification-icon', imageContainer: 'notification-image-container', image: 'notification-image', status: [Function: status], dismissible: 'notification--dismissible', buttons: [Function: buttons], closeButtonContainer: 'notification-close-button-container', closeButton: 'fa notification-close-button', button: 'notification-button', buttonText: 'notification-button-text' }} />
+    </CSSTransition>
+    <CSSTransition classNames={{ enter: 'notification-wrapper-enter', exit: 'notification-wrapper-leave' }} timeout={{ enter: 500, exit: 900 }}>
+      <Connect(Notification) notification={{ id: 0, title: 'a title', message: 'a message', image: 'https://httpbin.org/image/jpeg', position: 't', status: 'default', dismissible: true, dismissAfter: 0, allowHTML: true, closeButton: true, buttons: [ { name: 'Yes', primary: true, onClick: [Function: mockConstructor] }, { name: 'No', primary: false, onClick: [Function: mockConstructor] } ], onAdd: [Function: mockConstructor], onRemove: [Function: mockConstructor] }} className={{ main: 'notification', wrapper: 'notification-wrapper', meta: 'notification-meta', title: 'notification-title', message: 'notification-message', icon: 'fa notification-icon', imageContainer: 'notification-image-container', image: 'notification-image', status: [Function: status], dismissible: 'notification--dismissible', buttons: [Function: buttons], closeButtonContainer: 'notification-close-button-container', closeButton: 'fa notification-close-button', button: 'notification-button', buttonText: 'notification-button-text' }} />
+    </CSSTransition>
+  </TransitionGroup>
+</div>"
+`;

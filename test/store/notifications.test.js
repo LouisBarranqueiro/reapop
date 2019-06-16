@@ -1,5 +1,5 @@
 import faker from 'faker';
-import {mockStore, genNotification, imageUrl} from '../utils/fixtures';
+import {mockStore, genRandomNotification, imageUrl} from '../utils/fixtures';
 import reducer, {
   types,
   addNotification,
@@ -10,18 +10,31 @@ import reducer, {
 } from '../../src/store/notifications';
 import {SUCCESS_STATUS, DEFAULT_NOTIFICATION, BOTTOM_CENTER} from '../../src/constants';
 
+const PRELOAD_IMAGE_DELAY = 10;
+
+jest.mock('../../src/helpers/index', () => {
+  return {
+    ...require.requireActual('../../src/helpers/index'),
+    preloadImage: (_, callback) => {
+      setTimeout(() => {
+        callback();
+      }, 10);
+    }
+  };
+});
+
 describe('notifications', () => {
   let notification = null;
 
-  beforeEach('generate a new notification', () => {
-    notification = genNotification();
+  beforeEach(() => {
+    notification = genRandomNotification();
   });
 
   describe('Actions', () => {
     describe('addNotification()', () => {
       let store = null;
 
-      beforeEach('init store', () => {
+      beforeEach(() => {
         store = mockStore({notifications: []});
       });
 
@@ -79,7 +92,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 1900);
+        }, PRELOAD_IMAGE_DELAY);
       });
 
       it('should create an action to add a notification ' +
@@ -101,7 +114,7 @@ describe('notifications', () => {
     describe('notify()', () => {
       let store = null;
 
-      beforeEach('init store', () => {
+      beforeEach(() => {
         store = mockStore({notifications: [notification]});
       });
 
@@ -153,7 +166,7 @@ describe('notifications', () => {
     describe('updateNotification()', () => {
       let store = null;
 
-      beforeEach('init store', () => {
+      beforeEach(() => {
         store = mockStore({notifications: [notification]});
       });
 
@@ -178,7 +191,7 @@ describe('notifications', () => {
 
       it('should load image then create an action to update a notification (new image)', (done) => {
         // add a notification without image in the store
-        notification = genNotification({image: null});
+        notification = genRandomNotification({image: null});
         store = mockStore({notifications: [notification]});
         // update notification with an image
         const notificationUpdated = Object.assign({}, notification, {image: imageUrl});
@@ -196,7 +209,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 1900);
+        }, PRELOAD_IMAGE_DELAY);
       });
 
       it('should load image then create an action to update a notification (image is different)', (done) => {
@@ -218,7 +231,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 1900);
+        }, PRELOAD_IMAGE_DELAY);
       });
     });
 
@@ -249,7 +262,7 @@ describe('notifications', () => {
     });
 
     it('should handle ADD_NOTIFICATION', () => {
-      const notification2 = genNotification();
+      const notification2 = genRandomNotification();
       expect(
         reducer()([], {
           type: types.ADD_NOTIFICATION,
@@ -310,12 +323,16 @@ describe('notifications', () => {
     });
 
     it('should handle UPDATE_NOTIFICATION', () => {
-      expect(
-        reducer()([notification], {
-          type: types.UPDATE_NOTIFICATION,
-          payload: notification
-        })
-      ).toEqual([notification]);
+      const notificationA = genRandomNotification();
+      const notificationB = genRandomNotification();
+      const notifications = [notificationA, notificationB];
+
+      const notificationUpdated = Object.assign({}, notificationB, {title: 'new title'});
+      const action = {
+        type: types.UPDATE_NOTIFICATION,
+        payload: notificationUpdated
+      };
+      expect(reducer()(notifications, action)).toEqual([notificationA, notificationUpdated]);
     });
 
     it('should handle UPDATE_NOTIFICATION (default notification values)', () => {

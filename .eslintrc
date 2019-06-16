@@ -5,7 +5,8 @@
         "standard-react"
     ],
     "env": {
-        "browser": true
+        "browser": true,
+        "jest": true
     },
     "rules": {
         "semi": [2, "always"],
