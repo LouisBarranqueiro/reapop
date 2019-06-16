@@ -14,7 +14,7 @@ describe('<NotificationsContainer/>', () => {
     theme
   };
 
-  beforeEach('generate a new notification and init store', () => {
+  beforeEach(() => {
     notifications = genNotifications(3);
     store = mockStore({notifications: []});
   });

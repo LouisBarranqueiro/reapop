@@ -18,7 +18,7 @@ describe('<Notification/>', () => {
     removeNotification
   };
 
-  beforeEach('generate a new notification and init store', () => {
+  beforeEach(() => {
     notification = genNotification();
     store = mockStore({notifications: []});
   });

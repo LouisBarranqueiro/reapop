@@ -10,10 +10,23 @@ import reducer, {
 } from '../../src/store/notifications';
 import {SUCCESS_STATUS, DEFAULT_NOTIFICATION, BOTTOM_CENTER} from '../../src/constants';
 
+const PRELOAD_IMAGE_DELAY = 10;
+
+jest.mock('../../src/helpers/index', () => {
+  return {
+    ...require.requireActual('../../src/helpers/index'),
+    preloadImage: (_, callback) => {
+      setTimeout(() => {
+        callback();
+      }, 10);
+    }
+  };
+});
+
 describe('notifications', () => {
   let notification = null;
 
-  beforeEach('generate a new notification', () => {
+  beforeEach(() => {
     notification = genNotification();
   });
 
@@ -21,7 +34,7 @@ describe('notifications', () => {
     describe('addNotification()', () => {
       let store = null;
 
-      beforeEach('init store', () => {
+      beforeEach(() => {
         store = mockStore({notifications: []});
       });
 
@@ -79,7 +92,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 1900);
+        }, PRELOAD_IMAGE_DELAY);
       });
 
       it('should create an action to add a notification ' +
@@ -101,7 +114,7 @@ describe('notifications', () => {
     describe('notify()', () => {
       let store = null;
 
-      beforeEach('init store', () => {
+      beforeEach(() => {
         store = mockStore({notifications: [notification]});
       });
 
@@ -153,7 +166,7 @@ describe('notifications', () => {
     describe('updateNotification()', () => {
       let store = null;
 
-      beforeEach('init store', () => {
+      beforeEach(() => {
         store = mockStore({notifications: [notification]});
       });
 
@@ -196,7 +209,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 1900);
+        }, PRELOAD_IMAGE_DELAY);
       });
 
       it('should load image then create an action to update a notification (image is different)', (done) => {
@@ -218,7 +231,7 @@ describe('notifications', () => {
           // image should be loaded now, so store should contains the notification updated
           expect(store.getActions()).toEqual(expectedAction);
           done();
-        }, 1900);
+        }, PRELOAD_IMAGE_DELAY);
       });
     });
 
