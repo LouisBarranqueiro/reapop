@@ -1,8 +1,8 @@
-export const DEFAULT_STATUS = 'default';
-export const INFO_STATUS = 'info';
-export const SUCCESS_STATUS = 'success';
-export const WARNING_STATUS = 'warning';
-export const ERROR_STATUS = 'error';
+export const DEFAULT_STATUS = 'default'
+export const INFO_STATUS = 'info'
+export const SUCCESS_STATUS = 'success'
+export const WARNING_STATUS = 'warning'
+export const ERROR_STATUS = 'error'
 
 export const STATUS = {
   default: DEFAULT_STATUS,
@@ -10,16 +10,16 @@ export const STATUS = {
   success: SUCCESS_STATUS,
   warning: WARNING_STATUS,
   error: ERROR_STATUS
-};
+}
 
-export const TOP = 't';
-export const TOP_CENTER = 'tc';
-export const TOP_LEFT_POSITION = 'tl';
-export const TOP_RIGHT_POSITION = 'tr';
-export const BOTTOM = 'b';
-export const BOTTOM_CENTER = 'bc';
-export const BOTTOM_LEFT_POSITION = 'bl';
-export const BOTTOM_RIGHT_POSITION = 'br';
+export const TOP = 't'
+export const TOP_CENTER = 'tc'
+export const TOP_LEFT_POSITION = 'tl'
+export const TOP_RIGHT_POSITION = 'tr'
+export const BOTTOM = 'b'
+export const BOTTOM_CENTER = 'bc'
+export const BOTTOM_LEFT_POSITION = 'bl'
+export const BOTTOM_RIGHT_POSITION = 'br'
 
 export const POSITIONS = {
   top: TOP,
@@ -30,7 +30,7 @@ export const POSITIONS = {
   bottomCenter: BOTTOM_CENTER,
   bottomLeft: BOTTOM_LEFT_POSITION,
   bottomRight: BOTTOM_RIGHT_POSITION
-};
+}
 
 // default value for notifications
 export const DEFAULT_NOTIFICATION = {
@@ -40,4 +40,4 @@ export const DEFAULT_NOTIFICATION = {
   dismissAfter: 5000,
   allowHTML: false,
   closeButton: false
-};
+}

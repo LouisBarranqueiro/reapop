@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Timer, mapObjectValues} from '../helpers';
-import {removeNotification} from '../store/notifications';
-import {POSITIONS} from '../constants';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {Timer, mapObjectValues} from '../helpers'
+import {removeNotification} from '../store/notifications'
+import {POSITIONS} from '../constants'
 
 /**
  * Create a timer
@@ -13,9 +13,9 @@ import {POSITIONS} from '../constants';
  */
 function createTimer(dismissAfter, callback) {
   if (dismissAfter > 0) {
-    return new Timer(dismissAfter, callback);
+    return new Timer(dismissAfter, callback)
   }
-  return null;
+  return null
 }
 
 export class Notification extends Component {
@@ -66,11 +66,11 @@ export class Notification extends Component {
    * @returns {void}
    */
   constructor(props) {
-    const {dismissAfter} = props.notification;
-    super(props);
+    const {dismissAfter} = props.notification
+    super(props)
     this.state = {
       timer: createTimer(dismissAfter, this._remove)
-    };
+    }
   }
 
   /**
@@ -78,9 +78,9 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentDidMount() {
-    const {onAdd} = this.props.notification;
+    const {onAdd} = this.props.notification
     if (typeof onAdd === 'function') {
-      onAdd();
+      onAdd()
     }
   }
 
@@ -89,9 +89,9 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentWillUnmount() {
-    const {onRemove} = this.props.notification;
+    const {onRemove} = this.props.notification
     if (typeof onRemove === 'function') {
-      onRemove();
+      onRemove()
     }
   }
 
@@ -101,10 +101,10 @@ export class Notification extends Component {
    * @returns {void}
    */
   componentWillReceiveProps(nextProps) {
-    const {dismissAfter} = nextProps.notification;
+    const {dismissAfter} = nextProps.notification
     this.setState({
       timer: createTimer(dismissAfter, this._remove)
-    });
+    })
   }
 
   /**
@@ -113,8 +113,8 @@ export class Notification extends Component {
    * @returns {void}
    */
   _remove = () => {
-    const {removeNotification, notification: {id}} = this.props;
-    removeNotification(id);
+    const {removeNotification, notification: {id}} = this.props
+    removeNotification(id)
   };
 
   /**
@@ -123,8 +123,8 @@ export class Notification extends Component {
    * @private
    */
   _pauseTimer = () => {
-    const {timer} = this.state;
-    timer.pause();
+    const {timer} = this.state
+    timer.pause()
   };
 
   /**
@@ -133,8 +133,8 @@ export class Notification extends Component {
    * @private
    */
   _resumeTimer = () => {
-    const {timer} = this.state;
-    timer.resume();
+    const {timer} = this.state
+    timer.resume()
   };
 
   /**
@@ -146,7 +146,7 @@ export class Notification extends Component {
   _setHTML = (content) => {
     return {
       __html: content
-    };
+    }
   };
 
   /**
@@ -157,7 +157,7 @@ export class Notification extends Component {
     const {
       className,
       notification: {buttons}
-    } = this.props;
+    } = this.props
 
     return buttons.map(({name, onClick, primary}) => (
       <button key={name} className={className.button} onClick={onClick}>
@@ -165,7 +165,7 @@ export class Notification extends Component {
           {primary ? <b>{name}</b> : name}
         </span>
       </button>
-    ));
+    ))
   };
 
   /**
@@ -185,17 +185,17 @@ export class Notification extends Component {
         image,
         allowHTML
       }
-    } = this.props;
-    const {timer} = this.state;
+    } = this.props
+    const {timer} = this.state
     const notificationClass = [
       className.main,
       className.status(status),
       className.buttons(buttons.length),
       dismissible && !closeButton ? className.dismissible : null
-    ].join(' ');
+    ].join(' ')
 
     if (timer) {
-      this._resumeTimer();
+      this._resumeTimer()
     }
 
     return (
@@ -252,8 +252,8 @@ export class Notification extends Component {
           }
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default connect(null, {removeNotification})(Notification);
+export default connect(null, {removeNotification})(Notification)

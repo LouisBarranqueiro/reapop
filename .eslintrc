@@ -9,23 +9,38 @@
         "jest": true
     },
     "rules": {
-        "semi": [2, "always"],
-        "react/jsx-boolean-value": [2, "always"],
-        "valid-jsdoc": [2, {
-            "requireReturnDescription": false,
-            "requireParamDescription": false
-        }],
-        "react/jsx-tag-spacing": {
-            "closingSlash": "never",
-            "beforeSelfClosing": "never",
-            "afterOpening": "never"
-        },
-        "react/jsx-indent-props": 0,
-        "jsx-quotes": ["error", "prefer-single"],
-        "brace-style": [2, "stroustrup"],
-        "space-before-function-paren":[2, "never"],
+        "max-len": [2, {"code": 130}],
+        "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
+        "semi": [2, "never"],
+        "quotes": [2, "single"],
+        "one-var": [2, "never"],
+        "padded-blocks": [2, "never"],
+        "space-before-function-paren": [2, "never"],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
         "no-trailing-spaces": [2, {"skipBlankLines": true}],
-        "operator-linebreak": [2, "after", {"overrides": { "?": "ignore", ":": "ignore"}}],
-        "object-curly-spacing": ["error", "never"]
+        "operator-linebreak": [2, "after", {"overrides": {"?": "ignore", ":": "ignore"}}],
+        "quote-props": [2, "as-needed"],
+        "valid-jsdoc": [
+            2, {
+                "requireReturnDescription": false,
+                "requireParamDescription": false
+            }
+        ],
+        "object-curly-spacing": ["error", "never"],
+        "multiline-ternary": [2, "always-multiline"],
+        "react/jsx-indent": [2, 2],
+        "react/jsx-indent-props": [2, 2],
+        "react/jsx-closing-bracket-location": [2, "tag-aligned"],
+        "react/jsx-boolean-value": [2, "never"],
+        "react/jsx-max-props-per-line": [2, {"maximum": 3}],
+        "react/jsx-max-depth": [2, {"max": 6}],
+        "react/jsx-tag-spacing": [
+            2, {
+                "closingSlash": "never",
+                "beforeSelfClosing": "never",
+                "afterOpening": "never"
+            }
+        ],
+
     }
 }

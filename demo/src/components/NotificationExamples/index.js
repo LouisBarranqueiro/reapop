@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 import {
   notify,
   removeNotifications
-} from '../../../../src';
-import {STATUS} from '../../../../src/constants';
+} from '../../../../src'
+import {STATUS} from '../../../../src/constants'
 
 class NotificationExamples extends Component {
   static propTypes = {
@@ -19,9 +19,9 @@ class NotificationExamples extends Component {
    * @returns {void}
    */
   constructor(props) {
-    super(props);
-    this._notificationUpdatedExample = this._notificationUpdatedExample.bind(this);
-    this._notificationWithImage = this._notificationWithImage.bind(this);
+    super(props)
+    this._notificationUpdatedExample = this._notificationUpdatedExample.bind(this)
+    this._notificationWithImage = this._notificationWithImage.bind(this)
   }
 
   /**
@@ -30,33 +30,33 @@ class NotificationExamples extends Component {
    * @private
    */
   _notificationUpdatedExample() {
-    const {notify} = this.props;
+    const {notify} = this.props
     let notif = notify({
       title: 'Upload status',
       message: 'Your file is uploading...',
       status: 'loading',
       dismissible: false,
       dismissAfter: 0
-    });
+    })
     setTimeout(function() {
-      notif.status = 'success';
-      notif.message = 'Your file has been successfully uploaded';
-      notif.dismissAfter = 5000;
+      notif.status = 'success'
+      notif.message = 'Your file has been successfully uploaded'
+      notif.dismissAfter = 5000
       notif.buttons = [{
         name: 'OK',
         primary: true,
         onClick: function() {
-          alert('You clicked on OK button.');
+          alert('You clicked on OK button.')
         }
       }, {
         name: 'Details',
         onClick: function() {
-          alert('You clicked on Details button.');
+          alert('You clicked on Details button.')
         }
 
-      }];
-      notify(notif);
-    }, 3000);
+      }]
+      notify(notif)
+    }, 3000)
   }
 
   /**
@@ -65,9 +65,9 @@ class NotificationExamples extends Component {
    * @private
    */
   _notificationWithImage() {
-    const {notify} = this.props;
-    let path = window.location.href;
-    path = path.replace(/index\.html/, '');
+    const {notify} = this.props
+    let path = window.location.href
+    path = path.replace(/index\.html/, '')
 
     notify({
       title: 'Steve Frizeli added you',
@@ -83,7 +83,7 @@ class NotificationExamples extends Component {
         name: 'No'
       }],
       allowHTML: true
-    });
+    })
   }
 
   /**
@@ -92,7 +92,7 @@ class NotificationExamples extends Component {
    * @private
    */
   _removeNotifications = () => {
-    this.props.removeNotifications();
+    this.props.removeNotifications()
   }
 
   /**
@@ -112,11 +112,11 @@ class NotificationExamples extends Component {
           Remove all notifications
         </button>
       </div>
-    );
+    )
   }
 }
 
 export default connect(null, {
   notify,
   removeNotifications
-})(NotificationExamples);
+})(NotificationExamples)

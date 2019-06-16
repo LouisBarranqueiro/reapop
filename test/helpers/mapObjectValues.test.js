@@ -1,4 +1,4 @@
-import {mapObjectValues} from '../../src/helpers';
+import {mapObjectValues} from '../../src/helpers'
 
 describe('mapObjectValues()', () => {
   it('should map object values', () => {
@@ -6,7 +6,7 @@ describe('mapObjectValues()', () => {
       a: 'a',
       'b-c': 'b',
       12: 12
-    };
-    expect(mapObjectValues(obj)).toEqual([12, 'a', 'b']);
-  });
-});
+    }
+    expect(mapObjectValues(obj)).toEqual([12, 'a', 'b'])
+  })
+})

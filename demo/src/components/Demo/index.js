@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 
-import RandomNotificationCreator from '../RandomNotificationCreator';
-import Footer from '../Footer';
-import NotificationCreator from '../NotificationCreator';
-import NotificationExamples from '../NotificationExamples';
+import RandomNotificationCreator from '../RandomNotificationCreator'
+import Footer from '../Footer'
+import NotificationCreator from '../NotificationCreator'
+import NotificationExamples from '../NotificationExamples'
 
-import {THEMES, DEFAULT_THEME} from '../../../themes';
-import NotificationsSystem, {notify} from '../../../../src';
-import css from './styles.scss';
+import {THEMES, DEFAULT_THEME} from '../../../themes'
+import NotificationsSystem, {notify} from '../../../../src'
+import css from './styles.scss'
 
 class Demo extends Component {
   static propTypes = {
@@ -22,12 +22,12 @@ class Demo extends Component {
    * @returns {void}
    */
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       windowWidth: window.innerWidth,
       themeName: DEFAULT_THEME
-    };
-    this._updateWindowWidth = this._updateWindowWidth.bind(this);
+    }
+    this._updateWindowWidth = this._updateWindowWidth.bind(this)
   }
 
   /**
@@ -36,7 +36,7 @@ class Demo extends Component {
    * @private
    */
   _updateWindowWidth() {
-    this.setState({windowWidth: window.innerWidth});
+    this.setState({windowWidth: window.innerWidth})
   }
 
   /**
@@ -44,21 +44,21 @@ class Demo extends Component {
    * @returns {void}
    */
   componentDidMount() {
-    const {notify} = this.props;
+    const {notify} = this.props
 
-    window.addEventListener('resize', this._updateWindowWidth);
+    window.addEventListener('resize', this._updateWindowWidth)
     const notif = notify({
       title: 'Welcome on demo!',
       message: 'Hey buddy, here you can see what you can do with it.',
       status: 'info',
       dismissible: false,
       dismissAfter: 0
-    });
+    })
     setTimeout(function() {
-      notif.message = 'Resize the window, theme is responsive!';
-      notif.dismissAfter = 5000;
-      notify(notif);
-    }, 3000);
+      notif.message = 'Resize the window, theme is responsive!'
+      notif.dismissAfter = 5000
+      notify(notif)
+    }, 3000)
   }
 
   /**
@@ -66,7 +66,7 @@ class Demo extends Component {
    * @returns {void}
    */
   componentWillUnmount() {
-    window.removeEventListener('resize', this._updateWindowWidth);
+    window.removeEventListener('resize', this._updateWindowWidth)
   }
 
   /**
@@ -75,7 +75,7 @@ class Demo extends Component {
    * @returns {void}
    */
   _onThemeChange = (themeName) => {
-    this.setState({themeName: themeName});
+    this.setState({themeName: themeName})
   };
 
   /**
@@ -83,7 +83,7 @@ class Demo extends Component {
    * @returns {XML}
    */
   render() {
-    const {themeName} = this.state;
+    const {themeName} = this.state
     const defaultValues = {
       status: 'info',
       position: 'tr',
@@ -91,7 +91,7 @@ class Demo extends Component {
       dismissAfter: 5000,
       allowHTML: true,
       closeButton: false
-    };
+    }
 
     return (
       <div className={css['background']}>
@@ -112,8 +112,8 @@ class Demo extends Component {
         }
         <Footer/>
       </div>
-    );
+    )
   }
 }
 
-export default connect(null, {notify})(Demo);
+export default connect(null, {notify})(Demo)
