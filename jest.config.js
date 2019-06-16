@@ -1,5 +1,6 @@
 module.exports = {
-  coverageReporters: ['lcov'],
+  coverageReporters: ['text', 'lcov'],
+  collectCoverageFrom: ['src/**/*.js'],
   coverageDirectory: 'coverage',
   setupFiles: ['./test/test-bundler.js'],
   'moduleNameMapper': {

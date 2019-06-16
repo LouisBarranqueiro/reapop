@@ -1,5 +1,5 @@
 import faker from 'faker';
-import {mockStore, genNotification, imageUrl} from '../utils/fixtures';
+import {mockStore, genRandomNotification, imageUrl} from '../utils/fixtures';
 import reducer, {
   types,
   addNotification,
@@ -27,7 +27,7 @@ describe('notifications', () => {
   let notification = null;
 
   beforeEach(() => {
-    notification = genNotification();
+    notification = genRandomNotification();
   });
 
   describe('Actions', () => {
@@ -191,7 +191,7 @@ describe('notifications', () => {
 
       it('should load image then create an action to update a notification (new image)', (done) => {
         // add a notification without image in the store
-        notification = genNotification({image: null});
+        notification = genRandomNotification({image: null});
         store = mockStore({notifications: [notification]});
         // update notification with an image
         const notificationUpdated = Object.assign({}, notification, {image: imageUrl});
@@ -262,7 +262,7 @@ describe('notifications', () => {
     });
 
     it('should handle ADD_NOTIFICATION', () => {
-      const notification2 = genNotification();
+      const notification2 = genRandomNotification();
       expect(
         reducer()([], {
           type: types.ADD_NOTIFICATION,

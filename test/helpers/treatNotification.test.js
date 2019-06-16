@@ -1,11 +1,11 @@
 import {treatNotification} from '../../src/helpers';
-import {genNotification} from '../utils/fixtures';
+import {genRandomNotification} from '../utils/fixtures';
 import {STATUS} from '../../src/constants';
 
 describe('treatNotification()', () => {
   it('should treat notifications', () => {
-    let notification = genNotification();
-    let notification2 = genNotification({dismissAfter: null});
+    let notification = genRandomNotification();
+    let notification2 = genRandomNotification({dismissAfter: null});
 
     notification.dismissAfter = '2500';
     notification.status = 200;

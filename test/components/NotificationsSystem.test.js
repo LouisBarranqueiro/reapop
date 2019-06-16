@@ -5,7 +5,7 @@ import ConnectedNotificationsSystem, {
   NotificationsSystem
 } from '../../src/components/NotificationsSystem';
 import Notification from '../../src/components/Notification';
-import {genNotification, genNotifications, mockStore, checkPropTypes} from '../utils/fixtures';
+import {genRandomNotification, genRandomNotifications, mockStore, checkPropTypes} from '../utils/fixtures';
 import theme from 'reapop-theme-wybo';
 
 describe('<NotificationsSystem/>', () => {
@@ -43,8 +43,8 @@ describe('<NotificationsSystem/>', () => {
   });
 
   it('should use filter and render 1 notification', () => {
-    const notifications = genNotifications(3);
-    notifications.push(genNotification({style: 'alert'}));
+    const notifications = genRandomNotifications(3);
+    notifications.push(genRandomNotification({style: 'alert'}));
     const store = mockStore({notifications});
     const wrapper = mount(
       <Provider store={store}>
