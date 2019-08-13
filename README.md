@@ -109,13 +109,18 @@ const store = createStoreWithMiddleware(combineReducers({
 }), {});
 ```
 
-### Install and import `babel-polyfill` package
+### Install and polyfill ECMAScript features
 
 This package use some ES6 features, to make it compatible in all browsers, you must :
 
-1. Install `babel-polyfill` package with `npm install --save-dev`
-2. Import `babel-polyfill` package at the root of your app with `import 'babel-polyfill';`
+1. Install polyfill packages with `npm i --save core-js regenerator-runtime`
+2. At the root of your app
+```js
+import "core-js/stable"
+import "regenerator-runtime/runtime"
+```
 
+[Read more](https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpolyfill)
 
 ## Usage
 
