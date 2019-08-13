@@ -1,5 +1,6 @@
 // This will emulate a full ES2015 (ES6) environment
-import '@babel/polyfill'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 import {configure} from 'enzyme'
 
 const reactVersion = require('react').version
