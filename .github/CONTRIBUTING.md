@@ -32,10 +32,10 @@ Here is the list of the available npm scripts :
 | react-redux:3.1      | Switch to react-redux 3.1 |
 | react-redux:4        | Switch to react-redux 4 |
 | react-redux:5.0.6    | Switch to react-redux 5.0.6 |
-| test                 | Run tests with Karma |
-| test:coverage        | Run tests with Karma and generate coverage report (HTML and LCOV) |
-| test:all             | Run tests with Karma on all possible configurations with react, redux and react-redux |
-| test:watch           | Run tests with Karma and watch for changes to re-run test. Useful for TDD. |
+| test                 | Run tests |
+| test:coverage        | Run tests and generate coverage report (HTML and LCOV) |
+| test:all             | Run tests on all possible configurations with react, redux and react-redux |
+| test:watch           | Run tests and watch for changes to re-run test. Useful for TDD. |
 | prepublish           | Compile ES6 code (`src`) in ES5 code (`lib`) with babel |
 
 Example :
