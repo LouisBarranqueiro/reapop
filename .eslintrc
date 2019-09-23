@@ -26,6 +26,7 @@
                 "requireParamDescription": false
             }
         ],
+        "no-prototype-builtins": [0],
         "object-curly-spacing": ["error", "never"],
         "multiline-ternary": [2, "always-multiline"],
         "react/jsx-indent": [2, 2],
@@ -43,7 +44,6 @@
                 "beforeSelfClosing": "never",
                 "afterOpening": "never"
             }
-        ],
-
+        ]
     }
 }

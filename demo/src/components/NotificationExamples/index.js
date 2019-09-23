@@ -31,7 +31,7 @@ class NotificationExamples extends Component {
    */
   _notificationUpdatedExample() {
     const {notify} = this.props
-    let notif = notify({
+    const notif = notify({
       title: 'Upload status',
       message: 'Your file is uploading...',
       status: 'loading',

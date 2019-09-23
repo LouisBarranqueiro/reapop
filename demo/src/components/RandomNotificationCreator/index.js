@@ -67,7 +67,7 @@ class RandomNotificationCreator extends Component {
    */
   render() {
     return (
-      <button className={`btn btn-primary ${css['button']}`} onClick={this._randomNotification}>
+      <button className={`btn btn-primary ${css.button}`} onClick={this._randomNotification}>
         <b>Random notification</b>
       </button>
     )

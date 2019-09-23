@@ -152,9 +152,10 @@ export const types = {
 export default (defaultNotification = DEFAULT_NOTIFICATION) => {
   return (state = INITIAL_STATE, {type, payload}) => {
     switch (type) {
-      case ADD_NOTIFICATION:
+      case ADD_NOTIFICATION: {
         const notification = Object.assign({}, defaultNotification, payload)
         return [...state, notification]
+      }
       case UPDATE_NOTIFICATION:
         return state.map((notification) => {
           if (notification.id === payload.id) {

@@ -11,7 +11,7 @@ class Sidebar extends Component {
    */
   render() {
     return (
-      <div className={css['sidebar']}>
+      <div className={css.sidebar}>
         <NotificationCreator/>
         <hr/>
         <NotificationExamples/>

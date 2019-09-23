@@ -64,7 +64,7 @@ export function genRandomNotification(notification = {}) {
  * @returns {Array}
  */
 export function genRandomNotifications(numb, notification = {}) {
-  let notifications = []
+  const notifications = []
   for (let i = 0; i < numb; i++) {
     notifications.push(genRandomNotification(notification))
   }
@@ -78,7 +78,7 @@ export function genRandomNotifications(numb, notification = {}) {
  * @returns {Array}
  */
 export function genNotifications(numb, notification = {}) {
-  let notifications = []
+  const notifications = []
   for (let i = 0; i < numb; i++) {
     notifications.push(genNotification(i))
   }
@@ -124,7 +124,7 @@ export function genNotification(id = 1) {
  * @returns {void}
  */
 export function checkPropTypes(object, propTypes) {
-  let errors = {}
+  const errors = {}
   let propName
   // Check if object have the same property that propTypes (depth: 1 is enough)
   // if you remove a propType validation inadvertently, it will throw an error
@@ -138,7 +138,7 @@ export function checkPropTypes(object, propTypes) {
   // and if it have the correct type
   for (propName in propTypes) {
     if (propTypes.hasOwnProperty(propName)) {
-      let error = propTypes[propName](object, propName, JSON.stringify(object),
+      const error = propTypes[propName](object, propName, JSON.stringify(object),
         'prop', null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED')
       if (error) {
         errors[propName] = error.message

@@ -63,7 +63,7 @@ class NotificationCreator extends Component {
     event.preventDefault()
     const {notification, notification: {buttons}} = this.state
     const {notify} = this.props
-    let _buttons = []
+    const _buttons = []
     if (buttons[0].name) {
       _buttons.push(buttons[0])
     }
