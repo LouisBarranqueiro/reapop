@@ -57,7 +57,7 @@ describe('<Notification/>', () => {
   it('should update state when receiving new props', () => {
     // state component will be init without timer because notification have buttons
     notification.dismissAfter = 0
-    let wrapper = mount(<Notification notification={notification} {...otherProps}/>)
+    const wrapper = mount(<Notification notification={notification} {...otherProps}/>)
     expect(wrapper.state().timer).toEqual(null)
     // we delete buttons to provoke creation of a Timer
     // at `componentWillReceivedProps()` component lifecycle
@@ -205,7 +205,7 @@ describe('<Notification/>', () => {
       count++
     }
 
-    let wrapper = mount(
+    const wrapper = mount(
       <Provider store={store}>
         <ConnectNotification notification={notification} {...otherProps}/>
       </Provider>

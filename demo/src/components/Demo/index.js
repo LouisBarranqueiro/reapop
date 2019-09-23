@@ -94,16 +94,16 @@ class Demo extends Component {
     }
 
     return (
-      <div className={css['background']}>
+      <div className={css.background}>
         <div className={`${css['logo-container']} text-center`}>
-          <div className={css['logo']}>Reapop</div>
-          <div className={css['description']}>A React and Redux notifications system</div>
+          <div className={css.logo}>Reapop</div>
+          <div className={css.description}>A React and Redux notifications system</div>
           <RandomNotificationCreator/>
         </div>
         <NotificationsSystem theme={THEMES[themeName].theme} defaultValues={defaultValues}/>
         {window.innerWidth > 767
           ? (
-            <div className={css['sidebar']}>
+            <div className={css.sidebar}>
               <NotificationCreator onThemeChange={this._onThemeChange}/>
               <hr/>
               <NotificationExamples/>

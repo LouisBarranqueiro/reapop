@@ -19,7 +19,7 @@ class Input extends Component {
   render() {
     const {variable, name, onChange, checked} = this.props
     return (
-      <div className={css['onoffswitch']}>
+      <div className={css.onoffswitch}>
         <input type='checkbox' className={css['onoffswitch-checkbox']} id={name}
           name={name}
           onChange={onChange} checked={checked} {...variable}
