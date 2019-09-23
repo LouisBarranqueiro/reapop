@@ -34,6 +34,9 @@
         "react/jsx-boolean-value": [2, "never"],
         "react/jsx-max-props-per-line": [2, {"maximum": 3}],
         "react/jsx-max-depth": [2, {"max": 6}],
+        "react/jsx-handler-names": [0],
+        "react/jsx-first-prop-new-line": [0],
+        "react/jsx-curly-newline": [0],
         "react/jsx-tag-spacing": [
             2, {
                 "closingSlash": "never",
