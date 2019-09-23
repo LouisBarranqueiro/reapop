@@ -21,14 +21,14 @@ A React and Redux notifications system
 Tested and works with :
 
 - [react](https://github.com/facebook/react) : **^0.14.0**,  **^15.0.0** and **^16.0.0**
-- [react-redux](https://github.com/reactjs/react-redux) : **^2.0.0**, **^3.0.0**, **^4.0.0** and **^5.0.6**
+- [react-redux](https://github.com/reactjs/react-redux) : **^3.0.0**, **^4.0.0**, **^5.0.0** and **^7.0.0**
 - [redux](https://github.com/reactjs/redux) : **^2.0.0**, **^3.0.0** and **^4.0.0**
 
 ### Supported browsers
 
-Tested and works with :
-
-![Supported browsers](https://reapop.s3.eu-central-1.amazonaws.com/v0.2.0-supported-browsers.jpg)
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --------- | --------- | --------- | --------- | --------- |
+| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
 ## Demo
 
