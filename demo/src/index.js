@@ -5,7 +5,6 @@ import {createStore, compose, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import App from './components/Demo'
 import {reducer as notificationsReducer} from '../../src'
-import '@babel/polyfill'
 import './styles/style.scss'
 
 // store
