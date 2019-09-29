@@ -17,3 +17,4 @@ src
 *.log
 renovate.json
 scripts/*
+jest.config.js
