@@ -1,5 +1,3 @@
-// This will emulate a full ES2015 (ES6) environment
-import '@babel/polyfill'
 import {configure} from 'enzyme'
 
 const reactVersion = require('react').version

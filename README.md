@@ -42,7 +42,7 @@ npm install reapop --save
 
 ## Integration
 
-Follow this 4 steps to integrate Reapop to your application.
+Follow these 3 steps to integrate Reapop to your application.
 
 ### Integrate `NotificationsSystem` React component
 
@@ -108,14 +108,6 @@ const store = createStoreWithMiddleware(combineReducers({
   // your reducers here
 }), {});
 ```
-
-### Install and import `babel-polyfill` package
-
-This package use some ES6 features, to make it compatible in all browsers, you must :
-
-1. Install `babel-polyfill` package with `npm install --save-dev`
-2. Import `babel-polyfill` package at the root of your app with `import 'babel-polyfill';`
-
 
 ## Usage
 
