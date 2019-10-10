@@ -47,7 +47,7 @@
     "@babel/preset-react": "7.0.0",
     "babel-eslint": "10.0.3",
     "babel-loader": "8.0.6",
-    "coveralls": "3.0.6",
+    "coveralls": "3.0.7",
     "css-loader": "2.1.1",
     "enzyme": "3.10.0",
     "enzyme-adapter-react-14": "1.4.0",
