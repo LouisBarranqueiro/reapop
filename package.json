@@ -68,7 +68,7 @@
     "identity-obj-proxy": "3.0.0",
     "import": "0.0.6",
     "istanbul-instrumenter-loader": "3.0.1",
-    "jest": "24.9.0",
+    "jest": "25.1.0",
     "node-sass": "4.13.0",
     "phantomjs-prebuilt": "2.1.16",
     "prop-types": "15.7.2",
