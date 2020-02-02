@@ -16,8 +16,6 @@ jobs:
       run: npm run test:all
     - name: Report tests coverage
       run: npm run test:coverage
-  release:
-    if: ${{ github.ref == 'master' }}
-    needs: build
     - name: Deploy demo website
+      if: github.ref == 'master'
       run: .github/workflows/deploy-demo-website.sh
