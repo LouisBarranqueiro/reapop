@@ -1,0 +1,23 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 8.x
+    - name: Install dependencies
+      run: npm install
+    - name: Lint code
+      run: npm run lint
+    - name: Run tests
+      run: npm run test:all
+    - name: Report tests coverage
+      run: npm run test:coverage
+  release:
+    if: ${{ github.ref == 'master' }}
+    needs: build
+    - name: Deploy demo website
+      run: .github/workflows/deploy-demo-website.sh
