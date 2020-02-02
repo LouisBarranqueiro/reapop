@@ -10,7 +10,7 @@ git init
 git config user.name "GitHub Actions"
 git config user.email actions@github.com
 
-git remote add upstream "https://$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+git remote add upstream "https://$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
 git fetch upstream
 git reset upstream/gh-pages
 
