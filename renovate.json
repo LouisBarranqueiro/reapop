@@ -3,6 +3,9 @@
     "config:base"
   ],
   "assignees": ["LouisBarranqueiro"],
-  "updateTypes": ["patch"],
-  "enabled": false
+  "separateMinorPatch": true,
+  "packageRules": [{
+    "updateTypes": ["patch"],
+    "enabled": false
+  }]
 }
