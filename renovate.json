@@ -2,5 +2,7 @@
   "extends": [
     "config:base"
   ],
-  "assignees": ["LouisBarranqueiro"]
+  "assignees": ["LouisBarranqueiro"],
+  "updateTypes": ["patch"],
+  "enabled": false
 }
