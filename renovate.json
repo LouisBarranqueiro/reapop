@@ -6,6 +6,7 @@
   "separateMinorPatch": true,
   "packageRules": [{
     "updateTypes": ["patch"],
-    "automerge": true
+    "automerge": true,
+    "automergeType": "branch"
   }]
 }
