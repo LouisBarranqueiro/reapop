@@ -19,7 +19,7 @@ jobs:
     - name: Run tests
       run: npm run test:all
     - name: Report tests coverage
-      run: npm run test:coverage
+      run: npm run test:coveralls
     - name: Deploy demo website
       if: github.ref == 'master'
       run: .github/workflows/deploy-demo-website.sh
