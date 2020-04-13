@@ -5,6 +5,9 @@
     "assignees": [
         "LouisBarranqueiro"
     ],
+    "reviewers": [
+        "LouisBarranqueiro"
+    ],
     "separateMinorPatch": true,
     "packageRules": [
         {
