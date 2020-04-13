@@ -17,9 +17,10 @@
         {
             "packagePatterns": [
                 "eslint",
-                "^jest",
-                "^babel",
-                "@types"
+                "^jest$",
+                "^@babel/",
+                "^babel-",
+                "^@types/"
             ],
             "automerge": true,
             "automergeType": "branch"
