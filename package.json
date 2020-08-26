@@ -62,7 +62,7 @@
     "eslint-plugin-react": "7.20.6",
     "eslint-plugin-standard": "4.0.1",
     "express": "4.17.1",
-    "faker": "5.0.0",
+    "faker": "5.1.0",
     "file-loader": "5.1.0",
     "font-awesome": "4.7.0",
     "identity-obj-proxy": "3.0.0",
