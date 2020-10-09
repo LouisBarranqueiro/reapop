@@ -59,7 +59,7 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-node": "11.0.0",
     "eslint-plugin-promise": "4.2.1",
-    "eslint-plugin-react": "7.21.3",
+    "eslint-plugin-react": "7.21.4",
     "eslint-plugin-standard": "4.0.1",
     "express": "4.17.1",
     "faker": "5.1.0",
