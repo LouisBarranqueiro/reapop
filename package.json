@@ -75,7 +75,7 @@
     "react": "16.13.1",
     "react-addons-update": "15.6.2",
     "react-dom": "16.13.1",
-    "react-redux": "7.2.1",
+    "react-redux": "7.2.2",
     "reapop-theme-bootstrap": "1.0.2",
     "reapop-theme-wybo": "1.1.0",
     "redux": "4.0.5",
