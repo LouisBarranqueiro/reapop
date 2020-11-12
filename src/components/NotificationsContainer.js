@@ -43,7 +43,7 @@ export class NotificationsContainer extends Component {
 
     // when notifications are displayed at the bottom,
     // we display notifications from bottom to top
-    if (position.startsWith('b')) {
+    if (position[0] === 'b') {
       notifications = notifications.reverse()
     }
 

@@ -54,7 +54,7 @@ function _addNotification(notification) {
  */
 export const notify = (notification) => (dispatch, getState) => {
   const notifications = getState().notifications
-  const doesNotifExist = notifications.find(notif => notif.id === notification.id)
+  const doesNotifExist = notifications.some(notif => notif.id === notification.id)
 
   if (doesNotifExist) {
     return dispatch(updateNotification(notification))
@@ -153,13 +153,13 @@ export default (defaultNotification = DEFAULT_NOTIFICATION) => {
   return (state = INITIAL_STATE, {type, payload}) => {
     switch (type) {
       case ADD_NOTIFICATION: {
-        const notification = Object.assign({}, defaultNotification, payload)
+        const notification = {...defaultNotification, ...payload}
         return [...state, notification]
       }
       case UPDATE_NOTIFICATION:
         return state.map((notification) => {
           if (notification.id === payload.id) {
-            return Object.assign({}, defaultNotification, payload)
+            return {...defaultNotification, ...payload}
           }
           return notification
         })
