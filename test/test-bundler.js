@@ -3,6 +3,10 @@ import {configure} from 'enzyme'
 const reactVersion = require('react').version
 let Adapter = null
 
+if (reactVersion.startsWith('17')) {
+  // TODO replace with enzyme-adapter-react-17 when it's ready
+  Adapter = require('@wojtekmaj/enzyme-adapter-react-17')
+}
 if (reactVersion.startsWith('16')) {
   Adapter = require('enzyme-adapter-react-16')
 }

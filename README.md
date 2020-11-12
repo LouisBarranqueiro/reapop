@@ -20,7 +20,7 @@ A React and Redux notifications system
 
 Tested and works with :
 
-- [react](https://github.com/facebook/react) : **^0.14.0**,  **^15.0.0** and **^16.0.0**
+- [react](https://github.com/facebook/react) : **^0.14.0**,  **^15.0.0**, **^16.0.0** and **^17.0.0**
 - [react-redux](https://github.com/reactjs/react-redux) : **^3.0.0**, **^4.0.0**, **^5.0.0** and **^7.0.0**
 - [redux](https://github.com/reactjs/redux) : **^2.0.0**, **^3.0.0** and **^4.0.0**
 
