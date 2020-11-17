@@ -20,3 +20,4 @@ renovate.json
 scripts/*
 jest.config.js
 tsconfig.json
+codecov.yml
