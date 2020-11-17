@@ -1,6 +1,6 @@
 {
   "name": "reapop",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "A simple & customizable notifications system for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
