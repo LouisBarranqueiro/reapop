@@ -9,6 +9,8 @@ A simple and customizable React notifications system
 * [Demo](#demo)
 * [Installation](#installation)
 * [Integration & usage](#integration--usage)
+    * [With React & Redux](#with-react-and-redux)
+    * [With React only](#with-react-only-react--1680)
 * [Documentation](#documentation)
 * [License](#license)
 
@@ -31,71 +33,6 @@ npm install reapop --save
 ```
 
 ## Integration & usage
-
-### With React only (react >= 16.8.0)
-
-1 - Add the `NotificationsProvider` at the root of your application. 
-It is important that this component wraps all the components 
-where you want to access the notifications and the actions to manipule notifications.
-
-``` jsx
-import React from 'react'
-import {NotificationsProvider} from 'reapop'
-
-const ARootComponent = () => {
-    return (
-        <NotificationsProvider>
-            // ... components
-        </NotificationsProvider>
-    )
-}
-```
-
-
-2 - Add the `NotificationsSystem` component to your app. Place this component at the root of your application to avoid position conflicts.
-
-``` jsx
-import React from 'react'
-import NotificationsSystem, {atalhoTheme, useNotifications} from 'reapop'
-
-const ATopLevelComponent = () => {
-    // 1. Retrieve the notifications to display, and the function used to dismiss a notification.
-    const {notifications, dismissNotification} = useNotifications()
-    return (
-        <div>
-            <NotificationsSystem
-                // 2. Pass the notifications you want Reapop to display.
-                notifications={notifications}
-                // 3. Pass the function used to dismiss a notification.
-                dismissNotification={(id) => dismissNotification(id)}
-                // 4. Pass a builtIn theme or a custom theme.
-                theme={atalhoTheme}
-            />
-        </div>
-    )
-}
-```
-
-3 - Upsert or dismiss notification from any React components.
-
-``` jsx
-import React from 'react'
-import {useNotifications} from 'reapop'
-
-const AComponent = () => {
-    // 1. Retrieve the action to create/update a notification.
-    const {notify} = useNotifications()
-    
-    useEffect(() => {
-        // 2. Create a notification.
-        notify('Welcome to the documentation', 'info')
-    }, [])
-
-    return (
-        ...
-    )
-}
-```
 
 ### With React and Redux
 
@@ -170,6 +107,71 @@ const sendResetPasswordLink = () => (dispatch) => {
         .then((resp) => dispatch(notify(resp.data.detail, 'success'))
         .catch((resp) => dispatch(notify(resp.data.detail, 'error'))
     }
+}
+```
+
+### With React only (react >= 16.8.0)
+
+1 - Add the `NotificationsProvider` at the root of your application. 
+It is important that this component wraps all the components 
+where you want to access the notifications and the actions to manipule notifications.
+
+``` jsx
+import React from 'react'
+import {NotificationsProvider} from 'reapop'
+
+const ARootComponent = () => {
+    return (
+        <NotificationsProvider>
+            // ... components
+        </NotificationsProvider>
+    )
+}
+```
+
+
+2 - Add the `NotificationsSystem` component to your app. Place this component at the root of your application to avoid position conflicts.
+
+``` jsx
+import React from 'react'
+import NotificationsSystem, {atalhoTheme, useNotifications} from 'reapop'
+
+const ATopLevelComponent = () => {
+    // 1. Retrieve the notifications to display, and the function used to dismiss a notification.
+    const {notifications, dismissNotification} = useNotifications()
+    return (
+        <div>
+            <NotificationsSystem
+                // 2. Pass the notifications you want Reapop to display.
+                notifications={notifications}
+                // 3. Pass the function used to dismiss a notification.
+                dismissNotification={(id) => dismissNotification(id)}
+                // 4. Pass a builtIn theme or a custom theme.
+                theme={atalhoTheme}
+            />
+        </div>
+    )
+}
+```
+
+3 - Upsert or dismiss notification from any React components.
+
+``` jsx
+import React from 'react'
+import {useNotifications} from 'reapop'
+
+const AComponent = () => {
+    // 1. Retrieve the action to create/update a notification.
+    const {notify} = useNotifications()
+    
+    useEffect(() => {
+        // 2. Create a notification.
+        notify('Welcome to the documentation', 'info')
+    }, [])
+
+    return (
+        ...
+    )
 }
 ```
 
