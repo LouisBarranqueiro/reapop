@@ -65,7 +65,7 @@ notify(message: string, status: Status, options?: Partial<Notification>)
 ##### Example
 
 ``` js
-// add a notification
+// With React & redux
 const {payload: notification} = dispatch(
     notify('Uploading your file...', 'loading', {
       dismissible: false,
@@ -79,7 +79,22 @@ setTimeout(() => {
     notification.dismissible = true
     notification.dismissAfter = 5000
     dispatch(notify(notification))
-}, 10000);
+}, 10000)
+
+// With React alone
+const {notify} = useNotifications()
+const {payload: notification} = notify('Uploading your file...', 'loading', {
+  dismissible: false,
+})
+
+// simulate file upload
+setTimeout(() => {
+    notification.status = 'success'
+    notification.message = 'Your file has been uploaded'
+    notification.dismissible = true
+    notification.dismissAfter = 5000
+    notify(notification)
+}, 10000)
 ```
 
 #### dismissNotification
@@ -100,7 +115,7 @@ Dismiss all notifications.
 ##### Syntax
 
 ``` js
-dismissNotifications();
+dismissNotifications()
 ```
 
 

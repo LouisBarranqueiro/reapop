@@ -10,7 +10,7 @@ A simple and customizable React notifications system
 * [Installation](#installation)
 * [Integration & usage](#integration--usage)
     * [With React & Redux](#with-react-and-redux)
-    * [With React only](#with-react-only-react--1680)
+    * [With React alone](#with-react-alone-react--1680)
 * [Documentation](#documentation)
 * [License](#license)
 
@@ -110,7 +110,7 @@ const sendResetPasswordLink = () => (dispatch) => {
 }
 ```
 
-### With React only (react >= 16.8.0)
+### With React alone (react >= 16.8.0)
 
 1 - Add the `NotificationsProvider` at the root of your application. 
 It is important that this component wraps all the components 
