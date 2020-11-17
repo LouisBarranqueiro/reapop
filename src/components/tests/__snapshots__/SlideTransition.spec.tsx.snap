@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SlideTransition/> position: bottom-center should display notification 1`] = `"<div>notification</div>"`;
+
+exports[`<SlideTransition/> position: bottom-left should display notification 1`] = `"<div>notification</div>"`;
+
+exports[`<SlideTransition/> position: bottom-right should display notification 1`] = `"<div>notification</div>"`;
+
+exports[`<SlideTransition/> position: top-center should display notification 1`] = `"<div>notification</div>"`;
+
+exports[`<SlideTransition/> position: top-left should display notification 1`] = `"<div>notification</div>"`;
+
+exports[`<SlideTransition/> position: top-right should display notification 1`] = `"<div>notification</div>"`;

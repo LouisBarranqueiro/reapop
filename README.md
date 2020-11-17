@@ -1,28 +1,20 @@
 # Reapop
-[![npm version](https://img.shields.io/npm/v/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm dependencies](https://img.shields.io/david/LouisBarranqueiro/reapop.svg?style=flat-square)](https://david-dm.org/LouisBarranqueiro/reapop) [![npm dev dependencies](https://img.shields.io/david/dev/LouisBarranqueiro/reapop.svg?style=flat-square)](https://david-dm.org/LouisBarranqueiro/reapop?type=dev) [![npm download/month](https://img.shields.io/npm/dm/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![travis build status](https://img.shields.io/travis/LouisBarranqueiro/reapop/master.svg?style=flat-square)](https://travis-ci.org/LouisBarranqueiro/reapop) [![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/reapop.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/reapop) [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/reapop.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/reapop)
+[![npm version](https://img.shields.io/npm/v/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![npm download/month](https://img.shields.io/npm/dm/reapop.svg?style=flat-square)](https://www.npmjs.com/package/reapop) [![coveralls status](https://img.shields.io/codecov/c/gh/LouisBarranqueiro/reapop?style=flat-square&token=U4UGNWVI0Q)](https://codecov.io/gh/LouisBarranqueiro/reapop)
 
-A React and Redux notifications system
+A simple and customizable React notifications system
 
 ## Summary
 
 * [Compatibility](#compatibility)
 * [Demo](#demo)
 * [Installation](#installation)
-* [Integration](#integration)
-* [Usage](#usage)
-* [API documentation](#api-documentation)
-* [Contributing guide](#contributing-guide)
+* [Integration & usage](#integration--usage)
+    * [With React & Redux](#with-react-and-redux)
+    * [With React alone](#with-react-alone-react--1680)
+* [Documentation](#documentation)
 * [License](#license)
 
 ## Compatibility
-
-### Supported libraries
-
-Tested and works with :
-
-- [react](https://github.com/facebook/react) : **^0.14.0**,  **^15.0.0** and **^16.0.0**
-- [react-redux](https://github.com/reactjs/react-redux) : **^3.0.0**, **^4.0.0**, **^5.0.0** and **^7.0.0**
-- [redux](https://github.com/reactjs/redux) : **^2.0.0**, **^3.0.0** and **^4.0.0**
 
 ### Supported browsers
 
@@ -32,7 +24,7 @@ Tested and works with :
 
 ## Demo
 
-Check out the [demo](https://louisbarranqueiro.github.io/reapop/)
+Check out the [demo](https://louisbarranqueiro.github.io/reapop/).
 
 ## Installation
 
@@ -40,152 +32,152 @@ Check out the [demo](https://louisbarranqueiro.github.io/reapop/)
 npm install reapop --save
 ```
 
-## Integration
+## Integration & usage
 
-Follow these 3 steps to integrate Reapop to your application.
+### With React and Redux
 
-### Integrate `NotificationsSystem` React component
-
-Render this component at the root of your web application to avoid position conflicts.
+1 - Add the notifications reducer to your Redux store.
 
 ``` js
-import React, {Component} from 'react';
-import NotificationsSystem from 'reapop';
+import {combineReducers, createStore} from 'redux'
+import {reducer as notificationsReducer} from 'reapop'
 
-class ATopLevelComponent extends Component {
-  render() {
+const rootReducer = combineReducers({
+    notifications: notificationsReducer(),
+    ... your other reducers
+})
+const store = createStore(rootReducer)
+```
+
+
+2 - Add the `NotificationsSystem` component to your app. Place this component at the root of your application to avoid position conflicts.
+
+``` jsx
+import React from 'react'
+import NotificationsSystem, {atalhoTheme, dismissNotification} from 'reapop'
+
+const ATopLevelComponent = () => {
+    // 1. Retrieve the notifications to display.
+    const {notifications} = useSelector((state) => state.notification)
     return (
-      <div>
-        <NotificationsSystem/>
-      </div>
-    );
-  }
+        <div>
+            <NotificationsSystem
+                // 2. Pass the notifications you want Reapop to display.
+                notifications={notifications}
+                // 3. Pass the function used to dismiss a notification.
+                dismissNotification={(id) => dismissNotification(id)}
+                // 4. Pass a builtIn theme or a custom theme.
+                theme={atalhoTheme}
+            />
+        </div>
+    )
 }
 ```
 
-### Install and set a theme
+3 - Upsert or dismiss notification from any React components.
 
-**Reapop works with theme. There is no default theme to avoid useless dependencies if you don't use it. So you have to choose one in the [list](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md#themes-list), and follow guidelines of theme to install it**.
+``` jsx
+import React from 'react'
+// 1. Retrieve the action to create/update a notification, or any other actions.
+import {notify} from 'reapop'
 
-After this, pass the theme in `NotificationsSystem` component props
+const AComponent = () => {
+    // 2. Retrieve the function to dispatch an action.
+    const dispatch = useDispatch() 
+    useEffect(() => {
+        // 3. Create a notification.
+        dispatch(notify('Welcome to the documentation', 'info'))
+    }, [])
 
-``` js
-import React, {Component} from 'react';
-import NotificationsSystem from 'reapop';
-// 1. import theme
-import theme from 'reapop-theme-wybo';
-//
-class ATopLevelComponent extends Component {
-  render() {
-   // 2. set `theme` prop
     return (
-      <div>
-        <NotificationsSystem theme={theme}/>
-      </div>
-    );
-  }
+        ...
+    )
 }
 ```
 
-### Apply `thunk` middleware and add notifications reducer to Redux store
-
-1. Since Reapop use thunk async actions creator, you must apply `thunk` middleware from [redux-thunk](https://github.com/gaearon/redux-thunk) to your Redux store. Install it with `npm install --save redux-thunk`.
-2. Add notifications reducer as `notifications` to your root reducer.
-
+4 - Upsert or dismiss notification from Redux actions.
 
 ``` js
-import {createStore, compose, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import {reducer as notificationsReducer} from 'reapop';
+// 1. Retrieve the action to create/update a notification.
+import {notify} from 'reapop'
 
-// store
-const createStoreWithMiddleware = compose(
-  applyMiddleware(thunk)
-)(createStore);
-const store = createStoreWithMiddleware(combineReducers({
-  // reducer must be mounted as `notifications` !
-  notifications: notificationsReducer()
-  // your reducers here
-}), {});
-```
-
-## Usage
-
-### In a React component
-
-If you are not familiar with react-redux library or the way to connect a React component with a Redux store, I recommend you to read [Redux documentation - Usage with React](http://redux.js.org/docs/advanced/UsageWithReact.html) to understand this example.
-
-``` js
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-// 1. we import `notify` (thunk action creator)
-import {notify} from 'reapop';
-
-class AmazingComponent extends Component {
-  constructor(props) {
-    super(props);
-    // 4. don't forget to bind method
-    this._onClick = this._onClick.bind(this);
-  }
-
-  _onClick() {
-    const {notify} = this.props;
-    // 3. we use `notify` to create a notification
-    notify({
-      title: 'Welcome',
-      message: 'you clicked on the button',
-      status: 'success',
-      dismissible: true,
-      dismissAfter: 3000
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        // 5. we notify user when he click on the button
-        <button onClick={this._onClick}>Add a notification</button>
-      </div>
-    );
-  }
+const sendResetPasswordLink = () => (dispatch) => {
+    axios.post('https://api.example.com/users/ask-reset-password')
+        // 2. Create a notification.
+        .then((resp) => dispatch(notify(resp.data.detail, 'success'))
+        .catch((resp) => dispatch(notify(resp.data.detail, 'error'))
+    }
 }
-// 2. we map dispatch to props `notify` async action creator
-//    here we use a shortcut instead of passing a `mapDispathToProps` function
-export default connect(null, {notify})(AmazingComponent);
 ```
 
-### In a Redux async action creator
+### With React alone (react >= 16.8.0)
 
-If you are not familiar with async actions creator, I recommend you to read [Redux documentation - Async actions](http://redux.js.org/docs/advanced/AsyncActions.html) to understand this example.
+1 - Add the `NotificationsProvider` at the root of your application. 
+It is important that this component wraps all the components 
+where you want to access the notifications and the actions to manipule notifications.
 
-``` js
-// 1. we import `notify` (thunk action creator)
-import {notify} from 'reapop';
+``` jsx
+import React from 'react'
+import {NotificationsProvider} from 'reapop'
 
-// we add a notification to inform user about
-// state of his request (success or failure)
-const sendResetPasswordLink = (props) => (dispatch) => {
-    axios.post('https://api.example.com/users/ask-reset-password', props)
-      .then((res) => {
-        // 2. we use `dispatch` to notify user.
-        // Status code will be converted in an understandable status for the React component
-        dispatch(notify({message: res.data.detail, status: res.statusCode}));
-      })
-      .catch((res) => {
-       // 3. same thing here
-        dispatch(notify({message: res.data.detail, status: res.statusCode}));
-      });
-    };
-};
+const ARootComponent = () => {
+    return (
+        <NotificationsProvider>
+            // ... components
+        </NotificationsProvider>
+    )
+}
 ```
 
-## API Documentation
 
-Read [API documentation](https://github.com/LouisBarranqueiro/reapop/blob/master/docs/api.md) to discover all possibilities.
+2 - Add the `NotificationsSystem` component to your app. Place this component at the root of your application to avoid position conflicts.
 
-## Contributing guide
+``` jsx
+import React from 'react'
+import NotificationsSystem, {atalhoTheme, useNotifications} from 'reapop'
 
-Read [Contributing guide](https://github.com/LouisBarranqueiro/reapop/blob/master/.github/CONTRIBUTING.md)
+const ATopLevelComponent = () => {
+    // 1. Retrieve the notifications to display, and the function used to dismiss a notification.
+    const {notifications, dismissNotification} = useNotifications()
+    return (
+        <div>
+            <NotificationsSystem
+                // 2. Pass the notifications you want Reapop to display.
+                notifications={notifications}
+                // 3. Pass the function used to dismiss a notification.
+                dismissNotification={(id) => dismissNotification(id)}
+                // 4. Pass a builtIn theme or a custom theme.
+                theme={atalhoTheme}
+            />
+        </div>
+    )
+}
+```
+
+3 - Upsert or dismiss notification from any React components.
+
+``` jsx
+import React from 'react'
+import {useNotifications} from 'reapop'
+
+const AComponent = () => {
+    // 1. Retrieve the action to create/update a notification.
+    const {notify} = useNotifications()
+    
+    useEffect(() => {
+        // 2. Create a notification.
+        notify('Welcome to the documentation', 'info')
+    }, [])
+
+    return (
+        ...
+    )
+}
+```
+
+## Documentation
+
+Read the [documentation](https://github.com/LouisBarranqueiro/reapop/blob/master/DOCUMENTATION.md) to learn more and see what you can with it.
 
 ## License
 

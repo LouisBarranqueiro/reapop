@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotificationDismissIcon/> should return dismiss icon with theme 1`] = `"<svg class=\\"reapop__notification-dismiss-icon\\" style=\\"width: 12px; height: 12px; margin: 14px 10px; cursor: pointer; color: rgb(185, 194, 203); flex-shrink: 0;\\" viewBox=\\"4 4 8 8\\" fill=\\"currentColor\\" data-testid=\\"dismiss-icon\\"><path fill-rule=\\"evenodd\\" d=\\"M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z\\"></path></svg>"`;
+
+exports[`<NotificationDismissIcon/> should return dismiss icon without theme 1`] = `"<svg class=\\"reapop__notification-dismiss-icon\\" viewBox=\\"4 4 8 8\\" fill=\\"currentColor\\" data-testid=\\"dismiss-icon\\"><path fill-rule=\\"evenodd\\" d=\\"M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z\\"></path></svg>"`;

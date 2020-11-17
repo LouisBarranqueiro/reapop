@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotificationsContainer/> should display notifications for bottom-center position 1`] = `
+"<div class=\\"reapop__container reapop__container--bottom-center reapop__container--single\\">
+  <div>
+    <div>notification-2</div>
+    <div>notification-1</div>
+  </div>
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should display notifications for bottom-left position 1`] = `
+"<div class=\\"reapop__container reapop__container--bottom-left reapop__container--single\\">
+  <div>
+    <div>notification-2</div>
+    <div>notification-1</div>
+  </div>
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should display notifications for bottom-right position 1`] = `
+"<div class=\\"reapop__container reapop__container--bottom-right reapop__container--single\\">
+  <div>
+    <div>notification-2</div>
+    <div>notification-1</div>
+  </div>
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should display notifications for top-center position 1`] = `
+"<div class=\\"reapop__container reapop__container--top-center reapop__container--single\\">
+  <div>
+    <div>notification-1</div>
+    <div>notification-2</div>
+  </div>
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should display notifications for top-left position 1`] = `
+"<div class=\\"reapop__container reapop__container--top-left reapop__container--single\\">
+  <div>
+    <div>notification-1</div>
+    <div>notification-2</div>
+  </div>
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should display notifications for top-right position 1`] = `
+"<div class=\\"reapop__container reapop__container--top-right reapop__container--single\\">
+  <div>
+    <div>notification-1</div>
+    <div>notification-2</div>
+  </div>
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should display notifications with custom components 1`] = `
+"<div class=\\"reapop__container reapop__container--top-left reapop__container--single\\">
+  <div>
+    <div id=\\"custom-transition\\">
+      <div>notification-1</div>
+    </div>
+    <div id=\\"custom-transition\\">
+      <div>notification-2</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`<NotificationsContainer/> should display notifications with custom components 2`] = `
+Array [
+  Array [
+    Object {
+      "appear": undefined,
+      "children": <mockConstructor
+        dismissNotification={[MockFunction]}
+        notification={
+          Object {
+            "buttons": Array [],
+            "id": "1",
+            "position": "top-left",
+            "status": "none",
+          }
+        }
+      >
+        <mockConstructor
+          components={
+            Object {
+              "Notification": [MockFunction],
+              "Transition": [MockFunction] {
+                "calls": [Circular],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "1",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "1",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "2",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "2",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                ],
+              },
+            }
+          }
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "1",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+        />
+      </mockConstructor>,
+      "enter": undefined,
+      "exit": undefined,
+      "in": true,
+      "notification": Object {
+        "buttons": Array [],
+        "id": "1",
+        "position": "top-left",
+        "status": "none",
+      },
+      "onExited": [Function],
+    },
+    Object {},
+  ],
+  Array [
+    Object {
+      "appear": undefined,
+      "children": <mockConstructor
+        dismissNotification={[MockFunction]}
+        notification={
+          Object {
+            "buttons": Array [],
+            "id": "2",
+            "position": "top-left",
+            "status": "none",
+          }
+        }
+      >
+        <mockConstructor
+          components={
+            Object {
+              "Notification": [MockFunction],
+              "Transition": [MockFunction] {
+                "calls": [Circular],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "1",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "1",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "2",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "2",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                ],
+              },
+            }
+          }
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "2",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+        />
+      </mockConstructor>,
+      "enter": undefined,
+      "exit": undefined,
+      "in": true,
+      "notification": Object {
+        "buttons": Array [],
+        "id": "2",
+        "position": "top-left",
+        "status": "none",
+      },
+      "onExited": [Function],
+    },
+    Object {},
+  ],
+]
+`;
+
+exports[`<NotificationsContainer/> should display notifications with custom components 3`] = `Array []`;
+
+exports[`<NotificationsContainer/> should render notifications with theme 1`] = `"<div style=\\"color: red;\\" class=\\"reapop__container reapop__container--top-left\\"><div><div>notification-1</div><div>notification-2</div></div></div>"`;
+
+exports[`<NotificationsContainer/> should render notifications with theme 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "children": <Notification
+          components={Object {}}
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "1",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+          theme={
+            Object {
+              "container": [MockFunction] {
+                "calls": Array [
+                  Array [
+                    "top-left",
+                    false,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": Object {
+                      "color": "red",
+                    },
+                  },
+                ],
+              },
+              "notification": [Function],
+              "notificationButton": [Function],
+              "notificationButtonText": [Function],
+              "notificationButtons": [Function],
+              "notificationDismissIcon": [Function],
+              "notificationIcon": [Function],
+              "notificationImage": [Function],
+              "notificationImageContainer": [Function],
+              "notificationMessage": [Function],
+              "notificationMeta": [Function],
+              "notificationTitle": [Function],
+            }
+          }
+        />,
+        "dismissNotification": [MockFunction],
+        "notification": Object {
+          "buttons": Array [],
+          "id": "1",
+          "position": "top-left",
+          "status": "none",
+        },
+      },
+      Object {},
+    ],
+    Array [
+      Object {
+        "children": <Notification
+          components={Object {}}
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "2",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+          theme={
+            Object {
+              "container": [MockFunction] {
+                "calls": Array [
+                  Array [
+                    "top-left",
+                    false,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": Object {
+                      "color": "red",
+                    },
+                  },
+                ],
+              },
+              "notification": [Function],
+              "notificationButton": [Function],
+              "notificationButtonText": [Function],
+              "notificationButtons": [Function],
+              "notificationDismissIcon": [Function],
+              "notificationIcon": [Function],
+              "notificationImage": [Function],
+              "notificationImageContainer": [Function],
+              "notificationMessage": [Function],
+              "notificationMeta": [Function],
+              "notificationTitle": [Function],
+            }
+          }
+        />,
+        "dismissNotification": [MockFunction],
+        "notification": Object {
+          "buttons": Array [],
+          "id": "2",
+          "position": "top-left",
+          "status": "none",
+        },
+      },
+      Object {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": <div>
+        notification-
+        1
+      </div>,
+    },
+    Object {
+      "type": "return",
+      "value": <div>
+        notification-
+        2
+      </div>,
+    },
+  ],
+}
+`;
+
+exports[`<NotificationsContainer/> should render notifications without theme 1`] = `"<div class=\\"reapop__container reapop__container--top-left\\"><div><div>notification-1</div><div>notification-2</div></div></div>"`;
+
+exports[`<NotificationsContainer/> should render notifications without theme 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "children": <Notification
+          components={Object {}}
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "1",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+        />,
+        "dismissNotification": [MockFunction],
+        "notification": Object {
+          "buttons": Array [],
+          "id": "1",
+          "position": "top-left",
+          "status": "none",
+        },
+      },
+      Object {},
+    ],
+    Array [
+      Object {
+        "children": <Notification
+          components={Object {}}
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "2",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+        />,
+        "dismissNotification": [MockFunction],
+        "notification": Object {
+          "buttons": Array [],
+          "id": "2",
+          "position": "top-left",
+          "status": "none",
+        },
+      },
+      Object {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": <div>
+        notification-
+        1
+      </div>,
+    },
+    Object {
+      "type": "return",
+      "value": <div>
+        notification-
+        2
+      </div>,
+    },
+  ],
+}
+`;

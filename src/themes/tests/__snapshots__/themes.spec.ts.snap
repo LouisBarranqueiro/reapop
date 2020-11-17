@@ -1,0 +1,3492 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 1`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 3`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 5`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 7`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 1`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 3`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 5`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 7`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 1`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 3`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 5`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 7`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 9`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 10`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 11`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 12`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 13`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 14`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 15`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 16`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 1`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 3`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 5`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 7`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 9`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 10`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 11`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 12`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 13`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 14`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 15`] = `
+Object {
+  "background": "#2f2f36",
+  "border": "none",
+  "borderLeft": "1px solid #464c5f",
+  "borderRadius": 0,
+  "borderTop": "1px solid #464c5f",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 16`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (atalho) should return style of container (top-center) 1`] = `
+Object {
+  "left": "50%",
+  "position": "fixed",
+  "top": "20px",
+  "transform": "translateX(-50%)",
+  "zIndex": 999999,
+}
+`;
+
+exports[`theme (atalho) should return style of notification ({ dismissible: false, showDismissButton: false }) 1`] = `
+Object {
+  "backgroundColor": "#2f2f36",
+  "border": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": "5px",
+  "boxShadow": "0 3px 8px 2px rgba(0, 0, 0, 0.3)",
+  "color": "#ffffff",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "350px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (atalho) should return style of notification ({ dismissible: false, showDismissButton: true }) 1`] = `
+Object {
+  "backgroundColor": "#2f2f36",
+  "border": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": "5px",
+  "boxShadow": "0 3px 8px 2px rgba(0, 0, 0, 0.3)",
+  "color": "#ffffff",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "350px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (atalho) should return style of notification ({ dismissible: true, showDismissButton: false }) 1`] = `
+Object {
+  "backgroundColor": "#2f2f36",
+  "border": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": "5px",
+  "boxShadow": "0 3px 8px 2px rgba(0, 0, 0, 0.3)",
+  "color": "#ffffff",
+  "cursor": "pointer",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "350px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (atalho) should return style of notification ({ dismissible: true, showDismissButton: true }) 1`] = `
+Object {
+  "backgroundColor": "#2f2f36",
+  "border": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": "5px",
+  "boxShadow": "0 3px 8px 2px rgba(0, 0, 0, 0.3)",
+  "color": "#ffffff",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "350px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (atalho) should return style of notification buttons 1`] = `Object {}`;
+
+exports[`theme (atalho) should return style of notification dismiss icon 1`] = `
+Object {
+  "color": "#b9c2cb",
+  "cursor": "pointer",
+  "flexShrink": 0,
+  "height": "12px",
+  "margin": "14px 10px",
+  "width": "12px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification icon (status: error) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#E94C58",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification icon (status: info) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#4192ff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification icon (status: loading) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#4192ff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification icon (status: none) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification icon (status: success) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#32d38b",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification icon (status: warning) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#f5aa0a",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification icon with image 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "none",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification icon without image 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification image 1`] = `
+Object {
+  "boxSizing": "border-box",
+  "padding": "10px 0 10px 15px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification image 2`] = `
+Object {
+  "backgroundSize": "cover",
+  "borderRadius": "40px",
+  "display": "inline-flex",
+  "height": "40px",
+  "width": "40px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification message 1`] = `
+Object {
+  "color": "#b9c2cb",
+  "fontSize": "14px",
+  "lineHeight": 1.428571429,
+  "margin": 0,
+}
+`;
+
+exports[`theme (atalho) should return style of notification meta container 1`] = `
+Object {
+  "boxSizing": "border-box",
+  "padding": "10px 20px",
+  "verticalAlign": "top",
+  "width": "100%",
+}
+`;
+
+exports[`theme (atalho) should return style of notification title with message 1`] = `
+Object {
+  "color": "#ffffff",
+  "fontSize": "14px",
+  "fontWeight": 700,
+  "lineHeight": 1.428571429,
+  "margin": "0 0 10px",
+}
+`;
+
+exports[`theme (atalho) should return style of notification title without message 1`] = `
+Object {
+  "color": "#ffffff",
+  "fontSize": "14px",
+  "fontWeight": 700,
+  "lineHeight": 1.428571429,
+  "margin": 0,
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 1`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#212529",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 3`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 5`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 7`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 1`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#212529",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 3`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 5`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 7`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 1`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#212529",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 3`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 5`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 7`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 9`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#212529",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 10`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 11`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 12`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 13`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 14`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 15`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 16`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 1`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#212529",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 3`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 5`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 7`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 9`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#212529",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 10`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 11`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 12`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 13`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 14`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 15`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 16`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (bootstrap) should return style of container (top-center) 1`] = `
+Object {
+  "left": "50%",
+  "position": "fixed",
+  "top": "20px",
+  "transform": "translateX(-50%)",
+  "zIndex": 999999,
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification ({ dismissible: false, showDismissButton: false }) 1`] = `
+Object {
+  "backgroundColor": "#ffffff",
+  "border": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": "4px",
+  "boxShadow": "0 0.25rem 0.75rem rgba(0,0,0,.1)",
+  "color": "#524c4c",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "350px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification ({ dismissible: false, showDismissButton: true }) 1`] = `
+Object {
+  "backgroundColor": "#ffffff",
+  "border": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": "4px",
+  "boxShadow": "0 0.25rem 0.75rem rgba(0,0,0,.1)",
+  "color": "#524c4c",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "350px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification ({ dismissible: true, showDismissButton: false }) 1`] = `
+Object {
+  "backgroundColor": "#ffffff",
+  "border": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": "4px",
+  "boxShadow": "0 0.25rem 0.75rem rgba(0,0,0,.1)",
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "350px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification ({ dismissible: true, showDismissButton: true }) 1`] = `
+Object {
+  "backgroundColor": "#ffffff",
+  "border": "1px solid rgba(0,0,0,.1)",
+  "borderRadius": "4px",
+  "boxShadow": "0 0.25rem 0.75rem rgba(0,0,0,.1)",
+  "color": "#524c4c",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "350px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification buttons 1`] = `Object {}`;
+
+exports[`theme (bootstrap) should return style of notification dismiss icon 1`] = `
+Object {
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "flexShrink": 0,
+  "height": "12px",
+  "margin": "14px 10px",
+  "width": "12px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification icon (status: error) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#dc3545",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification icon (status: info) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification icon (status: loading) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#007bff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification icon (status: none) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification icon (status: success) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#28a745",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification icon (status: warning) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffc107",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification icon with image 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "none",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification icon without image 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification image 1`] = `
+Object {
+  "boxSizing": "border-box",
+  "padding": "10px 0 10px 15px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification image 2`] = `
+Object {
+  "backgroundSize": "cover",
+  "borderRadius": "40px",
+  "display": "inline-flex",
+  "height": "40px",
+  "width": "40px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification message 1`] = `
+Object {
+  "color": "#212529",
+  "fontSize": "14px",
+  "lineHeight": 1.428571429,
+  "margin": 0,
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification meta container 1`] = `
+Object {
+  "boxSizing": "border-box",
+  "padding": "10px 20px",
+  "verticalAlign": "top",
+  "width": "100%",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification title with message 1`] = `
+Object {
+  "color": "#6c757d",
+  "fontSize": "14px",
+  "fontWeight": 700,
+  "lineHeight": 1.428571429,
+  "margin": "0 0 10px",
+}
+`;
+
+exports[`theme (bootstrap) should return style of notification title without message 1`] = `
+Object {
+  "color": "#6c757d",
+  "fontSize": "14px",
+  "fontWeight": 700,
+  "lineHeight": 1.428571429,
+  "margin": 0,
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 1`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 3`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 5`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#228ee5",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 7`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 1`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 3`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 5`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#228ee5",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 7`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "Infinity%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 1`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 3`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 5`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#228ee5",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 7`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 9`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 10`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 11`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 12`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 13`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#228ee5",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 14`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 15`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "none",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 16`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 1`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 2`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 3`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 4`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 5`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#228ee5",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 6`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 7`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "100%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 8`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 9`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 10`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 11`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 12`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 13`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#228ee5",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 14`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 15`] = `
+Object {
+  "background": "none",
+  "border": "none",
+  "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
+  "borderRadius": 0,
+  "borderTop": "1px solid rgba(0, 0, 0, 0.09)",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "cursor": "pointer",
+  "display": "block",
+  "height": "50%",
+  "minHeight": "40px",
+  "outline": "none",
+  "padding": 0,
+  "textAlign": "center",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 16`] = `
+Object {
+  "display": "block",
+  "fontSize": "14px",
+  "height": "25px",
+  "lineHeight": "25px",
+  "margin": "0 auto",
+  "maxWidth": "150px",
+  "minWidth": "90px",
+  "overflow": "hidden",
+  "padding": "0 15px",
+  "textAlign": "center",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "width": "auto",
+}
+`;
+
+exports[`theme (wybo) should return style of container (top-center) 1`] = `
+Object {
+  "left": "50%",
+  "position": "fixed",
+  "top": "20px",
+  "transform": "translateX(-50%)",
+  "zIndex": 999999,
+}
+`;
+
+exports[`theme (wybo) should return style of notification ({ dismissible: false, showDismissButton: false }) 1`] = `
+Object {
+  "backgroundColor": "#ffffff",
+  "border": "none",
+  "borderLeft": "2px solid",
+  "borderLeftColor": "#ffffff",
+  "borderRadius": "8px",
+  "boxShadow": "0 1px 3px -1px rgba(0, 0, 0, 0.3)",
+  "color": "#524c4c",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "370px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (wybo) should return style of notification ({ dismissible: false, showDismissButton: true }) 1`] = `
+Object {
+  "backgroundColor": "#ffffff",
+  "border": "none",
+  "borderLeft": "2px solid",
+  "borderLeftColor": "#ffffff",
+  "borderRadius": "8px",
+  "boxShadow": "0 1px 3px -1px rgba(0, 0, 0, 0.3)",
+  "color": "#524c4c",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "370px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (wybo) should return style of notification ({ dismissible: true, showDismissButton: false }) 1`] = `
+Object {
+  "backgroundColor": "#ffffff",
+  "border": "none",
+  "borderLeft": "2px solid",
+  "borderLeftColor": "#ffffff",
+  "borderRadius": "8px",
+  "boxShadow": "0 1px 3px -1px rgba(0, 0, 0, 0.3)",
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "370px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (wybo) should return style of notification ({ dismissible: true, showDismissButton: true }) 1`] = `
+Object {
+  "backgroundColor": "#ffffff",
+  "border": "none",
+  "borderLeft": "2px solid",
+  "borderLeftColor": "#ffffff",
+  "borderRadius": "8px",
+  "boxShadow": "0 1px 3px -1px rgba(0, 0, 0, 0.3)",
+  "color": "#524c4c",
+  "cursor": "",
+  "display": "flex",
+  "height": "100%",
+  "marginBottom": "20px",
+  "position": "relative",
+  "width": "370px",
+  "zIndex": 999,
+}
+`;
+
+exports[`theme (wybo) should return style of notification buttons 1`] = `Object {}`;
+
+exports[`theme (wybo) should return style of notification dismiss icon 1`] = `
+Object {
+  "color": "#524c4c",
+  "cursor": "pointer",
+  "flexShrink": 0,
+  "height": "12px",
+  "margin": "14px 10px",
+  "width": "12px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification icon (status: error) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#f5311d",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification icon (status: info) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification icon (status: loading) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#349ef3",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification icon (status: none) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification icon (status: success) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#4dc657",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification icon (status: warning) 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#f5aa0a",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification icon with image 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "none",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification icon without image 1`] = `
+Object {
+  "alignSelf": "flex-start",
+  "boxSizing": "border-box",
+  "color": "#ffffff",
+  "display": "flex",
+  "flexShrink": 0,
+  "height": "20px",
+  "margin": "10px 0 10px 15px",
+  "width": "20px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification image 1`] = `
+Object {
+  "boxSizing": "border-box",
+  "padding": "10px 0 10px 15px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification image 2`] = `
+Object {
+  "backgroundSize": "cover",
+  "borderRadius": "40px",
+  "display": "inline-flex",
+  "height": "40px",
+  "width": "40px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification message 1`] = `
+Object {
+  "fontSize": "14px",
+  "lineHeight": 1.428571429,
+  "margin": 0,
+}
+`;
+
+exports[`theme (wybo) should return style of notification meta container 1`] = `
+Object {
+  "boxSizing": "border-box",
+  "padding": "10px 20px",
+  "verticalAlign": "top",
+  "width": "100%",
+}
+`;
+
+exports[`theme (wybo) should return style of notification title with message 1`] = `
+Object {
+  "fontSize": "14px",
+  "fontWeight": 700,
+  "lineHeight": 1.428571429,
+  "margin": "0 0 10px",
+}
+`;
+
+exports[`theme (wybo) should return style of notification title without message 1`] = `
+Object {
+  "fontSize": "14px",
+  "fontWeight": 700,
+  "lineHeight": 1.428571429,
+  "margin": 0,
+}
+`;

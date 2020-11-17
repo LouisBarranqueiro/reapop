@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`prepareNotification() should configured generate ID function if ID is not set 1`] = `
+Object {
+  "calls": Array [
+    Array [
+      Object {
+        "message": "hello",
+      },
+    ],
+  ],
+  "instances": Array [
+    Object {
+      "customizeNotification": null,
+      "defaultProps": Object {},
+      "generateId": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "message": "hello",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": "foo",
+          },
+        ],
+      },
+    },
+  ],
+  "invocationCallOrder": Array [
+    1,
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": "foo",
+    },
+  ],
+}
+`;
+
+exports[`prepareNotification() should customize notification with configured function 1`] = `
+Object {
+  "buttons": Array [],
+  "foo": "bar",
+  "id": "1",
+  "message": "hello",
+  "status": "none",
+}
+`;
+
+exports[`prepareNotification() should customize notification with configured function 2`] = `
+Object {
+  "calls": Array [
+    Array [
+      Object {
+        "buttons": Array [],
+        "foo": "bar",
+        "id": "1",
+        "message": "hello",
+        "status": "none",
+      },
+    ],
+  ],
+  "instances": Array [
+    Object {
+      "customizeNotification": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "buttons": Array [],
+              "foo": "bar",
+              "id": "1",
+              "message": "hello",
+              "status": "none",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": "bar",
+          },
+        ],
+      },
+      "defaultProps": Object {},
+      "generateId": [Function],
+    },
+  ],
+  "invocationCallOrder": Array [
+    2,
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": "bar",
+    },
+  ],
+}
+`;
+
+exports[`prepareNotification() should only set default and configured attributes if not set 1`] = `
+Object {
+  "allowHTML": true,
+  "buttons": Array [],
+  "dismissible": true,
+  "id": "1",
+  "status": "success",
+}
+`;
+
+exports[`prepareNotification() should set default attributes if not set 1`] = `
+Object {
+  "buttons": Array [],
+  "id": "1",
+  "status": "none",
+}
+`;

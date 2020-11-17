@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotificationButton/> should render a primary button  1`] = `"<button data-testid=\\"button\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\"><b>yes</b></span></button>"`;
+
+exports[`<NotificationButton/> should render a secondary button  1`] = `"<button data-testid=\\"button\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\">yes</span></button>"`;
+
+exports[`<NotificationButton/> should render button with theme 1`] = `"<button data-testid=\\"button\\" style=\\"color: red;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"color: red;\\">yes</span></button>"`;
+
+exports[`<NotificationButton/> should render button with theme: notificationButton.calls 1`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    2,
+    Object {
+      "isActive": false,
+      "isHovered": false,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should render button with theme: notificationButtonText.calls 1`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    2,
+    Object {
+      "isActive": false,
+      "isHovered": false,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should render button without theme 1`] = `"<button data-testid=\\"button\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\">yes</span></button>"`;
+
+exports[`<NotificationButton/> should render button without theme: notificationButton.calls 1`] = `Array []`;
+
+exports[`<NotificationButton/> should render button without theme: notificationButtonText.calls 1`] = `Array []`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: mouseDown 1`] = `"<button data-testid=\\"button\\" style=\\"color: red;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"color: red;\\">yes</span></button>"`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: mouseEnter 1`] = `"<button data-testid=\\"button\\" style=\\"color: red;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"color: red;\\">yes</span></button>"`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: mouseLeave 1`] = `"<button data-testid=\\"button\\" style=\\"color: red;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"color: red;\\">yes</span></button>"`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: mouseUp 1`] = `"<button data-testid=\\"button\\" style=\\"color: red;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"color: red;\\">yes</span></button>"`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: notificationButton.calls 1`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    1,
+    Object {
+      "isActive": false,
+      "isHovered": true,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: notificationButton.calls 2`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    1,
+    Object {
+      "isActive": true,
+      "isHovered": true,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: notificationButton.calls 3`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    1,
+    Object {
+      "isActive": false,
+      "isHovered": true,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: notificationButton.calls 4`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    1,
+    Object {
+      "isActive": false,
+      "isHovered": false,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: notificationButtonText.calls 1`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    1,
+    Object {
+      "isActive": false,
+      "isHovered": true,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: notificationButtonText.calls 2`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    1,
+    Object {
+      "isActive": true,
+      "isHovered": true,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: notificationButtonText.calls 3`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    1,
+    Object {
+      "isActive": false,
+      "isHovered": true,
+    },
+  ],
+]
+`;
+
+exports[`<NotificationButton/> should update button when hovering it and clicking it: notificationButtonText.calls 4`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [],
+      "id": "1",
+      "position": "top-left",
+      "status": "none",
+    },
+    1,
+    Object {
+      "isActive": false,
+      "isHovered": false,
+    },
+  ],
+]
+`;

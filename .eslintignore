@@ -5,4 +5,4 @@ build
 coverage
 demo/dist
 docs
-lib
+dist

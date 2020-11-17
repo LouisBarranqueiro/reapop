@@ -3,23 +3,29 @@ on: [push]
 jobs:
   build:
     env:
-      GITHUB_REPOSITORY: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
-        node-version: 8.x
+        node-version: 12.x
+    - name: setup NPM
+      run: npm set @LouisBarranqueiro:registry https://npm.pkg.github.com/ && npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
     - name: Install dependencies
       run: npm install
-    - name: Lint code
-      run: npm run lint
     - name: Run tests
-      run: npm run test:all
-    - name: Report tests coverage
-      run: npm run test:coveralls
+      run: npm run test:coverage
+    - name: Report tests coverage to Codecov
+      run: npx codecov --token=${{ secrets.CODECOV_TOKEN }}
+    - name: Build demo website
+      if: github.ref == 'refs/heads/master'
+      run: npm run build-demo
     - name: Deploy demo website
-      if: github.ref == 'master'
-      run: .github/workflows/deploy-demo-website.sh
+      if: github.ref == 'refs/heads/master'
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: demo/dist
+        CLEAN: true # Automatically remove deleted files

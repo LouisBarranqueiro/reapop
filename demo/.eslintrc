@@ -1,0 +1,12 @@
+{
+  "extends" : "../.eslintrc",
+  "globals" : {
+    "expect" : false
+  },
+  "env": {
+    "node": true
+  },
+  "rules":{
+    "react/prop-types":0
+  }
+}
