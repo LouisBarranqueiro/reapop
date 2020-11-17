@@ -1,0 +1,5 @@
+comment:
+  layout: "diff, flags, files"
+  behavior: once
+  require_changes: true  # if true: only post the comment if coverage changes
+
