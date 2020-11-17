@@ -1,0 +1,24 @@
+@import './_variables.scss';
+
+@font-face {
+    font-family: 'ArtelyInks';
+    font-style:  normal;
+    font-weight: 400;
+    src:         url('https://louisbarranqueiro.github.io/reapop/static/fonts/ArtelyInks.eot');
+    src:         url('https://louisbarranqueiro.github.io/reapop/static/fonts/ArtelyInks.eot?#iefix') format('embedded-opentype'),
+                 url('https://louisbarranqueiro.github.io/reapop/static/fonts/ArtelyInks.woff') format('woff'),
+                 url('https://louisbarranqueiro.github.io/reapop/static/fonts/ArtelyInks.ttf') format('truetype');
+}
+
+// override style of primary button of Bootstrap
+:global {
+    .btn-primary {
+        background-color: $primary-color !important;
+        border-color:     $primary-color !important;
+    }
+    html {
+        -webkit-font-smoothing: antialiased;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+    }
+}

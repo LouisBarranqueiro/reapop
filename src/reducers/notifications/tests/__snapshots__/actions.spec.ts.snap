@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dismissNotification() should return action to dismiss notification 1`] = `
+Object {
+  "payload": "1",
+  "type": "reapop/dismissNotification",
+}
+`;
+
+exports[`dismissNotifications() should return action to dismiss notifications 1`] = `
+Object {
+  "type": "reapop/dismissNotifications",
+}
+`;
+
+exports[`notify() should return action to upsert notification ([ 'nice message' ]) 1`] = `
+Object {
+  "payload": Object {
+    "buttons": Array [],
+    "id": "1",
+    "message": "nice message",
+    "status": "none",
+  },
+  "type": "reapop/upsertNotification",
+}
+`;
+
+exports[`notify() should return action to upsert notification ([ 'nice message', 'error' ]) 1`] = `
+Object {
+  "payload": Object {
+    "buttons": Array [],
+    "id": "1",
+    "message": "nice message",
+    "status": "error",
+  },
+  "type": "reapop/upsertNotification",
+}
+`;
+
+exports[`notify() should return action to upsert notification ([ 'nice message', 'error', [Object] ]) 1`] = `
+Object {
+  "payload": Object {
+    "allowHTML": true,
+    "buttons": Array [],
+    "id": "1",
+    "message": "nice message",
+    "status": "error",
+  },
+  "type": "reapop/upsertNotification",
+}
+`;
+
+exports[`notify() should return action to upsert notification ([ 'nice message', [Object] ]) 1`] = `
+Object {
+  "payload": Object {
+    "allowHTML": true,
+    "buttons": Array [],
+    "id": "1",
+    "message": "nice message",
+    "status": "none",
+  },
+  "type": "reapop/upsertNotification",
+}
+`;
+
+exports[`notify() should return action to upsert notification ([ [Object] ]) 1`] = `
+Object {
+  "payload": Object {
+    "allowHTML": true,
+    "buttons": Array [],
+    "id": "1",
+    "message": "nice message",
+    "status": "none",
+  },
+  "type": "reapop/upsertNotification",
+}
+`;

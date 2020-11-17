@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotificationsProvider/> should provide reducer state and actions 1`] = `
+Object {
+  "buttons": Array [],
+  "id": "1",
+  "status": "none",
+}
+`;
+
+exports[`<NotificationsProvider/> should provide reducer state and actions 2`] = `
+Array [
+  Array [
+    Object {
+      "payload": Object {
+        "buttons": Array [],
+        "id": "1",
+        "status": "none",
+      },
+      "type": "reapop/upsertNotification",
+    },
+  ],
+]
+`;
+
+exports[`<NotificationsProvider/> should provide reducer state and actions 3`] = `
+Array [
+  Array [
+    Object {
+      "payload": "1",
+      "type": "reapop/dismissNotification",
+    },
+  ],
+]
+`;
+
+exports[`<NotificationsProvider/> should provide reducer state and actions 4`] = `
+Array [
+  Array [
+    Object {
+      "type": "reapop/dismissNotifications",
+    },
+  ],
+]
+`;

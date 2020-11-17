@@ -4,7 +4,7 @@ node_modules
 .idea
 .travis
 build
-coverage
+tests_coverage
 demo
 test
 docs
@@ -12,9 +12,11 @@ src
 .babelrc
 .eslintignore
 .eslintrc
+.prettierrc
 .gitignore
 .travis.yml
 *.log
 renovate.json
 scripts/*
 jest.config.js
+tsconfig.json

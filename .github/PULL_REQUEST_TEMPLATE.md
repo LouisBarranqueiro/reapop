@@ -8,10 +8,9 @@
 
 
 ### Checklist
-- [ ] I checked the code style with `npm run lint` 
-- [ ] I ran the tests with `npm run test:all` 
+- [ ] I ran the tests with `npm run test` 
 - [ ] I added tests for the bug I fixed (if applicable)
-- [ ] I updated the README or API documentation (if applicable)
+- [ ] I updated the README or the DOCUMENTATION (if applicable)
 - [ ] I updated the demo (if applicable)
 - [ ] I verified my changes on all browsers listed below:
   - [ ] Chrome

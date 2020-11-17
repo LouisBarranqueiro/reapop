@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FadeTransition/> should display notification 1`] = `"<div notification=\\"[object Object]\\">notification</div>"`;

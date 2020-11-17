@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 .idea
-coverage
+tests_coverage
 demo/dist
-lib
+dist
 *.log
