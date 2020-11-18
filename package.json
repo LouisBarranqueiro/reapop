@@ -78,7 +78,7 @@
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "4.2.0",
-    "eslint-plugin-standard": "4.0.1",
+    "eslint-plugin-standard": "4.1.0",
     "express": "4.17.1",
     "file-loader": "5.1.0",
     "husky": "4.3.0",
