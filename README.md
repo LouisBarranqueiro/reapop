@@ -58,7 +58,7 @@ import NotificationsSystem, {atalhoTheme, dismissNotification} from 'reapop'
 
 const ATopLevelComponent = () => {
     // 1. Retrieve the notifications to display.
-    const {notifications} = useSelector((state) => state.notification)
+    const {notifications} = useSelector((state) => state.notifications)
     return (
         <div>
             <NotificationsSystem
