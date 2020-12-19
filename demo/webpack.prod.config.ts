@@ -1,12 +1,12 @@
 import CopyPlugin from 'copy-webpack-plugin'
-import {Configuration, Output} from 'webpack'
+import {Configuration} from 'webpack'
 import baseConfig from './webpack.base.config'
 import * as path from 'path'
 
 const config: Configuration = Object.assign(baseConfig, {
     mode: 'production',
     devtool: false,
-    output: Object.assign(baseConfig.output as Output, {
+    output: Object.assign(baseConfig.output, {
         publicPath: '/reapop/static/',
     }),
     plugins: [

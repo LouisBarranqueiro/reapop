@@ -33,7 +33,10 @@ const config: Configuration = {
             },
             {
                 test: /\.html$/,
-                loader: 'file?name=[name].[ext]',
+                loader: 'file',
+                options: {
+                    name: '[name].[ext]',
+                },
             },
             {
                 test: /\.scss$/,
@@ -61,7 +64,11 @@ const config: Configuration = {
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: 'url-loader?limit=10000&minetype=application/font-woff',
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    mimetype: 'application/font-woff',
+                },
             },
             {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
