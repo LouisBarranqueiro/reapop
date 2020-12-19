@@ -1,5 +1,5 @@
 import path from 'path'
-import webpack, {Output} from 'webpack'
+import webpack, {Configuration} from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import express from 'express'
@@ -11,7 +11,7 @@ const compiler = webpack(webpackConfig)
 
 app.use(
     webpackDevMiddleware(compiler, {
-        publicPath: (webpackConfig.output as Output).publicPath as string,
+        publicPath: (webpackConfig as Configuration).output!.publicPath as string,
     })
 )
 app.use(webpackHotMiddleware(compiler))
