@@ -57,9 +57,10 @@ import React from 'react'
 import NotificationsSystem, {atalhoTheme, dismissNotification} from 'reapop'
 
 const ATopLevelComponent = () => {
+    const dispatch = useDispatch();
     // 1. Retrieve the notifications to display.
     const notifications = useSelector((state) => state.notifications)
-    const dispatch = useDispatch();
+    
     return (
         <div>
             <NotificationsSystem
