@@ -152,6 +152,68 @@ Array [
                       </mockConstructor>
                     </div>,
                   },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "1",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "1",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "2",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "2",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
                 ],
               },
             }
@@ -201,6 +263,412 @@ Array [
               "Transition": [MockFunction] {
                 "calls": [Circular],
                 "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "1",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "1",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "2",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "2",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "1",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "1",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "2",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "2",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                ],
+              },
+            }
+          }
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "2",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+        />
+      </mockConstructor>,
+      "enter": undefined,
+      "exit": undefined,
+      "in": true,
+      "notification": Object {
+        "buttons": Array [],
+        "id": "2",
+        "position": "top-left",
+        "status": "none",
+      },
+      "onExited": [Function],
+    },
+    Object {},
+  ],
+  Array [
+    Object {
+      "children": <mockConstructor
+        dismissNotification={[MockFunction]}
+        notification={
+          Object {
+            "buttons": Array [],
+            "id": "1",
+            "position": "top-left",
+            "status": "none",
+          }
+        }
+      >
+        <mockConstructor
+          components={
+            Object {
+              "Notification": [MockFunction],
+              "Transition": [MockFunction] {
+                "calls": [Circular],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "1",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "1",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "2",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "2",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "1",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "1",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "2",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "2",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                ],
+              },
+            }
+          }
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "1",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+        />
+      </mockConstructor>,
+      "enter": undefined,
+      "exit": undefined,
+      "in": true,
+      "notification": Object {
+        "buttons": Array [],
+        "id": "1",
+        "position": "top-left",
+        "status": "none",
+      },
+      "onExited": [Function],
+    },
+    Object {},
+  ],
+  Array [
+    Object {
+      "children": <mockConstructor
+        dismissNotification={[MockFunction]}
+        notification={
+          Object {
+            "buttons": Array [],
+            "id": "2",
+            "position": "top-left",
+            "status": "none",
+          }
+        }
+      >
+        <mockConstructor
+          components={
+            Object {
+              "Notification": [MockFunction],
+              "Transition": [MockFunction] {
+                "calls": [Circular],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "1",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "1",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <div
+                      id="custom-transition"
+                    >
+                      <mockConstructor
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "2",
+                            "position": "top-left",
+                            "status": "none",
+                          }
+                        }
+                      >
+                        <mockConstructor
+                          components={[Circular]}
+                          dismissNotification={[MockFunction]}
+                          notification={
+                            Object {
+                              "buttons": Array [],
+                              "id": "2",
+                              "position": "top-left",
+                              "status": "none",
+                            }
+                          }
+                        />
+                      </mockConstructor>
+                    </div>,
+                  },
                   Object {
                     "type": "return",
                     "value": <div
@@ -411,8 +879,132 @@ exports[`<NotificationsContainer/> should render notifications with theme 2`] = 
       },
       Object {},
     ],
+    Array [
+      Object {
+        "children": <Notification
+          components={Object {}}
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "1",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+          theme={
+            Object {
+              "container": [MockFunction] {
+                "calls": Array [
+                  Array [
+                    "top-left",
+                    false,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": Object {
+                      "color": "red",
+                    },
+                  },
+                ],
+              },
+              "notification": [Function],
+              "notificationButton": [Function],
+              "notificationButtonText": [Function],
+              "notificationButtons": [Function],
+              "notificationDismissIcon": [Function],
+              "notificationIcon": [Function],
+              "notificationImage": [Function],
+              "notificationImageContainer": [Function],
+              "notificationMessage": [Function],
+              "notificationMeta": [Function],
+              "notificationTitle": [Function],
+            }
+          }
+        />,
+        "dismissNotification": [MockFunction],
+        "notification": Object {
+          "buttons": Array [],
+          "id": "1",
+          "position": "top-left",
+          "status": "none",
+        },
+      },
+      Object {},
+    ],
+    Array [
+      Object {
+        "children": <Notification
+          components={Object {}}
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "2",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+          theme={
+            Object {
+              "container": [MockFunction] {
+                "calls": Array [
+                  Array [
+                    "top-left",
+                    false,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": Object {
+                      "color": "red",
+                    },
+                  },
+                ],
+              },
+              "notification": [Function],
+              "notificationButton": [Function],
+              "notificationButtonText": [Function],
+              "notificationButtons": [Function],
+              "notificationDismissIcon": [Function],
+              "notificationIcon": [Function],
+              "notificationImage": [Function],
+              "notificationImageContainer": [Function],
+              "notificationMessage": [Function],
+              "notificationMeta": [Function],
+              "notificationTitle": [Function],
+            }
+          }
+        />,
+        "dismissNotification": [MockFunction],
+        "notification": Object {
+          "buttons": Array [],
+          "id": "2",
+          "position": "top-left",
+          "status": "none",
+        },
+      },
+      Object {},
+    ],
   ],
   "results": Array [
+    Object {
+      "type": "return",
+      "value": <div>
+        notification-
+        1
+      </div>,
+    },
+    Object {
+      "type": "return",
+      "value": <div>
+        notification-
+        2
+      </div>,
+    },
     Object {
       "type": "return",
       "value": <div>
@@ -484,8 +1076,70 @@ exports[`<NotificationsContainer/> should render notifications without theme 2`]
       },
       Object {},
     ],
+    Array [
+      Object {
+        "children": <Notification
+          components={Object {}}
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "1",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+        />,
+        "dismissNotification": [MockFunction],
+        "notification": Object {
+          "buttons": Array [],
+          "id": "1",
+          "position": "top-left",
+          "status": "none",
+        },
+      },
+      Object {},
+    ],
+    Array [
+      Object {
+        "children": <Notification
+          components={Object {}}
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "2",
+              "position": "top-left",
+              "status": "none",
+            }
+          }
+        />,
+        "dismissNotification": [MockFunction],
+        "notification": Object {
+          "buttons": Array [],
+          "id": "2",
+          "position": "top-left",
+          "status": "none",
+        },
+      },
+      Object {},
+    ],
   ],
   "results": Array [
+    Object {
+      "type": "return",
+      "value": <div>
+        notification-
+        1
+      </div>,
+    },
+    Object {
+      "type": "return",
+      "value": <div>
+        notification-
+        2
+      </div>,
+    },
     Object {
       "type": "return",
       "value": <div>

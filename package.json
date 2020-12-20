@@ -107,7 +107,7 @@
     "webpack-hot-middleware": "2.25.0"
   },
   "dependencies": {
-    "react-transition-group": "2.9.0"
+    "react-transition-group": "4.4.1"
   },
   "husky": {
     "hooks": {

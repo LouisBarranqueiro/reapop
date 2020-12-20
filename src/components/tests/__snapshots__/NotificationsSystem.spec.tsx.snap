@@ -358,6 +358,144 @@ Array [
                       />
                     </NotificationContainer>,
                   },
+                  Object {
+                    "type": "return",
+                    "value": <NotificationContainer
+                      dismissNotification={[MockFunction]}
+                      notification={
+                        Object {
+                          "buttons": Array [],
+                          "id": "0",
+                          "message": "hello world!",
+                          "position": "top-center",
+                          "status": "info",
+                        }
+                      }
+                    >
+                      <Notification
+                        components={[Circular]}
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "0",
+                            "message": "hello world!",
+                            "position": "top-center",
+                            "status": "info",
+                          }
+                        }
+                      />
+                    </NotificationContainer>,
+                  },
+                ],
+              },
+            }
+          }
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "0",
+              "message": "hello world!",
+              "position": "top-center",
+              "status": "info",
+            }
+          }
+        />
+      </NotificationContainer>,
+      "enter": undefined,
+      "exit": undefined,
+      "in": true,
+      "notification": Object {
+        "buttons": Array [],
+        "id": "0",
+        "message": "hello world!",
+        "position": "top-center",
+        "status": "info",
+      },
+      "onExited": [Function],
+    },
+    Object {},
+  ],
+  Array [
+    Object {
+      "children": <NotificationContainer
+        dismissNotification={[MockFunction]}
+        notification={
+          Object {
+            "buttons": Array [],
+            "id": "0",
+            "message": "hello world!",
+            "position": "top-center",
+            "status": "info",
+          }
+        }
+      >
+        <Notification
+          components={
+            Object {
+              "NotificationIcon": [Function],
+              "Transition": [MockFunction] {
+                "calls": [Circular],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": <NotificationContainer
+                      dismissNotification={[MockFunction]}
+                      notification={
+                        Object {
+                          "buttons": Array [],
+                          "id": "0",
+                          "message": "hello world!",
+                          "position": "top-center",
+                          "status": "info",
+                        }
+                      }
+                    >
+                      <Notification
+                        components={[Circular]}
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "0",
+                            "message": "hello world!",
+                            "position": "top-center",
+                            "status": "info",
+                          }
+                        }
+                      />
+                    </NotificationContainer>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <NotificationContainer
+                      dismissNotification={[MockFunction]}
+                      notification={
+                        Object {
+                          "buttons": Array [],
+                          "id": "0",
+                          "message": "hello world!",
+                          "position": "top-center",
+                          "status": "info",
+                        }
+                      }
+                    >
+                      <Notification
+                        components={[Circular]}
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "0",
+                            "message": "hello world!",
+                            "position": "top-center",
+                            "status": "info",
+                          }
+                        }
+                      />
+                    </NotificationContainer>,
+                  },
                 ],
               },
             }
@@ -447,6 +585,144 @@ Array [
               "Transition": [MockFunction] {
                 "calls": [Circular],
                 "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": <NotificationContainer
+                      dismissNotification={[MockFunction]}
+                      notification={
+                        Object {
+                          "buttons": Array [],
+                          "id": "0",
+                          "message": "hello world!",
+                          "position": "top-center",
+                          "status": "info",
+                        }
+                      }
+                    >
+                      <CustomNotification
+                        components={[Circular]}
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "0",
+                            "message": "hello world!",
+                            "position": "top-center",
+                            "status": "info",
+                          }
+                        }
+                      />
+                    </NotificationContainer>,
+                  },
+                  Object {
+                    "type": "return",
+                    "value": <NotificationContainer
+                      dismissNotification={[MockFunction]}
+                      notification={
+                        Object {
+                          "buttons": Array [],
+                          "id": "0",
+                          "message": "hello world!",
+                          "position": "top-center",
+                          "status": "info",
+                        }
+                      }
+                    >
+                      <CustomNotification
+                        components={[Circular]}
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "0",
+                            "message": "hello world!",
+                            "position": "top-center",
+                            "status": "info",
+                          }
+                        }
+                      />
+                    </NotificationContainer>,
+                  },
+                ],
+              },
+            }
+          }
+          dismissNotification={[MockFunction]}
+          notification={
+            Object {
+              "buttons": Array [],
+              "id": "0",
+              "message": "hello world!",
+              "position": "top-center",
+              "status": "info",
+            }
+          }
+        />
+      </NotificationContainer>,
+      "enter": undefined,
+      "exit": undefined,
+      "in": true,
+      "notification": Object {
+        "buttons": Array [],
+        "id": "0",
+        "message": "hello world!",
+        "position": "top-center",
+        "status": "info",
+      },
+      "onExited": [Function],
+    },
+    Object {},
+  ],
+  Array [
+    Object {
+      "children": <NotificationContainer
+        dismissNotification={[MockFunction]}
+        notification={
+          Object {
+            "buttons": Array [],
+            "id": "0",
+            "message": "hello world!",
+            "position": "top-center",
+            "status": "info",
+          }
+        }
+      >
+        <CustomNotification
+          components={
+            Object {
+              "Notification": [Function],
+              "Transition": [MockFunction] {
+                "calls": [Circular],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": <NotificationContainer
+                      dismissNotification={[MockFunction]}
+                      notification={
+                        Object {
+                          "buttons": Array [],
+                          "id": "0",
+                          "message": "hello world!",
+                          "position": "top-center",
+                          "status": "info",
+                        }
+                      }
+                    >
+                      <CustomNotification
+                        components={[Circular]}
+                        dismissNotification={[MockFunction]}
+                        notification={
+                          Object {
+                            "buttons": Array [],
+                            "id": "0",
+                            "message": "hello world!",
+                            "position": "top-center",
+                            "status": "info",
+                          }
+                        }
+                      />
+                    </NotificationContainer>,
+                  },
                   Object {
                     "type": "return",
                     "value": <NotificationContainer
