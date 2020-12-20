@@ -1,13 +1,6 @@
 import path from 'path'
 import {Configuration} from 'webpack'
 
-const cssLoaderOptions = {
-    importLoaders: 1,
-    sourceMap: true,
-    modules: true,
-    localIdentName: '[name]__[local]__[hash:base64:5]',
-}
-
 const config: Configuration = {
     context: __dirname,
     entry: ['react-hot-loader/patch', './src/app'],
@@ -48,7 +41,13 @@ const config: Configuration = {
                     },
                     {
                         loader: 'css-loader',
-                        options: cssLoaderOptions,
+                        options: {
+                            importLoaders: 1,
+                            sourceMap: true,
+                            modules: {
+                                localIdentName: '[name]__[local]__[hash:base64:5]',
+                            },
+                        },
                     },
                     'sass-loader',
                 ],
