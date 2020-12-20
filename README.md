@@ -54,6 +54,7 @@ const store = createStore(rootReducer)
 
 ``` jsx
 import React from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import NotificationsSystem, {atalhoTheme, dismissNotification} from 'reapop'
 
 const ATopLevelComponent = () => {
@@ -80,6 +81,7 @@ const ATopLevelComponent = () => {
 
 ``` jsx
 import React from 'react'
+import {useDispatch} from 'react-redux'
 // 1. Retrieve the action to create/update a notification, or any other actions.
 import {notify} from 'reapop'
 
