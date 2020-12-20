@@ -21,12 +21,13 @@ const NotificationsSystem = (props: Props) => {
     const theme = props.theme
     const components = props.components || {}
     const {notifications, dismissNotification} = props
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const [windowWidth, setWindowWidth] = useState(typeof window === 'undefined' ? 0 : window.innerWidth)
     const singleContainer = windowWidth < smallScreenBreakpoint
     // render all notifications in the same container at the top for small screens
     const positions = singleContainer ? [POSITIONS.topCenter] : Object.values(POSITIONS)
 
     useEffect(() => {
+        setWindowWidth(window.innerWidth)
         const updateWindowWidth = () => setWindowWidth(window.innerWidth)
         // Update window width when the window is resized
         window.addEventListener('resize', updateWindowWidth)
