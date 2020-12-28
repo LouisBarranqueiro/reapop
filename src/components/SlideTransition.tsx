@@ -1,19 +1,19 @@
 import {Transition} from 'react-transition-group'
-import React, {ReactNode} from 'react'
+import React, {RefObject} from 'react'
 import {POSITIONS} from '../constants'
 import {Notification} from '../reducers/notifications/types'
+import {TransitionProps} from 'react-transition-group/Transition'
 
 type Props = {
     notification: Notification
-    children: ReactNode
     duration?: number
-    [index: string]: any
-}
+} & Omit<TransitionProps<HTMLElement>, 'addEndListener'>
 
 const SlideTransition = (props: Props) => {
     const duration = props.duration || 300
     const colapseAnimationDuration = 250
-    const {children, notification, ...otherProps} = props
+    const {children, notification, nodeRef, ...otherProps} = props
+    const getNode = () => (nodeRef as RefObject<HTMLElement>).current as HTMLElement
     const transformDirection = ([POSITIONS.topCenter, POSITIONS.bottomCenter] as string[]).includes(
         notification.position
     )
@@ -30,8 +30,8 @@ const SlideTransition = (props: Props) => {
         fill: 'forwards',
         duration,
     }
-    const onEnter = (node: HTMLElement) => {
-        node.animate(
+    const onEnter = () => {
+        getNode().animate(
             [
                 {transform: `${transformDirection}(${transformValue})`, opacity: 0},
                 {transform: `${transformDirection}(0)`, opacity: 1},
@@ -39,14 +39,14 @@ const SlideTransition = (props: Props) => {
             animationProps
         )
     }
-    const onExit = (node: HTMLElement) => {
+    const onExit = () => {
         const hideAnimationDuration = duration
-        node.animate([{transform: `${transformDirection}(${transformValue})`, opacity: 0}], animationProps)
+        getNode().animate([{transform: `${transformDirection}(${transformValue})`, opacity: 0}], animationProps)
         setTimeout(() => {
             // `150px`: A value higher than the height a notification can have
             // to create a smooth animation for displayed notifications
             // when a notification is removed from a container.
-            node.animate([{maxHeight: '150px'}, {margin: 0, maxHeight: 0}], {
+            getNode().animate([{maxHeight: '150px'}, {margin: 0, maxHeight: 0}], {
                 ...animationProps,
                 duration: colapseAnimationDuration,
             })
@@ -54,7 +54,13 @@ const SlideTransition = (props: Props) => {
     }
 
     return (
-        <Transition onEnter={onEnter} onExit={onExit} timeout={duration + colapseAnimationDuration} {...otherProps}>
+        <Transition
+            nodeRef={nodeRef}
+            onEnter={onEnter}
+            onExit={onExit}
+            timeout={duration + colapseAnimationDuration}
+            {...otherProps}
+        >
             {children}
         </Transition>
     )

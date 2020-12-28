@@ -1,3 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FadeTransition/> should display notification 1`] = `"<div notification=\\"[object Object]\\">notification</div>"`;
+
+exports[`<FadeTransition/> should display notification 2`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "opacity": 0,
+      },
+      Object {
+        "opacity": 1,
+      },
+    ],
+    Object {
+      "duration": 300,
+      "fill": "forwards",
+    },
+  ],
+]
+`;
+
+exports[`<FadeTransition/> should display notification 3`] = `"<div notification=\\"[object Object]\\">notification</div>"`;
+
+exports[`<FadeTransition/> should display notification 4`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "maxHeight": "150px",
+      },
+      Object {
+        "margin": 0,
+        "maxHeight": 0,
+        "opacity": 0,
+      },
+    ],
+    Object {
+      "duration": 300,
+      "fill": "forwards",
+    },
+  ],
+]
+`;

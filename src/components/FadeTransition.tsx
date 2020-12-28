@@ -1,25 +1,25 @@
-import React, {ReactNode} from 'react'
+import React, {RefObject} from 'react'
 import {Transition} from 'react-transition-group'
+import {TransitionProps} from 'react-transition-group/Transition'
 
 type Props = {
-    children: ReactNode
     duration?: number
-    [index: string]: any
-}
+} & Omit<TransitionProps<HTMLElement>, 'addEndListener'>
 
 const FadeTransition = (props: Props) => {
     const duration = props.duration || 300
-    const {children, ...otherProps} = props
+    const {children, nodeRef, ...otherProps} = props
+    const getNode = () => (nodeRef as RefObject<HTMLElement>).current as HTMLElement
     // eslint-disable-next-line no-undef
     const animationProps: KeyframeAnimationOptions = {
         fill: 'forwards',
         duration,
     }
-    const onEnter = (node: HTMLElement) => {
-        node.animate([{opacity: 0}, {opacity: 1}], animationProps)
+    const onEnter = () => {
+        getNode().animate([{opacity: 0}, {opacity: 1}], animationProps)
     }
-    const onExit = (node: HTMLElement) => {
-        node.animate(
+    const onExit = () => {
+        getNode().animate(
             [
                 {
                     maxHeight: '150px',
@@ -35,7 +35,7 @@ const FadeTransition = (props: Props) => {
     }
 
     return (
-        <Transition onEnter={onEnter} onExit={onExit} timeout={duration + 100} {...otherProps}>
+        <Transition nodeRef={nodeRef} onEnter={onEnter} onExit={onExit} timeout={duration + 100} {...otherProps}>
             {children}
         </Transition>
     )
