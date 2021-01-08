@@ -68,4 +68,21 @@ describe('<NotificationButton/>', () => {
 
         jest.resetAllMocks()
     })
+
+    it('should call `onClick` function by clicking on it', () => {
+        const button = {
+            name: 'yes',
+            onClick: jest.fn(),
+        }
+        const {getByTestId} = render(
+            <NotificationButton button={button} position={1} notification={notification} theme={atalhoTheme} />
+        )
+        const buttonElem = getByTestId('button')
+        act(() => {
+            fireEvent.click(buttonElem)
+        })
+
+        expect(button.onClick).toHaveBeenCalledTimes(1)
+        expect(button.onClick).toHaveBeenCalledWith()
+    })
 })

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {Notification, NotificationButton as ButtonType} from '../reducers/notifications/types'
 import {Theme} from '../themes/types'
 import {classnames} from '../constants'
+import {noop} from '../utils'
 
 type Props = {
     button: ButtonType
@@ -27,6 +28,7 @@ export const NotificationButton = (props: Props) => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseDown={() => setIsActive(true)}
             onMouseUp={() => setIsActive(false)}
+            onClick={typeof button.onClick === 'function' ? () => button.onClick!() : noop}
         >
             <span className={classnames.notificationButtonText} style={buttonTextStyles}>
                 {button.primary ? <b>{button.name}</b> : button.name}

@@ -41,3 +41,7 @@ export const clone = <T extends unknown>(origObject: T): T => {
 }
 
 export const isObject = (value: unknown) => !!value && (value as any).constructor === Object
+
+export const noop = () => {
+    // noop
+}
