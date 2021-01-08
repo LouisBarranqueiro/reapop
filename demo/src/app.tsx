@@ -26,9 +26,11 @@ setUpNotifications({
 })
 
 const App = hot(() => (
-    <Provider store={store}>
-        <Demo />
-    </Provider>
+    <React.StrictMode>
+        <Provider store={store}>
+            <Demo />
+        </Provider>
+    </React.StrictMode>
 ))
 
 render(<App />, document.getElementById('root'))

@@ -1,3 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GrowTranstion/> should display notification 1`] = `"<div notification=\\"[object Object]\\">notification</div>"`;
+
+exports[`<GrowTranstion/> should display notification 2`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "opacity": 0,
+        "transform": "scale(0.6)",
+      },
+      Object {
+        "opacity": 1,
+        "transform": "scale(1)",
+      },
+    ],
+    Object {
+      "duration": 300,
+      "fill": "forwards",
+    },
+  ],
+]
+`;
+
+exports[`<GrowTranstion/> should display notification 3`] = `"<div notification=\\"[object Object]\\" duration=\\"1\\">notification</div>"`;
+
+exports[`<GrowTranstion/> should display notification 4`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "opacity": 0,
+        "transform": "scale(0.6)",
+      },
+    ],
+    Object {
+      "duration": 1,
+      "fill": "forwards",
+    },
+  ],
+]
+`;

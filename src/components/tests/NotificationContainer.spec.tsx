@@ -12,7 +12,13 @@ describe('<NotificationContainer/>', () => {
         position: POSITIONS.topLeft,
         status: STATUSES.none,
         buttons: [],
+        dismissible: true,
     }
+
+    beforeAll(() => {
+        // jsdom does not provide `HTMLElement.animate` function so we have to mock it.
+        HTMLElement.prototype.animate = jest.fn()
+    })
 
     beforeEach(() => {
         jest.clearAllMocks()
@@ -121,11 +127,21 @@ describe('<NotificationContainer/>', () => {
         }, dismissAfter + 1)
     })
 
-    it('should render a container', () => {
+    it('should dismiss notification by clicking on it', () => {
+        const dismissNotificationSpy = jest.fn()
+        const {getByTestId} = render(
+            <NotificationContainer notification={baseNotification} dismissNotification={dismissNotificationSpy} />
+        )
+        const notificationElem = getByTestId('notification')
+        act(() => {
+            fireEvent.click(notificationElem)
+        })
+        expect(dismissNotificationSpy).toHaveBeenNthCalledWith(1, baseNotification.id)
+    })
+
+    it('should render a container with a notification', () => {
         const {container} = render(
-            <NotificationContainer notification={baseNotification} dismissNotification={jest.fn()}>
-                <div>hello world!</div>
-            </NotificationContainer>
+            <NotificationContainer notification={baseNotification} dismissNotification={jest.fn()} />
         )
         expect(pretty(container.innerHTML)).toMatchSnapshot()
     })

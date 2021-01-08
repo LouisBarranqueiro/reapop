@@ -3,79 +3,67 @@
 exports[`<NotificationsSystem/> should display notifications in each container and then in the top container 1`] = `
 "<div>
   <div class=\\"reapop__container reapop__container--top-center\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
   <div class=\\"reapop__container reapop__container--top-left\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
   <div class=\\"reapop__container reapop__container--top-right\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
   <div class=\\"reapop__container reapop__container--bottom-center\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
   <div class=\\"reapop__container reapop__container--bottom-left\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
   <div class=\\"reapop__container reapop__container--bottom-right\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
@@ -86,59 +74,57 @@ exports[`<NotificationsSystem/> should display notifications in each container a
 exports[`<NotificationsSystem/> should display notifications in each container and then in the top container 2`] = `
 "<div>
   <div class=\\"reapop__container reapop__container--top-center reapop__container--single\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
@@ -310,17 +296,8 @@ Array [
   Array [
     Object {
       "appear": undefined,
-      "children": <NotificationContainer
-        dismissNotification={[MockFunction]}
-        notification={
-          Object {
-            "buttons": Array [],
-            "id": "0",
-            "message": "hello world!",
-            "position": "top-center",
-            "status": "info",
-          }
-        }
+      "children": <div
+        data-testid="timed-notification"
       >
         <Notification
           components={
@@ -331,21 +308,12 @@ Array [
                 "results": Array [
                   Object {
                     "type": "return",
-                    "value": <NotificationContainer
-                      dismissNotification={[MockFunction]}
-                      notification={
-                        Object {
-                          "buttons": Array [],
-                          "id": "0",
-                          "message": "hello world!",
-                          "position": "top-center",
-                          "status": "info",
-                        }
-                      }
+                    "value": <div
+                      data-testid="timed-notification"
                     >
                       <Notification
                         components={[Circular]}
-                        dismissNotification={[MockFunction]}
+                        dismissNotification={[Function]}
                         notification={
                           Object {
                             "buttons": Array [],
@@ -356,25 +324,16 @@ Array [
                           }
                         }
                       />
-                    </NotificationContainer>,
+                    </div>,
                   },
                   Object {
                     "type": "return",
-                    "value": <NotificationContainer
-                      dismissNotification={[MockFunction]}
-                      notification={
-                        Object {
-                          "buttons": Array [],
-                          "id": "0",
-                          "message": "hello world!",
-                          "position": "top-center",
-                          "status": "info",
-                        }
-                      }
+                    "value": <div
+                      data-testid="timed-notification"
                     >
                       <Notification
                         components={[Circular]}
-                        dismissNotification={[MockFunction]}
+                        dismissNotification={[Function]}
                         notification={
                           Object {
                             "buttons": Array [],
@@ -385,13 +344,13 @@ Array [
                           }
                         }
                       />
-                    </NotificationContainer>,
+                    </div>,
                   },
                 ],
               },
             }
           }
-          dismissNotification={[MockFunction]}
+          dismissNotification={[Function]}
           notification={
             Object {
               "buttons": Array [],
@@ -402,10 +361,34 @@ Array [
             }
           }
         />
-      </NotificationContainer>,
+      </div>,
       "enter": undefined,
       "exit": undefined,
       "in": true,
+      "nodeRef": Object {
+        "current": <div
+          data-testid="timed-notification"
+        >
+          <div
+            class="reapop__notification reapop__notification--info reapop__notification--buttons-0 "
+            data-testid="notification"
+            role="alert"
+          >
+            <div>
+              custom-icon
+            </div>
+            <div
+              class="reapop__notification-meta"
+            >
+              <p
+                class="reapop__notification-message"
+              >
+                hello world!
+              </p>
+            </div>
+          </div>
+        </div>,
+      },
       "notification": Object {
         "buttons": Array [],
         "id": "0",
@@ -419,17 +402,8 @@ Array [
   ],
   Array [
     Object {
-      "children": <NotificationContainer
-        dismissNotification={[MockFunction]}
-        notification={
-          Object {
-            "buttons": Array [],
-            "id": "0",
-            "message": "hello world!",
-            "position": "top-center",
-            "status": "info",
-          }
-        }
+      "children": <div
+        data-testid="timed-notification"
       >
         <Notification
           components={
@@ -440,21 +414,12 @@ Array [
                 "results": Array [
                   Object {
                     "type": "return",
-                    "value": <NotificationContainer
-                      dismissNotification={[MockFunction]}
-                      notification={
-                        Object {
-                          "buttons": Array [],
-                          "id": "0",
-                          "message": "hello world!",
-                          "position": "top-center",
-                          "status": "info",
-                        }
-                      }
+                    "value": <div
+                      data-testid="timed-notification"
                     >
                       <Notification
                         components={[Circular]}
-                        dismissNotification={[MockFunction]}
+                        dismissNotification={[Function]}
                         notification={
                           Object {
                             "buttons": Array [],
@@ -465,25 +430,16 @@ Array [
                           }
                         }
                       />
-                    </NotificationContainer>,
+                    </div>,
                   },
                   Object {
                     "type": "return",
-                    "value": <NotificationContainer
-                      dismissNotification={[MockFunction]}
-                      notification={
-                        Object {
-                          "buttons": Array [],
-                          "id": "0",
-                          "message": "hello world!",
-                          "position": "top-center",
-                          "status": "info",
-                        }
-                      }
+                    "value": <div
+                      data-testid="timed-notification"
                     >
                       <Notification
                         components={[Circular]}
-                        dismissNotification={[MockFunction]}
+                        dismissNotification={[Function]}
                         notification={
                           Object {
                             "buttons": Array [],
@@ -494,13 +450,13 @@ Array [
                           }
                         }
                       />
-                    </NotificationContainer>,
+                    </div>,
                   },
                 ],
               },
             }
           }
-          dismissNotification={[MockFunction]}
+          dismissNotification={[Function]}
           notification={
             Object {
               "buttons": Array [],
@@ -511,10 +467,34 @@ Array [
             }
           }
         />
-      </NotificationContainer>,
+      </div>,
       "enter": undefined,
       "exit": undefined,
       "in": true,
+      "nodeRef": Object {
+        "current": <div
+          data-testid="timed-notification"
+        >
+          <div
+            class="reapop__notification reapop__notification--info reapop__notification--buttons-0 "
+            data-testid="notification"
+            role="alert"
+          >
+            <div>
+              custom-icon
+            </div>
+            <div
+              class="reapop__notification-meta"
+            >
+              <p
+                class="reapop__notification-message"
+              >
+                hello world!
+              </p>
+            </div>
+          </div>
+        </div>,
+      },
       "notification": Object {
         "buttons": Array [],
         "id": "0",
@@ -532,32 +512,20 @@ Array [
 exports[`<NotificationsSystem/> should display notifications with custom components (transition and icon) 2`] = `
 "<div>
   <div class=\\"reapop__container reapop__container--top-center\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\">
-          <div>custom-icon</div>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\">
+        <div>custom-icon</div>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
-  <div class=\\"reapop__container reapop__container--top-left\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--top-right\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-center\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-left\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-right\\">
-    <div></div>
-  </div>
+  <div class=\\"reapop__container reapop__container--top-left\\"></div>
+  <div class=\\"reapop__container reapop__container--top-right\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-center\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-left\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-right\\"></div>
 </div>"
 `;
 
@@ -566,17 +534,8 @@ Array [
   Array [
     Object {
       "appear": undefined,
-      "children": <NotificationContainer
-        dismissNotification={[MockFunction]}
-        notification={
-          Object {
-            "buttons": Array [],
-            "id": "0",
-            "message": "hello world!",
-            "position": "top-center",
-            "status": "info",
-          }
-        }
+      "children": <div
+        data-testid="timed-notification"
       >
         <CustomNotification
           components={
@@ -587,21 +546,12 @@ Array [
                 "results": Array [
                   Object {
                     "type": "return",
-                    "value": <NotificationContainer
-                      dismissNotification={[MockFunction]}
-                      notification={
-                        Object {
-                          "buttons": Array [],
-                          "id": "0",
-                          "message": "hello world!",
-                          "position": "top-center",
-                          "status": "info",
-                        }
-                      }
+                    "value": <div
+                      data-testid="timed-notification"
                     >
                       <CustomNotification
                         components={[Circular]}
-                        dismissNotification={[MockFunction]}
+                        dismissNotification={[Function]}
                         notification={
                           Object {
                             "buttons": Array [],
@@ -612,25 +562,16 @@ Array [
                           }
                         }
                       />
-                    </NotificationContainer>,
+                    </div>,
                   },
                   Object {
                     "type": "return",
-                    "value": <NotificationContainer
-                      dismissNotification={[MockFunction]}
-                      notification={
-                        Object {
-                          "buttons": Array [],
-                          "id": "0",
-                          "message": "hello world!",
-                          "position": "top-center",
-                          "status": "info",
-                        }
-                      }
+                    "value": <div
+                      data-testid="timed-notification"
                     >
                       <CustomNotification
                         components={[Circular]}
-                        dismissNotification={[MockFunction]}
+                        dismissNotification={[Function]}
                         notification={
                           Object {
                             "buttons": Array [],
@@ -641,13 +582,13 @@ Array [
                           }
                         }
                       />
-                    </NotificationContainer>,
+                    </div>,
                   },
                 ],
               },
             }
           }
-          dismissNotification={[MockFunction]}
+          dismissNotification={[Function]}
           notification={
             Object {
               "buttons": Array [],
@@ -658,10 +599,19 @@ Array [
             }
           }
         />
-      </NotificationContainer>,
+      </div>,
       "enter": undefined,
       "exit": undefined,
       "in": true,
+      "nodeRef": Object {
+        "current": <div
+          data-testid="timed-notification"
+        >
+          <div>
+            custom-notification
+          </div>
+        </div>,
+      },
       "notification": Object {
         "buttons": Array [],
         "id": "0",
@@ -675,17 +625,8 @@ Array [
   ],
   Array [
     Object {
-      "children": <NotificationContainer
-        dismissNotification={[MockFunction]}
-        notification={
-          Object {
-            "buttons": Array [],
-            "id": "0",
-            "message": "hello world!",
-            "position": "top-center",
-            "status": "info",
-          }
-        }
+      "children": <div
+        data-testid="timed-notification"
       >
         <CustomNotification
           components={
@@ -696,21 +637,12 @@ Array [
                 "results": Array [
                   Object {
                     "type": "return",
-                    "value": <NotificationContainer
-                      dismissNotification={[MockFunction]}
-                      notification={
-                        Object {
-                          "buttons": Array [],
-                          "id": "0",
-                          "message": "hello world!",
-                          "position": "top-center",
-                          "status": "info",
-                        }
-                      }
+                    "value": <div
+                      data-testid="timed-notification"
                     >
                       <CustomNotification
                         components={[Circular]}
-                        dismissNotification={[MockFunction]}
+                        dismissNotification={[Function]}
                         notification={
                           Object {
                             "buttons": Array [],
@@ -721,25 +653,16 @@ Array [
                           }
                         }
                       />
-                    </NotificationContainer>,
+                    </div>,
                   },
                   Object {
                     "type": "return",
-                    "value": <NotificationContainer
-                      dismissNotification={[MockFunction]}
-                      notification={
-                        Object {
-                          "buttons": Array [],
-                          "id": "0",
-                          "message": "hello world!",
-                          "position": "top-center",
-                          "status": "info",
-                        }
-                      }
+                    "value": <div
+                      data-testid="timed-notification"
                     >
                       <CustomNotification
                         components={[Circular]}
-                        dismissNotification={[MockFunction]}
+                        dismissNotification={[Function]}
                         notification={
                           Object {
                             "buttons": Array [],
@@ -750,13 +673,13 @@ Array [
                           }
                         }
                       />
-                    </NotificationContainer>,
+                    </div>,
                   },
                 ],
               },
             }
           }
-          dismissNotification={[MockFunction]}
+          dismissNotification={[Function]}
           notification={
             Object {
               "buttons": Array [],
@@ -767,10 +690,19 @@ Array [
             }
           }
         />
-      </NotificationContainer>,
+      </div>,
       "enter": undefined,
       "exit": undefined,
       "in": true,
+      "nodeRef": Object {
+        "current": <div
+          data-testid="timed-notification"
+        >
+          <div>
+            custom-notification
+          </div>
+        </div>,
+      },
       "notification": Object {
         "buttons": Array [],
         "id": "0",
@@ -788,125 +720,77 @@ Array [
 exports[`<NotificationsSystem/> should display notifications with custom components (transition and notification) 2`] = `
 "<div>
   <div class=\\"reapop__container reapop__container--top-center\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div>custom-notification</div>
-      </div>
+    <div data-testid=\\"timed-notification\\">
+      <div>custom-notification</div>
     </div>
   </div>
-  <div class=\\"reapop__container reapop__container--top-left\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--top-right\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-center\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-left\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-right\\">
-    <div></div>
-  </div>
+  <div class=\\"reapop__container reapop__container--top-left\\"></div>
+  <div class=\\"reapop__container reapop__container--top-right\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-center\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-left\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-right\\"></div>
 </div>"
 `;
 
 exports[`<NotificationsSystem/> should display notifications with default components 1`] = `
 "<div>
   <div class=\\"reapop__container reapop__container--top-center\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
-  <div class=\\"reapop__container reapop__container--top-left\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--top-right\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-center\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-left\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-right\\">
-    <div></div>
-  </div>
+  <div class=\\"reapop__container reapop__container--top-left\\"></div>
+  <div class=\\"reapop__container reapop__container--top-right\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-center\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-left\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-right\\"></div>
 </div>"
 `;
 
 exports[`<NotificationsSystem/> should display notifications with theme 1`] = `
 "<div>
   <div style=\\"position: fixed; z-index: 999999; top: 20px; left: 50%; transform: translateX(-50%);\\" class=\\"reapop__container reapop__container--top-center\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" style=\\"display: flex; width: 350px; height: 100%; position: relative; border-radius: 5px; border: 1px solid rgba(0,0,0,.1); box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.3); background-color: rgb(47, 47, 54); color: rgb(255, 255, 255); margin-bottom: 20px; z-index: 999;\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" style=\\"display: flex; width: 20px; height: 20px; box-sizing: border-box; margin: 10px 0px 10px 15px; align-self: flex-start; flex-shrink: 0; color: rgb(65, 146, 255);\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div style=\\"vertical-align: top; box-sizing: border-box; width: 100%; padding: 10px 20px;\\" class=\\"reapop__notification-meta\\">
-            <p style=\\"margin: 0px; font-size: 14px; color: rgb(185, 194, 203); line-height: 1.428571429;\\" class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" style=\\"display: flex; width: 350px; height: 100%; position: relative; border-radius: 5px; border: 1px solid rgba(0,0,0,.1); box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.3); background-color: rgb(47, 47, 54); color: rgb(255, 255, 255); margin-bottom: 20px; z-index: 999;\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" style=\\"display: flex; width: 20px; height: 20px; box-sizing: border-box; margin: 10px 0px 10px 15px; align-self: flex-start; flex-shrink: 0; color: rgb(65, 146, 255);\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div style=\\"vertical-align: top; box-sizing: border-box; width: 100%; padding: 10px 20px;\\" class=\\"reapop__notification-meta\\">
+          <p style=\\"margin: 0px; font-size: 14px; color: rgb(185, 194, 203); line-height: 1.428571429;\\" class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
-  <div style=\\"position: fixed; z-index: 999999; top: 20px; left: 20px;\\" class=\\"reapop__container reapop__container--top-left\\">
-    <div></div>
-  </div>
-  <div style=\\"position: fixed; z-index: 999999; top: 20px; right: 20px;\\" class=\\"reapop__container reapop__container--top-right\\">
-    <div></div>
-  </div>
-  <div style=\\"position: fixed; z-index: 999999; bottom: 20px; left: 50%; transform: translateX(-50%);\\" class=\\"reapop__container reapop__container--bottom-center\\">
-    <div></div>
-  </div>
-  <div style=\\"position: fixed; z-index: 999999; bottom: 20px; left: 20px;\\" class=\\"reapop__container reapop__container--bottom-left\\">
-    <div></div>
-  </div>
-  <div style=\\"position: fixed; z-index: 999999; bottom: 20px; right: 20px;\\" class=\\"reapop__container reapop__container--bottom-right\\">
-    <div></div>
-  </div>
+  <div style=\\"position: fixed; z-index: 999999; top: 20px; left: 20px;\\" class=\\"reapop__container reapop__container--top-left\\"></div>
+  <div style=\\"position: fixed; z-index: 999999; top: 20px; right: 20px;\\" class=\\"reapop__container reapop__container--top-right\\"></div>
+  <div style=\\"position: fixed; z-index: 999999; bottom: 20px; left: 50%; transform: translateX(-50%);\\" class=\\"reapop__container reapop__container--bottom-center\\"></div>
+  <div style=\\"position: fixed; z-index: 999999; bottom: 20px; left: 20px;\\" class=\\"reapop__container reapop__container--bottom-left\\"></div>
+  <div style=\\"position: fixed; z-index: 999999; bottom: 20px; right: 20px;\\" class=\\"reapop__container reapop__container--bottom-right\\"></div>
 </div>"
 `;
 
 exports[`<NotificationsSystem/> should display notifications without theme 1`] = `
 "<div>
   <div class=\\"reapop__container reapop__container--top-center\\">
-    <div>
-      <div data-testid=\\"timed-notification\\">
-        <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
-            <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
-          </svg>
-          <div class=\\"reapop__notification-meta\\">
-            <p class=\\"reapop__notification-message\\">hello world!</p>
-          </div>
+    <div data-testid=\\"timed-notification\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+          <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
+        </svg>
+        <div class=\\"reapop__notification-meta\\">
+          <p class=\\"reapop__notification-message\\">hello world!</p>
         </div>
       </div>
     </div>
   </div>
-  <div class=\\"reapop__container reapop__container--top-left\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--top-right\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-center\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-left\\">
-    <div></div>
-  </div>
-  <div class=\\"reapop__container reapop__container--bottom-right\\">
-    <div></div>
-  </div>
+  <div class=\\"reapop__container reapop__container--top-left\\"></div>
+  <div class=\\"reapop__container reapop__container--top-right\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-center\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-left\\"></div>
+  <div class=\\"reapop__container reapop__container--bottom-right\\"></div>
 </div>"
 `;

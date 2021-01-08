@@ -1,18 +1,27 @@
-import React, {ReactNode, useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {Timer} from '../utils'
 import {Notification as NotificationType} from '../reducers/notifications/types'
 import {DismissNotification} from './NotificationsSystem'
+import {useComponentsContext} from '../hooks/useComponentsContext'
+import SlideTransition from './SlideTransition'
+import {useTheme} from '../hooks/useTheme'
+import NotificationComponent from './Notification'
+import {TransitionProps} from 'react-transition-group/Transition'
 
 type Props = {
     notification: NotificationType
     dismissNotification: DismissNotification
-    children?: ReactNode
-}
+} & Omit<TransitionProps, 'addEndListener'>
 
 const NotificationContainer = (props: Props) => {
-    const {notification, dismissNotification} = props
+    const {notification, dismissNotification, ...transitionProps} = props
     const {dismissAfter, onAdd, onDismiss} = notification
+    const components = useComponentsContext()
+    const theme = useTheme()
+    const Transition = components.Transition || SlideTransition
+    const Notification = components.Notification || NotificationComponent
     const [timer, setTimer] = useState<Timer | null>(null)
+    const nodeRef = useRef(null)
 
     useEffect(() => {
         if (onAdd) {
@@ -37,13 +46,21 @@ const NotificationContainer = (props: Props) => {
     }, [dismissAfter])
 
     return (
-        <div
-            data-testid="timed-notification"
-            onMouseEnter={timer ? () => timer.pause() : undefined}
-            onMouseLeave={timer ? () => timer.resume() : undefined}
-        >
-            {props.children}
-        </div>
+        <Transition notification={notification} nodeRef={nodeRef} {...transitionProps}>
+            <div
+                ref={nodeRef}
+                data-testid="timed-notification"
+                onMouseEnter={timer ? () => timer.pause() : undefined}
+                onMouseLeave={timer ? () => timer.resume() : undefined}
+            >
+                <Notification
+                    notification={notification}
+                    theme={theme}
+                    dismissNotification={() => dismissNotification(notification.id)}
+                    components={components}
+                />
+            </div>
+        </Transition>
     )
 }
 

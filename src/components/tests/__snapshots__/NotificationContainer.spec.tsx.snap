@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NotificationContainer/> should render a container 1`] = `
+exports[`<NotificationContainer/> should render a container with a notification 1`] = `
 "<div data-testid=\\"timed-notification\\">
-  <div>hello world!</div>
+  <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--none reapop__notification--buttons-0 reapop__notification--dismissible\\">
+    <div class=\\"reapop__notification-meta\\">
+      <p class=\\"reapop__notification-message\\">hello world!</p>
+    </div>
+  </div>
 </div>"
 `;

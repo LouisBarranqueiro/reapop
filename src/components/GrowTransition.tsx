@@ -1,23 +1,23 @@
-import React, {ReactNode} from 'react'
+import React, {RefObject} from 'react'
 import {Transition} from 'react-transition-group'
+import {TransitionProps} from 'react-transition-group/Transition'
 
 type Props = {
-    children: ReactNode
     duration?: number
-    [index: string]: any
-}
+} & Omit<TransitionProps<HTMLElement>, 'addEndListener'>
 
 const GrowTransition = (props: Props) => {
     const colapseAnimationDuration = 250
     const duration = props.duration || 300
-    const {children, ...otherProps} = props
+    const {children, nodeRef, ...otherProps} = props
+    const getNode = () => (nodeRef as RefObject<HTMLElement>).current as HTMLElement
     // eslint-disable-next-line no-undef
     const animationProps: KeyframeAnimationOptions = {
         fill: 'forwards',
         duration,
     }
-    const onEnter = (node: HTMLElement) => {
-        node.animate(
+    const onEnter = () => {
+        getNode().animate(
             [
                 {
                     transform: 'scale(0.6)',
@@ -31,14 +31,14 @@ const GrowTransition = (props: Props) => {
             animationProps
         )
     }
-    const onExit = (node: HTMLElement) => {
+    const onExit = () => {
         const hideAnimationDuration = duration
-        node.animate([{transform: 'scale(0.6)', opacity: 0}], animationProps)
+        getNode().animate([{transform: 'scale(0.6)', opacity: 0}], animationProps)
         setTimeout(() => {
             // `150px`: A value higher than the height a notification can have
             // to create a smooth animation for displayed notifications
             // when a notification is removed from a container.
-            node.animate([{maxHeight: '150px'}, {margin: 0, maxHeight: 0}], {
+            getNode().animate([{maxHeight: '150px'}, {margin: 0, maxHeight: 0}], {
                 fill: 'forwards',
                 duration: hideAnimationDuration,
             })
@@ -46,7 +46,13 @@ const GrowTransition = (props: Props) => {
     }
 
     return (
-        <Transition onEnter={onEnter} onExit={onExit} timeout={duration + colapseAnimationDuration} {...otherProps}>
+        <Transition
+            nodeRef={nodeRef}
+            onEnter={onEnter}
+            onExit={onExit}
+            timeout={duration + colapseAnimationDuration}
+            {...otherProps}
+        >
             {children}
         </Transition>
     )
