@@ -56,7 +56,7 @@
     "@types/react-redux": "7.1.15",
     "@types/react-transition-group": "4.4.0",
     "@types/redux": "3.6.0",
-    "@types/webpack": "4.41.25",
+    "@types/webpack": "4.41.26",
     "@types/webpack-dev-middleware": "3.7.2",
     "@types/webpack-hot-middleware": "2.25.3",
     "@typescript-eslint/eslint-plugin": "4.13.0",
