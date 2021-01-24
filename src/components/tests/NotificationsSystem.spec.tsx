@@ -94,4 +94,46 @@ describe('<NotificationsSystem/>', () => {
         }
         expect(pretty(container.innerHTML)).toMatchSnapshot()
     })
+
+    it('should display a notification in any desired container if smallScreenBreakpoint is disabled', () => {
+        const windowInitialHeight = window.innerHeight
+        const windowInitialWidth = window.innerWidth
+
+        act(() => {
+            window.resizeTo(100, 100)
+        })
+
+        const desiredContainer = 'bottom-center'
+        const oneNotification: Notification[] = [
+            {
+                id: '0',
+                position: desiredContainer,
+                message: 'hello world!',
+                status: STATUSES.info,
+                buttons: [],
+            },
+        ]
+
+        const {container} = render(
+            <NotificationsSystem
+                notifications={oneNotification}
+                dismissNotification={jest.fn()}
+                smallScreenBreakpoint={0}
+            />
+        )
+
+        const oneContainer = container.querySelector(`.reapop__container--${desiredContainer}`)
+        if (oneContainer) {
+            expect(oneContainer.children).toHaveLength(1)
+        }
+        const fallbackContainer = container.querySelector('.reapop__container--top-center')
+        if (fallbackContainer) {
+            expect(fallbackContainer.children).toHaveLength(0)
+        }
+
+        act(() => {
+            // resize window back to its initial size
+            window.resizeTo(windowInitialWidth, windowInitialHeight)
+        })
+    })
 })
