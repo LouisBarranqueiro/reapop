@@ -162,7 +162,7 @@ Components responsible for displaying notifications.
 | --------------------- | -------------- | ------- | ----------- |
 | notifications         | Notification[] |         | Notifications to be displayed |
 | dismissNotification   | Function       |         | Function responsible for dismissing a notification.
-| smallScreenBreakpoint | Function       | `768`   | Maximum window width under which all notifications will be positioned at top center of the screen no matter the `position` property of the notifications.
+| smallScreenBreakpoint | number         | `768`   | Maximum window width under which all notifications will be positioned at top center of the screen no matter the `position` property of the notifications.
 | components            | Object         | `{}`    | Custom components used to replace builtIn components. Customizable components: `Transition`, `NotificationIcon` and `Notification`
 | theme                 | Theme          |         | Theme used to display notifications. Available themes: `atalhoTheme`, `wyboTheme`, `bootstrapTheme`. You can also create your custom theme, or customize notifications with CSS files.
 

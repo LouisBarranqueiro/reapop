@@ -17,7 +17,7 @@ export type Props = {
 }
 
 const NotificationsSystem = (props: Props) => {
-    const smallScreenBreakpoint = props.smallScreenBreakpoint || 768
+    const smallScreenBreakpoint = typeof props.smallScreenBreakpoint !== 'undefined' ? props.smallScreenBreakpoint : 768
     const theme = props.theme
     const components = props.components || {}
     const {notifications, dismissNotification} = props
