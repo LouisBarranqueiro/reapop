@@ -23,9 +23,8 @@ jobs:
       run: npm run build-demo
     - name: Deploy demo website
       if: github.ref == 'refs/heads/master'
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: demo/dist
-        CLEAN: true # Automatically remove deleted files
+        branch: gh-pages
+        folder: demo/dist
+        clean: true # Automatically remove deleted files
