@@ -19,11 +19,7 @@
     "extends": [
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "prettier",
-        "prettier/@typescript-eslint",
-        "prettier/babel",
-        "prettier/react",
-        "prettier/standard"
+        "prettier"
     ],
     "env": {
         "browser": true,
