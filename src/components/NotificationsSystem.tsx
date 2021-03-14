@@ -9,7 +9,7 @@ import NotificationsContainer from './NotificationsContainer'
 export type DismissNotification = (id: string) => void
 
 export type Props = {
-    notifications: Notification[]
+    notifications: Notification[] | undefined
     dismissNotification: DismissNotification
     smallScreenBreakpoint?: number
     components?: ComponentContextType
