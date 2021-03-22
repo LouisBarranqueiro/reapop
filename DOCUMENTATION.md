@@ -11,6 +11,7 @@
     * [Themes](#themes)
 * [Guides](#guides)
     * [Set default notifications attributes](#set-default-notifications-attributes)
+    * [Define notifications behaviors for small screens](#define-notifications-behaviors-for-small-screens)
     * [Customize the transition of notifications](#customize-the-transition-of-notifications)
     * [Create a custom theme with inline CSS)](#create-a-custom-theme-with-inline-css)
     * [Create a custom theme with a CSS file](#create-a-custom-theme-with-a-css-file)
@@ -243,6 +244,24 @@ setUpNotifications({
         dismissible: true
     } 
 })
+```
+
+
+### Define notifications behaviors for small screens
+
+Customize the `smallScreenBreakpoint` property of the `NotificationsSystem` component to define when to display notifications at the top center of the screen. 
+
+``` jsx
+const ATopLevelComponent = () => {
+    return (
+        <div>
+            <NotificationsSystem
+                smallScreenBreakpoint={500}
+                {...otherProps}
+            />
+        </div>
+    )
+}
 ```
 
 ### Create a custom theme with inline CSS
