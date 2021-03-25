@@ -39,5 +39,21 @@ Array [
       "fill": "forwards",
     },
   ],
+  Array [
+    Array [
+      Object {
+        "maxHeight": "150px",
+      },
+      Object {
+        "margin": 0,
+        "maxHeight": 0,
+      },
+    ],
+    Object {
+      "delay": 1,
+      "duration": 1,
+      "fill": "forwards",
+    },
+  ],
 ]
 `;
