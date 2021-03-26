@@ -11,7 +11,7 @@ type Props = {
 
 const SlideTransition = (props: Props) => {
     const duration = props.duration || 300
-    const colapseAnimationDuration = 250
+    const collapseAnimationDuration = 250
     const {children, notification, nodeRef, ...otherProps} = props
     const getNode = () => (nodeRef as RefObject<HTMLElement>).current as HTMLElement
     const transformDirection = ([POSITIONS.topCenter, POSITIONS.bottomCenter] as string[]).includes(
@@ -42,15 +42,14 @@ const SlideTransition = (props: Props) => {
     const onExit = () => {
         const hideAnimationDuration = duration
         getNode().animate([{transform: `${transformDirection}(${transformValue})`, opacity: 0}], animationProps)
-        setTimeout(() => {
-            // `150px`: A value higher than the height a notification can have
-            // to create a smooth animation for displayed notifications
-            // when a notification is removed from a container.
-            getNode().animate([{maxHeight: '150px'}, {margin: 0, maxHeight: 0}], {
-                ...animationProps,
-                duration: colapseAnimationDuration,
-            })
-        }, hideAnimationDuration)
+        // `150px`: A value higher than the height a notification can have
+        // to create a smooth animation for displayed notifications
+        // when a notification is removed from a container.
+        getNode().animate([{maxHeight: '150px'}, {margin: 0, maxHeight: 0}], {
+            ...animationProps,
+            duration: collapseAnimationDuration,
+            delay: hideAnimationDuration,
+        })
     }
 
     return (
@@ -58,7 +57,7 @@ const SlideTransition = (props: Props) => {
             nodeRef={nodeRef}
             onEnter={onEnter}
             onExit={onExit}
-            timeout={duration + colapseAnimationDuration}
+            timeout={duration + collapseAnimationDuration}
             {...otherProps}
         >
             {children}

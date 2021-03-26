@@ -7,7 +7,7 @@ type Props = {
 } & Omit<TransitionProps<HTMLElement>, 'addEndListener'>
 
 const GrowTransition = (props: Props) => {
-    const colapseAnimationDuration = 250
+    const collapseAnimationDuration = 250
     const duration = props.duration || 300
     const {children, nodeRef, ...otherProps} = props
     const getNode = () => (nodeRef as RefObject<HTMLElement>).current as HTMLElement
@@ -34,15 +34,14 @@ const GrowTransition = (props: Props) => {
     const onExit = () => {
         const hideAnimationDuration = duration
         getNode().animate([{transform: 'scale(0.6)', opacity: 0}], animationProps)
-        setTimeout(() => {
-            // `150px`: A value higher than the height a notification can have
-            // to create a smooth animation for displayed notifications
-            // when a notification is removed from a container.
-            getNode().animate([{maxHeight: '150px'}, {margin: 0, maxHeight: 0}], {
-                fill: 'forwards',
-                duration: hideAnimationDuration,
-            })
-        }, hideAnimationDuration)
+        // `150px`: A value higher than the height a notification can have
+        // to create a smooth animation for displayed notifications
+        // when a notification is removed from a container.
+        getNode().animate([{maxHeight: '150px'}, {margin: 0, maxHeight: 0}], {
+            fill: 'forwards',
+            duration: hideAnimationDuration,
+            delay: hideAnimationDuration,
+        })
     }
 
     return (
@@ -50,7 +49,7 @@ const GrowTransition = (props: Props) => {
             nodeRef={nodeRef}
             onEnter={onEnter}
             onExit={onExit}
-            timeout={duration + colapseAnimationDuration}
+            timeout={duration + collapseAnimationDuration}
             {...otherProps}
         >
             {children}
