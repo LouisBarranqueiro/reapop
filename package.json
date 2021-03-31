@@ -45,7 +45,7 @@
     "@babel/preset-env": "7.13.12",
     "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",
-    "@teamsupercell/typings-for-css-modules-loader": "2.4.0",
+    "@teamsupercell/typings-for-css-modules-loader": "2.5.1",
     "@testing-library/react": "11.2.6",
     "@types/copy-webpack-plugin": "6.4.1",
     "@types/express": "4.17.11",
