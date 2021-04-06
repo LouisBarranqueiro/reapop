@@ -65,7 +65,7 @@
     "babel-loader": "8.2.2",
     "bootstrap": "4.6.0",
     "codecov": "3.8.1",
-    "copy-webpack-plugin": "8.1.0",
+    "copy-webpack-plugin": "8.1.1",
     "css-loader": "5.2.0",
     "eslint": "7.23.0",
     "eslint-config-prettier": "8.1.0",
