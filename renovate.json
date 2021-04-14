@@ -18,7 +18,12 @@
             "automergeType": "branch"
         },
         {
+            "updateTypes": [
+                "patch",
+                "minor"
+            ],
             "packagePatterns": [
+                "webpack",
                 "eslint",
                 "^jest$",
                 "^@babel/",
