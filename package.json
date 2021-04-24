@@ -67,7 +67,7 @@
     "codecov": "3.8.1",
     "copy-webpack-plugin": "8.1.1",
     "css-loader": "5.2.4",
-    "eslint": "7.24.0",
+    "eslint": "7.25.0",
     "eslint-config-prettier": "8.2.0",
     "eslint-config-standard": "16.0.2",
     "eslint-config-standard-react": "11.0.1",
