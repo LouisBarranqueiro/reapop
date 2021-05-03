@@ -64,7 +64,7 @@
     "babel-eslint": "10.1.0",
     "babel-loader": "8.2.2",
     "bootstrap": "4.6.0",
-    "codecov": "3.8.1",
+    "codecov": "3.8.2",
     "copy-webpack-plugin": "8.1.1",
     "css-loader": "5.2.4",
     "eslint": "7.25.0",
