@@ -84,14 +84,14 @@ const NotificationCreator = (props: Props) => {
         <div>
             <h3 className="text-center mb-5">Notification Creator</h3>
             <form onSubmit={createNotification}>
-                <div className="form-group">
+                <div>
                     <div className="row">
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="title">
+                            <label className="form-label fw-bold" htmlFor="title">
                                 Theme
                             </label>
                             <select
-                                className="form-control"
+                                className="form-select"
                                 id="theme"
                                 name="theme"
                                 defaultValue={themeName}
@@ -109,11 +109,11 @@ const NotificationCreator = (props: Props) => {
                             </select>
                         </div>
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="title">
+                            <label className="form-label fw-bold" htmlFor="title">
                                 Transition
                             </label>
                             <select
-                                className="form-control"
+                                className="form-select"
                                 id="transition"
                                 name="transition"
                                 defaultValue={transitionName}
@@ -135,8 +135,8 @@ const NotificationCreator = (props: Props) => {
                     </div>
                 </div>
                 <hr className="mt-4 mb-4" />
-                <div className="form-group">
-                    <label className="font-weight-bold" htmlFor="title">
+                <div className="mb-3">
+                    <label className="form-label fw-bold" htmlFor="title">
                         Title
                     </label>
                     <input
@@ -148,8 +148,8 @@ const NotificationCreator = (props: Props) => {
                         onChange={onNotificationAttrChange('title')}
                     />
                 </div>
-                <div className="form-group">
-                    <label className="font-weight-bold" htmlFor="message">
+                <div className="mb-3">
+                    <label className="form-label fw-bold" htmlFor="message">
                         Message
                     </label>
                     <textarea
@@ -160,14 +160,14 @@ const NotificationCreator = (props: Props) => {
                         onChange={onNotificationAttrChange('message')}
                     />
                 </div>
-                <div className="form-group">
+                <div className="mb-3">
                     <div className="row">
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="status">
+                            <label className="form-label fw-bold" htmlFor="status">
                                 Position
                             </label>
                             <select
-                                className="form-control"
+                                className="form-select"
                                 id="position"
                                 name="position"
                                 defaultValue={position}
@@ -181,11 +181,11 @@ const NotificationCreator = (props: Props) => {
                             </select>
                         </div>
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="status">
+                            <label className="form-label fw-bold" htmlFor="status">
                                 Status
                             </label>
                             <select
-                                className="form-control"
+                                className="form-select"
                                 id="status"
                                 name="status"
                                 defaultValue={status}
@@ -200,10 +200,10 @@ const NotificationCreator = (props: Props) => {
                         </div>
                     </div>
                 </div>
-                <div className="form-group">
+                <div className="mb-3">
                     <div className="row">
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="dismissAfter">
+                            <label className="form-label fw-bold" htmlFor="dismissAfter">
                                 Dismiss after (ms)
                             </label>
                             <input
@@ -215,7 +215,7 @@ const NotificationCreator = (props: Props) => {
                             />
                         </div>
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="dismissible">
+                            <label className="form-label fw-bold" htmlFor="dismissible">
                                 Dismissible
                             </label>
                             <Switch
@@ -226,10 +226,10 @@ const NotificationCreator = (props: Props) => {
                         </div>
                     </div>
                 </div>
-                <div className="form-group">
-                    <div className="row">
+                <div className="mb-3">
+                    <div className="row mb-3">
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="button1-name">
+                            <label className="form-label fw-bold" htmlFor="button1-name">
                                 First button
                             </label>
                             <input
@@ -241,7 +241,7 @@ const NotificationCreator = (props: Props) => {
                             />
                         </div>
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="button1-primary">
+                            <label className="form-label fw-bold" htmlFor="button1-primary">
                                 Primary button
                             </label>
                             <Switch
@@ -253,7 +253,7 @@ const NotificationCreator = (props: Props) => {
                     </div>
                     <div className="row">
                         <div className="col-sm-6">
-                            <label className="font-weight-bold" htmlFor="button2-name">
+                            <label className="form-label fw-bold" htmlFor="button2-name">
                                 Second button
                             </label>
                             <input
@@ -265,7 +265,7 @@ const NotificationCreator = (props: Props) => {
                             />
                         </div>
                         <div className="col-sm-6">
-                            <label className="text-s font-weight-bold" htmlFor="button2-primary">
+                            <label className="form-label text-s fw-bold" htmlFor="button2-primary">
                                 Primary button
                             </label>
                             <Switch
@@ -276,9 +276,9 @@ const NotificationCreator = (props: Props) => {
                         </div>
                     </div>
                 </div>
-                <div className="form-group row">
+                <div className="mb-4 row">
                     <div className="col-sm-6">
-                        <label className="font-weight-bold" htmlFor="allowHTML">
+                        <label className="form-label fw-bold" htmlFor="allowHTML">
                             With image
                         </label>
                         <Switch
@@ -296,7 +296,7 @@ const NotificationCreator = (props: Props) => {
                         />
                     </div>
                     <div className="col-sm-6">
-                        <label className="font-weight-bold" htmlFor="dismissButton">
+                        <label className="form-label fw-bold" htmlFor="dismissButton">
                             Dismiss button
                         </label>
                         <Switch
@@ -306,9 +306,11 @@ const NotificationCreator = (props: Props) => {
                         />
                     </div>
                 </div>
-                <button type="submit" className="btn btn-primary btn-block">
-                    Notify
-                </button>
+                <div className="d-grid">
+                    <button type="submit" className="btn btn-primary btn-block">
+                        Notify
+                    </button>
+                </div>
             </form>
         </div>
     )

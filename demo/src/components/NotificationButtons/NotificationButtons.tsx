@@ -58,13 +58,13 @@ const NotificationButtons = () => {
 
     return (
         <div className="mt-4">
-            <button className="btn btn-primary font-weight-bold m-1" onClick={randomNotification}>
+            <button className="btn btn-primary fw-bold m-1" onClick={randomNotification}>
                 Random notification
             </button>
-            <button className="btn btn-primary font-weight-bold m-1" onClick={updatedNotification}>
+            <button className="btn btn-primary fw-bold m-1" onClick={updatedNotification}>
                 Updated notification
             </button>
-            <button className="btn btn-primary font-weight-bold m-1" onClick={() => dispatch(dismissNotifications())}>
+            <button className="btn btn-primary fw-bold m-1" onClick={() => dispatch(dismissNotifications())}>
                 Clear notifications
             </button>
         </div>
