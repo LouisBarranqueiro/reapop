@@ -95,7 +95,7 @@
     "react-redux": "7.2.4",
     "redux": "4.1.0",
     "redux-mock-store": "1.5.4",
-    "sass-loader": "11.0.1",
+    "sass-loader": "11.1.0",
     "style-loader": "2.0.0",
     "ts-node": "9.1.1",
     "tsdx": "0.14.1",
