@@ -25,7 +25,7 @@ describe('<FadeTransition/>', () => {
                 appear
                 in
                 notification={baseNotification}
-                nodeRef={(nodeRef as unknown) as RefObject<HTMLElement>}
+                nodeRef={nodeRef as unknown as RefObject<HTMLElement>}
             >
                 <div>notification</div>
             </FadeTransition>
@@ -41,7 +41,7 @@ describe('<FadeTransition/>', () => {
                 appear
                 in={false}
                 notification={baseNotification}
-                nodeRef={(nodeRef as unknown) as RefObject<HTMLElement>}
+                nodeRef={nodeRef as unknown as RefObject<HTMLElement>}
             >
                 <div>notification</div>
             </FadeTransition>

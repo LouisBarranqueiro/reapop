@@ -96,7 +96,7 @@ const NotificationCreator = (props: Props) => {
                                 name="theme"
                                 defaultValue={themeName}
                                 onChange={(evt) =>
-                                    onThemeChange(((evt.target as HTMLSelectElement).value as unknown) as ThemeNames)
+                                    onThemeChange((evt.target as HTMLSelectElement).value as unknown as ThemeNames)
                                 }
                             >
                                 {Object.keys(THEMES).map((themeName) => {
@@ -119,7 +119,7 @@ const NotificationCreator = (props: Props) => {
                                 defaultValue={transitionName}
                                 onChange={(evt) =>
                                     onTransitionChange(
-                                        ((evt.target as HTMLSelectElement).value as unknown) as TransitionNames
+                                        (evt.target as HTMLSelectElement).value as unknown as TransitionNames
                                     )
                                 }
                             >
