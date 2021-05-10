@@ -25,7 +25,7 @@ describe('<SlideTransition/>', () => {
                     appear
                     in
                     notification={baseNotification}
-                    nodeRef={(nodeRef as unknown) as RefObject<HTMLElement>}
+                    nodeRef={nodeRef as unknown as RefObject<HTMLElement>}
                 >
                     <div>notification</div>
                 </SlideTransition>
@@ -41,7 +41,7 @@ describe('<SlideTransition/>', () => {
                     appear
                     in={false}
                     notification={baseNotification}
-                    nodeRef={(nodeRef as unknown) as RefObject<HTMLElement>}
+                    nodeRef={nodeRef as unknown as RefObject<HTMLElement>}
                     duration={1}
                 >
                     <div>notification</div>
