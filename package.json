@@ -57,7 +57,7 @@
     "@types/react-transition-group": "4.4.1",
     "@types/redux": "3.6.0",
     "@types/webpack": "5.28.0",
-    "@types/webpack-dev-middleware": "4.2.0",
+    "@types/webpack-dev-middleware": "4.3.0",
     "@types/webpack-hot-middleware": "2.25.4",
     "@typescript-eslint/eslint-plugin": "4.24.0",
     "@typescript-eslint/parser": "4.24.0",
