@@ -14,6 +14,9 @@
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch"
   },
+  "engines": {
+    "node": ">= 12.13.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://LouisBarranqueiro@github.com/LouisBarranqueiro/reapop.git"
