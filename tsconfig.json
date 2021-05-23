@@ -20,7 +20,8 @@
         "esModuleInterop": true,
         // TS will keep JSX as part of the output.
         "jsx": "preserve",
-        "typeRoots": [ "./types", "./node_modules/@types"]
+        "typeRoots": [ "./types", "./node_modules/@types"],
+        "skipLibCheck": true,
     },
     "include": [
         "./src/**/*.ts",

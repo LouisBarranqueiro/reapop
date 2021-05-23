@@ -7,10 +7,11 @@
   "scripts": {
     "build-demo": "npx webpack --config=./demo/webpack.prod.config.ts",
     "check-style": "eslint . --quiet --ext .ts,.tsx,.js,.jsx",
+    "check-types": "npx tsc && npx tsc --project demo/tsconfig.json",
     "lint": "npm run check-style -- --fix",
     "prepublish": "tsdx build",
     "start": "ts-node demo/app.ts",
-    "test": "npm run check-style && npx jest",
+    "test": "npm run check-style && npm run check-types && npx jest",
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch"
   },
@@ -61,7 +62,7 @@
     "@types/redux": "3.6.0",
     "@types/webpack": "5.28.0",
     "@types/webpack-dev-middleware": "4.3.0",
-    "@types/webpack-hot-middleware": "2.25.4",
+    "@types/webpack-hot-middleware": "2.25.3",
     "@typescript-eslint/eslint-plugin": "4.24.0",
     "@typescript-eslint/parser": "4.24.0",
     "babel-eslint": "10.1.0",
