@@ -111,7 +111,7 @@
     "webpack-hot-middleware": "2.25.0"
   },
   "dependencies": {
-    "react-transition-group": "4.4.1"
+    "react-transition-group": "4.4.2"
   },
   "lint-staged": {
     "src/**/*.(ts|tsx|js|jsx)": "npm run lint"
