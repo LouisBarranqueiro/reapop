@@ -45,10 +45,10 @@
   "devDependencies": {
     "@babel/cli": "7.14.5",
     "@babel/core": "7.14.5",
-    "@babel/plugin-proposal-class-properties": "7.13.0",
+    "@babel/plugin-proposal-class-properties": "7.14.5",
     "@babel/preset-env": "7.14.5",
-    "@babel/preset-react": "7.13.13",
-    "@babel/preset-typescript": "7.13.0",
+    "@babel/preset-react": "7.14.5",
+    "@babel/preset-typescript": "7.14.5",
     "@teamsupercell/typings-for-css-modules-loader": "2.5.1",
     "@testing-library/react": "11.2.7",
     "@types/copy-webpack-plugin": "8.0.0",
