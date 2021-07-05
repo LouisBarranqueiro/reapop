@@ -13,7 +13,8 @@
     "start": "ts-node demo/app.ts",
     "test": "npm run check-style && npm run check-types && npx jest",
     "test:coverage": "npm test -- --coverage",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">= 12.13.0"
@@ -85,7 +86,7 @@
     "eslint-plugin-standard": "5.0.0",
     "express": "4.17.1",
     "file-loader": "6.2.0",
-    "husky": "6.0.0",
+    "husky": "7.0.0",
     "jest": "26.6.3",
     "jest-cli": "26.6.3",
     "lint-staged": "11.0.0",
