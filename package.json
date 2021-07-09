@@ -63,7 +63,7 @@
     "@types/redux": "3.6.0",
     "@types/webpack": "5.28.0",
     "@types/webpack-dev-middleware": "5.0.1",
-    "@types/webpack-hot-middleware": "2.25.3",
+    "@types/webpack-hot-middleware": "2.25.5",
     "@typescript-eslint/eslint-plugin": "4.28.2",
     "@typescript-eslint/parser": "4.28.2",
     "babel-eslint": "10.1.0",
