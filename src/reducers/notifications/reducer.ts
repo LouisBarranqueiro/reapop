@@ -1,6 +1,7 @@
 import {NotificationAction} from './constants'
 import {DismissNotificationAction, NotificationActions, UpsertNotificationAction} from './actions'
 import {Notification} from './types'
+import {clone} from '../../utils'
 
 type InitReduxAction = {
     type: string
@@ -12,7 +13,7 @@ const notificationsReducer = () => {
     return (state = INITIAL_STATE, action: NotificationActions | InitReduxAction): Notification[] => {
         switch (action.type) {
             case NotificationAction.UpsertNotification: {
-                const payload = (action as UpsertNotificationAction).payload
+                const payload = clone((action as UpsertNotificationAction).payload)
                 if (~state.findIndex((notif) => notif.id === payload.id)) {
                     return state.map((notif) => (notif.id === payload.id ? payload : notif))
                 }

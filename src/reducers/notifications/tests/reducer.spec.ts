@@ -28,7 +28,11 @@ describe('notificationsReducer', () => {
 
     describe('UpsertNotification', () => {
         it('should add notification', () => {
-            expect(reducer(undefined, notify({id: '1'}))).toMatchSnapshot()
+            const action = notify({id: '1'})
+            const newState = reducer(undefined, action)
+
+            expect(newState[0]).not.toBe(action.payload)
+            expect(newState).toMatchSnapshot()
         })
 
         it('should update notification', () => {
@@ -45,7 +49,10 @@ describe('notificationsReducer', () => {
             notification.allowHTML = true
 
             const action = notify({id: '1', dismissible: true})
-            expect(reducer(initialState, action)).toMatchSnapshot()
+            const newState = reducer(initialState, action)
+
+            expect(newState[0]).not.toBe(action.payload)
+            expect(newState).toMatchSnapshot()
         })
     })
 
