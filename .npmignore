@@ -21,3 +21,4 @@ scripts/*
 jest.config.js
 tsconfig.json
 codecov.yml
+.husky
