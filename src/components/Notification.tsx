@@ -20,7 +20,7 @@ type Props = {
 
 const Notification = (props: Props) => {
     const {notification, dismissNotification: dismiss, theme, components} = props
-    const {id, title, message, dismissible, showDismissButton, buttons, allowHTML, image} = notification
+    const {id, title, message, dismissible, showDismissButton, buttons, allowHTML, image, customComponent} = notification
     const wrapperClassname = classnames.notification(notification)
     const wrapperStyles = theme ? theme.notification(notification) : {}
     const metaStyles = theme ? theme.notificationMeta(notification) : {}
@@ -52,6 +52,7 @@ const Notification = (props: Props) => {
                             {title}
                         </h4>
                     ))}
+                {customComponent}
                 {message &&
                     (allowHTML ? (
                         <p
