@@ -1,4 +1,5 @@
 import {POSITIONS, STATUSES} from '../../constants'
+import { FC } from "react";
 
 export interface NotificationButton {
     name: string
@@ -23,6 +24,7 @@ export interface Notification {
     onDismiss?: (...args: any[]) => void
     showDismissButton?: boolean
     allowHTML?: boolean
+    customComponent?: FC
     [index: string]: any
 }
 
