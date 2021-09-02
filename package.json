@@ -106,7 +106,7 @@
     "tsdx": "0.14.1",
     "typescript": "4.4.2",
     "url-loader": "4.1.1",
-    "webpack": "5.51.1",
+    "webpack": "5.51.2",
     "webpack-cli": "4.8.0",
     "webpack-dev-middleware": "5.0.0",
     "webpack-hot-middleware": "2.25.0"
