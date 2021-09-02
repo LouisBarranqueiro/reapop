@@ -1,7 +1,6 @@
 import React from 'react'
 import {ReactNode, useReducer, useCallback} from 'react'
 import notificationsReducer from '../reducers/notifications/reducer'
-import {NewNotification} from '../reducers/notifications/types'
 import {dismissNotification, dismissNotifications, notify} from '../reducers/notifications/actions'
 import {ReapopNotificationsContext} from '../contexts/reapopNotificationsContext'
 
@@ -14,8 +13,8 @@ export const NotificationsProvider = (props: Props) => {
     const context = {
         notifications,
         notify: useCallback(
-            (notification: NewNotification) => {
-                const action = notify(notification)
+            (...args: [any, any?, any?]) => {
+                const action = notify(...args)
                 dispatch(action)
                 return action.payload
             },
