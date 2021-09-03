@@ -7,4 +7,5 @@ module.exports = {
     },
     setupFiles: ['./src/setup-tests.ts'],
     modulePaths: ['<rootDir>/'],
+    testEnvironment: 'jsdom',
 }
