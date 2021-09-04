@@ -26,15 +26,20 @@ describe('<NotificationsProvider/>', () => {
                 expect(useReducer).toHaveBeenNthCalledWith(1, mockReducer(), [])
                 expect(notifications).toEqual([])
 
-                const notification = notify({id: '1'})
+                let notification = notify({id: '1'})
                 expect(notification).toMatchSnapshot()
                 expect(mockDispatch.mock.calls).toMatchSnapshot()
-
                 jest.clearAllMocks()
+
+                notification = notify('world!', 'info', {title: 'hello', id: '1'})
+                expect(notification).toMatchSnapshot()
+                expect(mockDispatch.mock.calls).toMatchSnapshot()
+                jest.clearAllMocks()
+
                 dismissNotification('1')
                 expect(mockDispatch.mock.calls).toMatchSnapshot()
-
                 jest.clearAllMocks()
+
                 dismissNotifications()
                 expect(mockDispatch.mock.calls).toMatchSnapshot()
 

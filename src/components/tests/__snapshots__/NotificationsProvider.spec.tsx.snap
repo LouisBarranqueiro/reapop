@@ -24,6 +24,33 @@ Array [
 `;
 
 exports[`<NotificationsProvider/> should provide reducer state and actions 3`] = `
+Object {
+  "buttons": Array [],
+  "id": "1",
+  "message": "world!",
+  "status": "info",
+  "title": "hello",
+}
+`;
+
+exports[`<NotificationsProvider/> should provide reducer state and actions 4`] = `
+Array [
+  Array [
+    Object {
+      "payload": Object {
+        "buttons": Array [],
+        "id": "1",
+        "message": "world!",
+        "status": "info",
+        "title": "hello",
+      },
+      "type": "reapop/upsertNotification",
+    },
+  ],
+]
+`;
+
+exports[`<NotificationsProvider/> should provide reducer state and actions 5`] = `
 Array [
   Array [
     Object {
@@ -34,7 +61,7 @@ Array [
 ]
 `;
 
-exports[`<NotificationsProvider/> should provide reducer state and actions 4`] = `
+exports[`<NotificationsProvider/> should provide reducer state and actions 6`] = `
 Array [
   Array [
     Object {
