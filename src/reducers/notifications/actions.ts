@@ -20,7 +20,9 @@ export type DismissNotificationsAction = {
 function upsertNotification(notification: Partial<Notification>): UpsertNotificationAction
 function upsertNotification(message: string, options?: Partial<Notification>): UpsertNotificationAction
 function upsertNotification(message: string, status: Status, options?: Partial<Notification>): UpsertNotificationAction
-function upsertNotification(...args: unknown[]): UpsertNotificationAction {
+function upsertNotification(
+    ...args: [Partial<Notification> | string, (Partial<Notification> | Status)?, Partial<Notification>?]
+): UpsertNotificationAction {
     const lastArg = args[args.length - 1]
     let notification: NewNotification = {}
 
