@@ -86,7 +86,7 @@
     "eslint-plugin-standard": "5.0.0",
     "express": "4.17.1",
     "file-loader": "6.2.0",
-    "husky": "7.0.2",
+    "husky": "7.0.4",
     "jest": "27.3.1",
     "jest-cli": "27.3.1",
     "lint-staged": "11.2.3",
