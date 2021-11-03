@@ -57,7 +57,7 @@
     "@types/faker": "5.5.9",
     "@types/pretty": "2.0.0",
     "@types/react": "17.0.34",
-    "@types/react-dom": "17.0.10",
+    "@types/react-dom": "17.0.11",
     "@types/react-redux": "7.1.20",
     "@types/react-transition-group": "4.4.4",
     "@types/redux": "3.6.0",
