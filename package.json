@@ -108,7 +108,7 @@
     "url-loader": "4.1.1",
     "webpack": "5.64.1",
     "webpack-cli": "4.9.1",
-    "webpack-dev-middleware": "5.2.1",
+    "webpack-dev-middleware": "5.2.2",
     "webpack-hot-middleware": "2.25.0"
   },
   "dependencies": {
