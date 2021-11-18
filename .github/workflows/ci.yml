@@ -23,7 +23,7 @@ jobs:
       run: npm run build-demo
     - name: Deploy demo website
       if: github.ref == 'refs/heads/master'
-      uses: JamesIves/github-pages-deploy-action@4.1.5
+      uses: JamesIves/github-pages-deploy-action@4.1.6
       with:
         branch: gh-pages
         folder: demo/dist
