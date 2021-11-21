@@ -21,7 +21,6 @@ jobs:
     - name: Build package
       run: npm pack
     - name: Build demo website
-      if: github.ref == 'refs/heads/master'
       run: npm run build-demo
     - name: Deploy demo website
       if: github.ref == 'refs/heads/master'
