@@ -91,7 +91,7 @@
     "jest-cli": "27.4.3",
     "lint-staged": "11.2.6",
     "node-sass": "6.0.1",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "prettier-eslint": "13.0.0",
     "pretty": "2.0.0",
     "react": "17.0.2",
