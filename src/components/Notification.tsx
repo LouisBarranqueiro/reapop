@@ -26,6 +26,7 @@ const Notification = (props: Props) => {
     const metaStyles = theme ? theme.notificationMeta(notification) : {}
     const titleStyles = theme ? theme.notificationTitle(notification) : {}
     const messageStyles = theme ? theme.notificationMessage(notification) : {}
+    const buttonsStyles = theme ? theme.notificationButtons(notification) : {}
     const Icon = components.NotificationIcon || NotificationIcon
     const dismissNotification = () => dismiss(id)
 
@@ -73,7 +74,7 @@ const Notification = (props: Props) => {
                 />
             )}
             {buttons.length ? (
-                <div onClick={dismissNotification} className={classnames.notificationButtons}>
+                <div onClick={dismissNotification} className={classnames.notificationButtons} style={buttonsStyles}>
                     {buttons.map((button, index) => (
                         <NotificationButton
                             key={button.name}
