@@ -21,6 +21,7 @@ describe('<Notification/>', () => {
         jest.spyOn(atalhoTheme, 'notificationMeta').mockReturnValue({color: 'blue'})
         jest.spyOn(atalhoTheme, 'notificationTitle').mockReturnValue({color: 'green'})
         jest.spyOn(atalhoTheme, 'notificationMessage').mockReturnValue({color: 'white'})
+        jest.spyOn(atalhoTheme, 'notificationButtons').mockReturnValue({color: 'black'})
     })
 
     afterEach(() => {
@@ -48,6 +49,7 @@ describe('<Notification/>', () => {
         expect((atalhoTheme.notificationMeta as jest.Mock).mock.calls).toMatchSnapshot()
         expect((atalhoTheme.notificationTitle as jest.Mock).mock.calls).toMatchSnapshot()
         expect((atalhoTheme.notificationMessage as jest.Mock).mock.calls).toMatchSnapshot()
+        expect((atalhoTheme.notificationButtons as jest.Mock).mock.calls).toMatchSnapshot()
     })
 
     it.each([

@@ -130,7 +130,7 @@ exports[`<Notification/> should render a notification with theme 1`] = `
     <h4 style=\\"color: green;\\" class=\\"reapop__notification-title\\">Hello world!</h4>
     <p style=\\"color: white;\\" class=\\"reapop__notification-message\\">say hello to the world</p>
   </div>
-  <div class=\\"reapop__notification-buttons\\"><button data-testid=\\"button\\" style=\\"display: block; width: 100%; height: 50%; min-height: 40px; box-sizing: border-box; padding: 0px; background: rgb(47, 47, 54); border-radius: 0; border-left: 1px solid #464c5f; outline: none; text-align: center; color: rgb(255, 255, 255); cursor: pointer;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"display: block; height: 25px; padding: 0px 15px; min-width: 90px; max-width: 150px; width: auto; white-space: nowrap; overflow: hidden; margin: 0px auto; text-overflow: ellipsis; text-align: center; font-size: 14px; line-height: 25px;\\">yes</span></button><button data-testid=\\"button\\" style=\\"display: block; width: 100%; height: 50%; min-height: 40px; box-sizing: border-box; padding: 0px; background: rgb(47, 47, 54); border-radius: 0; border-left: 1px solid #464c5f; outline: none; text-align: center; color: rgb(255, 255, 255); cursor: pointer; border-top: 1px solid #464c5f;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"display: block; height: 25px; padding: 0px 15px; min-width: 90px; max-width: 150px; width: auto; white-space: nowrap; overflow: hidden; margin: 0px auto; text-overflow: ellipsis; text-align: center; font-size: 14px; line-height: 25px;\\">no</span></button></div>
+  <div class=\\"reapop__notification-buttons\\" style=\\"color: black;\\"><button data-testid=\\"button\\" style=\\"display: block; width: 100%; height: 50%; min-height: 40px; box-sizing: border-box; padding: 0px; background: rgb(47, 47, 54); border-radius: 0; border-left: 1px solid #464c5f; outline: none; text-align: center; color: rgb(255, 255, 255); cursor: pointer;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"display: block; height: 25px; padding: 0px 15px; min-width: 90px; max-width: 150px; width: auto; white-space: nowrap; overflow: hidden; margin: 0px auto; text-overflow: ellipsis; text-align: center; font-size: 14px; line-height: 25px;\\">yes</span></button><button data-testid=\\"button\\" style=\\"display: block; width: 100%; height: 50%; min-height: 40px; box-sizing: border-box; padding: 0px; background: rgb(47, 47, 54); border-radius: 0; border-left: 1px solid #464c5f; outline: none; text-align: center; color: rgb(255, 255, 255); cursor: pointer; border-top: 1px solid #464c5f;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"display: block; height: 25px; padding: 0px 15px; min-width: 90px; max-width: 150px; width: auto; white-space: nowrap; overflow: hidden; margin: 0px auto; text-overflow: ellipsis; text-align: center; font-size: 14px; line-height: 25px;\\">no</span></button></div>
 </div>"
 `;
 
@@ -226,6 +226,29 @@ Array [
 ]
 `;
 
+exports[`<Notification/> should render a notification with theme 6`] = `
+Array [
+  Array [
+    Object {
+      "buttons": Array [
+        Object {
+          "name": "yes",
+        },
+        Object {
+          "name": "no",
+        },
+      ],
+      "id": "1",
+      "message": "say hello to the world",
+      "position": "top-left",
+      "showDismissButton": true,
+      "status": "none",
+      "title": "Hello world!",
+    },
+  ],
+]
+`;
+
 exports[`<Notification/> should render a notification without image 1`] = `
 "<div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--none reapop__notification--buttons-2 \\">
   <div class=\\"reapop__notification-meta\\">
@@ -254,4 +277,6 @@ exports[`<Notification/> should render a notification without theme 4`] = `Array
 
 exports[`<Notification/> should render a notification without theme 5`] = `Array []`;
 
-exports[`<Notification/> should use the custom \`NotificationIcon\` component 1`] = `"<div data-testid=\\"notification\\" role=\\"alert\\" style=\\"color: red;\\" class=\\"reapop__notification reapop__notification--none reapop__notification--buttons-2 \\"><span>custom-icon</span><div style=\\"color: blue;\\" class=\\"reapop__notification-meta\\"><h4 style=\\"color: green;\\" class=\\"reapop__notification-title\\">Hello world!</h4><p style=\\"color: white;\\" class=\\"reapop__notification-message\\">say hello to the world</p></div><div class=\\"reapop__notification-buttons\\"><button data-testid=\\"button\\" style=\\"display: block; width: 100%; height: 50%; min-height: 40px; box-sizing: border-box; padding: 0px; background: rgb(47, 47, 54); border-radius: 0; border-left: 1px solid #464c5f; outline: none; text-align: center; color: rgb(255, 255, 255); cursor: pointer;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"display: block; height: 25px; padding: 0px 15px; min-width: 90px; max-width: 150px; width: auto; white-space: nowrap; overflow: hidden; margin: 0px auto; text-overflow: ellipsis; text-align: center; font-size: 14px; line-height: 25px;\\">yes</span></button><button data-testid=\\"button\\" style=\\"display: block; width: 100%; height: 50%; min-height: 40px; box-sizing: border-box; padding: 0px; background: rgb(47, 47, 54); border-radius: 0; border-left: 1px solid #464c5f; outline: none; text-align: center; color: rgb(255, 255, 255); cursor: pointer; border-top: 1px solid #464c5f;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"display: block; height: 25px; padding: 0px 15px; min-width: 90px; max-width: 150px; width: auto; white-space: nowrap; overflow: hidden; margin: 0px auto; text-overflow: ellipsis; text-align: center; font-size: 14px; line-height: 25px;\\">no</span></button></div></div>"`;
+exports[`<Notification/> should render a notification without theme 6`] = `Array []`;
+
+exports[`<Notification/> should use the custom \`NotificationIcon\` component 1`] = `"<div data-testid=\\"notification\\" role=\\"alert\\" style=\\"color: red;\\" class=\\"reapop__notification reapop__notification--none reapop__notification--buttons-2 \\"><span>custom-icon</span><div style=\\"color: blue;\\" class=\\"reapop__notification-meta\\"><h4 style=\\"color: green;\\" class=\\"reapop__notification-title\\">Hello world!</h4><p style=\\"color: white;\\" class=\\"reapop__notification-message\\">say hello to the world</p></div><div class=\\"reapop__notification-buttons\\" style=\\"color: black;\\"><button data-testid=\\"button\\" style=\\"display: block; width: 100%; height: 50%; min-height: 40px; box-sizing: border-box; padding: 0px; background: rgb(47, 47, 54); border-radius: 0; border-left: 1px solid #464c5f; outline: none; text-align: center; color: rgb(255, 255, 255); cursor: pointer;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"display: block; height: 25px; padding: 0px 15px; min-width: 90px; max-width: 150px; width: auto; white-space: nowrap; overflow: hidden; margin: 0px auto; text-overflow: ellipsis; text-align: center; font-size: 14px; line-height: 25px;\\">yes</span></button><button data-testid=\\"button\\" style=\\"display: block; width: 100%; height: 50%; min-height: 40px; box-sizing: border-box; padding: 0px; background: rgb(47, 47, 54); border-radius: 0; border-left: 1px solid #464c5f; outline: none; text-align: center; color: rgb(255, 255, 255); cursor: pointer; border-top: 1px solid #464c5f;\\" class=\\"reapop__notification-button\\"><span class=\\"reapop__notification-button-text\\" style=\\"display: block; height: 25px; padding: 0px 15px; min-width: 90px; max-width: 150px; width: auto; white-space: nowrap; overflow: hidden; margin: 0px auto; text-overflow: ellipsis; text-align: center; font-size: 14px; line-height: 25px;\\">no</span></button></div></div>"`;
