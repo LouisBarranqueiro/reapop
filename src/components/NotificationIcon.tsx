@@ -15,7 +15,7 @@ const NotificationIcon = (props: Props) => {
     const styles = theme ? theme.notificationIcon(props.notification) : {}
     const iconProps = {
         style: styles,
-        className: classnames.notificationDismissIcon,
+        className: classnames.notificationIcon,
     }
 
     switch (status) {
