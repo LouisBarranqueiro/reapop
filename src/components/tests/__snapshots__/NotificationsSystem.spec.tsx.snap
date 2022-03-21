@@ -4,7 +4,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
 "<div>
   <div class=\\"reapop__container reapop__container--top-center\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -15,7 +15,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
   </div>
   <div class=\\"reapop__container reapop__container--top-left\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -26,7 +26,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
   </div>
   <div class=\\"reapop__container reapop__container--top-right\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -37,7 +37,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
   </div>
   <div class=\\"reapop__container reapop__container--bottom-center\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -48,7 +48,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
   </div>
   <div class=\\"reapop__container reapop__container--bottom-left\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -59,7 +59,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
   </div>
   <div class=\\"reapop__container reapop__container--bottom-right\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -75,7 +75,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
 "<div>
   <div class=\\"reapop__container reapop__container--top-center reapop__container--single\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -84,7 +84,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       </div>
     </div>
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -93,7 +93,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       </div>
     </div>
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -102,7 +102,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       </div>
     </div>
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -111,7 +111,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       </div>
     </div>
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -120,7 +120,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       </div>
     </div>
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -736,7 +736,7 @@ exports[`<NotificationsSystem/> should display notifications with default compon
 "<div>
   <div class=\\"reapop__container reapop__container--top-center\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
@@ -757,7 +757,7 @@ exports[`<NotificationsSystem/> should display notifications with theme 1`] = `
 "<div>
   <div style=\\"position: fixed; z-index: 999999; top: 20px; left: 50%; transform: translateX(-50%);\\" class=\\"reapop__container reapop__container--top-center\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" style=\\"display: flex; width: 350px; height: 100%; position: relative; border-radius: 5px; border: 1px solid rgba(0,0,0,.1); box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.3); background-color: rgb(47, 47, 54); color: rgb(255, 255, 255); margin-bottom: 20px; z-index: 999;\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" style=\\"display: flex; width: 20px; height: 20px; box-sizing: border-box; margin: 10px 0px 10px 15px; align-self: flex-start; flex-shrink: 0; color: rgb(65, 146, 255);\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" style=\\"display: flex; width: 350px; height: 100%; position: relative; border-radius: 5px; border: 1px solid rgba(0,0,0,.1); box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.3); background-color: rgb(47, 47, 54); color: rgb(255, 255, 255); margin-bottom: 20px; z-index: 999;\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" style=\\"display: flex; width: 20px; height: 20px; box-sizing: border-box; margin: 10px 0px 10px 15px; align-self: flex-start; flex-shrink: 0; color: rgb(65, 146, 255);\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div style=\\"vertical-align: top; box-sizing: border-box; width: 100%; padding: 10px 20px;\\" class=\\"reapop__notification-meta\\">
@@ -778,7 +778,7 @@ exports[`<NotificationsSystem/> should display notifications without theme 1`] =
 "<div>
   <div class=\\"reapop__container reapop__container--top-center\\">
     <div data-testid=\\"timed-notification\\">
-      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-dismiss-icon\\">
+      <div data-testid=\\"notification\\" role=\\"alert\\" class=\\"reapop__notification reapop__notification--info reapop__notification--buttons-0 \\"><svg viewBox=\\"0 0 16 16\\" fill=\\"currentColor\\" class=\\"reapop__notification-icon\\">
           <path fill-rule=\\"evenodd\\" d=\\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z\\"></path>
         </svg>
         <div class=\\"reapop__notification-meta\\">
