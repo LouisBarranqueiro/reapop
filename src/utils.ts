@@ -23,18 +23,18 @@ export class Timer {
     }
 }
 
-export const clone = <T extends unknown>(origObject: T): T => {
+export const clone = <T>(origObject: T): T => {
     if (typeof origObject !== 'object' || origObject === null) {
         return origObject
     }
 
     if (Array.isArray(origObject)) {
-        return origObject.map((value) => clone(value)) as T
+        return origObject.map((value) => clone(value)) as unknown as T
     }
 
     const newObject: Record<string, unknown> = {}
     for (const key in origObject) {
-        newObject[key] = clone((origObject as Record<string, unknown>)[key])
+        newObject[key] = clone(origObject[key])
     }
 
     return newObject as T
