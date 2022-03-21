@@ -33,6 +33,11 @@ Object {
   "invocationCallOrder": Array [
     1,
   ],
+  "lastCall": Array [
+    Object {
+      "message": "hello",
+    },
+  ],
   "results": Array [
     Object {
       "type": "return",
@@ -92,6 +97,15 @@ Object {
   ],
   "invocationCallOrder": Array [
     2,
+  ],
+  "lastCall": Array [
+    Object {
+      "buttons": Array [],
+      "foo": "bar",
+      "id": "1",
+      "message": "hello",
+      "status": "none",
+    },
   ],
   "results": Array [
     Object {
