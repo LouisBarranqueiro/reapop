@@ -9,7 +9,7 @@
     "check-style": "eslint . --quiet --ext .ts,.tsx,.js,.jsx",
     "check-types": "npx tsc && npx tsc --project demo/tsconfig.json",
     "lint": "npm run check-style -- --fix",
-    "prepublish": "tsdx build",
+    "prepack": "tsdx build",
     "start": "ts-node demo/app.ts",
     "test": "npm run check-style && npm run check-types && npx jest",
     "test:coverage": "npm test -- --coverage",
