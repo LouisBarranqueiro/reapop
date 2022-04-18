@@ -98,7 +98,7 @@
     "react-dom": "npm:@hot-loader/react-dom@17.0.2",
     "react-hot-loader": "4.13.0",
     "react-redux": "7.2.8",
-    "redux": "4.1.2",
+    "redux": "4.2.0",
     "redux-mock-store": "1.5.4",
     "sass-loader": "12.6.0",
     "style-loader": "3.3.1",
