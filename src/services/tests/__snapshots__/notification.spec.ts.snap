@@ -9,6 +9,27 @@ Object {
       },
     ],
   ],
+  "contexts": Array [
+    Object {
+      "customizeNotification": null,
+      "defaultProps": Object {},
+      "generateId": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "message": "hello",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": "foo",
+          },
+        ],
+      },
+    },
+  ],
   "instances": Array [
     Object {
       "customizeNotification": null,
@@ -69,6 +90,31 @@ Object {
         "status": "none",
       },
     ],
+  ],
+  "contexts": Array [
+    Object {
+      "customizeNotification": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "buttons": Array [],
+              "foo": "bar",
+              "id": "1",
+              "message": "hello",
+              "status": "none",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": "bar",
+          },
+        ],
+      },
+      "defaultProps": Object {},
+      "generateId": [Function],
+    },
   ],
   "instances": Array [
     Object {
