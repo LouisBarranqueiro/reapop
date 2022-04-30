@@ -92,7 +92,7 @@
     "lint-staged": "11.2.6",
     "node-sass": "7.0.1",
     "prettier": "2.6.2",
-    "prettier-eslint": "13.0.0",
+    "prettier-eslint": "14.0.2",
     "pretty": "2.0.0",
     "react": "17.0.2",
     "react-dom": "npm:@hot-loader/react-dom@17.0.2",
