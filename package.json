@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/LouisBarranqueiro/reapop#readme",
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.17.10",
@@ -51,7 +51,7 @@
     "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "7.16.7",
     "@teamsupercell/typings-for-css-modules-loader": "2.5.1",
-    "@testing-library/react": "12.1.5",
+    "@testing-library/react": "13.1.1",
     "@types/copy-webpack-plugin": "8.0.1",
     "@types/express": "4.17.13",
     "@types/faker": "6.6.8",
@@ -95,8 +95,8 @@
     "prettier": "2.6.2",
     "prettier-eslint": "14.0.2",
     "pretty": "2.0.0",
-    "react": "17.0.2",
-    "react-dom": "npm:@hot-loader/react-dom@17.0.2",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-hot-loader": "4.13.0",
     "react-redux": "8.0.1",
     "redux": "4.2.0",
