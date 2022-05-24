@@ -3,7 +3,7 @@ import {Configuration} from 'webpack'
 
 const config: Configuration = {
     context: __dirname,
-    entry: ['react-hot-loader/patch', './src/app'],
+    entry: './src/app',
     output: {
         path: path.join(__dirname, 'dist/static/'),
         filename: 'demo.js',
