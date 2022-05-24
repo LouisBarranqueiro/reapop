@@ -93,7 +93,7 @@
     "jest-environment-jsdom": "28.0.2",
     "lint-staged": "11.2.6",
     "prettier": "2.6.2",
-    "prettier-eslint": "14.0.2",
+    "prettier-eslint": "14.0.3",
     "pretty": "2.0.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
