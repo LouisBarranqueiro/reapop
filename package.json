@@ -101,7 +101,7 @@
     "react-refresh": "0.14.0",
     "redux": "4.2.0",
     "redux-mock-store": "1.5.4",
-    "sass": "1.52.3",
+    "sass": "1.53.0",
     "sass-loader": "13.0.0",
     "style-loader": "3.3.1",
     "ts-node": "10.8.1",
