@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NotificationsProvider/> should provide reducer state and actions 1`] = `
-Object {
-  "buttons": Array [],
+{
+  "buttons": [],
   "id": "1",
   "status": "none",
 }
 `;
 
 exports[`<NotificationsProvider/> should provide reducer state and actions 2`] = `
-Array [
-  Array [
-    Object {
-      "payload": Object {
-        "buttons": Array [],
+[
+  [
+    {
+      "payload": {
+        "buttons": [],
         "id": "1",
         "status": "none",
       },
@@ -24,8 +24,8 @@ Array [
 `;
 
 exports[`<NotificationsProvider/> should provide reducer state and actions 3`] = `
-Object {
-  "buttons": Array [],
+{
+  "buttons": [],
   "id": "1",
   "message": "world!",
   "status": "info",
@@ -34,11 +34,11 @@ Object {
 `;
 
 exports[`<NotificationsProvider/> should provide reducer state and actions 4`] = `
-Array [
-  Array [
-    Object {
-      "payload": Object {
-        "buttons": Array [],
+[
+  [
+    {
+      "payload": {
+        "buttons": [],
         "id": "1",
         "message": "world!",
         "status": "info",
@@ -51,9 +51,9 @@ Array [
 `;
 
 exports[`<NotificationsProvider/> should provide reducer state and actions 5`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "payload": "1",
       "type": "reapop/dismissNotification",
     },
@@ -62,9 +62,9 @@ Array [
 `;
 
 exports[`<NotificationsProvider/> should provide reducer state and actions 6`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "type": "reapop/dismissNotifications",
     },
   ],

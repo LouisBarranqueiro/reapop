@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`notificationsReducer DismissNotification should dismiss notification (empty initial state) 1`] = `Array []`;
+exports[`notificationsReducer DismissNotification should dismiss notification (empty initial state) 1`] = `[]`;
 
-exports[`notificationsReducer DismissNotification should dismiss notification (filled initial state) 1`] = `Array []`;
+exports[`notificationsReducer DismissNotification should dismiss notification (filled initial state) 1`] = `[]`;
 
 exports[`notificationsReducer UpsertNotification should add notification 1`] = `
-Array [
-  Object {
-    "buttons": Array [],
+[
+  {
+    "buttons": [],
     "id": "1",
     "status": "none",
   },
@@ -15,15 +15,15 @@ Array [
 `;
 
 exports[`notificationsReducer UpsertNotification should update notification 1`] = `
-Array [
-  Object {
-    "buttons": Array [],
+[
+  {
+    "buttons": [],
     "dismissible": true,
     "id": "1",
     "status": "none",
   },
-  Object {
-    "buttons": Array [],
+  {
+    "buttons": [],
     "dismissible": false,
     "id": "2",
     "position": "top-left",

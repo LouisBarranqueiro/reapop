@@ -3,19 +3,19 @@
 exports[`<SlideTransition/> position: bottom-center should display notification 1`] = `"<div>notification</div>"`;
 
 exports[`<SlideTransition/> position: bottom-center should display notification 2`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateY(100%)",
       },
-      Object {
+      {
         "opacity": 1,
         "transform": "translateY(0)",
       },
     ],
-    Object {
+    {
       "duration": 300,
       "fill": "forwards",
     },
@@ -23,33 +23,33 @@ Array [
 ]
 `;
 
-exports[`<SlideTransition/> position: bottom-center should display notification 3`] = `"<div duration=\\"1\\">notification</div>"`;
+exports[`<SlideTransition/> position: bottom-center should display notification 3`] = `"<div duration="1">notification</div>"`;
 
 exports[`<SlideTransition/> position: bottom-center should display notification 4`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateY(100%)",
       },
     ],
-    Object {
+    {
       "duration": 1,
       "fill": "forwards",
     },
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "maxHeight": "150px",
       },
-      Object {
+      {
         "margin": 0,
         "maxHeight": 0,
       },
     ],
-    Object {
+    {
       "delay": 1,
       "duration": 250,
       "fill": "forwards",
@@ -61,19 +61,19 @@ Array [
 exports[`<SlideTransition/> position: bottom-left should display notification 1`] = `"<div>notification</div>"`;
 
 exports[`<SlideTransition/> position: bottom-left should display notification 2`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateX(-100%)",
       },
-      Object {
+      {
         "opacity": 1,
         "transform": "translateX(0)",
       },
     ],
-    Object {
+    {
       "duration": 300,
       "fill": "forwards",
     },
@@ -81,33 +81,33 @@ Array [
 ]
 `;
 
-exports[`<SlideTransition/> position: bottom-left should display notification 3`] = `"<div duration=\\"1\\">notification</div>"`;
+exports[`<SlideTransition/> position: bottom-left should display notification 3`] = `"<div duration="1">notification</div>"`;
 
 exports[`<SlideTransition/> position: bottom-left should display notification 4`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateX(-100%)",
       },
     ],
-    Object {
+    {
       "duration": 1,
       "fill": "forwards",
     },
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "maxHeight": "150px",
       },
-      Object {
+      {
         "margin": 0,
         "maxHeight": 0,
       },
     ],
-    Object {
+    {
       "delay": 1,
       "duration": 250,
       "fill": "forwards",
@@ -119,19 +119,19 @@ Array [
 exports[`<SlideTransition/> position: bottom-right should display notification 1`] = `"<div>notification</div>"`;
 
 exports[`<SlideTransition/> position: bottom-right should display notification 2`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateX(100%)",
       },
-      Object {
+      {
         "opacity": 1,
         "transform": "translateX(0)",
       },
     ],
-    Object {
+    {
       "duration": 300,
       "fill": "forwards",
     },
@@ -139,33 +139,33 @@ Array [
 ]
 `;
 
-exports[`<SlideTransition/> position: bottom-right should display notification 3`] = `"<div duration=\\"1\\">notification</div>"`;
+exports[`<SlideTransition/> position: bottom-right should display notification 3`] = `"<div duration="1">notification</div>"`;
 
 exports[`<SlideTransition/> position: bottom-right should display notification 4`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateX(100%)",
       },
     ],
-    Object {
+    {
       "duration": 1,
       "fill": "forwards",
     },
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "maxHeight": "150px",
       },
-      Object {
+      {
         "margin": 0,
         "maxHeight": 0,
       },
     ],
-    Object {
+    {
       "delay": 1,
       "duration": 250,
       "fill": "forwards",
@@ -177,19 +177,19 @@ Array [
 exports[`<SlideTransition/> position: top-center should display notification 1`] = `"<div>notification</div>"`;
 
 exports[`<SlideTransition/> position: top-center should display notification 2`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateY(-100%)",
       },
-      Object {
+      {
         "opacity": 1,
         "transform": "translateY(0)",
       },
     ],
-    Object {
+    {
       "duration": 300,
       "fill": "forwards",
     },
@@ -197,33 +197,33 @@ Array [
 ]
 `;
 
-exports[`<SlideTransition/> position: top-center should display notification 3`] = `"<div duration=\\"1\\">notification</div>"`;
+exports[`<SlideTransition/> position: top-center should display notification 3`] = `"<div duration="1">notification</div>"`;
 
 exports[`<SlideTransition/> position: top-center should display notification 4`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateY(-100%)",
       },
     ],
-    Object {
+    {
       "duration": 1,
       "fill": "forwards",
     },
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "maxHeight": "150px",
       },
-      Object {
+      {
         "margin": 0,
         "maxHeight": 0,
       },
     ],
-    Object {
+    {
       "delay": 1,
       "duration": 250,
       "fill": "forwards",
@@ -235,19 +235,19 @@ Array [
 exports[`<SlideTransition/> position: top-left should display notification 1`] = `"<div>notification</div>"`;
 
 exports[`<SlideTransition/> position: top-left should display notification 2`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateX(-100%)",
       },
-      Object {
+      {
         "opacity": 1,
         "transform": "translateX(0)",
       },
     ],
-    Object {
+    {
       "duration": 300,
       "fill": "forwards",
     },
@@ -255,33 +255,33 @@ Array [
 ]
 `;
 
-exports[`<SlideTransition/> position: top-left should display notification 3`] = `"<div duration=\\"1\\">notification</div>"`;
+exports[`<SlideTransition/> position: top-left should display notification 3`] = `"<div duration="1">notification</div>"`;
 
 exports[`<SlideTransition/> position: top-left should display notification 4`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateX(-100%)",
       },
     ],
-    Object {
+    {
       "duration": 1,
       "fill": "forwards",
     },
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "maxHeight": "150px",
       },
-      Object {
+      {
         "margin": 0,
         "maxHeight": 0,
       },
     ],
-    Object {
+    {
       "delay": 1,
       "duration": 250,
       "fill": "forwards",
@@ -293,19 +293,19 @@ Array [
 exports[`<SlideTransition/> position: top-right should display notification 1`] = `"<div>notification</div>"`;
 
 exports[`<SlideTransition/> position: top-right should display notification 2`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateX(100%)",
       },
-      Object {
+      {
         "opacity": 1,
         "transform": "translateX(0)",
       },
     ],
-    Object {
+    {
       "duration": 300,
       "fill": "forwards",
     },
@@ -313,33 +313,33 @@ Array [
 ]
 `;
 
-exports[`<SlideTransition/> position: top-right should display notification 3`] = `"<div duration=\\"1\\">notification</div>"`;
+exports[`<SlideTransition/> position: top-right should display notification 3`] = `"<div duration="1">notification</div>"`;
 
 exports[`<SlideTransition/> position: top-right should display notification 4`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "opacity": 0,
         "transform": "translateX(100%)",
       },
     ],
-    Object {
+    {
       "duration": 1,
       "fill": "forwards",
     },
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "maxHeight": "150px",
       },
-      Object {
+      {
         "margin": 0,
         "maxHeight": 0,
       },
     ],
-    Object {
+    {
       "delay": 1,
       "duration": 250,
       "fill": "forwards",

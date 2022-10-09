@@ -1,28 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`prepareNotification() should configured generate ID function if ID is not set 1`] = `
-Object {
-  "calls": Array [
-    Array [
-      Object {
+{
+  "calls": [
+    [
+      {
         "message": "hello",
       },
     ],
   ],
-  "contexts": Array [
-    Object {
+  "contexts": [
+    {
       "customizeNotification": null,
-      "defaultProps": Object {},
+      "defaultProps": {},
       "generateId": [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
+        "calls": [
+          [
+            {
               "message": "hello",
             },
           ],
         ],
-        "results": Array [
-          Object {
+        "results": [
+          {
             "type": "return",
             "value": "foo",
           },
@@ -30,20 +30,20 @@ Object {
       },
     },
   ],
-  "instances": Array [
-    Object {
+  "instances": [
+    {
       "customizeNotification": null,
-      "defaultProps": Object {},
+      "defaultProps": {},
       "generateId": [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
+        "calls": [
+          [
+            {
               "message": "hello",
             },
           ],
         ],
-        "results": Array [
-          Object {
+        "results": [
+          {
             "type": "return",
             "value": "foo",
           },
@@ -51,16 +51,16 @@ Object {
       },
     },
   ],
-  "invocationCallOrder": Array [
+  "invocationCallOrder": [
     1,
   ],
-  "lastCall": Array [
-    Object {
+  "lastCall": [
+    {
       "message": "hello",
     },
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
       "type": "return",
       "value": "foo",
     },
@@ -69,8 +69,8 @@ Object {
 `;
 
 exports[`prepareNotification() should customize notification with configured function 1`] = `
-Object {
-  "buttons": Array [],
+{
+  "buttons": [],
   "foo": "bar",
   "id": "1",
   "message": "hello",
@@ -79,11 +79,11 @@ Object {
 `;
 
 exports[`prepareNotification() should customize notification with configured function 2`] = `
-Object {
-  "calls": Array [
-    Array [
-      Object {
-        "buttons": Array [],
+{
+  "calls": [
+    [
+      {
+        "buttons": [],
         "foo": "bar",
         "id": "1",
         "message": "hello",
@@ -91,13 +91,13 @@ Object {
       },
     ],
   ],
-  "contexts": Array [
-    Object {
+  "contexts": [
+    {
       "customizeNotification": [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
-              "buttons": Array [],
+        "calls": [
+          [
+            {
+              "buttons": [],
               "foo": "bar",
               "id": "1",
               "message": "hello",
@@ -105,24 +105,24 @@ Object {
             },
           ],
         ],
-        "results": Array [
-          Object {
+        "results": [
+          {
             "type": "return",
             "value": "bar",
           },
         ],
       },
-      "defaultProps": Object {},
+      "defaultProps": {},
       "generateId": [Function],
     },
   ],
-  "instances": Array [
-    Object {
+  "instances": [
+    {
       "customizeNotification": [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
-              "buttons": Array [],
+        "calls": [
+          [
+            {
+              "buttons": [],
               "foo": "bar",
               "id": "1",
               "message": "hello",
@@ -130,31 +130,31 @@ Object {
             },
           ],
         ],
-        "results": Array [
-          Object {
+        "results": [
+          {
             "type": "return",
             "value": "bar",
           },
         ],
       },
-      "defaultProps": Object {},
+      "defaultProps": {},
       "generateId": [Function],
     },
   ],
-  "invocationCallOrder": Array [
+  "invocationCallOrder": [
     2,
   ],
-  "lastCall": Array [
-    Object {
-      "buttons": Array [],
+  "lastCall": [
+    {
+      "buttons": [],
       "foo": "bar",
       "id": "1",
       "message": "hello",
       "status": "none",
     },
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
       "type": "return",
       "value": "bar",
     },
@@ -163,9 +163,9 @@ Object {
 `;
 
 exports[`prepareNotification() should only set default and configured attributes if not set 1`] = `
-Object {
+{
   "allowHTML": true,
-  "buttons": Array [],
+  "buttons": [],
   "dismissible": true,
   "id": "1",
   "status": "success",
@@ -173,8 +173,8 @@ Object {
 `;
 
 exports[`prepareNotification() should set default attributes if not set 1`] = `
-Object {
-  "buttons": Array [],
+{
+  "buttons": [],
   "id": "1",
   "status": "none",
 }
