@@ -4,7 +4,7 @@ exports[`<NotificationContainer/> should render a container with a notification 
 "<div data-testid="timed-notification">
   <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 reapop__notification--dismissible">
     <div class="reapop__notification-meta">
-      <p class="reapop__notification-message">hello world!</p>
+      <div class="reapop__notification-message">hello world!</div>
     </div>
   </div>
 </div>"

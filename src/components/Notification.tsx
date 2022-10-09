@@ -55,15 +55,15 @@ const Notification = (props: Props) => {
                     ))}
                 {message &&
                     (allowHTML ? (
-                        <p
+                        <div
                             style={messageStyles}
                             className={classnames.notificationMessage}
                             dangerouslySetInnerHTML={{__html: message}}
                         />
                     ) : (
-                        <p style={messageStyles} className={classnames.notificationMessage}>
+                        <div style={messageStyles} className={classnames.notificationMessage}>
                             {message}
-                        </p>
+                        </div>
                     ))}
             </div>
             {dismissible && showDismissButton && (
