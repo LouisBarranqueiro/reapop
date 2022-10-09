@@ -6,9 +6,10 @@ import * as path from 'path'
 const config: Configuration = Object.assign(baseConfig, {
     mode: 'production',
     devtool: false,
-    output: Object.assign(baseConfig.output, {
+    output: {
+        ...baseConfig.output,
         publicPath: '/reapop/static/',
-    }),
+    },
     plugins: [
         new CopyPlugin({
             patterns: [

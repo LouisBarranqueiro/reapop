@@ -3,7 +3,7 @@ import {Configuration} from 'webpack'
 
 const config: Configuration = {
     context: __dirname,
-    entry: './src/app',
+    entry: ['./src/app'],
     output: {
         path: path.join(__dirname, 'dist/static/'),
         filename: 'demo.js',

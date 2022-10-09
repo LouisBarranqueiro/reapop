@@ -7,9 +7,10 @@ const config: Configuration = Object.assign(baseConfig, {
     mode: 'development',
     devtool: 'inline-cheap-source-map',
     entry: [...(baseConfig.entry as string[]), 'webpack-hot-middleware/client'],
-    output: Object.assign(baseConfig.output, {
+    output: {
+        ...baseConfig.output,
         publicPath: '/static/',
-    }),
+    },
     module: {
         rules: [
             ...(baseConfig?.module?.rules || []),
