@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 1`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -21,7 +21,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -39,7 +39,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 3`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -59,7 +59,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -77,7 +77,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 5`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -97,7 +97,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -115,7 +115,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 7`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -135,7 +135,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -153,7 +153,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 1`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -173,7 +173,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -191,7 +191,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 3`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -211,7 +211,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -229,7 +229,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 5`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -249,7 +249,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -267,7 +267,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 7`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -287,7 +287,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -305,7 +305,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 1`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -325,7 +325,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -343,7 +343,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 3`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -363,7 +363,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -381,7 +381,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 5`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -401,7 +401,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -419,7 +419,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 7`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -439,7 +439,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -457,7 +457,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 9`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -477,7 +477,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 10`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -495,7 +495,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 11`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -515,7 +515,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 12`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -533,7 +533,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 13`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -553,7 +553,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 14`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -571,7 +571,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 15`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -591,7 +591,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 16`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -609,7 +609,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 1`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -629,7 +629,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -647,7 +647,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 3`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -667,7 +667,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -685,7 +685,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 5`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -705,7 +705,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -723,7 +723,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 7`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -743,7 +743,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -761,7 +761,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 9`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -781,7 +781,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 10`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -799,7 +799,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 11`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -819,7 +819,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 12`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -837,7 +837,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 13`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -857,7 +857,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 14`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -875,7 +875,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 15`] = `
-Object {
+{
   "background": "#2f2f36",
   "border": "none",
   "borderLeft": "1px solid #464c5f",
@@ -895,7 +895,7 @@ Object {
 `;
 
 exports[`theme (atalho) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 16`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -913,7 +913,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of container (top-center) 1`] = `
-Object {
+{
   "left": "50%",
   "position": "fixed",
   "top": "20px",
@@ -923,7 +923,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification ({ dismissible: false, showDismissButton: false }) 1`] = `
-Object {
+{
   "backgroundColor": "#2f2f36",
   "border": "1px solid rgba(0,0,0,.1)",
   "borderRadius": "5px",
@@ -940,7 +940,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification ({ dismissible: false, showDismissButton: true }) 1`] = `
-Object {
+{
   "backgroundColor": "#2f2f36",
   "border": "1px solid rgba(0,0,0,.1)",
   "borderRadius": "5px",
@@ -957,7 +957,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification ({ dismissible: true, showDismissButton: false }) 1`] = `
-Object {
+{
   "backgroundColor": "#2f2f36",
   "border": "1px solid rgba(0,0,0,.1)",
   "borderRadius": "5px",
@@ -974,7 +974,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification ({ dismissible: true, showDismissButton: true }) 1`] = `
-Object {
+{
   "backgroundColor": "#2f2f36",
   "border": "1px solid rgba(0,0,0,.1)",
   "borderRadius": "5px",
@@ -990,10 +990,10 @@ Object {
 }
 `;
 
-exports[`theme (atalho) should return style of notification buttons 1`] = `Object {}`;
+exports[`theme (atalho) should return style of notification buttons 1`] = `{}`;
 
 exports[`theme (atalho) should return style of notification dismiss icon 1`] = `
-Object {
+{
   "color": "#b9c2cb",
   "cursor": "pointer",
   "flexShrink": 0,
@@ -1004,7 +1004,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification icon (status: error) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#E94C58",
@@ -1017,7 +1017,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification icon (status: info) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#4192ff",
@@ -1030,7 +1030,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification icon (status: loading) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#4192ff",
@@ -1043,7 +1043,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification icon (status: none) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -1056,7 +1056,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification icon (status: success) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#32d38b",
@@ -1069,7 +1069,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification icon (status: warning) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#f5aa0a",
@@ -1082,7 +1082,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification icon with image 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -1095,7 +1095,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification icon without image 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -1108,14 +1108,14 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification image 1`] = `
-Object {
+{
   "boxSizing": "border-box",
   "padding": "10px 0 10px 15px",
 }
 `;
 
 exports[`theme (atalho) should return style of notification image 2`] = `
-Object {
+{
   "backgroundSize": "cover",
   "borderRadius": "40px",
   "display": "inline-flex",
@@ -1125,7 +1125,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification message 1`] = `
-Object {
+{
   "color": "#b9c2cb",
   "fontSize": "14px",
   "lineHeight": 1.428571429,
@@ -1134,7 +1134,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification meta container 1`] = `
-Object {
+{
   "boxSizing": "border-box",
   "padding": "10px 20px",
   "verticalAlign": "top",
@@ -1143,7 +1143,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification title with message 1`] = `
-Object {
+{
   "color": "#ffffff",
   "fontSize": "14px",
   "fontWeight": 700,
@@ -1153,7 +1153,7 @@ Object {
 `;
 
 exports[`theme (atalho) should return style of notification title without message 1`] = `
-Object {
+{
   "color": "#ffffff",
   "fontSize": "14px",
   "fontWeight": 700,
@@ -1163,7 +1163,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 1`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1183,7 +1183,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1201,7 +1201,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 3`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1221,7 +1221,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1239,7 +1239,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 5`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1259,7 +1259,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1277,7 +1277,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 7`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1297,7 +1297,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1315,7 +1315,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 1`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1335,7 +1335,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1353,7 +1353,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 3`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1373,7 +1373,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1391,7 +1391,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 5`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1411,7 +1411,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1429,7 +1429,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 7`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1449,7 +1449,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1467,7 +1467,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 1`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1487,7 +1487,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1505,7 +1505,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 3`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1525,7 +1525,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1543,7 +1543,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 5`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1563,7 +1563,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1581,7 +1581,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 7`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1601,7 +1601,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1619,7 +1619,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 9`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1639,7 +1639,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 10`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1657,7 +1657,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 11`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1677,7 +1677,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 12`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1695,7 +1695,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 13`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1715,7 +1715,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 14`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1733,7 +1733,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 15`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1753,7 +1753,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 16`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1771,7 +1771,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 1`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1791,7 +1791,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1809,7 +1809,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 3`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1829,7 +1829,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1847,7 +1847,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 5`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1867,7 +1867,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1885,7 +1885,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 7`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1905,7 +1905,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1923,7 +1923,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 9`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1943,7 +1943,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 10`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1961,7 +1961,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 11`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -1981,7 +1981,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 12`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -1999,7 +1999,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 13`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -2019,7 +2019,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 14`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2037,7 +2037,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 15`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0,0,0,.1)",
@@ -2057,7 +2057,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 16`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2075,7 +2075,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of container (top-center) 1`] = `
-Object {
+{
   "left": "50%",
   "position": "fixed",
   "top": "20px",
@@ -2085,7 +2085,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification ({ dismissible: false, showDismissButton: false }) 1`] = `
-Object {
+{
   "backgroundColor": "#ffffff",
   "border": "1px solid rgba(0,0,0,.1)",
   "borderRadius": "4px",
@@ -2102,7 +2102,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification ({ dismissible: false, showDismissButton: true }) 1`] = `
-Object {
+{
   "backgroundColor": "#ffffff",
   "border": "1px solid rgba(0,0,0,.1)",
   "borderRadius": "4px",
@@ -2119,7 +2119,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification ({ dismissible: true, showDismissButton: false }) 1`] = `
-Object {
+{
   "backgroundColor": "#ffffff",
   "border": "1px solid rgba(0,0,0,.1)",
   "borderRadius": "4px",
@@ -2136,7 +2136,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification ({ dismissible: true, showDismissButton: true }) 1`] = `
-Object {
+{
   "backgroundColor": "#ffffff",
   "border": "1px solid rgba(0,0,0,.1)",
   "borderRadius": "4px",
@@ -2152,10 +2152,10 @@ Object {
 }
 `;
 
-exports[`theme (bootstrap) should return style of notification buttons 1`] = `Object {}`;
+exports[`theme (bootstrap) should return style of notification buttons 1`] = `{}`;
 
 exports[`theme (bootstrap) should return style of notification dismiss icon 1`] = `
-Object {
+{
   "color": "#524c4c",
   "cursor": "pointer",
   "flexShrink": 0,
@@ -2166,7 +2166,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification icon (status: error) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#dc3545",
@@ -2179,7 +2179,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification icon (status: info) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#007bff",
@@ -2192,7 +2192,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification icon (status: loading) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#007bff",
@@ -2205,7 +2205,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification icon (status: none) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -2218,7 +2218,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification icon (status: success) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#28a745",
@@ -2231,7 +2231,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification icon (status: warning) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffc107",
@@ -2244,7 +2244,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification icon with image 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -2257,7 +2257,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification icon without image 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -2270,14 +2270,14 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification image 1`] = `
-Object {
+{
   "boxSizing": "border-box",
   "padding": "10px 0 10px 15px",
 }
 `;
 
 exports[`theme (bootstrap) should return style of notification image 2`] = `
-Object {
+{
   "backgroundSize": "cover",
   "borderRadius": "40px",
   "display": "inline-flex",
@@ -2287,7 +2287,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification message 1`] = `
-Object {
+{
   "color": "#212529",
   "fontSize": "14px",
   "lineHeight": 1.428571429,
@@ -2296,7 +2296,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification meta container 1`] = `
-Object {
+{
   "boxSizing": "border-box",
   "padding": "10px 20px",
   "verticalAlign": "top",
@@ -2305,7 +2305,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification title with message 1`] = `
-Object {
+{
   "color": "#6c757d",
   "fontSize": "14px",
   "fontWeight": 700,
@@ -2315,7 +2315,7 @@ Object {
 `;
 
 exports[`theme (bootstrap) should return style of notification title without message 1`] = `
-Object {
+{
   "color": "#6c757d",
   "fontSize": "14px",
   "fontWeight": 700,
@@ -2325,7 +2325,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 1`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2345,7 +2345,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2363,7 +2363,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 3`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2383,7 +2383,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2401,7 +2401,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 5`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2421,7 +2421,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2439,7 +2439,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 7`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2459,7 +2459,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (0) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2477,7 +2477,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 1`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2497,7 +2497,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2515,7 +2515,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 3`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2535,7 +2535,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2553,7 +2553,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 5`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2573,7 +2573,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2591,7 +2591,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 7`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2611,7 +2611,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [] }) position (1) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2629,7 +2629,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 1`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2649,7 +2649,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2667,7 +2667,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 3`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2687,7 +2687,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2705,7 +2705,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 5`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2725,7 +2725,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2743,7 +2743,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 7`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2763,7 +2763,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2781,7 +2781,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 9`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2801,7 +2801,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 10`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2819,7 +2819,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 11`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2839,7 +2839,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 12`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2857,7 +2857,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 13`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2877,7 +2877,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 14`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2895,7 +2895,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 15`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2915,7 +2915,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (0) state should return style of notification button 16`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2933,7 +2933,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 1`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2953,7 +2953,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 2`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -2971,7 +2971,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 3`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -2991,7 +2991,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 4`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -3009,7 +3009,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 5`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -3029,7 +3029,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 6`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -3047,7 +3047,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 7`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -3067,7 +3067,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 8`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -3085,7 +3085,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 9`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -3105,7 +3105,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 10`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -3123,7 +3123,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 11`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -3143,7 +3143,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 12`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -3161,7 +3161,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 13`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -3181,7 +3181,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 14`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -3199,7 +3199,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 15`] = `
-Object {
+{
   "background": "none",
   "border": "none",
   "borderLeft": "1px solid rgba(0, 0, 0, 0.09)",
@@ -3219,7 +3219,7 @@ Object {
 `;
 
 exports[`theme (wybo) notification ({ id: '1', status: 'none', position: 'top-left', buttons: [Array] }) position (1) state should return style of notification button 16`] = `
-Object {
+{
   "display": "block",
   "fontSize": "14px",
   "height": "25px",
@@ -3237,7 +3237,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of container (top-center) 1`] = `
-Object {
+{
   "left": "50%",
   "position": "fixed",
   "top": "20px",
@@ -3247,7 +3247,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification ({ dismissible: false, showDismissButton: false }) 1`] = `
-Object {
+{
   "backgroundColor": "#ffffff",
   "border": "none",
   "borderLeft": "2px solid",
@@ -3266,7 +3266,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification ({ dismissible: false, showDismissButton: true }) 1`] = `
-Object {
+{
   "backgroundColor": "#ffffff",
   "border": "none",
   "borderLeft": "2px solid",
@@ -3285,7 +3285,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification ({ dismissible: true, showDismissButton: false }) 1`] = `
-Object {
+{
   "backgroundColor": "#ffffff",
   "border": "none",
   "borderLeft": "2px solid",
@@ -3304,7 +3304,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification ({ dismissible: true, showDismissButton: true }) 1`] = `
-Object {
+{
   "backgroundColor": "#ffffff",
   "border": "none",
   "borderLeft": "2px solid",
@@ -3322,10 +3322,10 @@ Object {
 }
 `;
 
-exports[`theme (wybo) should return style of notification buttons 1`] = `Object {}`;
+exports[`theme (wybo) should return style of notification buttons 1`] = `{}`;
 
 exports[`theme (wybo) should return style of notification dismiss icon 1`] = `
-Object {
+{
   "color": "#524c4c",
   "cursor": "pointer",
   "flexShrink": 0,
@@ -3336,7 +3336,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification icon (status: error) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#f5311d",
@@ -3349,7 +3349,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification icon (status: info) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#349ef3",
@@ -3362,7 +3362,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification icon (status: loading) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#349ef3",
@@ -3375,7 +3375,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification icon (status: none) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -3388,7 +3388,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification icon (status: success) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#4dc657",
@@ -3401,7 +3401,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification icon (status: warning) 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#f5aa0a",
@@ -3414,7 +3414,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification icon with image 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -3427,7 +3427,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification icon without image 1`] = `
-Object {
+{
   "alignSelf": "flex-start",
   "boxSizing": "border-box",
   "color": "#ffffff",
@@ -3440,14 +3440,14 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification image 1`] = `
-Object {
+{
   "boxSizing": "border-box",
   "padding": "10px 0 10px 15px",
 }
 `;
 
 exports[`theme (wybo) should return style of notification image 2`] = `
-Object {
+{
   "backgroundSize": "cover",
   "borderRadius": "40px",
   "display": "inline-flex",
@@ -3457,7 +3457,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification message 1`] = `
-Object {
+{
   "fontSize": "14px",
   "lineHeight": 1.428571429,
   "margin": 0,
@@ -3465,7 +3465,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification meta container 1`] = `
-Object {
+{
   "boxSizing": "border-box",
   "padding": "10px 20px",
   "verticalAlign": "top",
@@ -3474,7 +3474,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification title with message 1`] = `
-Object {
+{
   "fontSize": "14px",
   "fontWeight": 700,
   "lineHeight": 1.428571429,
@@ -3483,7 +3483,7 @@ Object {
 `;
 
 exports[`theme (wybo) should return style of notification title without message 1`] = `
-Object {
+{
   "fontSize": "14px",
   "fontWeight": 700,
   "lineHeight": 1.428571429,
