@@ -68,7 +68,7 @@
     "@typescript-eslint/eslint-plugin": "5.42.0",
     "@typescript-eslint/parser": "5.42.0",
     "babel-eslint": "10.1.0",
-    "babel-loader": "8.2.5",
+    "babel-loader": "9.1.0",
     "bootstrap": "5.2.2",
     "codecov": "3.8.3",
     "copy-webpack-plugin": "11.0.0",
