@@ -54,7 +54,7 @@
     "@teamsupercell/typings-for-css-modules-loader": "2.5.1",
     "@testing-library/react": "13.4.0",
     "@types/copy-webpack-plugin": "8.0.1",
-    "@types/express": "4.17.14",
+    "@types/express": "4.17.15",
     "@types/faker": "6.6.8",
     "@types/pretty": "2.0.1",
     "@types/react": "17.0.52",
