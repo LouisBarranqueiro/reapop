@@ -61,7 +61,7 @@
     "@types/react": "18.2.5",
     "@types/react-dom": "18.2.3",
     "@types/react-redux": "7.1.25",
-    "@types/react-transition-group": "4.4.5",
+    "@types/react-transition-group": "4.4.6",
     "@types/redux": "3.6.0",
     "@types/webpack": "5.28.1",
     "@types/webpack-dev-middleware": "5.0.2",
