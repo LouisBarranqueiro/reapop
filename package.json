@@ -73,7 +73,7 @@
     "bootstrap": "5.2.3",
     "codecov": "3.8.3",
     "copy-webpack-plugin": "11.0.0",
-    "css-loader": "6.7.4",
+    "css-loader": "6.8.1",
     "eslint": "8.41.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-config-standard": "17.0.0",
