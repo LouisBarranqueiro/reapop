@@ -1,6 +1,6 @@
 import React from 'react'
 import {Provider} from 'react-redux'
-import {render} from 'react-dom'
+import {createRoot} from 'react-dom/client'
 import {createStore, compose, combineReducers} from 'redux'
 import Demo from './components/Demo'
 import {POSITIONS, reducer as notificationsReducer} from '../../src'
@@ -30,5 +30,6 @@ const App = () => (
         </Provider>
     </React.StrictMode>
 )
-
-render(<App />, document.getElementById('root'))
+const rootElem = document.getElementById('root')
+const root = createRoot(rootElem!)
+root.render(<App />)
