@@ -53,7 +53,7 @@
     "@babel/preset-typescript": "7.21.5",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.10",
     "@teamsupercell/typings-for-css-modules-loader": "2.5.2",
-    "@testing-library/react": "13.4.0",
+    "@testing-library/react": "14.0.0",
     "@types/copy-webpack-plugin": "8.0.1",
     "@types/express": "4.17.17",
     "@types/faker": "6.6.8",
