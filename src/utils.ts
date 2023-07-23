@@ -1,7 +1,5 @@
-type TimeoutId = ReturnType<typeof setTimeout>
-
 export class Timer {
-    private timerId: TimeoutId | undefined
+    private timerId: number | undefined
     private start: Date | undefined
     private callback: (...args: any[]) => any
     remainingTime: number
@@ -12,13 +10,13 @@ export class Timer {
     }
 
     pause() {
-        clearTimeout(<TimeoutId>this.timerId)
+        clearTimeout(this.timerId)
         this.remainingTime -= new Date().getTime() - (<Date>this.start).getTime()
     }
 
     resume() {
         this.start = new Date()
-        clearTimeout(<TimeoutId>this.timerId)
+        clearTimeout(this.timerId)
         this.timerId = setTimeout(this.callback, this.remainingTime)
     }
 }
