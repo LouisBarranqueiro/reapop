@@ -45,12 +45,12 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.21.5",
-    "@babel/core": "7.21.8",
+    "@babel/cli": "7.22.5",
+    "@babel/core": "7.22.5",
     "@babel/plugin-proposal-class-properties": "7.18.6",
-    "@babel/preset-env": "7.21.5",
+    "@babel/preset-env": "7.22.5",
     "@babel/preset-react": "7.22.5",
-    "@babel/preset-typescript": "7.21.5",
+    "@babel/preset-typescript": "7.22.5",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.10",
     "@teamsupercell/typings-for-css-modules-loader": "2.5.2",
     "@testing-library/react": "14.0.0",
