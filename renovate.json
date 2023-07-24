@@ -21,7 +21,7 @@
             "packagePatterns": [
                 "eslint",
                 "eslint-config-standard",
-                "eslint-plugin-"
+                "^eslint-plugin-"
             ],
             "automerge": true,
             "automergeType": "branch",
@@ -34,9 +34,7 @@
             ],
             "packagePatterns": [
                 "react",
-                "react-dom",
-                "react-redux",
-                "react-refresh",
+                "^react-",
                 "eslint-config-standard-react",
                 "eslint-plugin-react-hooks"
             ],
