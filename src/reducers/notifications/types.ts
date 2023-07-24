@@ -6,8 +6,8 @@ export interface NotificationButton {
     onClick?: (...args: any[]) => void
 }
 
-export type Status = typeof STATUSES[keyof typeof STATUSES]
-export type Position = typeof POSITIONS[keyof typeof POSITIONS]
+export type Status = (typeof STATUSES)[keyof typeof STATUSES]
+export type Position = (typeof POSITIONS)[keyof typeof POSITIONS]
 
 export interface Notification {
     id: string
