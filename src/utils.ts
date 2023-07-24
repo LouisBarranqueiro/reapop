@@ -19,7 +19,7 @@ export class Timer {
     resume() {
         this.start = new Date()
         clearTimeout(<TimeoutId>this.timerId)
-        this.timerId = setTimeout(this.callback, this.remainingTime)
+        this.timerId = setTimeout(this.callback, this.remainingTime) as unknown as TimeoutId
     }
 }
 
