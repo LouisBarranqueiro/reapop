@@ -9,8 +9,8 @@ type RootState = {
 
 export const Notifications = () => {
     const dispatch = useDispatch()
-    const [themeName, setThemeName] = useState<ThemeNames>('Atalho')
-    const [transitionName, setTransitionName] = useState<TransitionNames>('Slide')
+    const [themeName] = useState<ThemeNames>('Atalho')
+    const [transitionName] = useState<TransitionNames>('Slide')
     const notifications = useSelector((state: RootState) => state.notifications)
     const theme = THEMES[themeName]
 

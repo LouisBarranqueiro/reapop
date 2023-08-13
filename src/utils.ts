@@ -3,10 +3,10 @@ type TimeoutId = ReturnType<typeof setTimeout>
 export class Timer {
     private timerId: TimeoutId | undefined
     private start: Date | undefined
-    private callback: (...args: any[]) => any
+    private callback: (...args: unknown[]) => unknown
     remainingTime: number
 
-    constructor(delay: number, callback: (...args: any[]) => any) {
+    constructor(delay: number, callback: (...args: unknown[]) => unknown) {
         this.remainingTime = delay
         this.callback = callback
     }
@@ -40,7 +40,8 @@ export const clone = <T>(origObject: T): T => {
     return newObject as T
 }
 
-export const isObject = (value: unknown) => !!value && (value as any).constructor === Object
+export const isObject = (value: unknown) =>
+    !!value && (value as string | number | Record<string, unknown>).constructor === Object
 
 export const noop = () => {
     // noop

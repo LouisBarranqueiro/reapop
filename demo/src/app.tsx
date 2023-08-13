@@ -1,18 +1,18 @@
 import React from 'react'
 import {Provider} from 'react-redux'
 import {createRoot} from 'react-dom/client'
-import {createStore, compose, combineReducers} from 'redux'
+import {createStore, combineReducers} from 'redux'
 import Demo from './components/Demo'
 import {POSITIONS, reducer as notificationsReducer} from '../../src'
 import './styles/global.scss'
 import {setUpNotifications} from '../../src'
+import {composeWithDevTools} from '@redux-devtools/extension'
 
-const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
     combineReducers({
         notifications: notificationsReducer(),
     }),
-    composeEnhancers()
+    composeWithDevTools()
 )
 
 setUpNotifications({
