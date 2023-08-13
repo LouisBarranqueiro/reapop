@@ -55,6 +55,7 @@
     "@babel/preset-react": "7.22.5",
     "@babel/preset-typescript": "7.22.5",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.10",
+    "@redux-devtools/extension": "3.2.5",
     "@teamsupercell/typings-for-css-modules-loader": "2.5.2",
     "@testing-library/react": "14.0.0",
     "@types/copy-webpack-plugin": "8.0.1",

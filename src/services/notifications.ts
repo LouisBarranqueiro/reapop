@@ -5,7 +5,9 @@ import {clone} from '../utils'
 export const setUpNotifications = (props: Partial<NotificationConfig>) => {
     for (const key in props) {
         const propName = key as keyof NotificationConfig
-        CONFIG[propName] = props[propName] as any
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        CONFIG[propName] = props[propName]
     }
 }
 

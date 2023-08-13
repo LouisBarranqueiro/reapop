@@ -3,7 +3,7 @@ import {POSITIONS, STATUSES} from '../../constants'
 export interface NotificationButton {
     name: string
     primary?: boolean
-    onClick?: (...args: any[]) => void
+    onClick?: (...args: unknown[]) => void
 }
 
 export type Status = (typeof STATUSES)[keyof typeof STATUSES]
@@ -19,11 +19,11 @@ export interface Notification {
     image?: string
     dismissAfter?: number
     dismissible?: boolean
-    onAdd?: (...args: any[]) => void
-    onDismiss?: (...args: any[]) => void
+    onAdd?: (...args: unknown[]) => void
+    onDismiss?: (...args: unknown[]) => void
     showDismissButton?: boolean
     allowHTML?: boolean
-    [index: string]: any
+    [index: string]: unknown
 }
 
 export type NewNotification = Partial<Notification>

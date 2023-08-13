@@ -4,7 +4,7 @@ import {STATUSES, POSITIONS, notify, dismissNotifications} from 'src'
 import {Position, Status} from 'src'
 
 const getRandomBoolean = () => Math.random() >= 0.5
-const getRandomElem = (items: any[]) => items[Math.floor(Math.random() * items.length)]
+const getRandomElem = <T,>(items: Array<T>): T => items[Math.floor(Math.random() * items.length)]
 const getRandomWord = () => getRandomElem(['Tempor', 'Orci', 'Neque', 'Enim', 'Quis', 'Arcu'])
 
 const NotificationButtons = () => {
