@@ -1,5 +1,3 @@
-import React from 'react'
-
 Object.defineProperty(window, 'resizeTo', {
     value: function resizeTo(width: number, height: number) {
         Object.assign(this, {
