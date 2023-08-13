@@ -1,26 +1,21 @@
 import React, {useEffect, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import packageJson from 'package.json'
-import NotificationsSystem, {dismissNotification, Notification, notify, STATUSES} from 'src'
+import {notify, STATUSES} from 'src'
 
 import NotificationButtons from 'demo/src/components/NotificationButtons'
 import NotificationCreator from 'demo/src/components/NotificationCreator'
 import Footer from 'demo/src/components/Footer'
-import {THEMES, ThemeNames, TRANSITIONS, TransitionNames} from 'demo/src/constants'
+import {ThemeNames, TransitionNames} from 'demo/src/constants'
 import css from './Demo.scss'
-
-type RootState = {
-    notifications: Notification[]
-}
+import Notifications from '../Notifications'
 
 const Demo = () => {
     const dispatch = useDispatch()
     const [themeName, setThemeName] = useState<ThemeNames>('Atalho')
     const [transitionName, setTransitionName] = useState<TransitionNames>('Slide')
-    const notifications = useSelector((state: RootState) => state.notifications)
-    const theme = THEMES[themeName]
 
     useEffect(() => {
         setTimeout(function () {
@@ -51,14 +46,7 @@ const Demo = () => {
                 <div className={css.description}>{packageJson.description}</div>
                 <NotificationButtons />
             </div>
-            <NotificationsSystem
-                components={{
-                    Transition: TRANSITIONS[transitionName],
-                }}
-                notifications={notifications}
-                dismissNotification={(id) => dispatch(dismissNotification(id))}
-                theme={theme}
-            />
+            <Notifications />
             {window.innerWidth > 767 ? (
                 <div className={css.sidebar}>
                     <NotificationCreator
