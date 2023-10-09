@@ -6,7 +6,7 @@
   "module": "dist/reapop.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build-demo": "npx webpack --config=./demo/webpack.prod.config.ts",
+    "build-demo": "NODE_ENV=production npx webpack --config=./demo/webpack.prod.config.ts",
     "check-style": "eslint . --quiet --ext .ts,.tsx,.js,.jsx",
     "check-types": "npx tsc && npx tsc --project demo/tsconfig.json",
     "lint": "npm run check-style -- --fix",
