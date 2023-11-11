@@ -16,7 +16,7 @@ src
 .gitignore
 .travis.yml
 *.log
-renovate.json
+dependabot.yml.json
 scripts/*
 jest.config.js
 tsconfig.json
