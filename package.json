@@ -18,7 +18,7 @@
     "prepare": "husky install"
   },
   "engines": {
-    "node": ">= 14.19.0"
+    "node": ">= 20.9.0"
   },
   "repository": {
     "type": "git",
