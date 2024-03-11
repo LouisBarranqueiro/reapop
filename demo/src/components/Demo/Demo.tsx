@@ -46,7 +46,7 @@ const Demo = () => {
                 <div className={css.description}>{packageJson.description}</div>
                 <NotificationButtons />
             </div>
-            <Notifications />
+            <Notifications themeName={themeName} transitionName={transitionName} />
             {window.innerWidth > 767 ? (
                 <div className={css.sidebar}>
                     <NotificationCreator
