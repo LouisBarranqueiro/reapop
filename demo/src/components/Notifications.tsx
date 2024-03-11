@@ -1,18 +1,20 @@
 import {ThemeNames, THEMES, TransitionNames, TRANSITIONS} from '../constants'
 import NotificationsSystem, {dismissNotification, Notification} from '../../../src'
-import React, {useState} from 'react'
+import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 type RootState = {
     notifications: Notification[]
 }
 
-export const Notifications = () => {
+type Props = {
+    themeName: ThemeNames
+    transitionName: TransitionNames
+}
+
+export const Notifications = ({themeName, transitionName}: Props) => {
     const dispatch = useDispatch()
-    const [themeName] = useState<ThemeNames>('Atalho')
-    const [transitionName] = useState<TransitionNames>('Slide')
     const notifications = useSelector((state: RootState) => state.notifications)
-    const theme = THEMES[themeName]
 
     return (
         <NotificationsSystem
@@ -21,7 +23,7 @@ export const Notifications = () => {
             }}
             notifications={notifications}
             dismissNotification={(id) => dispatch(dismissNotification(id))}
-            theme={theme}
+            theme={THEMES[themeName]}
         />
     )
 }
