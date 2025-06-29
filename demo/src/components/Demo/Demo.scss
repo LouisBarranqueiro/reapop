@@ -1,4 +1,4 @@
-@import '../../styles/_variables.scss';
+@use '../../styles/variables';
 
 .background {
     background: #eecda3;
@@ -29,7 +29,7 @@
     position:   fixed;
     top:        0;
     left:       0;
-    width:      $sidebar-width;
+    width:      variables.$sidebar-width;
     height:     100%;
     padding:    15px;
     background: white;
@@ -37,9 +37,9 @@
     overflow-x: hidden;
 }
 
-@media (min-width: #{$screen-sm-min}) {
+@media (min-width: #{variables.$screen-sm-min}) {
     .logo-container {
-        transform: translateY(-50%) translateX(calc(-50% + #{$sidebar-width} / 2));
+        transform: translateY(-50%) translateX(calc(-50% + #{variables.$sidebar-width} / 2));
     }
     .logo {
         margin-top: -60px;
@@ -50,7 +50,7 @@
     }
 }
 
-@media (max-width: #{$screen-xs-max}) {
+@media (max-width: #{variables.$screen-xs-max}) {
     .logo-container {
         transform: translateY(-50%) translateX(-50%);
     }

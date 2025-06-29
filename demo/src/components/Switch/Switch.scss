@@ -1,4 +1,4 @@
-@import '../../styles/_variables.scss';
+@use '../../styles/variables';
 
 .onoffswitch {
     position:            relative;
@@ -44,7 +44,7 @@
     content:          "YES";
     padding-left:     8px;
     background-color: #ffffff;
-    color:            $primary-color;
+    color:            variables.$primary-color;
 }
 
 .onoffswitch-inner:after {
@@ -75,5 +75,5 @@
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right:            0px;
-    background-color: $primary-color;
+    background-color: variables.$primary-color;
 }
