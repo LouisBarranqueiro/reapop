@@ -33,6 +33,6 @@
         width:      calc(100% - #{$sidebar-width});
         // workaround for IE 9, 10, 11, Edge
         // equals to `transform: translateX(calc(-50% + $sidebar-width / 2));`
-        transform: translateX(-50%) translateX($sidebar-width / 2);
+        transform: translateX(-50%) translateX(calc(#{$sidebar-width} / 2));
     }
 }

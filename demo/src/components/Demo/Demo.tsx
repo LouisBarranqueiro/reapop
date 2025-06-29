@@ -9,7 +9,7 @@ import NotificationButtons from 'demo/src/components/NotificationButtons'
 import NotificationCreator from 'demo/src/components/NotificationCreator'
 import Footer from 'demo/src/components/Footer'
 import {ThemeNames, TransitionNames} from 'demo/src/constants'
-import css from './Demo.scss'
+import * as css from './Demo.scss'
 import Notifications from '../Notifications'
 
 const Demo = () => {
