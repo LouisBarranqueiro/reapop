@@ -1,9 +1,8 @@
 import React, {SyntheticEvent, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import Switch from 'demo/src/components/Switch'
-import {NewNotification, Notification, NotificationButton} from 'src'
+import {NewNotification, Notification, NotificationButton, notify, POSITIONS, STATUSES} from 'src'
 
-import {notify, POSITIONS, STATUSES} from 'src'
 import {THEMES, ThemeNames, TransitionNames, TRANSITIONS} from 'demo/src/constants'
 
 type Props = {

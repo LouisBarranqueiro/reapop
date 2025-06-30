@@ -31,7 +31,7 @@ export const prepareNotification = (notification: NewNotification): Notification
         notif.id = CONFIG.generateId ? CONFIG.generateId(notification) : generateId()
     }
 
-    Object.entries(defaultProps).map(([prop, defaultValue]) => {
+    Object.entries(defaultProps).forEach(([prop, defaultValue]) => {
         if (notif[prop] === undefined) {
             notif[prop] = defaultValue
         }

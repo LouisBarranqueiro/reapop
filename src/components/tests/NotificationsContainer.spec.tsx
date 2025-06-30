@@ -80,7 +80,7 @@ describe('<NotificationsContainer/>', () => {
 
     it('should display notifications with custom components', () => {
         const CustomTransition = jest.fn((props) => <div id="custom-transition">{props.children}</div>)
-        const CustomNotification = jest.fn(() => <div id="custom-notification"></div>)
+        const CustomNotification = jest.fn(() => <div id="custom-notification" />)
 
         const {container} = renderWithContexts(
             <NotificationsContainer

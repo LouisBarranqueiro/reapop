@@ -1,5 +1,4 @@
-import React from 'react'
-import {ReactNode, useReducer, useCallback} from 'react'
+import React, {ReactNode, useReducer, useCallback} from 'react'
 import notificationsReducer from '../reducers/notifications/reducer'
 import {dismissNotification, dismissNotifications, notify} from '../reducers/notifications/actions'
 import {ReapopNotificationsContext} from '../contexts/reapopNotificationsContext'

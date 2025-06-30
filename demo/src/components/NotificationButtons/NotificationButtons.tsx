@@ -1,7 +1,6 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
-import {STATUSES, POSITIONS, notify, dismissNotifications} from 'src'
-import {Position, Status} from 'src'
+import {STATUSES, POSITIONS, notify, dismissNotifications, Position, Status} from 'src'
 
 const getRandomBoolean = () => Math.random() >= 0.5
 const getRandomElem = <T,>(items: Array<T>): T => items[Math.floor(Math.random() * items.length)]
