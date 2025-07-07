@@ -1,5 +1,5 @@
-import React from 'react'
-import {act, render, fireEvent} from '@testing-library/react'
+import React, {act} from 'react'
+import {render, fireEvent} from '@testing-library/react'
 
 import atalhoTheme from '../../themes/atalho'
 import {Notification, POSITIONS, STATUSES} from '../..'
@@ -54,7 +54,7 @@ describe('<NotificationButton/>', () => {
             <NotificationButton button={{name: 'yes'}} position={1} notification={notification} theme={atalhoTheme} />
         )
         const button = getByTestId('button')
-        ;['mouseEnter', 'mouseDown', 'mouseUp', 'mouseLeave'].map((eventType) => {
+        ;['mouseEnter', 'mouseDown', 'mouseUp', 'mouseLeave'].forEach((eventType) => {
             jest.clearAllMocks()
             act(() => {
                 fireEvent[eventType as 'mouseEnter' | 'mouseDown' | 'mouseUp' | 'mouseLeave'](button)

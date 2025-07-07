@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {act} from 'react'
 import pretty from 'pretty'
-import {render, fireEvent, act} from '@testing-library/react'
+import {render, fireEvent} from '@testing-library/react'
 
 import {Notification, POSITIONS, STATUSES} from '../..'
 import NotificationContainer from '../NotificationContainer'

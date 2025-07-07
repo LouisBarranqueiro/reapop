@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`<NotificationImage/> should display notification image with theme 1`] = `"<div class="reapop__notification-image-container" style="color: green;"><span class="reapop__notification-image" style="color: white; background-image: url(image.png);"></span></div>"`;
+exports[`<NotificationImage/> should display notification image with theme 1`] = `"<div class="reapop__notification-image-container" style="color: green;"><span class="reapop__notification-image" style="color: white; background-image: url(&quot;image.png&quot;);"></span></div>"`;
 
 exports[`<NotificationImage/> should display notification image with theme 2`] = `
 [
@@ -30,7 +30,7 @@ exports[`<NotificationImage/> should display notification image with theme 3`] =
 ]
 `;
 
-exports[`<NotificationImage/> should display notification image without theme 1`] = `"<div class="reapop__notification-image-container"><span class="reapop__notification-image" style="background-image: url(image.png);"></span></div>"`;
+exports[`<NotificationImage/> should display notification image without theme 1`] = `"<div class="reapop__notification-image-container"><span class="reapop__notification-image" style="background-image: url(&quot;image.png&quot;);"></span></div>"`;
 
 exports[`<NotificationImage/> should display notification image without theme 2`] = `[]`;
 

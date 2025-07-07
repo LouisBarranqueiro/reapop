@@ -20,7 +20,7 @@ app.use(webpackHotMiddleware(compiler))
 app.use('/static', express.static(path.join(__dirname, '/src/static')))
 
 // Send `index.html` file for all other routes.
-app.get('*', (req, res) => {
+app.get('/{*any}', (req, res) => {
     res.sendFile(path.join(__dirname, '/src/index.html'))
 })
 app.set('port', port)

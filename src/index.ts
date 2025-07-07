@@ -27,7 +27,7 @@ export {
     // constants
     STATUSES,
     POSITIONS,
-    //reducers
+    // reducers
     reducer,
     // actions
     notify,

@@ -1,4 +1,4 @@
-@import '../../styles/_variables.scss';
+@use '../../styles/variables';
 
 .footer {
     display:   block;
@@ -22,17 +22,17 @@
     }
 }
 
-@media (max-width: #{$screen-xs-max}) {
+@media (max-width: #{variables.$screen-xs-max}) {
     .footer {
         width:      100%;
         transform: translateX(-50%);
     }
 }
-@media (min-width: #{$screen-sm-min}) {
+@media (min-width: #{variables.$screen-sm-min}) {
     .footer {
-        width:      calc(100% - #{$sidebar-width});
+        width:      calc(100% - #{variables.$sidebar-width});
         // workaround for IE 9, 10, 11, Edge
         // equals to `transform: translateX(calc(-50% + $sidebar-width / 2));`
-        transform: translateX(-50%) translateX($sidebar-width / 2);
+        transform: translateX(-50%) translateX(calc(#{variables.$sidebar-width} / 2));
     }
 }

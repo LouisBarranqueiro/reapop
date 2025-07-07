@@ -1,5 +1,5 @@
-import React from 'react'
-import {act, render} from '@testing-library/react'
+import React, {act} from 'react'
+import {render} from '@testing-library/react'
 import pretty from 'pretty'
 
 import {Notification} from '../..'
@@ -89,7 +89,7 @@ describe('<NotificationsSystem/>', () => {
             />
         )
 
-        if (components.hasOwnProperty('Transition')) {
+        if (Object.prototype.hasOwnProperty.call(components, 'Transition')) {
             expect((components as {Transition: jest.Mock}).Transition.mock.calls).toMatchSnapshot()
         }
         expect(pretty(container.innerHTML)).toMatchSnapshot()

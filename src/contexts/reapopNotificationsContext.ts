@@ -1,6 +1,7 @@
 import {createContext} from 'react'
 import {Notification, Status} from '../reducers/notifications/types'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare function upsertNotification(notification: Partial<Notification>): Notification
 declare function upsertNotification(message: string, options?: Partial<Notification>): Notification
 declare function upsertNotification(message: string, status: Status, options?: Partial<Notification>): Notification

@@ -1,5 +1,5 @@
 import React, {SyntheticEvent} from 'react'
-import css from './Switch.scss'
+import * as css from './Switch.scss'
 
 type Props = {
     name: string

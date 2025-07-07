@@ -3,9 +3,8 @@ import {Provider} from 'react-redux'
 import {createRoot} from 'react-dom/client'
 import {createStore, combineReducers} from 'redux'
 import Demo from './components/Demo'
-import {POSITIONS, reducer as notificationsReducer} from '../../src'
+import {setUpNotifications, POSITIONS, reducer as notificationsReducer} from '../../src'
 import './styles/global.scss'
-import {setUpNotifications} from '../../src'
 import {composeWithDevTools} from '@redux-devtools/extension'
 
 const store = createStore(
