@@ -57,7 +57,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.11",
     "@redux-devtools/extension": "3.3.0",
     "@teamsupercell/typings-for-css-modules-loader": "2.5.2",
-    "@testing-library/react": "14.1.2",
+    "@testing-library/react": "16.3.0",
     "@types/copy-webpack-plugin": "10.1.0",
     "@types/express": "5.0.3",
     "@types/faker": "6.6.9",
