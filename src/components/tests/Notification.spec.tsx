@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {act} from 'react'
 import pretty from 'pretty'
-import {act, render, fireEvent} from '@testing-library/react'
+import {render, fireEvent} from '@testing-library/react'
 import {Notification as NotificationType, POSITIONS, STATUSES} from '../..'
 import atalhoTheme from '../../themes/atalho'
 import Notification from '../Notification'

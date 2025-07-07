@@ -1,5 +1,5 @@
-import React from 'react'
-import {act, render, fireEvent} from '@testing-library/react'
+import React, {act} from 'react'
+import {render, fireEvent} from '@testing-library/react'
 
 import atalhoTheme from '../../themes/atalho'
 import {Notification, POSITIONS, STATUSES} from '../..'
