@@ -17,7 +17,9 @@ jobs:
     - name: Run tests
       run: npm run test:coverage
     - name: Report tests coverage to Codecov
-      run: npx codecov --token=${{ secrets.CODECOV_TOKEN }}
+      uses: codecov/codecov-action@v5
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     - name: Build package
       run: npm pack
     - name: Build demo website
