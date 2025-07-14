@@ -149,7 +149,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       "position": "top-center",
       "singleContainer": false,
     },
-    {},
+    undefined,
   ],
   [
     {
@@ -166,7 +166,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       "position": "top-left",
       "singleContainer": false,
     },
-    {},
+    undefined,
   ],
   [
     {
@@ -183,7 +183,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       "position": "top-right",
       "singleContainer": false,
     },
-    {},
+    undefined,
   ],
   [
     {
@@ -200,7 +200,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       "position": "bottom-center",
       "singleContainer": false,
     },
-    {},
+    undefined,
   ],
   [
     {
@@ -217,7 +217,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       "position": "bottom-left",
       "singleContainer": false,
     },
-    {},
+    undefined,
   ],
   [
     {
@@ -234,7 +234,7 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       "position": "bottom-right",
       "singleContainer": false,
     },
-    {},
+    undefined,
   ],
   [
     {
@@ -286,230 +286,12 @@ exports[`<NotificationsSystem/> should display notifications in each container a
       "position": "top-center",
       "singleContainer": true,
     },
-    {},
+    undefined,
   ],
 ]
 `;
 
 exports[`<NotificationsSystem/> should display notifications with custom components (transition and icon) 1`] = `
-[
-  [
-    {
-      "appear": undefined,
-      "children": <div
-        data-testid="timed-notification"
-      >
-        <Notification
-          components={
-            {
-              "NotificationIcon": [Function],
-              "Transition": [MockFunction] {
-                "calls": [Circular],
-                "results": [
-                  {
-                    "type": "return",
-                    "value": <div
-                      data-testid="timed-notification"
-                    >
-                      <Notification
-                        components={[Circular]}
-                        dismissNotification={[Function]}
-                        notification={
-                          {
-                            "buttons": [],
-                            "id": "0",
-                            "message": "hello world!",
-                            "position": "top-center",
-                            "status": "info",
-                          }
-                        }
-                      />
-                    </div>,
-                  },
-                  {
-                    "type": "return",
-                    "value": <div
-                      data-testid="timed-notification"
-                    >
-                      <Notification
-                        components={[Circular]}
-                        dismissNotification={[Function]}
-                        notification={
-                          {
-                            "buttons": [],
-                            "id": "0",
-                            "message": "hello world!",
-                            "position": "top-center",
-                            "status": "info",
-                          }
-                        }
-                      />
-                    </div>,
-                  },
-                ],
-              },
-            }
-          }
-          dismissNotification={[Function]}
-          notification={
-            {
-              "buttons": [],
-              "id": "0",
-              "message": "hello world!",
-              "position": "top-center",
-              "status": "info",
-            }
-          }
-        />
-      </div>,
-      "enter": undefined,
-      "exit": undefined,
-      "in": true,
-      "nodeRef": {
-        "current": <div
-          data-testid="timed-notification"
-        >
-          <div
-            class="reapop__notification reapop__notification--info reapop__notification--buttons-0 "
-            data-testid="notification"
-            role="alert"
-          >
-            <div>
-              custom-icon
-            </div>
-            <div
-              class="reapop__notification-meta"
-            >
-              <div
-                class="reapop__notification-message"
-              >
-                hello world!
-              </div>
-            </div>
-          </div>
-        </div>,
-      },
-      "notification": {
-        "buttons": [],
-        "id": "0",
-        "message": "hello world!",
-        "position": "top-center",
-        "status": "info",
-      },
-      "onExited": [Function],
-    },
-    {},
-  ],
-  [
-    {
-      "children": <div
-        data-testid="timed-notification"
-      >
-        <Notification
-          components={
-            {
-              "NotificationIcon": [Function],
-              "Transition": [MockFunction] {
-                "calls": [Circular],
-                "results": [
-                  {
-                    "type": "return",
-                    "value": <div
-                      data-testid="timed-notification"
-                    >
-                      <Notification
-                        components={[Circular]}
-                        dismissNotification={[Function]}
-                        notification={
-                          {
-                            "buttons": [],
-                            "id": "0",
-                            "message": "hello world!",
-                            "position": "top-center",
-                            "status": "info",
-                          }
-                        }
-                      />
-                    </div>,
-                  },
-                  {
-                    "type": "return",
-                    "value": <div
-                      data-testid="timed-notification"
-                    >
-                      <Notification
-                        components={[Circular]}
-                        dismissNotification={[Function]}
-                        notification={
-                          {
-                            "buttons": [],
-                            "id": "0",
-                            "message": "hello world!",
-                            "position": "top-center",
-                            "status": "info",
-                          }
-                        }
-                      />
-                    </div>,
-                  },
-                ],
-              },
-            }
-          }
-          dismissNotification={[Function]}
-          notification={
-            {
-              "buttons": [],
-              "id": "0",
-              "message": "hello world!",
-              "position": "top-center",
-              "status": "info",
-            }
-          }
-        />
-      </div>,
-      "enter": undefined,
-      "exit": undefined,
-      "in": true,
-      "nodeRef": {
-        "current": <div
-          data-testid="timed-notification"
-        >
-          <div
-            class="reapop__notification reapop__notification--info reapop__notification--buttons-0 "
-            data-testid="notification"
-            role="alert"
-          >
-            <div>
-              custom-icon
-            </div>
-            <div
-              class="reapop__notification-meta"
-            >
-              <div
-                class="reapop__notification-message"
-              >
-                hello world!
-              </div>
-            </div>
-          </div>
-        </div>,
-      },
-      "notification": {
-        "buttons": [],
-        "id": "0",
-        "message": "hello world!",
-        "position": "top-center",
-        "status": "info",
-      },
-      "onExited": [Function],
-    },
-    {},
-  ],
-]
-`;
-
-exports[`<NotificationsSystem/> should display notifications with custom components (transition and icon) 2`] = `
 "<div>
   <div class="reapop__container reapop__container--top-center">
     <div data-testid="timed-notification">
@@ -530,194 +312,6 @@ exports[`<NotificationsSystem/> should display notifications with custom compone
 `;
 
 exports[`<NotificationsSystem/> should display notifications with custom components (transition and notification) 1`] = `
-[
-  [
-    {
-      "appear": undefined,
-      "children": <div
-        data-testid="timed-notification"
-      >
-        <CustomNotification
-          components={
-            {
-              "Notification": [Function],
-              "Transition": [MockFunction] {
-                "calls": [Circular],
-                "results": [
-                  {
-                    "type": "return",
-                    "value": <div
-                      data-testid="timed-notification"
-                    >
-                      <CustomNotification
-                        components={[Circular]}
-                        dismissNotification={[Function]}
-                        notification={
-                          {
-                            "buttons": [],
-                            "id": "0",
-                            "message": "hello world!",
-                            "position": "top-center",
-                            "status": "info",
-                          }
-                        }
-                      />
-                    </div>,
-                  },
-                  {
-                    "type": "return",
-                    "value": <div
-                      data-testid="timed-notification"
-                    >
-                      <CustomNotification
-                        components={[Circular]}
-                        dismissNotification={[Function]}
-                        notification={
-                          {
-                            "buttons": [],
-                            "id": "0",
-                            "message": "hello world!",
-                            "position": "top-center",
-                            "status": "info",
-                          }
-                        }
-                      />
-                    </div>,
-                  },
-                ],
-              },
-            }
-          }
-          dismissNotification={[Function]}
-          notification={
-            {
-              "buttons": [],
-              "id": "0",
-              "message": "hello world!",
-              "position": "top-center",
-              "status": "info",
-            }
-          }
-        />
-      </div>,
-      "enter": undefined,
-      "exit": undefined,
-      "in": true,
-      "nodeRef": {
-        "current": <div
-          data-testid="timed-notification"
-        >
-          <div>
-            custom-notification
-          </div>
-        </div>,
-      },
-      "notification": {
-        "buttons": [],
-        "id": "0",
-        "message": "hello world!",
-        "position": "top-center",
-        "status": "info",
-      },
-      "onExited": [Function],
-    },
-    {},
-  ],
-  [
-    {
-      "children": <div
-        data-testid="timed-notification"
-      >
-        <CustomNotification
-          components={
-            {
-              "Notification": [Function],
-              "Transition": [MockFunction] {
-                "calls": [Circular],
-                "results": [
-                  {
-                    "type": "return",
-                    "value": <div
-                      data-testid="timed-notification"
-                    >
-                      <CustomNotification
-                        components={[Circular]}
-                        dismissNotification={[Function]}
-                        notification={
-                          {
-                            "buttons": [],
-                            "id": "0",
-                            "message": "hello world!",
-                            "position": "top-center",
-                            "status": "info",
-                          }
-                        }
-                      />
-                    </div>,
-                  },
-                  {
-                    "type": "return",
-                    "value": <div
-                      data-testid="timed-notification"
-                    >
-                      <CustomNotification
-                        components={[Circular]}
-                        dismissNotification={[Function]}
-                        notification={
-                          {
-                            "buttons": [],
-                            "id": "0",
-                            "message": "hello world!",
-                            "position": "top-center",
-                            "status": "info",
-                          }
-                        }
-                      />
-                    </div>,
-                  },
-                ],
-              },
-            }
-          }
-          dismissNotification={[Function]}
-          notification={
-            {
-              "buttons": [],
-              "id": "0",
-              "message": "hello world!",
-              "position": "top-center",
-              "status": "info",
-            }
-          }
-        />
-      </div>,
-      "enter": undefined,
-      "exit": undefined,
-      "in": true,
-      "nodeRef": {
-        "current": <div
-          data-testid="timed-notification"
-        >
-          <div>
-            custom-notification
-          </div>
-        </div>,
-      },
-      "notification": {
-        "buttons": [],
-        "id": "0",
-        "message": "hello world!",
-        "position": "top-center",
-        "status": "info",
-      },
-      "onExited": [Function],
-    },
-    {},
-  ],
-]
-`;
-
-exports[`<NotificationsSystem/> should display notifications with custom components (transition and notification) 2`] = `
 "<div>
   <div class="reapop__container reapop__container--top-center">
     <div data-testid="timed-notification">

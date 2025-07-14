@@ -80,17 +80,30 @@ describe('<NotificationsSystem/>', () => {
                 },
             },
         ],
-    ])('should display notifications with %s', (_, components) => {
+    ])('should display notifications with %s', (_, components: any) => {
+        const notifications_ = notifications.slice(0, 1)
         const {container} = render(
             <NotificationsSystem
-                notifications={notifications.slice(0, 1)}
+                notifications={notifications_}
                 dismissNotification={jest.fn()}
                 components={components}
             />
         )
 
         if (Object.prototype.hasOwnProperty.call(components, 'Transition')) {
-            expect((components as {Transition: jest.Mock}).Transition.mock.calls).toMatchSnapshot()
+            expect(components.Transition).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    children: expect.anything(),
+                    notification: notifications_[0],
+                    nodeRef: expect.anything(),
+                    appear: undefined,
+                    enter: undefined,
+                    exit: undefined,
+                    in: true,
+                    onExited: expect.any(Function),
+                }),
+                undefined
+            )
         }
         expect(pretty(container.innerHTML)).toMatchSnapshot()
     })

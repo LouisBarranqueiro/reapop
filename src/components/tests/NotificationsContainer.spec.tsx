@@ -8,21 +8,20 @@ import {ThemeContext} from '../../contexts/themeContext'
 import atalhoTheme from '../../themes/atalho'
 
 import NotificationsContainer from '../NotificationsContainer'
-import NotificationContainer from '../NotificationContainer'
-
-jest.mock('../NotificationContainer', () => jest.fn(({notification}) => <div>notification-{notification.id}</div>))
 
 describe('<NotificationsContainer/>', () => {
     const notifications: Notification[] = [
         {
             id: '1',
             position: POSITIONS.topLeft,
+            message: 'Notification 1',
             status: STATUSES.none,
             buttons: [],
         },
         {
             id: '2',
             position: POSITIONS.topLeft,
+            message: 'Notification 2',
             status: STATUSES.none,
             buttons: [],
         },
@@ -63,7 +62,6 @@ describe('<NotificationsContainer/>', () => {
         )
 
         expect(container.innerHTML).toMatchSnapshot()
-        expect(NotificationContainer).toMatchSnapshot()
     })
 
     it.each(Object.values(POSITIONS))('should display notifications for %s position', (position) => {
@@ -79,8 +77,8 @@ describe('<NotificationsContainer/>', () => {
     })
 
     it('should display notifications with custom components', () => {
-        const CustomTransition = jest.fn((props) => <div id="custom-transition">{props.children}</div>)
-        const CustomNotification = jest.fn(() => <div id="custom-notification" />)
+        const CustomTransition = (props: any) => <div id="custom-transition">{props.children}</div>
+        const CustomNotification = (props: any) => <div id="custom-notification">{props.notification.message}</div>
 
         const {container} = renderWithContexts(
             <NotificationsContainer
@@ -93,7 +91,5 @@ describe('<NotificationsContainer/>', () => {
             {Transition: CustomTransition, Notification: CustomNotification}
         )
         expect(pretty(container.innerHTML)).toMatchSnapshot()
-        expect(CustomTransition.mock.calls).toMatchSnapshot()
-        expect(CustomNotification.mock.calls).toMatchSnapshot()
     })
 })

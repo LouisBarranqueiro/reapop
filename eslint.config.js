@@ -30,6 +30,12 @@ module.exports = defineConfig([
         },
     },
     {
+        files: ['**/*.spec.ts', '**/*.spec.tsx'],
+        rules: {
+            '@typescript-eslint/no-explicit-any': 'off'
+        },
+    },
+    {
         ignores: [
             'eslint.config.js',
             'jest.config.js',
