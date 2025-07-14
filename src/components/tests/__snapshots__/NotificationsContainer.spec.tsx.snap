@@ -1,264 +1,134 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<NotificationsContainer/> should display notifications for bottom-center position 1`] = `
 "<div class="reapop__container reapop__container--bottom-center reapop__container--single">
-  <div>notification-2</div>
-  <div>notification-1</div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 2</div>
+      </div>
+    </div>
+  </div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 1</div>
+      </div>
+    </div>
+  </div>
 </div>"
 `;
 
 exports[`<NotificationsContainer/> should display notifications for bottom-left position 1`] = `
 "<div class="reapop__container reapop__container--bottom-left reapop__container--single">
-  <div>notification-2</div>
-  <div>notification-1</div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 2</div>
+      </div>
+    </div>
+  </div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 1</div>
+      </div>
+    </div>
+  </div>
 </div>"
 `;
 
 exports[`<NotificationsContainer/> should display notifications for bottom-right position 1`] = `
 "<div class="reapop__container reapop__container--bottom-right reapop__container--single">
-  <div>notification-2</div>
-  <div>notification-1</div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 2</div>
+      </div>
+    </div>
+  </div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 1</div>
+      </div>
+    </div>
+  </div>
 </div>"
 `;
 
 exports[`<NotificationsContainer/> should display notifications for top-center position 1`] = `
 "<div class="reapop__container reapop__container--top-center reapop__container--single">
-  <div>notification-1</div>
-  <div>notification-2</div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 1</div>
+      </div>
+    </div>
+  </div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 2</div>
+      </div>
+    </div>
+  </div>
 </div>"
 `;
 
 exports[`<NotificationsContainer/> should display notifications for top-left position 1`] = `
 "<div class="reapop__container reapop__container--top-left reapop__container--single">
-  <div>notification-1</div>
-  <div>notification-2</div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 1</div>
+      </div>
+    </div>
+  </div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 2</div>
+      </div>
+    </div>
+  </div>
 </div>"
 `;
 
 exports[`<NotificationsContainer/> should display notifications for top-right position 1`] = `
 "<div class="reapop__container reapop__container--top-right reapop__container--single">
-  <div>notification-1</div>
-  <div>notification-2</div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 1</div>
+      </div>
+    </div>
+  </div>
+  <div data-testid="timed-notification">
+    <div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 ">
+      <div class="reapop__notification-meta">
+        <div class="reapop__notification-message">Notification 2</div>
+      </div>
+    </div>
+  </div>
 </div>"
 `;
 
 exports[`<NotificationsContainer/> should display notifications with custom components 1`] = `
 "<div class="reapop__container reapop__container--top-left reapop__container--single">
-  <div>notification-1</div>
-  <div>notification-2</div>
+  <div id="custom-transition">
+    <div data-testid="timed-notification">
+      <div id="custom-notification">Notification 1</div>
+    </div>
+  </div>
+  <div id="custom-transition">
+    <div data-testid="timed-notification">
+      <div id="custom-notification">Notification 2</div>
+    </div>
+  </div>
 </div>"
 `;
 
-exports[`<NotificationsContainer/> should display notifications with custom components 2`] = `[]`;
+exports[`<NotificationsContainer/> should render notifications with theme 1`] = `"<div style="color: red;" class="reapop__container reapop__container--top-left"><div data-testid="timed-notification"><div data-testid="notification" role="alert" style="display: flex; width: 350px; height: 100%; position: relative; border-radius: 5px; border: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.3); background-color: rgb(47, 47, 54); color: rgb(255, 255, 255); margin-bottom: 20px; z-index: 999;" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 "><div style="vertical-align: top; box-sizing: border-box; width: 100%; padding: 10px 20px;" class="reapop__notification-meta"><div style="margin: 0px; font-size: 14px; color: rgb(185, 194, 203); line-height: 1.428571429;" class="reapop__notification-message">Notification 1</div></div></div></div><div data-testid="timed-notification"><div data-testid="notification" role="alert" style="display: flex; width: 350px; height: 100%; position: relative; border-radius: 5px; border: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.3); background-color: rgb(47, 47, 54); color: rgb(255, 255, 255); margin-bottom: 20px; z-index: 999;" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 "><div style="vertical-align: top; box-sizing: border-box; width: 100%; padding: 10px 20px;" class="reapop__notification-meta"><div style="margin: 0px; font-size: 14px; color: rgb(185, 194, 203); line-height: 1.428571429;" class="reapop__notification-message">Notification 2</div></div></div></div></div>"`;
 
-exports[`<NotificationsContainer/> should display notifications with custom components 3`] = `[]`;
-
-exports[`<NotificationsContainer/> should render notifications with theme 1`] = `"<div style="color: red;" class="reapop__container reapop__container--top-left"><div>notification-1</div><div>notification-2</div></div>"`;
-
-exports[`<NotificationsContainer/> should render notifications with theme 2`] = `
-[MockFunction] {
-  "calls": [
-    [
-      {
-        "appear": undefined,
-        "dismissNotification": [MockFunction],
-        "enter": undefined,
-        "exit": undefined,
-        "in": true,
-        "notification": {
-          "buttons": [],
-          "id": "1",
-          "position": "top-left",
-          "status": "none",
-        },
-        "onExited": [Function],
-      },
-      {},
-    ],
-    [
-      {
-        "appear": undefined,
-        "dismissNotification": [MockFunction],
-        "enter": undefined,
-        "exit": undefined,
-        "in": true,
-        "notification": {
-          "buttons": [],
-          "id": "2",
-          "position": "top-left",
-          "status": "none",
-        },
-        "onExited": [Function],
-      },
-      {},
-    ],
-    [
-      {
-        "dismissNotification": [MockFunction],
-        "enter": undefined,
-        "exit": undefined,
-        "in": true,
-        "notification": {
-          "buttons": [],
-          "id": "1",
-          "position": "top-left",
-          "status": "none",
-        },
-        "onExited": [Function],
-      },
-      {},
-    ],
-    [
-      {
-        "dismissNotification": [MockFunction],
-        "enter": undefined,
-        "exit": undefined,
-        "in": true,
-        "notification": {
-          "buttons": [],
-          "id": "2",
-          "position": "top-left",
-          "status": "none",
-        },
-        "onExited": [Function],
-      },
-      {},
-    ],
-  ],
-  "results": [
-    {
-      "type": "return",
-      "value": <div>
-        notification-
-        1
-      </div>,
-    },
-    {
-      "type": "return",
-      "value": <div>
-        notification-
-        2
-      </div>,
-    },
-    {
-      "type": "return",
-      "value": <div>
-        notification-
-        1
-      </div>,
-    },
-    {
-      "type": "return",
-      "value": <div>
-        notification-
-        2
-      </div>,
-    },
-  ],
-}
-`;
-
-exports[`<NotificationsContainer/> should render notifications without theme 1`] = `"<div class="reapop__container reapop__container--top-left"><div>notification-1</div><div>notification-2</div></div>"`;
-
-exports[`<NotificationsContainer/> should render notifications without theme 2`] = `
-[MockFunction] {
-  "calls": [
-    [
-      {
-        "appear": undefined,
-        "dismissNotification": [MockFunction],
-        "enter": undefined,
-        "exit": undefined,
-        "in": true,
-        "notification": {
-          "buttons": [],
-          "id": "1",
-          "position": "top-left",
-          "status": "none",
-        },
-        "onExited": [Function],
-      },
-      {},
-    ],
-    [
-      {
-        "appear": undefined,
-        "dismissNotification": [MockFunction],
-        "enter": undefined,
-        "exit": undefined,
-        "in": true,
-        "notification": {
-          "buttons": [],
-          "id": "2",
-          "position": "top-left",
-          "status": "none",
-        },
-        "onExited": [Function],
-      },
-      {},
-    ],
-    [
-      {
-        "dismissNotification": [MockFunction],
-        "enter": undefined,
-        "exit": undefined,
-        "in": true,
-        "notification": {
-          "buttons": [],
-          "id": "1",
-          "position": "top-left",
-          "status": "none",
-        },
-        "onExited": [Function],
-      },
-      {},
-    ],
-    [
-      {
-        "dismissNotification": [MockFunction],
-        "enter": undefined,
-        "exit": undefined,
-        "in": true,
-        "notification": {
-          "buttons": [],
-          "id": "2",
-          "position": "top-left",
-          "status": "none",
-        },
-        "onExited": [Function],
-      },
-      {},
-    ],
-  ],
-  "results": [
-    {
-      "type": "return",
-      "value": <div>
-        notification-
-        1
-      </div>,
-    },
-    {
-      "type": "return",
-      "value": <div>
-        notification-
-        2
-      </div>,
-    },
-    {
-      "type": "return",
-      "value": <div>
-        notification-
-        1
-      </div>,
-    },
-    {
-      "type": "return",
-      "value": <div>
-        notification-
-        2
-      </div>,
-    },
-  ],
-}
-`;
+exports[`<NotificationsContainer/> should render notifications without theme 1`] = `"<div class="reapop__container reapop__container--top-left"><div data-testid="timed-notification"><div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 "><div class="reapop__notification-meta"><div class="reapop__notification-message">Notification 1</div></div></div></div><div data-testid="timed-notification"><div data-testid="notification" role="alert" class="reapop__notification reapop__notification--none reapop__notification--buttons-0 "><div class="reapop__notification-meta"><div class="reapop__notification-message">Notification 2</div></div></div></div></div>"`;

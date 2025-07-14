@@ -176,6 +176,6 @@ describe('<Notification/>', () => {
             />
         )
         expect(container.innerHTML).toMatchSnapshot()
-        expect(CustomIcon).toHaveBeenNthCalledWith(1, {notification: baseNotification, theme: atalhoTheme}, {})
+        expect(CustomIcon).toHaveBeenNthCalledWith(1, {notification: baseNotification, theme: atalhoTheme}, undefined)
     })
 })

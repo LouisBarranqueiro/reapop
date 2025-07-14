@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<NotificationContainer/> should render a container with a notification 1`] = `
 "<div data-testid="timed-notification">
