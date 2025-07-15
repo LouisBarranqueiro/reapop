@@ -5,22 +5,13 @@ A simple and customizable React notifications system
 
 ## Summary
 
-* [Compatibility](#compatibility)
 * [Demo](#demo)
 * [Installation](#installation)
-* [Integration & usage](#integration--usage)
+* [Usage](#usage)
     * [With React & Redux](#with-react-and-redux)
     * [With React alone](#with-react-alone-react--1680)
 * [Documentation](#documentation)
 * [License](#license)
-
-## Compatibility
-
-### Supported browsers
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| --------- | --------- | --------- | --------- | --------- |
-| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
 ## Demo
 
@@ -32,11 +23,11 @@ Check out the [demo](https://louisbarranqueiro.github.io/reapop/).
 npm install reapop --save
 ```
 
-## Integration & usage
+## Usage
 
 ### With React and Redux
 
-1 - Add the notifications reducer to your Redux store.
+1. Add the notifications reducer to your Redux store.
 
 ``` js
 import {combineReducers, createStore} from 'redux'
@@ -44,13 +35,12 @@ import {reducer as notificationsReducer} from 'reapop'
 
 const rootReducer = combineReducers({
     notifications: notificationsReducer(),
-    ... your other reducers
+    // ... your other reducers
 })
 const store = createStore(rootReducer)
 ```
 
-
-2 - Add the `NotificationsSystem` component to your app. Place this component at the root of your application to avoid position conflicts.
+2. Add the `NotificationsSystem` component to your app. Place this component at the root of your application to avoid position conflicts.
 
 ``` jsx
 import React from 'react'
@@ -77,7 +67,7 @@ const ATopLevelComponent = () => {
 }
 ```
 
-3 - Set default notifications attributes
+3. Set default notifications attributes
 
 ``` js
 import {setUpNotifications} from 'reapop'
@@ -91,7 +81,7 @@ setUpNotifications({
 })
 ```
 
-4 - Upsert or dismiss notification from any React components.
+4. Upsert or dismiss notification from any React components.
 
 ``` jsx
 import React from 'react'
@@ -113,7 +103,7 @@ const AComponent = () => {
 }
 ```
 
-5 - Upsert or dismiss notification from Redux actions.
+5. Upsert or dismiss notification from Redux actions.
 
 ``` js
 // 1. Retrieve the action to create/update a notification.
@@ -128,7 +118,7 @@ const sendResetPasswordLink = () => (dispatch) => {
 }
 ```
 
-### With React alone (react >= 16.8.0)
+### With React alone
 
 1 - Add the `NotificationsProvider` at the root of your application. 
 It is important that this component wraps all the components 
@@ -148,7 +138,7 @@ const ARootComponent = () => {
 ```
 
 
-2 - Add the `NotificationsSystem` component to your app. Place this component at the root of your application to avoid position conflicts.
+2. Add the `NotificationsSystem` component to your app. Place this component at the root of your application to avoid position conflicts.
 
 ``` jsx
 import React from 'react'
@@ -172,7 +162,7 @@ const ATopLevelComponent = () => {
 }
 ```
 
-3 - Set default notifications attributes
+3. Set default notifications attributes
 
 ``` js
 import {setUpNotifications} from 'reapop'
@@ -186,7 +176,7 @@ setUpNotifications({
 })
 ```
 
-4 - Upsert or dismiss notification from any React components.
+4. Upsert or dismiss notification from any React components.
 
 ``` jsx
 import React from 'react'
