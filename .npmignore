@@ -11,6 +11,7 @@ docs
 src
 .babelrc
 .eslintignore
+eslint.config.js
 .eslintrc
 .prettierrc
 .gitignore
